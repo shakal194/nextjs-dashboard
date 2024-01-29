@@ -57,7 +57,7 @@ export default function SignupForm() {
     }
 
     const userData = {
-      userName: e.currentTarget.elements.userName.value,
+      userName: e.currentTarget.elements.name.value,
       email: e.currentTarget.elements.email.value,
       password: e.currentTarget.elements.password.value,
     };
@@ -112,7 +112,7 @@ export default function SignupForm() {
             <div className="relative">
               <input
                 className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="userName"
+                id="name"
                 type="text"
                 name="name"
                 placeholder="Enter your Name"
