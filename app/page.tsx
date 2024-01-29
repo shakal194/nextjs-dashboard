@@ -241,7 +241,7 @@ export default function Page() {
               The support team, that is available in Telegram, by email, right
               on our website in the form of tickets or as a personal manager for
               our merchants, is always there to solve issues and answer your
-              customers' questions instantly.
+              customers questions instantly.
             </div>
           </div>
           <div>
