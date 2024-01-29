@@ -56,13 +56,13 @@ export default function SignupForm() {
       return;
     }
 
-    const userData = {
-      userName: e.currentTarget.elements.name.value,
+    /*const userData = {
+      userName: e.currentTarget.elements.userName.value,
       email: e.currentTarget.elements.email.value,
       password: e.currentTarget.elements.password.value,
     };
 
-    /*const { Pool } = pg;
+    const { Pool } = pg;
 
     const pool = new Pool({
       connectionString: process.env.POSTGRES_URL + '?sslmode=require',
@@ -112,7 +112,7 @@ export default function SignupForm() {
             <div className="relative">
               <input
                 className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="name"
+                id="userName"
                 type="text"
                 name="name"
                 placeholder="Enter your Name"
