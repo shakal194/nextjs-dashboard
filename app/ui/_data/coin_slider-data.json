@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "title": "Bitcoin",
+    "image": "/svg/bitcoin_1.svg",
+    "background": "rgb(249 115 22)"
+  },
+  {
+    "id": 2,
+    "title": "Dash",
+    "image": "/svg/dash.svg",
+    "background": "rgb(0 140 231)"
+  },
+  {
+    "id": 3,
+    "title": "Tether",
+    "image": "/svg/tether.svg",
+    "background": "rgb(80 175 149)"
+  },
+  {
+    "id": 4,
+    "title": "DOGE",
+    "image": "/svg/DOGE.svg",
+    "background": "rgb(0 0 0)"
+  },
+  {
+    "id": 5,
+    "title": "Etherium",
+    "image": "/svg/etherium.svg",
+    "background": "rgb(98 126 234)"
+  },
+  {
+    "id": 6,
+    "title": "Bitcoin",
+    "image": "/svg/bitcoin_2.svg",
+    "background": "rgb(75, 207, 81)"
+  },
+  {
+    "id": 7,
+    "title": "Bitcoin",
+    "image": "/svg/bitcoin_2.svg",
+    "background": "rgb(75, 207, 81)"
+  },
+  {
+    "id": 8,
+    "title": "Bitcoin",
+    "image": "/svg/bitcoin_2.svg",
+    "background": "rgb(75, 207, 81)"
+  },
+  {
+    "id": 9,
+    "title": "Bitcoin",
+    "image": "/svg/bitcoin_2.svg",
+    "background": "rgb(75, 207, 81)"
+  },
+  {
+    "id": 10,
+    "title": "Bitcoin",
+    "image": "/svg/bitcoin_1.svg",
+    "background": "rgb(249 115 22)"
+  },
+  {
+    "id": 11,
+    "title": "Dash",
+    "image": "/svg/dash.svg",
+    "background": "rgb(0 140 231)"
+  },
+  {
+    "id": 13,
+    "title": "Tether",
+    "image": "/svg/tether.svg",
+    "background": "rgb(80 175 149)"
+  },
+  {
+    "id": 14,
+    "title": "DOGE",
+    "image": "/svg/DOGE.svg",
+    "background": "rgb(0 0 0)"
+  },
+  {
+    "id": 15,
+    "title": "Etherium",
+    "image": "/svg/etherium.svg",
+    "background": "rgb(98 126 234)"
+  },
+  {
+    "id": 16,
+    "title": "Bitcoin",
+    "image": "/svg/bitcoin_1.svg",
+    "background": "rgb(249 115 22)"
+  },
+  {
+    "id": 17,
+    "title": "Dash",
+    "image": "/svg/dash.svg",
+    "background": "rgb(0 140 231)"
+  },
+  {
+    "id": 18,
+    "title": "Tether",
+    "image": "/svg/tether.svg",
+    "background": "rgb(80 175 149)"
+  },
+  {
+    "id": 24,
+    "title": "DOGE",
+    "image": "/svg/DOGE.svg",
+    "background": "rgb(0 0 0)"
+  },
+  {
+    "id": 25,
+    "title": "Etherium",
+    "image": "/svg/etherium.svg",
+    "background": "rgb(98 126 234)"
+  }
+]
