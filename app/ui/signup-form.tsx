@@ -13,6 +13,9 @@ import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useState } from 'react';
+//import pg from 'pg';
+//import bcrypt from 'bcrypt';
+//import { v4 as uuidv4 } from 'uuid';
 
 export default function SignupForm() {
   const [password, setPassword] = useState('');
@@ -52,32 +55,44 @@ export default function SignupForm() {
     if (!checkPassword()) {
       return;
     }
-    /*
+
     const userData = {
       userName: e.currentTarget.elements.userName.value,
       email: e.currentTarget.elements.email.value,
       password: e.currentTarget.elements.password.value,
     };
 
-    try {
-      const response = await fetch('../api/signup.ts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
+    /*const { Pool } = pg;
 
-      if (response.ok) {
-        // Регистрация прошла успешно
-        console.log('User registered successfully');
-      } else {
-        // Ошибка регистрации
-        console.error('Error registering user:', await response.text());
+    const pool = new Pool({
+      connectionString: process.env.POSTGRES_URL + '?sslmode=require',
+    });
+
+    // Хеширование пароля перед вставкой
+    bcrypt.hash(userData.password, 10, (hashError, hashedPassword) => {
+      if (hashError) {
+        console.error('Error hashing password:', hashError);
+        pool.end();
+        return;
       }
-    } catch (error) {
-      console.error('Error registering user:', error);
-    }*/
+
+      // Пример выполнения INSERT запроса с использованием параметров
+      const query = {
+        text: 'INSERT INTO users(name, email, uuid, password) VALUES($1, $2, $3, $4) RETURNING *',
+        values: [userData.userName, userData.email, uuidv4(), hashedPassword],
+      };
+
+      pool.query(query, (error, result) => {
+        if (error) {
+          console.error('Error executing query', error);
+        } else {
+          console.log('Inserted user:', result.rows[0]);
+        }
+
+        // Не забывайте закрыть пул соединений после завершения запроса
+        pool.end();
+      });
+    });*/
   };
 
   return (
