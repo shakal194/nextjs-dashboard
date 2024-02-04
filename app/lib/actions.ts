@@ -10,11 +10,12 @@ import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 
 const FormSchema = z.object({
-  userId: z.string(),
   id: z.string(),
   customerId: z.string({
     invalid_type_error: 'Please select a customer.',
   }),
+  userId: z.string(),
+  name: z.string({ invalid_type_error: 'Please input name.' }),
   email: z.string({ invalid_type_error: 'Please input email.' }),
   password: z.string({ invalid_type_error: 'Please input password.' }),
   amount: z.coerce
