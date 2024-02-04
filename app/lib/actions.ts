@@ -10,6 +10,7 @@ import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 
 const FormSchema = z.object({
+  userId: z.string(),
   id: z.string(),
   customerId: z.string({
     invalid_type_error: 'Please select a customer.',
@@ -139,11 +140,11 @@ export async function authenticate(
   }
 }
 
-const CreateUser = FormSchema.omit({ id: true });
+const CreateUser = FormSchema.omit({ userId: true, date: true });
 
 export async function createUser(prevState: State, formData: FormData) {
   const validatedFields = CreateUser.safeParse({
-    id: uuidv4(),
+    userId: uuidv4(),
     name: formData.get('name'),
     email: formData.get('email'),
     password: formData.get('password'),
