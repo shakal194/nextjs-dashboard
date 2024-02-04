@@ -29,6 +29,7 @@ const CreateInvoice = FormSchema.omit({ id: true, date: true });
 
 export type State = {
   errors?: {
+    id?: string[];
     customerId?: string[];
     email?: string[];
     password?: string[];
@@ -138,7 +139,7 @@ export async function authenticate(
   }
 }
 
-const CreateUser = FormSchema.omit({ id: true, date: true });
+const CreateUser = FormSchema.omit({ id: true });
 
 export async function createUser(prevState: State, formData: FormData) {
   const validatedFields = CreateUser.safeParse({
