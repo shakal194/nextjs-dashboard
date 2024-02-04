@@ -16,7 +16,7 @@ import { useState } from 'react';
 import { createUser } from '@/app/lib/actions';
 import { User } from '@/app/lib/definitions';
 
-export default function SignupForm({ users }: { users: User[] }) {
+export default function SignupForm() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
