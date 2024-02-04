@@ -13,11 +13,10 @@ import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useState } from 'react';
-//import pg from 'pg';
-//import bcrypt from 'bcrypt';
-//import { v4 as uuidv4 } from 'uuid';
+import { createUser } from '@/app/lib/actions';
+import { User } from '@/app/lib/definitions';
 
-export default function SignupForm() {
+export default function SignupForm({ users }: { users: User[] }) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -55,48 +54,14 @@ export default function SignupForm() {
     if (!checkPassword()) {
       return;
     }
-
-    /*const userData = {
-      userName: e.currentTarget.elements.userName.value,
-      email: e.currentTarget.elements.email.value,
-      password: e.currentTarget.elements.password.value,
-    };
-
-    const { Pool } = pg;
-
-    const pool = new Pool({
-      connectionString: process.env.POSTGRES_URL + '?sslmode=require',
-    });
-
-    // Хеширование пароля перед вставкой
-    bcrypt.hash(userData.password, 10, (hashError, hashedPassword) => {
-      if (hashError) {
-        console.error('Error hashing password:', hashError);
-        pool.end();
-        return;
-      }
-
-      // Пример выполнения INSERT запроса с использованием параметров
-      const query = {
-        text: 'INSERT INTO users(name, email, uuid, password) VALUES($1, $2, $3, $4) RETURNING *',
-        values: [userData.userName, userData.email, uuidv4(), hashedPassword],
-      };
-
-      pool.query(query, (error, result) => {
-        if (error) {
-          console.error('Error executing query', error);
-        } else {
-          console.log('Inserted user:', result.rows[0]);
-        }
-
-        // Не забывайте закрыть пул соединений после завершения запроса
-        pool.end();
-      });
-    });*/
   };
 
+  const initialState = { message: null, errors: {} };
+  const [state, dispatch] = useFormState(createUser, initialState);
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    //<form onSubmit={handleSubmit} className="space-y-3">
+    <form action={dispatch} onSubmit={handleSubmit} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
           Join to continue.
@@ -112,7 +77,7 @@ export default function SignupForm() {
             <div className="relative">
               <input
                 className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="userName"
+                id="name"
                 type="text"
                 name="name"
                 placeholder="Enter your Name"
@@ -218,8 +183,9 @@ function SignupButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button className="mt-4 w-full" aria-disabled={pending}>
-      Sign Up <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+    <Button className="mt-4 w-full" aria-disabled={pending} type="submit">
+      {pending ? 'Registration' : 'Sign Up'}{' '}
+      <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
 }

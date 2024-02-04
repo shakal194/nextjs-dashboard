@@ -41,9 +41,6 @@ const CoinSlider: React.FC<SliderProps> = ({ data }) => {
               '@1.25': {
                 slidesPerView: 6,
               },
-              '@1.50': {
-                slidesPerView: 8,
-              },
             }}
             modules={[Autoplay]}
           >

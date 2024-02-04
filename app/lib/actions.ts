@@ -6,12 +6,16 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import bcrypt from 'bcrypt';
+import { v4 as uuidv4 } from 'uuid';
 
 const FormSchema = z.object({
   id: z.string(),
   customerId: z.string({
     invalid_type_error: 'Please select a customer.',
   }),
+  email: z.string({ invalid_type_error: 'Please input email.' }),
+  password: z.string({ invalid_type_error: 'Please input password.' }),
   amount: z.coerce
     .number()
     .gt(0, { message: 'Please enter an amount greater than $0.' }),
@@ -26,6 +30,8 @@ const CreateInvoice = FormSchema.omit({ id: true, date: true });
 export type State = {
   errors?: {
     customerId?: string[];
+    email?: string[];
+    password?: string[];
     amount?: string[];
     status?: string[];
   };
@@ -130,4 +136,42 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+const CreateUser = FormSchema.omit({ id: true, date: true });
+
+export async function createUser(prevState: State, formData: FormData) {
+  const validatedFields = CreateUser.safeParse({
+    id: uuidv4(),
+    name: formData.get('name'),
+    email: formData.get('email'),
+    password: formData.get('password'),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Create User.',
+    };
+  }
+
+  const { id, name, email, password } = validatedFields.data;
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  try {
+    console.log('Inserting user into the database...');
+    await sql`
+  INSERT INTO users (id, name, email, password)
+  VALUES (${id}, ${name}, ${email}, ${hashedPassword})
+`;
+    console.log('User inserted successfully.');
+  } catch (error) {
+    return {
+      message: 'Database Error: Failed to Create User.',
+    };
+  }
+
+  revalidatePath('/');
+  redirect('/');
 }
