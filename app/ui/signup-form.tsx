@@ -14,7 +14,7 @@ import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useState } from 'react';
 import { createUser } from '@/app/lib/actions';
-import { User } from '@/app/lib/definitions';
+import Link from 'next/link';
 
 export default function SignupForm() {
   const [password, setPassword] = useState('');
@@ -158,6 +158,39 @@ export default function SignupForm() {
                 onChange={handleConfirmPasswordChange}
               />
               <KeyIcon className="peer-focus:text-gray-900cursor-pointer pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+            </div>
+          </div>
+          <div className="mt-4">
+            <div className="flex items-center">
+              <input
+                id="privacy_and_terms"
+                type="checkbox"
+                name="privacy_and_terms"
+                required
+                className="hover:cursor-pointer focus:hover:cursor-pointer"
+              />
+              {/*<span className="color-[#212121] mr-2 h-4 w-4 cursor-pointer rounded-sm border-2 bg-cover"></span>*/}
+              <label
+                htmlFor="privacy_and_terms"
+                className="ml-2 hover:cursor-pointer focus:hover:cursor-pointer"
+              >
+                <span>I agree with </span>
+                <Link
+                  href="/"
+                  className="underline hover:text-[#007aff] hover:transition-all"
+                >
+                  Terms of Use
+                </Link>
+                <span> and </span>
+                <span>
+                  <Link
+                    href="/"
+                    className="underline hover:text-[#007aff] hover:transition-all"
+                  >
+                    Privacy Policy
+                  </Link>
+                </span>
+              </label>
             </div>
           </div>
         </div>

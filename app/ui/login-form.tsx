@@ -11,6 +11,7 @@ import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import React from 'react';
+import { Spinner } from '@nextui-org/react';
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -85,6 +86,13 @@ function LoginButton() {
   return (
     <Button className="mt-4 w-full" aria-disabled={pending}>
       {pending ? 'Authorization' : 'Log in'}
+      {/*{pending ? (
+        <div>
+          <Spinner label="Danger" color="danger" labelColor="danger" />
+        </div>
+      ) : (
+        'Log in'
+      )}*/}
       <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
