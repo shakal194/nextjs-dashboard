@@ -14,7 +14,6 @@ import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useState } from 'react';
 import { createUser } from '@/app/lib/actions';
-//import prisma from '../lib/prisma';
 
 import Link from 'next/link';
 
