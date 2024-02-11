@@ -14,10 +14,6 @@ const FormSchema = z.object({
   customerId: z.string({
     invalid_type_error: 'Please select a customer.',
   }),
-  userId: z.string(),
-  name: z.string({ invalid_type_error: 'Please input name.' }),
-  email: z.string({ invalid_type_error: 'Please input email.' }),
-  password: z.string({ invalid_type_error: 'Please input password.' }),
   amount: z.coerce
     .number()
     .gt(0, { message: 'Please enter an amount greater than $0.' }),
@@ -141,14 +137,21 @@ export async function authenticate(
   }
 }
 
-const CreateUser = FormSchema.omit({ userId: true, date: true });
+const CreateUser = z.object({
+  id: z.string(),
+  name: z.string({ invalid_type_error: 'Please input name.' }),
+  email: z.string({ invalid_type_error: 'Please input email.' }),
+  password: z.string({ invalid_type_error: 'Please input password.' }),
+  confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
+});
 
 export async function createUser(prevState: State, formData: FormData) {
   const validatedFields = CreateUser.safeParse({
-    userId: uuidv4(),
+    id: uuidv4(),
     name: formData.get('name'),
     email: formData.get('email'),
     password: formData.get('password'),
+    confirmPassword: formData.get('confirmPassword'),
   });
 
   if (!validatedFields.success) {
@@ -158,23 +161,37 @@ export async function createUser(prevState: State, formData: FormData) {
     };
   }
 
-  const { id, name, email, password } = validatedFields.data;
+  const { id, name, email, password, confirmPassword } = validatedFields.data;
+
+  if (password !== confirmPassword) {
+    return {
+      errors: { confirmPassword: ['Passwords do not match'] },
+      message: 'Passwords do not match',
+    };
+  }
+
+  const emailExist = await sql`SELECT email from users WHERE email = ${email}`;
+  if (emailExist.rows[0]) {
+    console.error('This email exist');
+    return {
+      errors: { email: ['Email already exists'] },
+      message: 'Email already exists',
+    };
+  }
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
   try {
-    console.log('Inserting user into the database...');
     await sql`
   INSERT INTO users (id, name, email, password)
   VALUES (${id}, ${name}, ${email}, ${hashedPassword})
 `;
     console.log('User inserted successfully.');
+    //revalidatePath('/');
+    redirect('app/success');
   } catch (error) {
     return {
       message: 'Database Error: Failed to Create User.',
     };
   }
-
-  revalidatePath('/');
-  redirect('/');
 }
