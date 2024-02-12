@@ -31,6 +31,7 @@ export type State = {
     customerId?: string[];
     email?: string[];
     password?: string[];
+    confirmPassword?: string[];
     amount?: string[];
     status?: string[];
   };
@@ -145,7 +146,16 @@ const CreateUser = z.object({
   confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
 });
 
-export async function createUser(prevState: State, formData: FormData) {
+export type UserState = {
+  errors?: {
+    email?: string[];
+    password?: string[];
+    confirmPassword?: string[];
+  };
+  message?: string | null;
+};
+
+export async function createUser(prevState: UserState, formData: FormData) {
   const validatedFields = CreateUser.safeParse({
     id: uuidv4(),
     name: formData.get('name'),
@@ -163,19 +173,18 @@ export async function createUser(prevState: State, formData: FormData) {
 
   const { id, name, email, password, confirmPassword } = validatedFields.data;
 
-  if (password !== confirmPassword) {
+  const emailExist = await sql`SELECT email from users WHERE email = ${email}`;
+  if (emailExist.rows[0]) {
+    console.error(`Email - ${email} already exists`);
     return {
-      errors: { confirmPassword: ['Passwords do not match'] },
-      message: 'Passwords do not match',
+      errors: { email: ['Email already exists'] },
     };
   }
 
-  const emailExist = await sql`SELECT email from users WHERE email = ${email}`;
-  if (emailExist.rows[0]) {
-    console.error('This email exist');
+  if (password !== confirmPassword) {
+    console.log('Passwords do not match');
     return {
-      errors: { email: ['Email already exists'] },
-      message: 'Email already exists',
+      errors: { password: ['Password and Confirm Password do not match'] },
     };
   }
 
@@ -183,15 +192,15 @@ export async function createUser(prevState: State, formData: FormData) {
 
   try {
     await sql`
-  INSERT INTO users (id, name, email, password)
-  VALUES (${id}, ${name}, ${email}, ${hashedPassword})
-`;
+      INSERT INTO users (id, name, email, password)
+      VALUES (${id}, ${name}, ${email}, ${hashedPassword})
+    `;
     console.log('User inserted successfully.');
-    //revalidatePath('/');
-    redirect('app/success');
   } catch (error) {
     return {
       message: 'Database Error: Failed to Create User.',
     };
   }
+  revalidatePath('/');
+  redirect('/success');
 }

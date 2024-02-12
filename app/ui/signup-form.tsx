@@ -18,43 +18,11 @@ import { createUser } from '@/app/lib/actions';
 import Link from 'next/link';
 
 export default function SignupForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
-
-  const handleConfirmPasswordChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    setConfirmPassword(e.target.value);
-  };
-
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Проверка совпадения пароля и повторного ввода пароля
-    if (password !== confirmPassword) {
-      setErrorMessage('Passwords do not match');
-      return;
-    }
   };
 
   const initialState = {
@@ -86,8 +54,6 @@ export default function SignupForm() {
                 name="name"
                 placeholder="Enter your Name"
                 required
-                value={name}
-                onChange={handleNameChange}
               />
               <UserIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
@@ -107,10 +73,16 @@ export default function SignupForm() {
                 name="email"
                 placeholder="Enter your email address"
                 required
-                value={email}
-                onChange={handleEmailChange}
               />
               <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+            </div>
+            <div id="email-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.email &&
+                state.errors.email.map((error: string) => (
+                  <p className="mt-2 text-sm text-red-500" key={error}>
+                    {error}
+                  </p>
+                ))}
             </div>
           </div>
           <div className="mt-4">
@@ -129,8 +101,6 @@ export default function SignupForm() {
                 placeholder="Enter password"
                 required
                 minLength={6}
-                value={password}
-                onChange={handlePasswordChange}
               />
               <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
               {passwordVisible ? (
@@ -144,6 +114,14 @@ export default function SignupForm() {
                   className=" absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 cursor-pointer text-gray-500 peer-focus:text-gray-900"
                 />
               )}
+            </div>
+            <div id="password-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.password &&
+                state.errors.password.map((error: string) => (
+                  <p className="mt-2 text-sm text-red-500" key={error}>
+                    {error}
+                  </p>
+                ))}
             </div>
           </div>
           <div className="mt-4">
@@ -162,8 +140,6 @@ export default function SignupForm() {
                 placeholder="Confirm password"
                 required
                 minLength={6}
-                value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
               />
               <KeyIcon className="peer-focus:text-gray-900cursor-pointer pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
             </div>
