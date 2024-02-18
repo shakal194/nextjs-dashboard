@@ -1,3 +1,5 @@
+'use client';
+
 import CoinHubLogo from '@/app/ui/coinhub-logo';
 import Footer from '@/app/ui/footer';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
@@ -8,6 +10,7 @@ import Slider from '@/app/ui/_components/slider';
 import CoinSlider from '@/app/ui/_components/coin_slider';
 import dataSlider from '@/app/ui/_data/slider-data.json';
 import dataCoinSlider from '@/app/ui/_data/coin_slider-data.json';
+import Accordion from '@/app/ui/_components/accordion';
 
 export default function Page() {
   return (
@@ -17,6 +20,7 @@ export default function Page() {
           <CoinHubLogo />
         </Link>
       </div>
+
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
           <p>ACCEPT CRYPTO PAYMENTS WITH</p>
@@ -73,7 +77,7 @@ export default function Page() {
           transactions
         </h3>
       </div>
-      <div className="rounded-3xl bg-slate-300 p-8">
+      <div className="hidden rounded-3xl bg-slate-300 p-8 lg:block">
         <div className="border-black-200 flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-9 lg:gap-y-8">
           <div>
             <div className="border-black-200 flex justify-between border-b-2 py-5 lg:border-0">
@@ -96,27 +100,12 @@ export default function Page() {
                 </div>
                 <h3>Volatility protection</h3>
               </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                className="lg:hidden"
-              >
-                <path
-                  fill="currentColor"
-                  fillRule="evenodd"
-                  d="M5.232 9.36a1 1 0 0 1 1.408-.128L12 13.698l5.36-4.466a1 1 0 0 1 1.28 1.536l-6 5a1 1 0 0 1-1.28 0l-6-5a1 1 0 0 1-.128-1.408"
-                  clipRule={'evenodd'}
-                ></path>
-              </svg>
             </div>
             <div className="hidden lg:block">
               Automatic conversion of incoming payments into stablecoins will
               protect against cryptocurrency volatility, same as the Withdrawal
               auto-convert feature, that allows you to withdraw your crypto in a
-              preferred currency вЂ“ and both features are completely free to
-              use!
+              preferred currency – and both features are completely free to use!
             </div>
           </div>
           <div>
@@ -140,20 +129,6 @@ export default function Page() {
                 </div>
                 <h3>Transactions status management</h3>
               </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                className="lg:hidden"
-              >
-                <path
-                  fill="currentColor"
-                  fillRule="evenodd"
-                  d="M5.232 9.36a1 1 0 0 1 1.408-.128L12 13.698l5.36-4.466a1 1 0 0 1 1.28 1.536l-6 5a1 1 0 0 1-1.28 0l-6-5a1 1 0 0 1-.128-1.408"
-                  clipRule={'evenodd'}
-                ></path>
-              </svg>
             </div>
             <div className="hidden lg:block">
               Adjust the allowed payment accuracy, view if an invoice has been
@@ -182,20 +157,6 @@ export default function Page() {
                 </div>
                 <h3>Flexible commissions for each coin</h3>
               </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                className="lg:hidden"
-              >
-                <path
-                  fill="currentColor"
-                  fillRule="evenodd"
-                  d="M5.232 9.36a1 1 0 0 1 1.408-.128L12 13.698l5.36-4.466a1 1 0 0 1 1.28 1.536l-6 5a1 1 0 0 1-1.28 0l-6-5a1 1 0 0 1-.128-1.408"
-                  clipRule={'evenodd'}
-                ></path>
-              </svg>
             </div>
             <div className="hidden lg:block">
               Set additional commissions or add a discount for chosen coins.
@@ -222,20 +183,6 @@ export default function Page() {
                 </div>
                 <h3>Support team</h3>
               </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                className="lg:hidden"
-              >
-                <path
-                  fill="currentColor"
-                  fillRule="evenodd"
-                  d="M5.232 9.36a1 1 0 0 1 1.408-.128L12 13.698l5.36-4.466a1 1 0 0 1 1.28 1.536l-6 5a1 1 0 0 1-1.28 0l-6-5a1 1 0 0 1-.128-1.408"
-                  clipRule={'evenodd'}
-                ></path>
-              </svg>
             </div>
             <div className="hidden lg:block">
               The support team, that is available in Telegram, by email, right
@@ -265,20 +212,6 @@ export default function Page() {
                 </div>
                 <h3>Mass payouts</h3>
               </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                className="lg:hidden"
-              >
-                <path
-                  fill="currentColor"
-                  fillRule="evenodd"
-                  d="M5.232 9.36a1 1 0 0 1 1.408-.128L12 13.698l5.36-4.466a1 1 0 0 1 1.28 1.536l-6 5a1 1 0 0 1-1.28 0l-6-5a1 1 0 0 1-.128-1.408"
-                  clipRule={'evenodd'}
-                ></path>
-              </svg>
             </div>
             <div className="hidden lg:block">
               Make mass payouts to thousands of addresses with automatic
@@ -292,6 +225,11 @@ export default function Page() {
             <span>All features</span>
           </Link>
         </div>
+      </div>
+
+      {/* Accordion in mobile and tablet */}
+      <div className="block rounded-3xl bg-slate-300 p-8 lg:hidden">
+        <Accordion></Accordion>
       </div>
 
       <div className="bg-gray pt-43 pr-82 pb-63 mt-4 max-w-max rounded-3xl bg-[url('/bg_light.png')] bg-right bg-no-repeat">
