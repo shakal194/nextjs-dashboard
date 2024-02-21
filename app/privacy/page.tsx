@@ -22,10 +22,11 @@ export default function Page() {
                 <b>Introduction</b>
               </p>
               <p className="mt-4">
-                This Privacy Policy (hereinafter - the "Policy") clarifies how{' '}
+                This Privacy Policy {'('}hereinafter - the "Policy"{')'}
+                clarifies how{' '}
                 <b>
-                  COINS.FISH LTD (hereinafter – the "Company", "we", "us",
-                  "our")
+                  COINS.FISH LTD {'('}hereinafter – the "Company", "we", "us",
+                  "our"{')'}{' '}
                 </b>
                 collects, uses, shares, and protects Personal Information you
                 provide us during the usage of{' '}
@@ -35,8 +36,8 @@ export default function Page() {
                 >
                   https://coins.fish
                 </Link>{' '}
-                website (hereinafter - the "Website") or our products. It
-                governs the rules of personal data processing of our clients,
+                website {'('}hereinafter - the "Website"{')'} or our products.
+                It governs the rules of personal data processing of our clients,
                 their partners representatives and all other Website visitors
               </p>
               <p className="mt-4">
@@ -51,10 +52,10 @@ export default function Page() {
               </p>
               <p className="mt-4">
                 Personal Information Protection and Electronic Documents Act
-                (further, the "PIPEDA") applies to processing of Personal
-                Information by Company.Personal Information Protection and
-                Electronic Documents Act (further, the "PIPEDA") applies to
-                processing of Personal Information by Company.
+                {'('}further, the "PIPEDA"{')'} applies to processing of
+                Personal Information by Company.Personal Information Protection
+                and Electronic Documents Act {'('}further, the "PIPEDA"{')'}{' '}
+                applies to processing of Personal Information by Company.
               </p>
             </li>
             <li className="mt-8">
@@ -66,7 +67,8 @@ export default function Page() {
               </p>
               <ul className="ml-6 list-inside list-disc">
                 <li className="mt-4">
-                  Contact details (email, telephone number or messenger ID)
+                  Contact details {'('}email, telephone number or messenger ID
+                  {')'}
                 </li>
                 <li className="mt-4">Details of your identity document</li>
                 <li className="mt-4">Residence address</li>
@@ -87,9 +89,10 @@ export default function Page() {
               <p className="mt-4">
                 Most information we collect is provided by you directly. We
                 could also receive some information from publicly available
-                sources (for example, on sanctions) or from our contractors. We
-                make use of screening lists provided by data vendors, ID
-                verification, anti-fraud and transaction monitoring services.
+                sources {'('}for example, on sanctions{')'} or from our
+                contractors. We make use of screening lists provided by data
+                vendors, ID verification, anti-fraud and transaction monitoring
+                services.
               </p>
               <p className="mt-4">
                 Please note that we will not be able to provide our services to
@@ -123,8 +126,8 @@ export default function Page() {
                   to contact you or reply to your requests;
                 </li>
                 <li className="mt-4">
-                  to comply with our legal obligations (e.g. KYC/AML
-                  requirements)
+                  to comply with our legal obligations {'('}e.g. KYC/AML
+                  requirements{')'}
                 </li>
                 <li className="mt-4">
                   to provide assistance in case of criminal investigation and
@@ -188,9 +191,9 @@ export default function Page() {
                   your experience.
                 </li>
                 <li className="mt-4">
-                  Pixel Tags/Web Beacons. A pixel tag (also known as web beacon)
-                  is a piece of code embedded in our Services that collects
-                  information about engagement on our Services.
+                  Pixel Tags/Web Beacons. A pixel tag {'('}also known as web
+                  beacon{')'} is a piece of code embedded in our Services that
+                  collects information about engagement on our Services.
                 </li>
               </ul>
             </li>
@@ -209,7 +212,7 @@ export default function Page() {
                 </li>
                 <li className="mt-4">
                   our contractors providing us information from publicly
-                  accessible sources (for instance on sanctions);
+                  accessible sources {'('}for instance on sanctions{')'};
                 </li>
                 <li className="mt-4">
                   our financial service providers through which we facilitate
@@ -233,7 +236,8 @@ export default function Page() {
               </p>
               <p className="mt-4">
                 We will keep your Personal Information for a maximum period of
-                five (5) years upon termination of legal relationships with us.
+                five {'('}5{')'} years upon termination of legal relationships
+                with us.
               </p>
               <p className="mt-4">
                 You can always request to remove the personal data. But keep in
