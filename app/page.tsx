@@ -1,6 +1,6 @@
 'use client';
 
-import CoinHubLogo from '@/app/ui/coinhub-logo';
+import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import Footer from '@/app/ui/footer';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -17,7 +17,7 @@ export default function Page() {
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-20">
         <Link href="/">
-          <CoinHubLogo />
+          <CoinsFishLogo />
         </Link>
       </div>
 
@@ -27,7 +27,7 @@ export default function Page() {
           <p
             className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
           >
-            <strong>COINHUB</strong>
+            <strong>CoinsFish</strong>
           </p>
 
           <ul className="flex">
@@ -70,7 +70,7 @@ export default function Page() {
       </div>
       <div className="mb-8 mt-4 lg:mb-14">
         <h2 className="text-5xl font-bold">
-          What are Coinhub crypto payment gateway features?
+          What are CoinsFish crypto payment gateway features?
         </h2>
         <h3 className="text-lg">
           No rolling reserves/ Global coverage Zero chargebacks/ Instant

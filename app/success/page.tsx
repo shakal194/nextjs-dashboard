@@ -1,4 +1,4 @@
-import CoinHubLogo from '@/app/ui/coinhub-logo';
+import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import Footer from '@/app/ui/footer';
 import Link from 'next/link';
 import { lusitana } from '@/app/ui/fonts';
@@ -8,7 +8,7 @@ export default function Page() {
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-20">
         <Link href="/">
-          <CoinHubLogo />
+          <CoinsFishLogo />
         </Link>
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
@@ -17,7 +17,7 @@ export default function Page() {
           <p
             className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
           >
-            NOW YOU WITH <strong>COINHUB</strong>
+            NOW YOU WITH <strong>CoinsFish</strong>
           </p>
         </div>
       </div>

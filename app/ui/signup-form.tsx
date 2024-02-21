@@ -160,7 +160,7 @@ export default function SignupForm() {
               >
                 <span>I agree with </span>
                 <Link
-                  href="/"
+                  href="/terms"
                   className="underline hover:text-[#007aff] hover:transition-all"
                 >
                   Terms of Use
@@ -168,7 +168,7 @@ export default function SignupForm() {
                 <span> and </span>
                 <span>
                   <Link
-                    href="/"
+                    href="/privacy"
                     className="underline hover:text-[#007aff] hover:transition-all"
                   >
                     Privacy Policy

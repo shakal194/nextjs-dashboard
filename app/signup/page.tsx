@@ -1,4 +1,4 @@
-import CoinHubLogo from '@/app/ui/coinhub-logo';
+import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import SignupForm from '@/app/ui/signup-form';
 import Link from 'next/link';
 
@@ -8,7 +8,7 @@ export default function LoginPage() {
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-20">
         <Link href="/">
           <div className="text-white">
-            <CoinHubLogo />
+            <CoinsFishLogo />
           </div>
         </Link>
       </div>
