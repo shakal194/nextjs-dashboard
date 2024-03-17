@@ -666,8 +666,9 @@ export default function Page({ params: { lang } }: Props) {
                 <ol className="ml-6 list-inside">
                   <li className="mt-4">
                     12.1. The Company may produce and display content (the
-                    "Content") on the Website, which includes but is not limited
-                    to information, texts, images, video, and audio files.
+                    &quot;Content&quot;) on the Website, which includes but is
+                    not limited to information, texts, images, video, and audio
+                    files.
                   </li>
                   <li className="mt-4">
                     12.2. The Content does not constitute any form of investment
@@ -876,10 +877,10 @@ export default function Page({ params: { lang } }: Props) {
                 <ol className="ml-6 list-inside">
                   <li className="mt-4">
                     17.1. The Company may from time to time post official
-                    announcements, news, notices, etc. (the "Announcements") on
-                    the Website. In no event shall the Company be liable for any
-                    losses arising from you neglecting or ignoring the
-                    Announcements.
+                    announcements, news, notices, etc. (the
+                    &quot;Announcements&quot;) on the Website. In no event shall
+                    the Company be liable for any losses arising from you
+                    neglecting or ignoring the Announcements.
                   </li>
                 </ol>
               </li>
