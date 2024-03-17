@@ -11,17 +11,8 @@ import CoinSlider from '@/app/ui/_components/coin_slider';
 import dataSlider from '@/app/ui/_data/slider-data.json';
 import dataCoinSlider from '@/app/ui/_data/coin_slider-data.json';
 import Accordion from '@/app/ui/_components/accordion';
-import { Locale, getDictionary } from '@/app/[lang]/dictionaries';
 
-type Props = {
-  params: {
-    lang: Locale;
-  };
-};
-
-export default async function Page({ params: { lang } }: Props) {
-  const intl = await getDictionary(lang);
-
+export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-20">
@@ -32,7 +23,7 @@ export default async function Page({ params: { lang } }: Props) {
 
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-          <p>{intl.index_hero_title}</p>
+          <p>ACCEPT CRYPTO PAYMENTS WITH</p>
           <p
             className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
           >
@@ -45,8 +36,7 @@ export default async function Page({ params: { lang } }: Props) {
                 href="/login"
                 className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
               >
-                <span>{intl.index_login_button}</span>{' '}
-                <ArrowRightIcon className="w-5 md:w-6" />
+                <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
               </Link>
             </li>
             <li>
@@ -54,8 +44,7 @@ export default async function Page({ params: { lang } }: Props) {
                 href="/signup"
                 className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
               >
-                <span>{intl.index_signup_button}</span>{' '}
-                <ArrowRightIcon className="w-5 md:w-6" />
+                <span>Sign Up</span> <ArrowRightIcon className="w-5 md:w-6" />
               </Link>
             </li>
           </ul>
@@ -80,8 +69,13 @@ export default async function Page({ params: { lang } }: Props) {
         </div>
       </div>
       <div className="mb-8 mt-4 lg:mb-14">
-        <h2 className="text-5xl font-bold">{intl.index_features_title}</h2>
-        <h3 className="text-lg">{intl.index_features.join(' / ')}</h3>
+        <h2 className="text-5xl font-bold">
+          What are CoinsFish crypto payment gateway features?
+        </h2>
+        <h3 className="text-lg">
+          No rolling reserves/ Global coverage Zero chargebacks/ Instant
+          transactions
+        </h3>
       </div>
       <div className="hidden rounded-3xl bg-slate-300 p-8 lg:block">
         <div className="border-black-200 flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-9 lg:gap-y-8">
@@ -104,11 +98,14 @@ export default async function Page({ params: { lang } }: Props) {
                     ></path>
                   </svg>
                 </div>
-                <h3>{intl.index_features_CoinsFish.title[0]}</h3>
+                <h3>Volatility protection</h3>
               </div>
             </div>
             <div className="hidden lg:block">
-              {intl.index_features_CoinsFish.description[0]}
+              Automatic conversion of incoming payments into stablecoins will
+              protect against cryptocurrency volatility, same as the Withdrawal
+              auto-convert feature, that allows you to withdraw your crypto in a
+              preferred currency – and both features are completely free to use!
             </div>
           </div>
           <div>
@@ -130,11 +127,13 @@ export default async function Page({ params: { lang } }: Props) {
                     ></path>
                   </svg>
                 </div>
-                <h3>{intl.index_features_CoinsFish.title[1]}</h3>
+                <h3>Transactions status management</h3>
               </div>
             </div>
             <div className="hidden lg:block">
-              {intl.index_features_CoinsFish.description[1]}
+              Adjust the allowed payment accuracy, view if an invoice has been
+              overpaid or underpaid and send an additional invoice to collect a
+              remaining amount.
             </div>
           </div>
           <div>
@@ -156,11 +155,11 @@ export default async function Page({ params: { lang } }: Props) {
                     ></path>
                   </svg>
                 </div>
-                <h3>{intl.index_features_CoinsFish.title[2]}</h3>
+                <h3>Flexible commissions for each coin</h3>
               </div>
             </div>
             <div className="hidden lg:block">
-              {intl.index_features_CoinsFish.description[2]}
+              Set additional commissions or add a discount for chosen coins.
             </div>
           </div>
           <div>
@@ -182,11 +181,14 @@ export default async function Page({ params: { lang } }: Props) {
                     ></path>
                   </svg>
                 </div>
-                <h3>{intl.index_features_CoinsFish.title[3]}</h3>
+                <h3>Support team</h3>
               </div>
             </div>
             <div className="hidden lg:block">
-              {intl.index_features_CoinsFish.description[3]}
+              The support team, that is available in Telegram, by email, right
+              on our website in the form of tickets or as a personal manager for
+              our merchants, is always there to solve issues and answer your
+              customers questions instantly.
             </div>
           </div>
           <div>
@@ -208,11 +210,12 @@ export default async function Page({ params: { lang } }: Props) {
                     ></path>
                   </svg>
                 </div>
-                <h3>{intl.index_features_CoinsFish.title[4]}</h3>
+                <h3>Mass payouts</h3>
               </div>
             </div>
             <div className="hidden lg:block">
-              {intl.index_features_CoinsFish.description[4]}
+              Make mass payouts to thousands of addresses with automatic
+              conversion in just one moment.
             </div>
           </div>
           <Link
@@ -235,7 +238,7 @@ export default async function Page({ params: { lang } }: Props) {
       <div className="pt-43 pr-82 pb-63 mt-4">
         <CoinSlider data={dataCoinSlider} />
       </div>
-      <Footer lang={lang}></Footer>
+      <Footer></Footer>
     </main>
   );
 }

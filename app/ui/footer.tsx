@@ -1,11 +1,8 @@
 import { GlobeAltIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
 import Link from 'next/link';
-import { Locale, getDictionary } from '@/app/[lang]/dictionaries';
 
-export default async function Footer({ lang }: { lang: Locale }) {
-  const intl = await getDictionary(lang);
-
+export default function Footer() {
   return (
     <footer>
       <div className="mt-4 rounded-lg bg-blue-500 p-4 text-white md:flex md:justify-between">
@@ -20,86 +17,86 @@ export default async function Footer({ lang }: { lang: Locale }) {
         <div className="text-center sm:flex sm:justify-evenly sm:gap-8 sm:text-left">
           <div className="mb-3.5 sm:mb-0">
             <h3 className="mb-3.5 border-y-2 border-gray-200 font-bold md:text-[1rem] lg:text-2xl">
-              {intl.index_footer.company.title}
+              Company
             </h3>
             <ul className="flex flex-col gap-4 sm:text-[0.5rem] md:text-[0.75rem]">
               <li>
-                <Link href="#">{intl.index_footer.company.list[0]}</Link>
+                <Link href="#">Home</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.company.list[1]}</Link>
+                <Link href="#">Tarrifs</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.company.list[2]}</Link>
+                <Link href="#">Roadmap</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.company.list[3]}</Link>
+                <Link href="#">Brand guideline</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.company.list[4]}</Link>
+                <Link href="#">Blog</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.company.list[5]}</Link>
+                <Link href="#">FAQ</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.company.list[6]}</Link>
+                <Link href="#">Contacts</Link>
               </li>
             </ul>
           </div>
           <div className="mb-3.5 sm:mb-0">
             <h3 className="mb-3.5 border-y-2 border-gray-200 font-bold md:text-[1rem] lg:text-2xl">
-              {intl.index_footer.personal.title}
+              Personal use
             </h3>
             <ul className="flex flex-col gap-4 sm:text-[0.5rem] md:text-[0.75rem]">
               <li>
-                <Link href="#">{intl.index_footer.personal.list[0]}</Link>
+                <Link href="#">Wallet</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.personal.list[1]}</Link>
+                <Link href="#">P2P Exchange</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.personal.list[2]}</Link>
+                <Link href="#">Staking</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.personal.list[3]}</Link>
+                <Link href="#">Converter</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.personal.list[4]}</Link>
+                <Link href="#">Earn</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.personal.list[5]}</Link>
+                <Link href="#">Explorer</Link>
               </li>
             </ul>
           </div>
           <div className="mb-3.5 sm:mb-0">
             <h3 className="mb-3.5 border-y-2 border-gray-200  font-bold md:text-[1rem] lg:text-2xl">
-              {intl.index_footer.bussiness.title}
+              Bussiness use
             </h3>
             <ul className="flex flex-col gap-4 sm:text-[0.5rem] md:text-[0.75rem]">
               <li>
-                <Link href="#">{intl.index_footer.bussiness.list[0]}</Link>
+                <Link href="#">White Label</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.bussiness.list[1]}</Link>
+                <Link href="#">Crypto Processing</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.bussiness.list[2]}</Link>
+                <Link href="#">E-Commerce plugins</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.bussiness.list[3]}</Link>
+                <Link href="#">API</Link>
               </li>
             </ul>
           </div>
           <div>
             <h3 className="mb-3.5 border-y-2 border-gray-200  font-bold md:text-[1rem] lg:text-2xl">
-              {intl.index_footer.support.title}
+              Support
             </h3>
             <ul className="flex flex-col gap-4 sm:text-[0.5rem] md:text-[0.75rem]">
               <li>
-                <Link href="#">{intl.index_footer.support.list[0]}</Link>
+                <Link href="#">Telegram</Link>
               </li>
               <li>
-                <Link href="#">{intl.index_footer.support.list[1]}</Link>
+                <Link href="#">Email</Link>
               </li>
             </ul>
           </div>
