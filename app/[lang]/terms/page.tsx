@@ -1,7 +1,7 @@
 import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import Footer from '@/app/ui/footer';
 import Link from 'next/link';
-import { Locale, getDictionary } from '.@/app/[lang]/dictionaries';
+import { Locale, getDictionary } from '@/app/[lang]/dictionaries';
 
 type Props = {
   params: {
