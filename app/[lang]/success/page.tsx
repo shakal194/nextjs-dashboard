@@ -2,7 +2,7 @@ import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import Footer from '@/app/ui/footer';
 import Link from 'next/link';
 import { lusitana } from '@/app/ui/fonts';
-import { Locale, getDictionary } from './dictionaries';
+import { Locale, getDictionary } from '@/app/[lang]/dictionaries';
 
 type Props = {
   params: {

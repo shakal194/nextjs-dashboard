@@ -11,7 +11,7 @@ import CoinSlider from '@/app/ui/_components/coin_slider';
 import dataSlider from '@/app/ui/_data/slider-data.json';
 import dataCoinSlider from '@/app/ui/_data/coin_slider-data.json';
 import Accordion from '@/app/ui/_components/accordion';
-import { Locale, getDictionary } from './dictionaries';
+import { Locale, getDictionary } from '@/app/[lang]/dictionaries';
 
 type Props = {
   params: {

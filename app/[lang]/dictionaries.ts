@@ -3,9 +3,18 @@
 export type Locale = keyof typeof dictionaries;
 
 const dictionaries = {
-  en: () => import('./dictionaries/en.json').then((module) => module.default),
-  uk: () => import('./dictionaries/ua.json').then((module) => module.default),
-  ru: () => import('./dictionaries/ru.json').then((module) => module.default),
+  en: () =>
+    import('@/app/[lang]/dictionaries/en.json').then(
+      (module) => module.default,
+    ),
+  uk: () =>
+    import('@/app/[lang]/dictionaries/ua.json').then(
+      (module) => module.default,
+    ),
+  ru: () =>
+    import('@/app/[lang]/dictionaries/ru.json').then(
+      (module) => module.default,
+    ),
 };
 
 export const getDictionary = async (locale: Locale) => dictionaries[locale]();
