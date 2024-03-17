@@ -18,17 +18,18 @@ export default function Page() {
         <div className="mt-4">
           <p>
             <b>
-              Please read these Terms of Use (hereinafter – the "Terms")
-              carefully before using any services,
+              Please read these Terms of Use (hereinafter – the
+              &quot;Terms&quot;) carefully before using any services,
             </b>
-            provided by <b>COINS.FISH LTD (hereinafter – the "Company"),</b> a
+            provided by{' '}
+            <b>COINS.FISH LTD (hereinafter – the &quot;Company&quot;),</b> a
             legal entity incorporated under the laws of Antigua and Barbuda,
             including but not limited to{' '}
             <Link href="/" className="font-bold text-blue-500">
               https://coins.fish
             </Link>{' '}
-            website (hereinafter – the "Website") and mobile application
-            ("App").
+            website (hereinafter – the &quot;Website&quot;) and mobile
+            application (&quot;App&quot;).
           </p>
           <p className="mt-4">
             If you do not agree with these Terms, you may not access or use the
@@ -112,13 +113,14 @@ export default function Page() {
                     Terms.
                   </li>
                   <li className="mt-4">
-                    1.11. <b>User</b> (also referred to as "You", "Your") – an
-                    individual (a physical person) or a legal entity,
-                    incorporated in an appropriate legal form, that has opened
-                    an Account on the Website, who has the capacity to enter
-                    into a legally binding contract and use the Website, and is
-                    not prohibited to do so and use the Services by the
-                    Regulatory Law or any other laws that may apply.
+                    1.11. <b>User</b> (also referred to as &quot;You&quot;,
+                    &quot;Your&quot;) – an individual (a physical person) or a
+                    legal entity, incorporated in an appropriate legal form,
+                    that has opened an Account on the Website, who has the
+                    capacity to enter into a legally binding contract and use
+                    the Website, and is not prohibited to do so and use the
+                    Services by the Regulatory Law or any other laws that may
+                    apply.
                   </li>
                   <li className="mt-4">
                     1.12. <b>Virtual Currency</b> – decentralized peer-to-peer
@@ -163,9 +165,9 @@ export default function Page() {
                   </li>
                   <li className="mt-4">
                     2.3. By accessing the Website, opening an Account on the
-                    Website, or ticking the "I agree to the Terms of Use and
-                    Privacy Policy" checkbox, you agree to be bound by these
-                    Terms and confirm that you have read, understood, and
+                    Website, or ticking the &quot;I agree to the Terms of Use
+                    and Privacy Policy&quot; checkbox, you agree to be bound by
+                    these Terms and confirm that you have read, understood, and
                     accepted all the provisions of these Terms, as well as
                     provisions of our Privacy Policy, AML Policy, and other
                     legally binding document publicly available on the Website.
@@ -227,8 +229,8 @@ export default function Page() {
                 <ol className="ml-6 list-inside">
                   <li className="mt-4">
                     3.1. The Company provides the following services on the
-                    Website (collectively – "Services", and separately – the
-                    "Service"):
+                    Website (collectively – &quot;Services&quot;, and separately
+                    – the &quot;Service&quot;):
                     <ul className="ml-6 list-inside list-disc">
                       <li>
                         Exchange of Virtual Currency unit for units of another
@@ -565,10 +567,10 @@ export default function Page() {
                     specific transaction by checking the respective blockchain
                     explorer (e.g.{' '}
                     <Link
-                      href="https://www.blockchair.com/explorer"
+                      href="https://www.blockchain.com/explorer"
                       className="font-bold text-blue-500"
                     >
-                      https://www.blockchair.com/explorer
+                      https://www.blockchain.com/explorer
                     </Link>{' '}
                     for BTC and BCH,{' '}
                     <Link
@@ -764,7 +766,8 @@ export default function Page() {
                     interruption.
                   </li>
                   <li className="mt-4">
-                    16.3. The Website is provided to you on the "AS-IS" basis.
+                    16.3. The Website is provided to you on the
+                    &quot;AS-IS&quot; basis.
                   </li>
                   <li className="mt-4">
                     16.4. The Company does not guarantee that any exchange
@@ -843,19 +846,19 @@ export default function Page() {
                     16.10. In case of any circumstances of insuperable force
                     (i.e. events of extraordinary or insuperable nature) that
                     have occurred and remain in effect beyond your and the
-                    Company's (the "Parties'") control and that a Party could
-                    neither foresee nor prevent for objective reasons, if these
-                    circumstances prevent a Party from proper fulfilment of its
-                    obligations hereunder, the term for fulfilment of such
-                    obligations hereunder shall be extended for the period of
-                    the effect of such circumstances of insuperable force. The
-                    circumstances of insuperable force shall include wars and
-                    other military operations, earthquakes, floods, and other
-                    natural disasters, adoption of laws and regulations by state
-                    and local authorities, failure of power supply or
-                    communication system or other similar circumstances that
-                    prevent the Parties from the proper fulfilment of their
-                    obligations hereunder.
+                    Company's (the &quot;Parties'&quot;) control and that a
+                    Party could neither foresee nor prevent for objective
+                    reasons, if these circumstances prevent a Party from proper
+                    fulfilment of its obligations hereunder, the term for
+                    fulfilment of such obligations hereunder shall be extended
+                    for the period of the effect of such circumstances of
+                    insuperable force. The circumstances of insuperable force
+                    shall include wars and other military operations,
+                    earthquakes, floods, and other natural disasters, adoption
+                    of laws and regulations by state and local authorities,
+                    failure of power supply or communication system or other
+                    similar circumstances that prevent the Parties from the
+                    proper fulfilment of their obligations hereunder.
                   </li>
                 </ol>
               </li>
