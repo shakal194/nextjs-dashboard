@@ -2,8 +2,15 @@ import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import Footer from '@/app/ui/footer';
 import Link from 'next/link';
 import { lusitana } from '@/app/ui/fonts';
+import { Locale, getDictionary } from './dictionaries';
 
-export default function Page() {
+type Props = {
+  params: {
+    lang: Locale;
+  };
+};
+
+export default function Page({ params: { lang } }: Props) {
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-20">
@@ -21,7 +28,7 @@ export default function Page() {
           </p>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer lang={lang}></Footer>
     </main>
   );
 }
