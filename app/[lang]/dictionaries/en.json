@@ -1,0 +1,66 @@
+{
+  "index_hero_title": "ACCEPT CRYPTO PAYMENTS WITH",
+  "index_login_button": "Log in",
+  "index_signup_button": "Sign Up",
+  "index_features_title": "What are CoinsFish crypto payment gateway features?",
+  "index_features": [
+    "No rolling reserves",
+    "Global coverage",
+    "Zero chargebacks",
+    "Instant transactions"
+  ],
+  "index_features_CoinsFish": {
+    "title": [
+      "Volatility protection",
+      "Transactions status management",
+      "Flexible commissions for each coin",
+      "Support team",
+      "Mass payouts"
+    ],
+    "description": [
+      "Automatic conversion of incoming payments into stablecoins will protect against cryptocurrency volatility, same as the Withdrawal auto-convert feature, that allows you to withdraw your crypto in a preferred currency – and both features are completely free to use!",
+      "Adjust the allowed payment accuracy, view if an invoice has been overpaid or underpaid and send an additional invoice to collect a remaining amount.",
+      "Set additional commissions or add a discount for chosen coins.",
+      "The support team, that is available in Telegram, by email, right on our website in the form of tickets or as a personal manager for our merchants, is always there to solve issues and answer your customers questions instantly.",
+      "Make mass payouts to thousands of addresses with automatic conversion in just one moment."
+    ]
+  },
+  "index_footer": {
+    "company": {
+      "title": "Company",
+      "list": [
+        "Home",
+        "Tarrifs",
+        "Roadmap",
+        "Brand guideline",
+        "Blog",
+        "FAQ",
+        "Contacts"
+      ]
+    },
+    "personal": {
+      "title": "Personal use",
+      "list": [
+        "Wallet",
+        "P2P Exchange",
+        "Staking",
+        "Converter",
+        "Earn",
+        "Explorer"
+      ]
+    },
+    "bussiness": {
+      "title": "Bussiness use",
+      "list": ["White Label", "Crypto Processing", "E-Commerce plugins", "API"]
+    },
+    "support": {
+      "title": "Support",
+      "list": ["Telegram", "Email"]
+    }
+  },
+  "login_title": "Please log in to continue.",
+  "login_email_placeholder": "Enter your email address",
+  "login_password": "Password",
+  "login_password_placeholder": "Enter password",
+  "login_forgot": "Forgot your password?"
+}
