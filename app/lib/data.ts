@@ -10,13 +10,13 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
-const API_URL = process.env.API_URL;
+const apiUrl = process.env.API_URL;
 const apiRequest = 'GetBalanceWallet';
 
 export async function fetchBtcBalance() {
   try {
     // Выполнение запроса к API_URL с параметром GET
-    const response = await fetch(`${API_URL}/${apiRequest}`);
+    const response = await fetch(`${apiUrl}/${apiRequest}`);
     const data = await response.json();
 
     // Обработка полученных данных
