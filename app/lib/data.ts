@@ -10,7 +10,7 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
-const apiUrl = process.env.API_URL;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiRequest = 'GetBalanceWallet';
 
 export async function fetchBtcBalance() {
