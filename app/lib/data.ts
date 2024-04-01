@@ -10,6 +10,22 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
+const API_URL = process.env.API_URL;
+const apiRequest = 'GetBalanceWallet';
+
+export async function fetchBtcBalance() {
+  try {
+    // Выполнение запроса к API_URL с параметром GET
+    const response = await fetch(`${API_URL}/${apiRequest}`);
+    const data = await response.json();
+
+    // Обработка полученных данных
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw new Error('Failed to fetch data.');
+  }
+}
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.

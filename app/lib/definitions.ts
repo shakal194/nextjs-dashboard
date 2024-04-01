@@ -4,10 +4,26 @@
 // However, these types are generated automatically if you're using an ORM such as Prisma.
 export type User = {
   id: string;
-  name: string;
   email: string;
+  name: string;
   password: string;
 };
+/*
+export type Session = {
+  user: { name?: string | null; email?: string; image?: string; id?: string };
+  expires?: string;
+};
+
+export type JWT = {
+  name: string;
+  email: string;
+  picture?: string;
+  sub: string;
+  id: string;
+  iat: number;
+  exp: number;
+  jti: string;
+};*/
 
 export type Customer = {
   id: string;

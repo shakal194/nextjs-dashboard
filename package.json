@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.",
+  "keywords": [],
   "homepage": "https://github.com/shakal194/nextjs-dashboard#readme",
   "bugs": {
     "url": "https://github.com/shakal194/nextjs-dashboard/issues"
@@ -21,7 +22,8 @@
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "seed": "node -r dotenv/config ./scripts/seed.js",
-    "start": "next start"
+    "start": "next start",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit && echo"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
@@ -63,6 +65,5 @@
   },
   "engines": {
     "node": ">=18.17.0"
-  },
-  "keywords": []
+  }
 }

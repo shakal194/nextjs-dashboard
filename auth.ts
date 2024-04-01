@@ -5,6 +5,37 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import type { User } from '@/app/lib/definitions';
 import bcrypt from 'bcrypt';
+//import { Session } from 'inspector';
+//import { JWT } from 'next-auth/jwt';
+
+/*interface JWT {
+  name: string;
+  email: string;
+  picture?: string;
+  sub: string;
+  id?: string | null;
+  iat: number;
+  exp: number;
+  jti: string;
+}*/
+
+/*interface User {
+    name: string;
+    image: string;
+    email: string;
+    id: string;
+  }
+
+interface Session {
+  user: {
+    name: string;
+    email: string;
+    image: string;
+    id: string;
+  };
+  expires?: string;
+  error?: string;
+}*/
 
 async function getUser(email: string): Promise<User | undefined> {
   try {
@@ -16,7 +47,8 @@ async function getUser(email: string): Promise<User | undefined> {
   }
 }
 
-export const { auth, signIn, signOut } = NextAuth({
+//export const { handlers, auth, signIn, signOut } = NextAuth(
+const config = {
   ...authConfig,
   providers: [
     Credentials({
@@ -39,4 +71,26 @@ export const { auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
-});
+  session: {
+    strategy: 'jwt' as const,
+    maxAge: 30 * 24 * 60 * 60, // How long until an idle session expires and is no longer valid.
+  },
+  /*jwt: {
+    secret: process.env.AUTH_SECRET,
+  },*/
+  callbacks: {
+    jwt: async ({ token, user }: { token: any; user: any }) => {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    session: async ({ session, token }: { session: any; token: any }) => {
+      session.user.id = token.id;
+      return session;
+    },
+  },
+};
+//);
+
+export const { handlers, auth, signIn, signOut } = NextAuth(config);
