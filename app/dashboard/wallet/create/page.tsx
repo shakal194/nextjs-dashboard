@@ -1,6 +1,5 @@
 import Form from '@/app/ui/wallet/create-form';
 import Breadcrumbs from '@/app/ui/wallet/breadcrumbs';
-import { fetchCustomers } from '@/app/lib/data';
 
 export default async function Page() {
   return (

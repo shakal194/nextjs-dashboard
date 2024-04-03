@@ -272,6 +272,7 @@ export async function createWallet(sessionId: string) {
       ) {
         console.error('Failed to create wallet:', error?.response?.data);
         return {
+          status: 400,
           message: `Failed to create wallet: ID - ${sessionId} already exists or has invalid format.`,
         }; // Возвращаем сообщение о неверном ID
       }

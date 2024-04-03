@@ -1,17 +1,15 @@
 'use client';
 
-import { CustomerField } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
-import { useFormState } from 'react-dom';
-
 import { WalletSkeleton } from '@/app/ui/skeletons';
-
 import { createWallet } from '@/app/lib/actions';
 import { useSession } from 'next-auth/react';
+import React, { useState } from 'react';
 
 export default function Form() {
   const { data: session, status } = useSession();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // Состояние для хранения сообщения об ошибке
 
   // Функция для обработки отправки формы
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -20,7 +18,14 @@ export default function Form() {
     // Проверяем, что сессия существует и содержит ID пользователя
     if (session && session.user && session.user.id) {
       const result = await createWallet(session.user.id); // Вызываем функцию createWallet с ID пользователя
-      console.log(result.message); // Выводим сообщение об успехе или ошибке
+      console.log(result); // Выводим результат в консоль для отладки
+
+      // Проверяем статус результата
+      if (result.status === 400) {
+        setErrorMessage(result.message); // Устанавливаем сообщение об ошибке
+      } else {
+        console.log(result.message); // Выводим сообщение об успехе или ошибке
+      }
     } else {
       console.error('Session or user ID not found.'); // Выводим сообщение об ошибке, если сессия или ID пользователя отсутствуют
     }
@@ -41,6 +46,8 @@ export default function Form() {
         </Link>
         <Button type="submit">Create Wallet</Button>
       </div>
+      {errorMessage && <p className="mt-10 text-red-500">{errorMessage}</p>}{' '}
+      {/* Выводим сообщение об ошибке */}
     </form>
   );
 }
