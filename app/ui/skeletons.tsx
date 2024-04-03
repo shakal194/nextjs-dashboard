@@ -22,9 +22,9 @@ export function CardsSkeleton() {
   return (
     <>
       <CardSkeleton />
+      {/*<CardSkeleton />
       <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
+  <CardSkeleton />*/}
     </>
   );
 }
@@ -90,9 +90,9 @@ export default function DashboardSkeleton() {
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <CardSkeleton />
+        {/*<CardSkeleton />
         <CardSkeleton />
-        <CardSkeleton />
-        <CardSkeleton />
+  <CardSkeleton />*/}
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <RevenueChartSkeleton />
@@ -212,6 +212,19 @@ export function InvoicesTableSkeleton() {
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function WalletSkeleton() {
+  return (
+    <div className="mt-6 flex gap-4">
+      <div
+        className={`${shimmer} relative flex items-center overflow-hidden rounded-lg bg-gray-100 p-2 shadow-sm`}
+      >
+        <div className="mr-2 h-10 w-20 rounded-md bg-gray-200" />
+        <div className="h-10 w-40 rounded-md bg-gray-200" />
       </div>
     </div>
   );
