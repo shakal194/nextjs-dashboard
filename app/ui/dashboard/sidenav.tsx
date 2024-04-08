@@ -4,7 +4,6 @@ import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import { signOut } from '@/auth';
 import CoinsNav from '@/app/ui/dashboard/coins-nav';
-import CoinsNavMobile from '@/app/ui/dashboard/coins-nav_mobile';
 
 export default function SideNav() {
   return (
