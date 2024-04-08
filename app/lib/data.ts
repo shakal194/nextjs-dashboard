@@ -12,6 +12,9 @@ import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
 import axios, { AxiosError } from 'axios';
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const binanceApi = process.env.BINANCE_API;
+
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
@@ -258,9 +261,6 @@ export async function getUser(email: string) {
 
 export async function fetchBtcBalance() {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    const binanceApi = process.env.BINANCE_API;
-
     const binance = await axios.get(`${binanceApi}`);
     const balance = await axios.get(`${apiUrl}/GetBalanceWallet`);
 
