@@ -3,6 +3,8 @@ import NavLinks from '@/app/ui/dashboard/nav-links';
 import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import { signOut } from '@/auth';
+import CoinsNav from '@/app/ui/dashboard/coins-nav';
+import CoinsNavMobile from '@/app/ui/dashboard/coins-nav_mobile';
 
 export default function SideNav() {
   return (
@@ -17,6 +19,7 @@ export default function SideNav() {
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />
+        <CoinsNav />
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <form
           action={async () => {

@@ -1,18 +1,22 @@
+//'use client';
+
 import { BanknotesIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
 import { fetchBtcBalance } from '@/app/lib/data';
+//import { useState, useEffect } from 'react';
 
 const iconMap = {
   balance: BanknotesIcon,
 };
 
 export default async function BalanceWrapper() {
-  const balance = await fetchBtcBalance();
-
+  const { balanceInUsd } = await fetchBtcBalance();
+  //const data = await fetchBtcBalanceEvery5Minutes();
+  //console.log(data);
   return (
     <>
       {/* NOTE: comment in this code when you get to this point in the course */}
-      <Balance title="Balance" value={balance} type="balance" />
+      <Balance title="Balance" value={balanceInUsd} type="balance" />
     </>
   );
 }

@@ -12,8 +12,6 @@ import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
 import axios, { AxiosError } from 'axios';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
@@ -260,19 +258,53 @@ export async function getUser(email: string) {
 
 export async function fetchBtcBalance() {
   try {
-    const response = await axios.get(`${apiUrl}/GetBalanceWallet`);
-    const data = await response.data;
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const binanceApi = process.env.BINANCE_API;
+
+    const binance = await axios.get(`${binanceApi}`);
+    const balance = await axios.get(`${apiUrl}/GetBalanceWallet`);
+
+    const balanceInCurrency = await balance.data;
+    const dataBinance = await binance.data;
+    const btcPrice = dataBinance.price;
+    const data = balanceInCurrency * btcPrice;
+    const balanceInUsd = parseFloat(data.toFixed(4));
 
     // Обработка полученных данных
-    return data;
+    return { balanceInCurrency, balanceInUsd };
   } catch (error) {
     console.error('Error fetching data:', error);
     throw new Error('Failed to fetch data.');
   }
 }
 
+/*export async function fetchBtcBalanceEvery5Minutes() {
+  try {
+    const binanceApi = process.env.BINANCE_API;
+    const apiUrl = process.env.API_URL;
+
+    // Initial fetch
+    await fetchBtcBalance(binanceApi, apiUrl);
+
+    // Fetch BTC balance every 5 minutes
+    const interval = setInterval(
+      async () => {
+        await fetchBtcBalance(binanceApi, apiUrl);
+      },
+      5 * 60 * 1000,
+    );
+    return () => {
+      clearInterval(interval);
+      // Очистка или отмена подписок, если это необходимо
+    };
+  } catch (error) {
+    console.error('Error fetching BTC balance:', error);
+  }
+}*/
+
 export async function fetchGetListAllClients() {
   try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     const response = await axios.get(`${apiUrl}/GetListAllClients`);
     const data = await response.data;
 
