@@ -302,7 +302,7 @@ export async function fetchBtcBalance() {
   }
 }*/
 
-export async function fetchGetListAllClients() {
+/*export async function fetchGetListAllClients() {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     const response = await axios.get(`${apiUrl}/GetListAllClients`);
@@ -314,4 +314,4 @@ export async function fetchGetListAllClients() {
     console.error('Error fetching data:', error);
     throw new Error('Failed to fetch data.');
   }
-}
+}*/
