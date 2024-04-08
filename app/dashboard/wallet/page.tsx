@@ -5,7 +5,7 @@ import { CreateWallet } from '@/app/ui/wallet/buttons';
 import { lusitana } from '@/app/ui/fonts';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
-import { fetchGetListAllClients } from '@/app/lib/data';
+//import { fetchGetListAllClients } from '@/app/lib/data';
 
 export default async function Page(
   {
@@ -21,8 +21,7 @@ export default async function Page(
   // const currentPage = Number(searchParams?.page) || 1;
 
   //const totalPages = await fetchGetListAllClients(query);
-  const totalClients = await fetchGetListAllClients();
-  console.log(totalClients);
+  //const totalClients = await fetchGetListAllClients();
 
   {
     /* return (
