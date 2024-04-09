@@ -11,8 +11,6 @@ const iconMap = {
 
 export default async function BalanceWrapper() {
   const { balanceInUsd } = await fetchBtcBalance();
-  //const data = await fetchBtcBalanceEvery5Minutes();
-  //console.log(data);
   return (
     <>
       {/* NOTE: comment in this code when you get to this point in the course */}
