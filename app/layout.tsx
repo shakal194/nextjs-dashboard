@@ -1,8 +1,8 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 
-import { SessionProvider, SessionProviderProps } from 'next-auth/react';
-import { Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
+import Providers from '@/app/providers';
 
 export default function RootLayout({
   children,
@@ -12,10 +12,11 @@ export default function RootLayout({
   // session: SessionProviderProps;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        {/*<SessionProvider session={session}>{children}</SessionProvider>*/}
-        <SessionProvider>{children}</SessionProvider>
+        <Providers>
+          <SessionProvider>{children}</SessionProvider>
+        </Providers>
       </body>
     </html>
   );

@@ -11,21 +11,23 @@ import CoinSlider from '@/app/ui/_components/coin_slider';
 import dataSlider from '@/app/ui/_data/slider-data.json';
 import dataCoinSlider from '@/app/ui/_data/coin_slider-data.json';
 import Accordion from '@/app/ui/_components/accordion';
+import ThemeButton from '@/app/ui/_components/ThemeButton';
 
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-20">
+      <div className="flex h-20 shrink-0 justify-between rounded-lg bg-blue-500 p-4 md:h-20">
         <Link href="/">
           <CoinsFishLogo />
         </Link>
+        <ThemeButton />
       </div>
 
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
+        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 dark:bg-inherit md:w-2/5 md:px-20">
           <p>ACCEPT CRYPTO PAYMENTS WITH</p>
           <p
-            className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
+            className={`${lusitana.className} text-xl text-gray-800 dark:text-white md:text-3xl md:leading-normal`}
           >
             <strong>CoinsFish</strong>
           </p>
@@ -77,7 +79,7 @@ export default function Page() {
           transactions
         </h3>
       </div>
-      <div className="hidden rounded-3xl bg-slate-300 p-8 lg:block">
+      <div className="hidden rounded-3xl bg-slate-300 p-8 dark:bg-slate-700 lg:block">
         <div className="border-black-200 flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-9 lg:gap-y-8">
           <div>
             <div className="border-black-200 flex justify-between border-b-2 py-5 lg:border-0">
@@ -220,7 +222,7 @@ export default function Page() {
           </div>
           <Link
             href="/"
-            className="flex h-16 items-center justify-center rounded-xl bg-gray-200 uppercase"
+            className="flex h-16 items-center justify-center rounded-xl border-x border-y border-solid border-gray-700 bg-gray-200 uppercase dark:border-gray-300 dark:bg-gray-700"
           >
             <span>All features</span>
           </Link>

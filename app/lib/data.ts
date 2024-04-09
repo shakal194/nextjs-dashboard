@@ -11,6 +11,7 @@ import {
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
 import axios, { AxiosError } from 'axios';
+import { copyDone } from '@/node_modules/pg-protocol/dist/messages';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const binanceApi = process.env.BINANCE_API;
@@ -272,8 +273,13 @@ export async function fetchBtcBalance() {
 
     // Обработка полученных данных
     return { balanceInCurrency, balanceInUsd };
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching data:', error);
+    if (error.code) {
+      const balanceInUsd = 0;
+      let balanceInCurrency;
+      return { balanceInCurrency, balanceInUsd };
+    }
     throw new Error('Failed to fetch data.');
   }
 }
