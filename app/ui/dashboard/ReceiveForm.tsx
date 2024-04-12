@@ -28,13 +28,11 @@ export default function ReceiveForm() {
   );
 
   return (
-    <div>
+    <div className="ml-4">
       <form>
-        <div className="mt-4">
+        <div className="flex">
           <label htmlFor="coin">
-            <span className="mb-6">
-              <strong>Select Wallet:</strong>
-            </span>
+            <strong>Select Wallet:</strong>
           </label>
           <select id="coin" value={selectedCoin} onChange={handleCoinChange}>
             <option value="" disabled>
@@ -52,7 +50,7 @@ export default function ReceiveForm() {
             <label htmlFor="network">
               <strong>Select Network:</strong>
             </label>
-            <p>
+            <p className="mb-2">
               Available network for{' '}
               <span className="rounded-md bg-blue-200 p-1">{selectedCoin}</span>{' '}
               wallet
