@@ -10,6 +10,9 @@ import {
   CardsSkeleton,
 } from '@/app/ui/skeletons';
 import { auth } from '@/auth';
+import ReceiveForm from '@/app/ui/dashboard/ReceiveForm';
+import ReceiveButton from '@/app/ui/_components/ReceiveButton';
+import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
 
 export default async function Page() {
   const session = await auth();
@@ -18,10 +21,12 @@ export default async function Page() {
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Welcome {session?.user?.name ?? ''} to your Dashboard
       </h1>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="bg-sky-100">
         <Suspense fallback={<CardsSkeleton />}>
           <BalanceWrapper />
         </Suspense>
+        <ReceiveButton />
+        <WithdrawalButton />
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <Suspense fallback={<RevenueChartSkeleton />}>

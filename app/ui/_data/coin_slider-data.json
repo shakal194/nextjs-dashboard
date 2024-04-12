@@ -3,96 +3,38 @@
     "id": 1,
     "title": "Bitcoin",
     "image": "/svg/bitcoin_1.svg",
-    "background": "rgb(249 115 22)"
-  },
-  {
-    "id": 2,
-    "title": "Dash",
-    "image": "/svg/dash.svg",
-    "background": "rgb(0 140 231)"
+    "background": "rgb(249 115 22)",
+    "network": [{ "id": 1, "name": "BTC" }]
   },
   {
     "id": 3,
     "title": "Tether",
     "image": "/svg/tether.svg",
-    "background": "rgb(80 175 149)"
-  },
-  {
-    "id": 4,
-    "title": "DOGE",
-    "image": "/svg/DOGE.svg",
-    "background": "rgb(0 0 0)"
+    "background": "rgb(80 175 149)",
+    "network": [
+      {
+        "id": 1,
+        "name": "BSC",
+        "description": "(BEP-20)"
+      },
+      { "id": 2, "name": "ETH", "description": "(ERC-20)" },
+      { "id": 3, "name": "Polygon", "description": "(ERC-20)" },
+      { "id": 4, "name": "Solana", "description": "Solana" },
+      { "id": 5, "name": "Tron", "description": "(TRC-20)" }
+    ]
   },
   {
     "id": 5,
     "title": "Etherium",
     "image": "/svg/etherium.svg",
-    "background": "rgb(98 126 234)"
-  },
-  {
-    "id": 6,
-    "title": "Bitcoin",
-    "image": "/svg/bitcoin_1.svg",
-    "background": "rgb(249 115 22)"
-  },
-  {
-    "id": 7,
-    "title": "Dash",
-    "image": "/svg/dash.svg",
-    "background": "rgb(0 140 231)"
-  },
-  {
-    "id": 8,
-    "title": "Tron",
-    "image": "/svg/trx.svg",
-    "background": "rgb(229, 9, 21)"
-  },
-  {
-    "id": 9,
-    "title": "DOGE",
-    "image": "/svg/DOGE.svg",
-    "background": "rgb(0 0 0)"
-  },
-  {
-    "id": 10,
-    "title": "Etherium",
-    "image": "/svg/etherium.svg",
-    "background": "rgb(98 126 234)"
-  },
-  {
-    "id": 11,
-    "title": "Tron",
-    "image": "/svg/trx.svg",
-    "background": "rgb(229, 9, 21)"
-  },
-  {
-    "id": 12,
-    "title": "Dash",
-    "image": "/svg/dash.svg",
-    "background": "rgb(0 140 231)"
-  },
-  {
-    "id": 13,
-    "title": "Tether",
-    "image": "/svg/tether.svg",
-    "background": "rgb(80 175 149)"
-  },
-  {
-    "id": 14,
-    "title": "DOGE",
-    "image": "/svg/DOGE.svg",
-    "background": "rgb(0 0 0)"
-  },
-  {
-    "id": 15,
-    "title": "Etherium",
-    "image": "/svg/etherium.svg",
-    "background": "rgb(98 126 234)"
-  },
-  {
-    "id": 16,
-    "title": "Tron",
-    "image": "/svg/trx.svg",
-    "background": "rgb(229, 9, 21)"
+    "background": "rgb(98 126 234)",
+    "network": [
+      {
+        "id": 1,
+        "name": "BSC",
+        "description": "(BEP-20)"
+      },
+      { "id": 2, "name": "ETH", "description": "(ERC-20)" }
+    ]
   }
 ]

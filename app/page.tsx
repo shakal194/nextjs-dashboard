@@ -12,8 +12,11 @@ import dataSlider from '@/app/ui/_data/slider-data.json';
 import dataCoinSlider from '@/app/ui/_data/coin_slider-data.json';
 import Accordion from '@/app/ui/_components/accordion';
 import ThemeButton from '@/app/ui/_components/ThemeButton';
+import { useSession } from 'next-auth/react';
 
 export default function Page() {
+  const { data: session, status } = useSession();
+
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 justify-between rounded-lg bg-blue-500 p-4 md:h-20">
@@ -32,24 +35,34 @@ export default function Page() {
             <strong>CoinsFish</strong>
           </p>
 
-          <ul className="flex">
-            <li className="mr-5">
-              <Link
-                href="/login"
-                className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-              >
-                <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/signup"
-                className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-              >
-                <span>Sign Up</span> <ArrowRightIcon className="w-5 md:w-6" />
-              </Link>
-            </li>
-          </ul>
+          {session ? (
+            <Link
+              href="/dashboard"
+              className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+            >
+              <span>Go to dashboard</span>{' '}
+              <ArrowRightIcon className="w-5 md:w-6" />
+            </Link>
+          ) : (
+            <ul className="flex">
+              <li className="mr-5">
+                <Link
+                  href="/login"
+                  className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+                >
+                  <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/signup"
+                  className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+                >
+                  <span>Sign Up</span> <ArrowRightIcon className="w-5 md:w-6" />
+                </Link>
+              </li>
+            </ul>
+          )}
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           {/* Add Hero Images Here */}
