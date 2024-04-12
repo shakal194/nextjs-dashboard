@@ -28,9 +28,9 @@ export default function ReceiveForm() {
   );
 
   return (
-    <div className="ml-4">
+    <div className="m-4">
       <form>
-        <div className="flex">
+        <div className="flex flex-col">
           <label htmlFor="coin">
             <strong>Select Wallet:</strong>
           </label>
@@ -46,7 +46,7 @@ export default function ReceiveForm() {
           </select>
         </div>
         {selectedCoinData && (
-          <div className="mt-4">
+          <div className="mt-4 flex flex-col">
             <label htmlFor="network">
               <strong>Select Network:</strong>
             </label>
@@ -74,7 +74,7 @@ export default function ReceiveForm() {
           </div>
         )}
         {selectedNetwork && (
-          <div className="mt-4">
+          <div className="mt-4 flex flex-col">
             <label htmlFor="walletAddress">
               <strong>Wallet Address:</strong>
             </label>

@@ -38,7 +38,7 @@ export function Balance({
       </div>
       <p
         className={`${lusitana.className}
-          truncate rounded-xl py-8 text-2xl`}
+          truncate rounded-xl px-4 py-8 text-2xl`}
       >
         ${value}
       </p>
