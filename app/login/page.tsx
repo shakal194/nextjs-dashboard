@@ -2,6 +2,13 @@ import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import LoginForm from '@/app/ui/login-form';
 import Link from 'next/link';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'CoinsFish Login Page',
+  description: 'CoinsFish Helps You Receive Payments From Anyone In The World.',
+};
+
 export default function LoginPage() {
   return (
     <main className="flex min-h-screen flex-col p-6">

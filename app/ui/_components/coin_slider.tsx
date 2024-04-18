@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Image from 'next/image';
 
 interface Slide {
   id: number;
@@ -44,7 +45,7 @@ const CoinSlider: React.FC<SliderProps> = ({ data }) => {
             }}
             modules={[Autoplay]}
           >
-            {data.map(({ id, background, image }) => (
+            {data.map(({ id, background, image, title }) => (
               <SwiperSlide key={id}>
                 <div
                   className="mr-6 flex h-24 w-24 items-center justify-center rounded-3xl"
@@ -52,7 +53,7 @@ const CoinSlider: React.FC<SliderProps> = ({ data }) => {
                     backgroundColor: background,
                   }}
                 >
-                  <img src={image} />
+                  <Image src={image} alt={title} width="44" height="44" />
                 </div>
               </SwiperSlide>
             ))}

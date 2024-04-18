@@ -1,3 +1,5 @@
+'use client';
+
 import { Accordion, AccordionItem } from '@nextui-org/react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { ChevronUpIcon } from '@heroicons/react/24/outline';
@@ -14,7 +16,7 @@ import dataAccordion from '@/app/ui/_data/accordion-data.json';
 
 export default function AccordionHome() {
   return (
-    <div>
+    <div className="">
       <Accordion selectionMode="multiple">
         {dataAccordion.map((item, index) => {
           let IconComponent;
@@ -43,7 +45,7 @@ export default function AccordionHome() {
               key={index}
               aria-label={item.title}
               title={
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 ">
                   {IconComponent && <IconComponent />}
                   {item.title}
                 </div>
@@ -63,7 +65,7 @@ export default function AccordionHome() {
       </Accordion>
       <Link
         href="/"
-        className="flex h-16 items-center justify-center rounded-xl bg-gray-200 uppercase"
+        className="flex h-16 items-center justify-center rounded-xl border-x border-y border-solid border-gray-700 bg-gray-200 bg-gray-200 uppercase  dark:border-gray-300 dark:bg-gray-700"
       >
         <span>All features</span>
       </Link>
