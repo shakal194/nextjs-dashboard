@@ -11,10 +11,9 @@ import {
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
 import axios, { AxiosError } from 'axios';
-import { copyDone } from '@/node_modules/pg-protocol/dist/messages';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const binanceApi = process.env.BINANCE_API;
+const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
