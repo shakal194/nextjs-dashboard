@@ -13,7 +13,9 @@ import { unstable_noStore as noStore } from 'next/cache';
 import axios, { AxiosError } from 'axios';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
+//const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
+const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API_USA;
+
 const minerstatApi = process.env.NEXT_PUBLIC_MINERSTAT_API;
 
 export async function fetchRevenue() {
@@ -264,26 +266,26 @@ export async function fetchBtcBalance() {
   try {
     const balance = await axios.get(`${apiUrl}/getwalletinfo`);
 
-    //const binance = await axios.get(`${binanceApi}`);
+    const binance = await axios.get(`${binanceApi}`);
     const minerstat = await axios.get(`${minerstatApi}`);
 
     const dataBalanceApi = await balance.data;
 
-    //const dataBinance = await binance.data;
+    const dataBinance = await binance.data;
     const dataMinerstat = await minerstat.data;
 
-    //const btcPriceBinance = dataBinance.price;
+    const btcPriceBinance = dataBinance.price;
     const btcPriceMinerstat = dataMinerstat[0].price;
 
     const balanceInCurrency = dataBalanceApi.balance;
-    //const dataBtcBinance = balanceInCurrency * btcPriceBinance;
+    const dataBtcBinance = balanceInCurrency * btcPriceBinance;
     const dataBtcMinerstat = balanceInCurrency * btcPriceMinerstat;
 
-    //const balanceInUsdBinance = parseFloat(dataBtcBinance.toFixed(4));
+    const balanceInUsdBinance = parseFloat(dataBtcBinance.toFixed(4));
     const balanceInUsdMinerstat = parseFloat(dataBtcMinerstat.toFixed(4));
     // Обработка полученных данных
-    return { balanceInCurrency, balanceInUsdMinerstat };
-    //return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
+    //return { balanceInCurrency, balanceInUsdMinerstat };
+    return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
   } catch (error: any) {
     console.error('Error fetching data:', error);
     if (error.code) {
