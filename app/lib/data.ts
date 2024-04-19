@@ -14,6 +14,7 @@ import axios, { AxiosError } from 'axios';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
+const minerstatApi = process.env.NEXT_PUBLIC_MINERSTAT_API;
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
@@ -261,24 +262,34 @@ export async function getUser(email: string) {
 
 export async function fetchBtcBalance() {
   try {
-    const binance = await axios.get(`${binanceApi}`);
     const balance = await axios.get(`${apiUrl}/getwalletinfo`);
 
-    const dataBalanceApi = await balance.data;
-    const dataBinance = await binance.data;
-    const balanceInCurrency = dataBalanceApi.balance;
-    const btcPrice = dataBinance.price;
-    const data = balanceInCurrency * btcPrice;
-    const balanceInUsd = parseFloat(data.toFixed(4));
+    const binance = await axios.get(`${binanceApi}`);
+    const minerstat = await axios.get(`${minerstatApi}`);
 
+    const dataBalanceApi = await balance.data;
+
+    const dataBinance = await binance.data;
+    const dataMinerstat = await minerstat.data;
+
+    const btcPriceBinance = dataBinance.price;
+    const btcPriceMinerstat = dataMinerstat[0].price;
+
+    const balanceInCurrency = dataBalanceApi.balance;
+    const dataBtcBinance = balanceInCurrency * btcPriceBinance;
+    const dataBtcMinerstat = balanceInCurrency * btcPriceMinerstat;
+
+    const balanceInUsdBinance = parseFloat(dataBtcBinance.toFixed(4));
+    const balanceInUsdMinerstat = parseFloat(dataBtcMinerstat.toFixed(4));
     // Обработка полученных данных
-    return { balanceInCurrency, balanceInUsd };
+    return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
   } catch (error: any) {
     console.error('Error fetching data:', error);
     if (error.code) {
-      const balanceInUsd = 0;
+      const balanceInUsdBinance = 0;
+      const balanceInUsdMinerstat = 0;
       let balanceInCurrency;
-      return { balanceInCurrency, balanceInUsd };
+      return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
     }
     throw new Error('Failed to fetch data.');
   }

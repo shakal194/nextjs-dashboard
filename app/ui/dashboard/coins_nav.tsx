@@ -3,7 +3,8 @@ import { fetchBtcBalance } from '@/app/lib/data';
 import coins from '@/app/ui/_data/coin_slider-data.json';
 
 export default async function CoinsNav() {
-  const { balanceInUsd, balanceInCurrency } = await fetchBtcBalance();
+  const { balanceInUsdBinance, balanceInCurrency, balanceInUsdMinerstat } =
+    await fetchBtcBalance();
 
   return (
     <div>
@@ -24,7 +25,7 @@ export default async function CoinsNav() {
             </div>
             <div className="flex flex-col">
               <div>{balanceInCurrency}</div>
-              <div>${balanceInUsd}</div>
+              <div>${balanceInUsdBinance || balanceInUsdMinerstat}</div>
             </div>
           </div>
         ))}

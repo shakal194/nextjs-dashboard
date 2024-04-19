@@ -10,11 +10,16 @@ const iconMap = {
 };
 
 export default async function BalanceWrapper() {
-  const { balanceInUsd } = await fetchBtcBalance();
+  const { balanceInUsdBinance, balanceInUsdMinerstat } =
+    await fetchBtcBalance();
   return (
     <>
       {/* NOTE: comment in this code when you get to this point in the course */}
-      <Balance title="Balance" value={balanceInUsd} type="balance" />
+      <Balance
+        title="Balance"
+        value={balanceInUsdBinance || balanceInUsdMinerstat}
+        type="balance"
+      />
     </>
   );
 }
