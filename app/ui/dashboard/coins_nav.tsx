@@ -23,8 +23,8 @@ export default async function CoinsNav() {
               <div>{coin.title}</div>
             </div>
             <div className="flex flex-col">
-              {/*<div>{balanceInCurrency}</div>
-              <div>${balanceInUsd}</div>*/}
+              <div>{balanceInCurrency}</div>
+              <div>${balanceInUsd}</div>
             </div>
           </div>
         ))}
