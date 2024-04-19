@@ -264,33 +264,34 @@ export async function fetchBtcBalance() {
   try {
     const balance = await axios.get(`${apiUrl}/getwalletinfo`);
 
-    const binance = await axios.get(`${binanceApi}`);
+    //const binance = await axios.get(`${binanceApi}`);
     const minerstat = await axios.get(`${minerstatApi}`);
 
     const dataBalanceApi = await balance.data;
 
-    const dataBinance = await binance.data;
+    //const dataBinance = await binance.data;
     const dataMinerstat = await minerstat.data;
 
-    const btcPriceBinance = dataBinance.price;
+    //const btcPriceBinance = dataBinance.price;
     const btcPriceMinerstat = dataMinerstat[0].price;
 
     const balanceInCurrency = dataBalanceApi.balance;
-    const dataBtcBinance = balanceInCurrency * btcPriceBinance;
+    //const dataBtcBinance = balanceInCurrency * btcPriceBinance;
     const dataBtcMinerstat = balanceInCurrency * btcPriceMinerstat;
 
-    const balanceInUsdBinance = parseFloat(dataBtcBinance.toFixed(4));
+    //const balanceInUsdBinance = parseFloat(dataBtcBinance.toFixed(4));
     const balanceInUsdMinerstat = parseFloat(dataBtcMinerstat.toFixed(4));
     // Обработка полученных данных
-    return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
+    return { balanceInCurrency, balanceInUsdMinerstat };
+    //return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
   } catch (error: any) {
     console.error('Error fetching data:', error);
-    /*if (error.code) {
+    if (error.code) {
       const balanceInUsdBinance = 0;
       const balanceInUsdMinerstat = 0;
       let balanceInCurrency;
       return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
-    }*/
+    }
     throw new Error('Failed to fetch data.');
   }
 }
