@@ -285,12 +285,12 @@ export async function fetchBtcBalance() {
     return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
   } catch (error: any) {
     console.error('Error fetching data:', error);
-    if (error.code) {
+    /*if (error.code) {
       const balanceInUsdBinance = 0;
       const balanceInUsdMinerstat = 0;
       let balanceInCurrency;
       return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
-    }
+    }*/
     throw new Error('Failed to fetch data.');
   }
 }
