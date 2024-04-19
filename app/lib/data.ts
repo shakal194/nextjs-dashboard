@@ -264,8 +264,9 @@ export async function fetchBtcBalance() {
     const binance = await axios.get(`${binanceApi}`);
     const balance = await axios.get(`${apiUrl}/getwalletinfo`);
 
-    const balanceInCurrency = await balance.data.balance;
+    const dataBalanceApi = await balance.data;
     const dataBinance = await binance.data;
+    const balanceInCurrency = dataBalanceApi.balance;
     const btcPrice = dataBinance.price;
     const data = balanceInCurrency * btcPrice;
     const balanceInUsd = parseFloat(data.toFixed(4));
