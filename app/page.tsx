@@ -13,8 +13,8 @@ import { Metadata } from 'next';
 import HomeSession from '@/app/ui/_components/HomeSession';
 
 export const metadata: Metadata = {
-  title: 'CoinsFish Login Page',
-  description: 'CoinsFish Helps You Receive Payments From Anyone In The World.',
+  title: 'CoinsFish Home Page',
+  description: 'Welcome to CoinsFish. Helps You Receive Payments From Anyone In The World.',
 };
 
 export default function Page() {

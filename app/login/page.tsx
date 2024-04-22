@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'CoinsFish Login Page',
-  description: 'CoinsFish Helps You Receive Payments From Anyone In The World.',
+  description: 'Login to CoinsFish Crypto payments Gateway.',
 };
 
 export default function LoginPage() {
