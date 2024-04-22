@@ -1,4 +1,4 @@
-import Form from '@/app/ui/wallet/create-form';
+import CreateWalletForm from '@/app/ui/wallet/create-form';
 import Breadcrumbs from '@/app/ui/wallet/breadcrumbs';
 
 export default async function Page() {
@@ -14,7 +14,7 @@ export default async function Page() {
           },
         ]}
       />
-      <Form />
+      <CreateWalletForm />
     </main>
   );
 }

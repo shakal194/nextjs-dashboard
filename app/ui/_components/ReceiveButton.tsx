@@ -13,15 +13,13 @@ export default function ReceiveButton() {
 
   return (
     <div>
-      <div className="grid gap-6 bg-sky-100 sm:grid-cols-2 lg:grid-cols-4">
-        <button
-          className="m-4 flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-          onClick={toggleCoinForm}
-        >
-          <ArrowDownIcon className="w-5 md:w-6" />
-          Receive
-        </button>
-      </div>
+      <button
+        className="m-4 flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+        onClick={toggleCoinForm}
+      >
+        <ArrowDownIcon className="w-5 md:w-6" />
+        Receive
+      </button>
 
       {/* Если showCoinForm равно true, отображаем CoinForm */}
       {showCoinForm && <ReceiveForm />}

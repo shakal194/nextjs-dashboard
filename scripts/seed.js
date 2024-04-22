@@ -160,6 +160,29 @@ async function seedRevenue(client) {
   }
 }
 
+
+
+async function seedMerchants(client) {
+  try {
+    const createTable = await client.sql`CREATE TABLE merchants (
+    merchant_id VARCHAR(255) UNIQUE,
+    user_id VARCHAR(255),
+    merchant_name VARCHAR(255) UNIQUE,
+    CONSTRAINT pk_merchant PRIMARY KEY (merchant_id)
+);
+    `;
+
+    console.log(`Created "merchants" table`);
+
+    return {
+      createTable,
+    };
+  } catch (error) {
+    console.error('Error seeding users:', error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
 
@@ -167,6 +190,7 @@ async function main() {
   await seedCustomers(client);
   await seedInvoices(client);
   await seedRevenue(client);
+  seedMerchants(client)
 
   await client.end();
 }
@@ -177,3 +201,5 @@ main().catch((err) => {
     err,
   );
 });
+
+

@@ -8,22 +8,12 @@ export type User = {
   name: string;
   password: string;
 };
-/*
-export type Session = {
-  user: { name?: string | null; email?: string; image?: string; id?: string };
-  expires?: string;
-};
 
-export type JWT = {
-  name: string;
-  email: string;
-  picture?: string;
-  sub: string;
-  id: string;
-  iat: number;
-  exp: number;
-  jti: string;
-};*/
+export type Merchant = {
+  merchant_id: string;
+  user_id: string;
+  merchant_name: string;
+};
 
 export type Customer = {
   id: string;

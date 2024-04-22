@@ -7,7 +7,7 @@ import { createWallet } from '@/app/lib/actions';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
 
-export default function Form() {
+export default function CreateWalletForm() {
   const { data: session, status } = useSession();
   const [errorMessage, setErrorMessage] = useState<string | null>(null); // Состояние для хранения сообщения об ошибке
 
