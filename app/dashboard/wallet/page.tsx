@@ -1,7 +1,7 @@
-import Pagination from '@/app/ui/invoices/pagination';
+import Pagination from '@/app/ui/dashboard/invoices/pagination';
 import Search from '@/app/ui/search';
-import Table from '@/app/ui/invoices/table';
-import { CreateWallet } from '@/app/ui/wallet/buttons';
+import Table from '@/app/ui/dashboard/invoices/table';
+import { CreateWallet } from '@/app/ui/dashboard/wallet/buttons';
 import { lusitana } from '@/app/ui/fonts';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';

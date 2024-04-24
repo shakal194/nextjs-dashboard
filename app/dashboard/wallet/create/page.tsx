@@ -1,5 +1,5 @@
-import CreateWalletForm from '@/app/ui/wallet/create-form';
-import Breadcrumbs from '@/app/ui/wallet/breadcrumbs';
+import CreateWalletForm from '@/app/ui/dashboard/wallet/create-form';
+import Breadcrumbs from '@/app/ui/dashboard/wallet/breadcrumbs';
 
 export default async function Page() {
   return (

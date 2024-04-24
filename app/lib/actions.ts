@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { signIn } from '@/auth';
+import { auth, signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
@@ -287,15 +287,12 @@ export async function createWallet(sessionId: string) {
 
 const CreateMerchant = z.object({
   merchant_id: z.string(),
-  user_id: z.string({ invalid_type_error: 'Please input name.' }),
-  merchant_name: z.string({
-    invalid_type_error: 'Please input merchant name.',
-  }),
+  user_id: z.string(),
+  merchant_name: z.string({ invalid_type_error: 'Please input name.' }),
 });
 
 export type MerchantState = {
   errors?: {
-    user_id?: string[];
     merchant_name?: string[];
   };
   message?: string | null;
@@ -305,26 +302,32 @@ export async function createMerchant(
   prevState: MerchantState,
   formData: FormData,
 ) {
+  const session = await auth();
+  const userId = session?.user?.id;
+
   const validatedFields = CreateMerchant.safeParse({
     merchant_id: uuidv4(),
-    user_id: formData.get('user_id'),
+    user_id: userId,
     merchant_name: formData.get('merchant_name'),
   });
 
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to Create User.',
+      message: 'Missing Fields. Failed to Create Merchant.',
     };
   }
 
   const { merchant_id, user_id, merchant_name } = validatedFields.data;
 
-  const merchantNameExist = await sql`SELECT merchant_name from merchants`;
+  const merchantNameExist =
+    await sql`SELECT merchant_name from merchants WHERE merchant_name = ${merchant_name}`;
   if (merchantNameExist.rows[0]) {
-    console.error(`This merchant name - ${merchantNameExist} already exists`);
+    console.error(`Merchant name - ${merchant_name} already exists`);
     return {
-      errors: { merchantNameExist: ['Merchant name already exists'] },
+      errors: {
+        merchant_name: [`Merchant name - ${merchant_name} already exists`],
+      },
     };
   }
 
@@ -333,12 +336,13 @@ export async function createMerchant(
       INSERT INTO merchants (merchant_id, user_id, merchant_name)
       VALUES (${merchant_id}, ${user_id}, ${merchant_name})
     `;
-    console.log('Merchant inserted successfully.');
+    console.log(`Merchant name - ${merchant_name} inserted successfully.`);
   } catch (error) {
     return {
       message: 'Database Error: Failed to Create User.',
     };
   }
+
   revalidatePath('/dashboard/merchants');
   redirect('/dashboard/merchants');
 }

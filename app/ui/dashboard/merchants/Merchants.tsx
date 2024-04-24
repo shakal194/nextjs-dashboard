@@ -5,49 +5,45 @@ import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { Button } from '@/app/ui/button';
-import { useSession } from 'next-auth/react';
+import MerchantForm from '@/app/ui/dashboard/merchants/merchants-form';
 
 export default function Merchants() {
-  const { data: session, status } = useSession();
   const pathname = usePathname();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [merchantName, setMerchantName] = useState('');
 
-  const openModal = () => {
+  /*const openModal = () => {
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setMerchantName(''); // Сбрасываем введенное значение при закрытии модального окна
-  };
+  };*/
 
-  const handleInputChange = (e: any) => {
-    setMerchantName(e.target.value);
-  };
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    // Здесь можно добавить логику для создания мерчанта
-    console.log('Creating merchant:', merchantName);
-    closeModal();
-  };
-  const handleEscapeKeyPress = (e: any) => {
-    if (e.key === 'Escape') {
-      closeModal();
+  const toggleModal = useCallback(() => {
+    setIsModalOpen((prev) => !prev); // Переключаем состояние модального окна
+    if (!isModalOpen) {
+      setMerchantName(''); // Сбрасываем введенное значение при закрытии модального окна
     }
-  };
-
-  const handleClickOutsideModal = (e: any) => {
-    if (e.target.classList.contains('bg-opacity-50')) {
-      closeModal();
-    }
-  };
+  }, [isModalOpen, setMerchantName, setIsModalOpen]);
 
   useEffect(() => {
+    const handleEscapeKeyPress = (e: any) => {
+      if (e.key === 'Escape') {
+        toggleModal();
+      }
+    };
+
+    const handleClickOutsideModal = (e: any) => {
+      if (e.target.classList.contains('bg-opacity-50')) {
+        toggleModal();
+      }
+    };
+
     document.addEventListener('keydown', handleEscapeKeyPress);
     document.addEventListener('click', handleClickOutsideModal);
 
@@ -55,7 +51,7 @@ export default function Merchants() {
       document.removeEventListener('keydown', handleEscapeKeyPress);
       document.removeEventListener('click', handleClickOutsideModal);
     };
-  }, []);
+  }, [toggleModal]);
 
   return (
     <div className="z-10 border border-x-0 border-y-slate-300">
@@ -71,7 +67,7 @@ export default function Merchants() {
         Merchants
       </Link>
       <Button
-        onClick={openModal}
+        onClick={toggleModal}
         className="mb-4 flex items-center gap-5 self-start"
       >
         <PlusIcon className="w-9" />
@@ -84,37 +80,11 @@ export default function Merchants() {
             <div className="mb-4 border border-x-0 border-t-0 border-b-slate-300">
               <XMarkIcon
                 className="absolute right-0 top-0 m-3 h-6 w-6 cursor-pointer text-gray-700"
-                onClick={closeModal}
+                onClick={toggleModal}
               />
               <h2 className="mb-4 text-xl font-bold">Create new merchant</h2>
             </div>
-            <form onSubmit={handleSubmit} name="merchantName">
-              <div className="mb-4">
-                <label htmlFor="merchantName" className="mb-2 block font-bold">
-                  Enter a merchant name
-                </label>
-                <input
-                  type="text"
-                  id="merchantName"
-                  name="merchantName"
-                  className="w-full rounded-md border-gray-300 p-2"
-                  placeholder="Merchant name"
-                  value={merchantName}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="flex justify-end">
-                <Button
-                  type="submit"
-                  className={`${
-                    !merchantName && 'cursor-not-allowed opacity-50'
-                  }`}
-                  disabled={!merchantName}
-                >
-                  Create merchant
-                </Button>
-              </div>
-            </form>
+            <MerchantForm />
           </div>
         </div>
       )}
