@@ -7,10 +7,12 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  Merchant,
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
 import axios, { AxiosError } from 'axios';
+import { auth } from '@/auth';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 //const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
@@ -267,32 +269,39 @@ export async function fetchBtcBalance() {
     const balance = await axios.get(`${apiUrl}/getwalletinfo`);
 
     const binance = await axios.get(`${binanceApi}`);
-    const minerstat = await axios.get(`${minerstatApi}`);
+    //const minerstat = await axios.get(`${minerstatApi}`);
 
     const dataBalanceApi = await balance.data;
 
     const dataBinance = await binance.data;
-    const dataMinerstat = await minerstat.data;
+    //const dataMinerstat = await minerstat.data;
 
     const btcPriceBinance = dataBinance.price;
-    const btcPriceMinerstat = dataMinerstat[0].price;
+    //const btcPriceMinerstat = dataMinerstat[0].price;
 
     const balanceInCurrency = dataBalanceApi.balance;
     const dataBtcBinance = balanceInCurrency * btcPriceBinance;
-    const dataBtcMinerstat = balanceInCurrency * btcPriceMinerstat;
+    //const dataBtcMinerstat = balanceInCurrency * btcPriceMinerstat;
 
     const balanceInUsdBinance = parseFloat(dataBtcBinance.toFixed(4));
-    const balanceInUsdMinerstat = parseFloat(dataBtcMinerstat.toFixed(4));
+    //const balanceInUsdMinerstat = parseFloat(dataBtcMinerstat.toFixed(4));
     // Обработка полученных данных
-    //return { balanceInCurrency, balanceInUsdMinerstat };
-    return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
+    return { balanceInCurrency, balanceInUsdBinance };
+    //return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
   } catch (error: any) {
     console.error('Error fetching data:', error);
     if (error.code) {
-      const balanceInUsdBinance = 0;
-      const balanceInUsdMinerstat = 0;
-      let balanceInCurrency;
-      return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
+      //const balanceInUsdBinance = 0;
+      //const balanceInUsdMinerstat = 0;
+
+      const balanceInUsdBinance = 'Waiting';
+      //const balanceInCurrency = 'Waiting';
+      //const balanceInUsdMinerstat = 'Waiting';
+
+      //let balanceInCurrency;
+      return { balanceInUsdBinance };
+      //return { balanceInCurrency, balanceInUsdBinance };
+      //return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
     }
     throw new Error('Failed to fetch data.');
   }
@@ -335,3 +344,24 @@ export async function fetchBtcBalance() {
     throw new Error('Failed to fetch data.');
   }
 }*/
+
+export async function fetchMerchants() {
+  const session = await auth();
+  const userId = session?.user?.id;
+
+  try {
+    const data = await sql<Merchant>`
+      SELECT
+        merchant_id,
+        merchant_name
+      FROM merchants WHERE user_id = ${userId}
+      ORDER BY merchant_name ASC
+    `;
+
+    const merchants = data.rows;
+    return merchants;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch all merchants.');
+  }
+}

@@ -1,11 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { useEffect, useCallback } from 'react';
 import { Button } from '@/app/ui/button';
 import MerchantForm from '@/app/ui/dashboard/merchants/merchants-form';
 
