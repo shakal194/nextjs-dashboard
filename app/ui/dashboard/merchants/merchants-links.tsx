@@ -60,7 +60,7 @@ export default function MerchantsLinks() {
             )}
           >
             <LinkIcon className="w-6" />
-            <p className="hidden md:block">{link.icon}</p>
+            <p className="hidden md:block">{link.name}</p>
           </Link>
         );
       })}
