@@ -14,19 +14,10 @@ export default function Merchants() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [merchantName, setMerchantName] = useState('');
 
-  /*const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setMerchantName(''); // Сбрасываем введенное значение при закрытии модального окна
-  };*/
-
   const toggleModal = useCallback(() => {
-    setIsModalOpen((prev) => !prev); // Переключаем состояние модального окна
+    setIsModalOpen((prev) => !prev);
     if (!isModalOpen) {
-      setMerchantName(''); // Сбрасываем введенное значение при закрытии модального окна
+      setMerchantName('');
     }
   }, [isModalOpen, setMerchantName, setIsModalOpen]);
 
@@ -53,25 +44,26 @@ export default function Merchants() {
   }, [toggleModal]);
 
   return (
-    <div className="z-10 border border-x-0 border-y-slate-300">
+    <div className="flex grow">
       <Link
         href="/dashboard/merchants"
         className={clsx(
-          'mt-2 flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+          'flex h-[48px] grow items-center justify-between rounded-md border border-x-0 border-y-slate-300 bg-gray-50 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 md:p-2 md:px-3',
           {
             'bg-sky-100 text-blue-600': pathname === '/dashboard/merchants',
           },
         )}
       >
         Merchants
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            toggleModal();
+          }}
+        >
+          <PlusIcon className="w-6" />
+        </Button>
       </Link>
-      <Button
-        onClick={toggleModal}
-        className="mb-4 flex items-center gap-5 self-start"
-      >
-        <PlusIcon className="w-9" />
-        Create merchant
-      </Button>
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">

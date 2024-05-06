@@ -344,5 +344,5 @@ export async function createMerchant(
   }
 
   revalidatePath('/dashboard/merchants');
-  redirect('/dashboard/merchants');
+  redirect(`/dashboard/merchants/${merchant_id}`);
 }

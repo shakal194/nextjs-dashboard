@@ -5,6 +5,7 @@ import { PowerIcon } from '@heroicons/react/24/outline';
 import { signOut } from '@/auth';
 import CoinsNav from '@/app/ui/dashboard/coins_nav';
 import Merchants from '@/app/ui/dashboard/merchants/Merchants';
+import MerchantsList from '@/app/ui/dashboard/merchants/merchants-links';
 
 export default function SideNav() {
   return (
@@ -21,6 +22,7 @@ export default function SideNav() {
         <NavLinks />
         <CoinsNav />
         <Merchants />
+        <MerchantsList />
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <form
           action={async () => {

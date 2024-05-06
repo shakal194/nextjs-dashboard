@@ -1,66 +1,26 @@
+//'use client';
+
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+//import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import {
-  HomeIcon,
-  DocumentDuplicateIcon,
-  UserGroupIcon,
-  WalletIcon,
-} from '@heroicons/react/24/outline';
 import { fetchMerchants } from '@/app/lib/data';
-import { auth } from '@/auth';
 
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
-const links = [
-  {
-    name: 'Home',
-    href: '/dashboard',
-    icon: HomeIcon,
-  },
-  {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
-    icon: DocumentDuplicateIcon,
-  },
-  {
-    name: 'Customers',
-    href: '/dashboard/customers',
-    icon: UserGroupIcon,
-  },
-  {
-    name: 'Wallet',
-    href: '/dashboard/wallet',
-    icon: WalletIcon,
-  },
-];
-
-export async function MerchantsList() {
+export default async function MerchantsList() {
+  //const pathname = usePathname();
   const merchants = await fetchMerchants();
-  console.log(merchants);
-  return merchants;
-}
-
-export default function MerchantsLinks() {
-  const pathname = usePathname();
 
   return (
     <>
-      {links.map((link) => {
-        const LinkIcon = link.icon;
+      {merchants.map((merchant: any) => {
         return (
           <Link
-            key={link.name}
-            href={link.href}
+            key={merchant.merchant_name}
+            href={`/dashboard/merchants/${merchant.merchant_id}`}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
-              {
-                'bg-sky-100 text-blue-600': pathname === link.href,
-              },
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:justify-start md:p-2 md:px-3',
             )}
           >
-            <LinkIcon className="w-6" />
-            <p className="hidden md:block">{link.name}</p>
+            <p className="hidden md:block">{merchant.merchant_name}</p>
           </Link>
         );
       })}

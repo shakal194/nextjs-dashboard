@@ -353,6 +353,7 @@ export async function fetchMerchants() {
     const data = await sql<Merchant>`
       SELECT
         merchant_id,
+        user_id,
         merchant_name
       FROM merchants WHERE user_id = ${userId}
       ORDER BY merchant_name ASC
@@ -363,5 +364,29 @@ export async function fetchMerchants() {
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch all merchants.');
+  }
+}
+
+export async function fetchMerchantById(id: string) {
+  noStore();
+
+  try {
+    const data = await sql<Merchant>`
+      SELECT
+        merchant_id,
+        user_id,
+        merchant_name
+      FROM merchants
+      WHERE merchant_id = ${id};
+    `;
+
+    const merchant = data.rows.map((merchant: any) => ({
+      ...merchant,
+    }));
+
+    return merchant[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch merchant.');
   }
 }
