@@ -380,11 +380,9 @@ export async function fetchMerchantById(id: string) {
       WHERE merchant_id = ${id};
     `;
 
-    const merchant = data.rows.map((merchant: any) => ({
-      ...merchant,
-    }));
+    const merchant = data.rows[0]; // Получаем первый найденный мерчант
 
-    return merchant[0];
+    return merchant;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch merchant.');

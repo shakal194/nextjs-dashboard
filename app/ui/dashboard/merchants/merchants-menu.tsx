@@ -1,25 +1,24 @@
 'use client';
 
 import { useState } from 'react';
-import { fetchMerchantById } from '@/app/lib/data';
-import { notFound } from 'next/navigation';
-import { usePathname } from 'next/navigation';
+//import { fetchMerchantById } from '@/app/lib/data';
+//import { usePathname } from 'next/navigation';
 
-export default function MerchantMenuPage() {
-  const [activeTab, setActiveTab] = useState('history'); // Изначально выбранная вкладка - "История"
-  const [settingsTab, setSettingsTab] = useState('settingsApiIntegration'); // Изначально выбранная вкладка в разделе настроек - "Интеграция с помощью API"
+export default function MerchantMenuPage({ id }: { id: string }) {
+  const [activeTab, setActiveTab] = useState('history');
+  const [settingsTab, setSettingsTab] = useState('settingsApiIntegration');
 
   const handleTabClick = (tab: string) => {
-    setActiveTab(tab); // Обновляем состояние выбранной вкладки
+    setActiveTab(tab);
   };
 
   const handleSettingsTabClick = (tab: string) => {
-    setSettingsTab(tab); // Обновляем состояние выбранной вкладки в разделе настроек
+    setSettingsTab(tab);
   };
 
-  const pathname = usePathname();
+  /*const pathname = usePathname();
   const parts = pathname.split('/');
-  const merchantId = parts[parts.length - 1];
+  const merchantId = parts[parts.length - 1];*/
 
   return (
     <div className="p-4">
@@ -46,9 +45,7 @@ export default function MerchantMenuPage() {
       </div>
 
       {activeTab === 'history' && (
-        <div className="mt-4">
-          <div>Содержимое вкладки "История"</div>
-        </div>
+        <div className="mt-6">Содержимое вкладки "История"</div>
       )}
       {activeTab === 'settings' && (
         <div className="mt-4 flex justify-between">
@@ -94,7 +91,7 @@ export default function MerchantMenuPage() {
               <div>Активный</div>
               <div>...</div>
               <div>...</div>
-              <div>{merchantId}</div>
+              <div>{id}</div>
               <div>...</div>
             </div>
           </div>

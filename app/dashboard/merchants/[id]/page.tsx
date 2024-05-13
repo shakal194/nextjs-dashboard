@@ -7,11 +7,11 @@ import { CardsSkeleton } from '@/app/ui/skeletons';
 import ReceiveButton from '@/app/ui/_components/ReceiveButton';
 import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
 import MerchantMenuPage from '@/app/ui/dashboard/merchants/merchants-menu';
+import { CreateWallet } from '@/app/ui/dashboard/merchants/wallet/buttons';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
   const [merchant] = await Promise.all([fetchMerchantById(id)]);
-
   if (!merchant) {
     notFound();
   }
@@ -23,8 +23,9 @@ export default async function Page({ params }: { params: { id: string } }) {
       />
       <div className="bg-sky-100 p-4">
         <Suspense fallback={<CardsSkeleton />}>
-          <div>
+          <div className="flex justify-between">
             <h1 className="text-2xl font-bold">{merchant.merchant_name}</h1>
+            <CreateWallet id={id} />
           </div>
           <BalanceWrapper />
         </Suspense>
@@ -33,7 +34,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <WithdrawalButton />
         </div>
       </div>
-      <MerchantMenuPage />
+      <MerchantMenuPage id={id} />
     </main>
   );
 }

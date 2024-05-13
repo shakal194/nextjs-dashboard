@@ -259,8 +259,15 @@ export async function createWallet(sessionId: string) {
 
   try {
     // Отправка запроса на API
-    await axios.post(`${apiUrl}/AddClient?idClient=${sessionId}`);
-    return { message: 'Successfully created wallet.' }; // Возвращаем сообщение об успешном создании кошелька
+    //await axios.post(`${apiUrl}/AddClient?idClient=${sessionId}`);
+    //return { message: 'Successfully created wallet.' }; // Возвращаем сообщение об успешном создании кошелька
+    const response = await axios.post(
+      `${apiUrl}/adduser`,
+      sessionId, // Данные в формате JSON
+      { headers: { 'Content-Type': 'application/json' } }, // Указываем заголовок Content-Type
+    );
+    console.log(response);
+    return { message: 'Successfully created wallet.' };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError;
