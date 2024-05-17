@@ -206,72 +206,18 @@ export async function createUser(prevState: UserState, formData: FormData) {
   redirect('/success');
 }
 
-/*const CreateWallet = FormSchema.omit({ id: true, date: true });
-
-export type WalletState = {
-  errors?: {
-    id?: string[];
-    customerId?: string[];
-    email?: string[];
-    password?: string[];
-    confirmPassword?: string[];
-    amount?: string[];
-    status?: string[];
-  };
-  message?: string | null;
-};
-
-export async function createWallet(prevState: WalletState, formData: FormData) {
-  const validatedFields = CreateWallet.safeParse({
-    customerId: formData.get('customerId'),
-    amount: formData.get('amount'),
-    status: formData.get('status'),
-  });
-
-  if (!validatedFields.success) {
-    return {
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to Create Invoice.',
-    };
-  }
-
-  const { customerId, amount, status } = validatedFields.data;
-  const amountInCents = amount * 100;
-  const date = new Date().toISOString().split('T')[0];
-
-  try {
-    await sql`
-      INSERT INTO invoices (customer_id, amount, status, date)
-      VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
-    `;
-  } catch (error) {
-    return {
-      message: 'Database Error: Failed to Create Invoice.',
-    };
-  }
-
-  revalidatePath('/dashboard/wallet');
-  redirect('/dashboard/wallet');
-}*/
-
 export async function createWallet(sessionId: string) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   try {
-    // Отправка запроса на API
-    //await axios.post(`${apiUrl}/AddClient?idClient=${sessionId}`);
-    //return { message: 'Successfully created wallet.' }; // Возвращаем сообщение об успешном создании кошелька
-    const response = await axios.post(
-      `${apiUrl}/adduser`,
-      sessionId, // Данные в формате JSON
-      { headers: { 'Content-Type': 'application/json' } }, // Указываем заголовок Content-Type
-    );
+    const response = await axios.post(`${apiUrl}/adduser`, sessionId, {
+      headers: { 'Content-Type': 'application/json' },
+    });
     console.log(response);
     return { message: 'Successfully created wallet.' };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError;
-      // Проверяем статус ответа и текст ошибки
       if (
         axiosError.response &&
         axiosError.response.status === 400 &&
@@ -281,15 +227,79 @@ export async function createWallet(sessionId: string) {
         return {
           status: 400,
           message: `Failed to create wallet: ID - ${sessionId} already exists or has invalid format.`,
-        }; // Возвращаем сообщение о неверном ID
+        };
       }
     }
     console.error('Failed to create wallet:', error);
-    return { message: 'Failed to create wallet.' }; // Возвращаем сообщение об ошибке при создании кошелька
+    return { message: 'Failed to create wallet.' };
   }
 
-  revalidatePath('/dashboard/wallet/create');
-  redirect('/dashboard/wallet/create');
+  //revalidatePath('/dashboard/wallet/create');
+  // redirect('/dashboard/wallet/create');
+}
+
+export async function createWalletEth(sessionId: string) {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  try {
+    const response = await axios.post(`${apiUrl}/adduser`, sessionId, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(response);
+    return { message: 'Successfully created wallet.' };
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const axiosError = error as AxiosError;
+      if (
+        axiosError.response &&
+        axiosError.response.status === 400 &&
+        axiosError.response.statusText === 'Bad Request'
+      ) {
+        console.error('Failed to create wallet:', error?.response?.data);
+        return {
+          status: 400,
+          message: `Failed to create wallet: ID - ${sessionId} already exists or has invalid format.`,
+        };
+      }
+    }
+    console.error('Failed to create wallet:', error);
+    return { message: 'Failed to create wallet.' };
+  }
+
+  //revalidatePath('/dashboard/wallet/create');
+  // redirect('/dashboard/wallet/create');
+}
+
+export async function createWalletUsdt(sessionId: string) {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  try {
+    const response = await axios.post(`${apiUrl}/adduser`, sessionId, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(response);
+    return { message: 'Successfully created wallet.' };
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const axiosError = error as AxiosError;
+      if (
+        axiosError.response &&
+        axiosError.response.status === 400 &&
+        axiosError.response.statusText === 'Bad Request'
+      ) {
+        console.error('Failed to create wallet:', error?.response?.data);
+        return {
+          status: 400,
+          message: `Failed to create wallet: ID - ${sessionId} already exists or has invalid format.`,
+        };
+      }
+    }
+    console.error('Failed to create wallet:', error);
+    return { message: 'Failed to create wallet.' };
+  }
+
+  //revalidatePath('/dashboard/wallet/create');
+  // redirect('/dashboard/wallet/create');
 }
 
 const CreateMerchant = z.object({
