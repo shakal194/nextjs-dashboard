@@ -15,10 +15,9 @@ import axios, { AxiosError } from 'axios';
 import { auth } from '@/auth';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
-//const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API_USA;
 
-const minerstatApi = process.env.NEXT_PUBLIC_MINERSTAT_API;
+//const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
+const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API_USA;
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
@@ -269,81 +268,29 @@ export async function fetchBtcBalance() {
     const balance = await axios.get(`${apiUrl}/getwalletinfo`);
 
     const binance = await axios.get(`${binanceApi}`);
-    //const minerstat = await axios.get(`${minerstatApi}`);
 
     const dataBalanceApi = await balance.data;
 
     const dataBinance = await binance.data;
-    //const dataMinerstat = await minerstat.data;
 
     const btcPriceBinance = dataBinance.price;
-    //const btcPriceMinerstat = dataMinerstat[0].price;
 
     const balanceInCurrency = dataBalanceApi.balance;
     const dataBtcBinance = balanceInCurrency * btcPriceBinance;
-    //const dataBtcMinerstat = balanceInCurrency * btcPriceMinerstat;
 
     const balanceInUsdBinance = parseFloat(dataBtcBinance.toFixed(4));
-    //const balanceInUsdMinerstat = parseFloat(dataBtcMinerstat.toFixed(4));
-    // Обработка полученных данных
+
     return { balanceInCurrency, balanceInUsdBinance };
-    //return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
   } catch (error: any) {
     console.error('Error fetching data:', error);
     if (error.code) {
-      //const balanceInUsdBinance = 0;
-      //const balanceInUsdMinerstat = 0;
-
       const balanceInUsdBinance = 'Waiting';
-      //const balanceInCurrency = 'Waiting';
-      //const balanceInUsdMinerstat = 'Waiting';
 
-      //let balanceInCurrency;
       return { balanceInUsdBinance };
-      //return { balanceInCurrency, balanceInUsdBinance };
-      //return { balanceInCurrency, balanceInUsdBinance, balanceInUsdMinerstat };
     }
     throw new Error('Failed to fetch data.');
   }
 }
-
-/*export async function fetchBtcBalanceEvery5Minutes() {
-  try {
-    const binanceApi = process.env.BINANCE_API;
-    const apiUrl = process.env.API_URL;
-
-    // Initial fetch
-    await fetchBtcBalance(binanceApi, apiUrl);
-
-    // Fetch BTC balance every 5 minutes
-    const interval = setInterval(
-      async () => {
-        await fetchBtcBalance(binanceApi, apiUrl);
-      },
-      5 * 60 * 1000,
-    );
-    return () => {
-      clearInterval(interval);
-      // Очистка или отмена подписок, если это необходимо
-    };
-  } catch (error) {
-    console.error('Error fetching BTC balance:', error);
-  }
-}*/
-
-/*export async function fetchGetListAllClients() {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    const response = await axios.get(`${apiUrl}/GetListAllClients`);
-    const data = await response.data;
-
-    // Обработка полученных данных
-    return data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    throw new Error('Failed to fetch data.');
-  }
-}*/
 
 export async function fetchMerchants() {
   const session = await auth();

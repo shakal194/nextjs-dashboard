@@ -10,6 +10,8 @@ import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import axios, { AxiosError } from 'axios';
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 const FormSchema = z.object({
   id: z.string(),
   customerId: z.string({
@@ -271,8 +273,6 @@ export async function createWalletEth(sessionId: string) {
 }
 
 export async function createWalletUsdt(sessionId: string) {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
   try {
     const response = await axios.post(`${apiUrl}/adduser`, sessionId, {
       headers: { 'Content-Type': 'application/json' },
@@ -362,4 +362,19 @@ export async function createMerchant(
 
   revalidatePath('/dashboard/merchants');
   redirect(`/dashboard/merchants/${merchant_id}`);
+}
+
+export async function fetchMerchantWalletById(id: string) {
+  try {
+    const response = await axios.get(`${apiUrl}/api/Btc/getallusers`);
+    const users = response.data;
+
+    // Фильтруем массив пользователей по login, соответствующему id мерчанта
+    const user = users.find((user: any) => user.login === id);
+
+    return user;
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    throw new Error('Failed to fetch user.');
+  }
 }
