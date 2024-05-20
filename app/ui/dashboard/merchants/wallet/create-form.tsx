@@ -12,6 +12,7 @@ import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import coins from '@/app/ui/_data/coin_slider-data.json';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const walletFunctions: { [key: string]: (sessionId: string) => Promise<any> } =
   {
@@ -37,6 +38,8 @@ export default function CreateWalletForm({ id }: { id: string }) {
 
         if (result.status === 400) {
           setErrorMessage(result.message);
+          Notify.init({ distance: '30px' });
+          Notify.failure(result.message);
         } else {
           console.error(result.message);
         }
@@ -46,6 +49,11 @@ export default function CreateWalletForm({ id }: { id: string }) {
     } else {
       console.error('Session or user ID not found.');
     }
+  };
+
+  const handleCoinSelection = (coinTitle: string) => {
+    setSelectedCoin(coinTitle);
+    setErrorMessage(null); // Очищаем сообщение об ошибке при смене монеты
   };
 
   return status === 'loading' ? (
@@ -61,7 +69,7 @@ export default function CreateWalletForm({ id }: { id: string }) {
                 ? 'bg-sky-100 text-blue-600'
                 : 'hover:bg-sky-100 hover:text-blue-600'
             }`}
-            onClick={() => setSelectedCoin(coin.title)}
+            onClick={() => handleCoinSelection(coin.title)}
           >
             <div className="flex items-center">
               <div className="mr-2 flex h-11 w-11 items-center justify-center rounded-3xl ">
@@ -87,7 +95,6 @@ export default function CreateWalletForm({ id }: { id: string }) {
         </Link>
         {selectedCoin && <Button type="submit">Create Wallet</Button>}
       </div>
-      {errorMessage && <p className="mt-10 text-red-500">{errorMessage}</p>}{' '}
     </form>
   );
 }

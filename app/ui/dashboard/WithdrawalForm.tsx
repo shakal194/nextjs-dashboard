@@ -13,7 +13,7 @@ export default function WithdrawalForm() {
     setSelectedCoin(e.target.value);
     setSelectedNetwork('');
     setWalletAddress('');
-    handleAmountChange('');
+    setAmount('');
   };
 
   const handleNetworkChange = (e: any) => {

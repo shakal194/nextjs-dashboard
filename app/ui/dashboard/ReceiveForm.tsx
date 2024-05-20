@@ -1,17 +1,30 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { DocumentDuplicateIcon } from '@heroicons/react/24/outline';
 import coins from '@/app/ui/_data/coin_slider-data.json';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
-export default function ReceiveForm() {
+export default function ReceiveForm({
+  walletAddress,
+}: {
+  walletAddress: string;
+}) {
   const [selectedCoin, setSelectedCoin] = useState('');
   const [selectedNetwork, setSelectedNetwork] = useState('');
-  const [walletAddress, setWalletAddress] = useState('');
+  const [address, setAddress] = useState(walletAddress);
+  const addressInputRef = useRef<HTMLInputElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    setAddress(walletAddress);
+  }, [walletAddress]);
 
   const handleCoinChange = (e: any) => {
     setSelectedCoin(e.target.value);
     setSelectedNetwork('');
-    setWalletAddress('');
+    //setAddress('');
   };
 
   const handleNetworkChange = (e: any) => {
@@ -19,8 +32,38 @@ export default function ReceiveForm() {
   };
 
   const handleAddressChange = (e: any) => {
-    setWalletAddress(e.target.value);
+    setAddress(e.target.value);
   };
+
+  const handleCopySuccess = () => {
+    Notify.success('Address copied');
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
+
+  /*const handleCopyToClipboard = async () => {
+    if (addressInputRef.current) {
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(
+            addressInputRef.current.innerText,
+          );
+          Notify.init({ distance: '30px' });
+          Notify.success('Address copied');
+        } else {
+          throw new Error('Clipboard API not supported');
+        }
+      } catch (err) {
+        const alertMessage = `Failed to copy: ${err}`;
+        console.log(err);
+        alert(alertMessage);
+        Notify.init({ distance: '30px' });
+        Notify.failure('Failed to copy:', err);
+      }
+    }
+  };*/
 
   // Находим объект монеты по выбранному значению
   const selectedCoinData = coins.find(
@@ -28,7 +71,7 @@ export default function ReceiveForm() {
   );
 
   return (
-    <div className="m-4">
+    <div>
       <form>
         <div className="flex flex-col">
           <label htmlFor="coin">
@@ -78,13 +121,12 @@ export default function ReceiveForm() {
             <label htmlFor="walletAddress">
               <strong>Wallet Address:</strong>
             </label>
-            <input
-              type="text"
-              id="walletAddress"
-              placeholder="Wallet Address"
-              value={walletAddress}
-              onChange={handleAddressChange}
-            />
+            <CopyToClipboard text={address} onCopy={handleCopySuccess}>
+              <div className="flex rounded border bg-white p-2 hover:cursor-pointer hover:text-blue-600">
+                <DocumentDuplicateIcon className="mr-2 w-5 md:w-6" />
+                {address}
+              </div>
+            </CopyToClipboard>
           </div>
         )}
       </form>

@@ -217,7 +217,7 @@ export function InvoicesTableSkeleton() {
   );
 }
 
-export function WalletSkeleton() {
+/*export function WalletSkeleton() {
   return (
     <div className="mt-6 flex gap-4">
       <div
@@ -225,6 +225,28 @@ export function WalletSkeleton() {
       >
         <div className="mr-2 h-10 w-20 rounded-md bg-gray-200" />
         <div className="h-10 w-40 rounded-md bg-gray-200" />
+      </div>
+    </div>
+  );
+}*/
+
+export function WalletSkeleton() {
+  return (
+    <div className="mt-6 flex flex-col">
+      <div
+        className={`${shimmer} relative flex items-center overflow-hidden rounded-lg bg-gray-100 p-2 shadow-sm`}
+      >
+        <div className="mr-2 h-11 w-32 rounded-lg rounded-md border-2 bg-gray-200 md:p-2 md:px-3" />
+        <div className="mr-2 h-11 w-32 rounded-lg rounded-md border-2 bg-gray-200 md:p-2 md:px-3" />
+        <div className="h-11 w-32 rounded-lg rounded-md border-2 bg-gray-200 md:p-2 md:px-3" />
+      </div>
+      <div className="mt-6 flex gap-4">
+        <div
+          className={`${shimmer} relative flex items-center overflow-hidden rounded-lg bg-gray-100 p-2 shadow-sm`}
+        >
+          <div className="mr-2 h-10 w-24 rounded-lg bg-gray-200 px-4"></div>
+          <div className="h-10 w-32 rounded-lg bg-gray-200 px-4"></div>
+        </div>
       </div>
     </div>
   );

@@ -19,8 +19,8 @@ export default async function Page() {
           <BalanceWrapper />
         </Suspense>
         <div className="grid gap-2 md:grid-cols-2">
-          <ReceiveButton />
-          <WithdrawalButton />
+          {/*<ReceiveButton />
+          <WithdrawalButton />*/}
         </div>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8"></div>

@@ -1,5 +1,5 @@
 import Breadcrumbs from '@/app/ui/dashboard/invoices/breadcrumbs';
-import { fetchMerchantById } from '@/app/lib/data';
+import { fetchMerchantById, fetchMerchantWalletById } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 import BalanceWrapper from '@/app/ui/dashboard/balance';
 import { Suspense } from 'react';
@@ -11,7 +11,10 @@ import { CreateWallet } from '@/app/ui/dashboard/merchants/wallet/buttons';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
-  const [merchant] = await Promise.all([fetchMerchantById(id)]);
+  const [merchant, wallet] = await Promise.all([
+    fetchMerchantById(id),
+    fetchMerchantWalletById(id),
+  ]);
   if (!merchant) {
     notFound();
   }
@@ -30,7 +33,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <BalanceWrapper />
         </Suspense>
         <div className="grid gap-2 md:grid-cols-2">
-          <ReceiveButton />
+          <ReceiveButton walletAddress={wallet.address} />
           <WithdrawalButton />
         </div>
       </div>

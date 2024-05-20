@@ -1,10 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/24/outline';
+import { ArrowDownIcon } from '@heroicons/react/24/outline';
 import ReceiveForm from '@/app/ui/dashboard/ReceiveForm';
 
-export default function ReceiveButton() {
+export default function ReceiveButton({
+  walletAddress,
+}: {
+  walletAddress: string;
+}) {
   const [showCoinForm, setShowCoinForm] = useState(false);
 
   const toggleCoinForm = () => {
@@ -22,7 +26,7 @@ export default function ReceiveButton() {
       </button>
 
       {/* Если showCoinForm равно true, отображаем CoinForm */}
-      {showCoinForm && <ReceiveForm />}
+      {showCoinForm && <ReceiveForm walletAddress={walletAddress} />}
     </div>
   );
 }

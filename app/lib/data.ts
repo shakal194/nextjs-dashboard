@@ -16,8 +16,8 @@ import { auth } from '@/auth';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-//const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
-const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API_USA;
+const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
+//const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API_USA;
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
@@ -333,5 +333,20 @@ export async function fetchMerchantById(id: string) {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch merchant.');
+  }
+}
+
+export async function fetchMerchantWalletById(id: string) {
+  try {
+    const response = await axios.get(`${apiUrl}/getallusers`);
+    const users = response.data;
+
+    // Фильтруем массив пользователей по login, соответствующему id мерчанта
+    const user = users.find((user: any) => user.login === id);
+
+    return user;
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    throw new Error('Failed to fetch user.');
   }
 }

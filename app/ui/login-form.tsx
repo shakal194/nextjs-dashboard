@@ -12,6 +12,8 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import React from 'react';
 import { Spinner } from '@nextui-org/react';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+Notify.init({ distance: '30px' });
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -75,6 +77,8 @@ export default function LoginForm() {
               <p className="text-sm text-red-500">{errorMessage}</p>
             </>
           )}
+
+          {/* {Notify.failure(errorMessage)}*/}
         </div>
       </div>
     </form>

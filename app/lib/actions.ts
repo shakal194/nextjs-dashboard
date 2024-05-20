@@ -228,7 +228,7 @@ export async function createWallet(sessionId: string) {
         console.error('Failed to create wallet:', error?.response?.data);
         return {
           status: 400,
-          message: `Failed to create wallet: ID - ${sessionId} already exists or has invalid format.`,
+          message: 'Failed to create wallet',
         };
       }
     }
@@ -260,7 +260,7 @@ export async function createWalletEth(sessionId: string) {
         console.error('Failed to create wallet:', error?.response?.data);
         return {
           status: 400,
-          message: `Failed to create wallet: ID - ${sessionId} already exists or has invalid format.`,
+          message: 'Failed to create wallet',
         };
       }
     }
@@ -290,7 +290,7 @@ export async function createWalletUsdt(sessionId: string) {
         console.error('Failed to create wallet:', error?.response?.data);
         return {
           status: 400,
-          message: `Failed to create wallet: ID - ${sessionId} already exists or has invalid format.`,
+          message: 'Failed to create wallet',
         };
       }
     }
@@ -362,19 +362,4 @@ export async function createMerchant(
 
   revalidatePath('/dashboard/merchants');
   redirect(`/dashboard/merchants/${merchant_id}`);
-}
-
-export async function fetchMerchantWalletById(id: string) {
-  try {
-    const response = await axios.get(`${apiUrl}/api/Btc/getallusers`);
-    const users = response.data;
-
-    // Фильтруем массив пользователей по login, соответствующему id мерчанта
-    const user = users.find((user: any) => user.login === id);
-
-    return user;
-  } catch (error) {
-    console.error('Error fetching user:', error);
-    throw new Error('Failed to fetch user.');
-  }
 }
