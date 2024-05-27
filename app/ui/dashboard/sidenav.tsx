@@ -3,9 +3,13 @@ import NavLinks from '@/app/ui/dashboard/nav-links';
 import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import { signOut } from '@/auth';
-import CoinsNav from '@/app/ui/dashboard/coins_nav';
-import Merchants from '@/app/ui/dashboard/merchants/Merchants';
-import MerchantsList from '@/app/ui/dashboard/merchants/merchants-links';
+import { CoinsNav } from '@/app/ui/dashboard/CoinsNav';
+import { Merchants } from '@/app/ui/dashboard/merchants/Merchants';
+import { MerchantsList } from '@/app/ui/dashboard/merchants/MerchantsList';
+import MerchantsMobile from '@/app/ui/dashboard/MerchantsMobile';
+/*import { CoinsNavMobile } from '@/app/ui/dashboard/CoinsNav';
+import { MobileMerchants } from '@/app/ui/dashboard/merchants/Merchants';
+import { MerchantsListMobile } from '@/app/ui/dashboard/merchants/MerchantsList';*/
 
 export default function SideNav() {
   return (
@@ -18,11 +22,16 @@ export default function SideNav() {
           <CoinsFishLogo />
         </div>
       </Link>
-      <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2 md:overflow-y-auto">
+      <div className="flex grow flex-row items-center justify-between space-x-2 md:flex-col md:items-stretch md:space-x-0 md:space-y-2 md:overflow-y-auto">
         <NavLinks />
-        <CoinsNav />
+        {/*<CoinsNav />
         <Merchants />
-        <MerchantsList />
+  <MerchantsList />*/}
+        <MerchantsMobile>
+          <CoinsNav />
+          <Merchants />
+          <MerchantsList />
+        </MerchantsMobile>
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <form
           action={async () => {

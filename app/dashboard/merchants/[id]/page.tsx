@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import { CardsSkeleton } from '@/app/ui/skeletons';
 import ReceiveButton from '@/app/ui/_components/ReceiveButton';
 import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
-import MerchantMenuPage from '@/app/ui/dashboard/merchants/merchants-menu';
+import MerchantMenuPage from '@/app/ui/dashboard/merchants/MerchantsMenu';
 import { CreateWallet } from '@/app/ui/dashboard/merchants/wallet/buttons';
 
 export default async function Page({ params }: { params: { id: string } }) {
@@ -15,6 +15,15 @@ export default async function Page({ params }: { params: { id: string } }) {
     fetchMerchantById(id),
     fetchMerchantWalletById(id),
   ]);
+
+  if (!wallet) {
+    notFound();
+  }
+
+  if (wallet.errorHandler === 'Waiting') {
+    wallet.address = 'Waiting';
+  }
+
   if (!merchant) {
     notFound();
   }
@@ -33,7 +42,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <BalanceWrapper />
         </Suspense>
         <div className="grid gap-2 md:grid-cols-2">
-          <ReceiveButton walletAddress={wallet.address} />
+          <ReceiveButton walletAddress={wallet?.address} />
           <WithdrawalButton />
         </div>
       </div>

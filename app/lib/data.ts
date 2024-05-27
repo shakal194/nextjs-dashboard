@@ -283,7 +283,8 @@ export async function fetchBtcBalance() {
     return { balanceInCurrency, balanceInUsdBinance };
   } catch (error: any) {
     console.error('Error fetching data:', error);
-    if (error.code) {
+
+    if (error.response.status === 500) {
       const balanceInUsdBinance = 'Waiting';
 
       return { balanceInUsdBinance };
@@ -308,8 +309,8 @@ export async function fetchMerchants() {
 
     const merchants = data.rows;
     return merchants;
-  } catch (err) {
-    console.error('Database Error:', err);
+  } catch (error) {
+    console.error('Database Error:', error);
     throw new Error('Failed to fetch all merchants.');
   }
 }
@@ -345,8 +346,13 @@ export async function fetchMerchantWalletById(id: string) {
     const user = users.find((user: any) => user.login === id);
 
     return user;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching user:', error);
+    if (error.response.status === 500) {
+      const errorHandler = 'Waiting';
+
+      return { errorHandler };
+    }
     throw new Error('Failed to fetch user.');
   }
 }
