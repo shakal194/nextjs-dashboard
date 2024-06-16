@@ -3,6 +3,8 @@ import { inter } from '@/app/ui/fonts';
 
 import { SessionProvider } from 'next-auth/react';
 import Providers from '@/app/providers';
+import { ModalProvider } from '@/app/ui/dashboard/merchants/context/ModalContext';
+import { InputProvider } from '@/app/ui/dashboard/merchants/context/InputContext';
 
 export default function RootLayout({
   children,
@@ -15,7 +17,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <Providers>
-          <SessionProvider>{children}</SessionProvider>
+          <InputProvider>
+            <ModalProvider>
+              <SessionProvider>{children}</SessionProvider>
+            </ModalProvider>
+          </InputProvider>
         </Providers>
       </body>
     </html>

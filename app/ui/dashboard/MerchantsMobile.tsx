@@ -1,42 +1,101 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ReactNode, useState, useEffect } from 'react';
+import { Bars3Icon, XCircleIcon } from '@heroicons/react/24/outline';
+import { useModal } from '@/app/ui/dashboard/merchants/context/ModalContext';
+import { useInput } from '@/app/ui/dashboard/merchants/context/InputContext';
 
 export default function MerchantsMobile({ children }: { children: ReactNode }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  //const [isModalMainOpen, setIsModalMainOpen] = useState(false);
+  const { openModal, closeModal, isModalOpen } = useModal();
+  const { resetInput } = useInput();
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
+  const blockBodyScroll = () => {
+    document.body.style.overflow = 'hidden';
+  };
+
+  const unblockBodyScroll = () => {
+    document.body.style.overflow = '';
+  };
+
+  /*const handleCloseModal = (modalName: any) => {
+    closeModal(modalName);
+    resetInput(); // Сброс состояния инпута при закрытии модалки
+  };*/
+
+  /*const handleModalOpen = () => {
+    setIsModalMainOpen(true);
   };
 
   const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
+    setIsModalMainOpen(false);
+  };*/
+
+  useEffect(() => {
+    if (isModalOpen('mobileMerchants')) {
+      blockBodyScroll();
+    } else {
+      unblockBodyScroll();
+    }
+
+    const handleEscapeKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeModal('mobileMerchants');
+        resetInput();
+        unblockBodyScroll();
+      }
+    };
+
+    /*const handleClickOutsideModal = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (target.classList.contains('bg-opacity-50')) {
+        closeModal('mobileMerchants');
+        resetInput();
+        unblockBodyScroll();
+      }
+    };*/
+
+    document.addEventListener('keydown', handleEscapeKeyPress);
+    //document.addEventListener('click', handleClickOutsideModal);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKeyPress);
+      //document.removeEventListener('click', handleClickOutsideModal);
+      unblockBodyScroll(); // Ensure to unblock scroll when component unmounts
+    };
+  }, [closeModal, resetInput, isModalOpen]);
 
   return (
     <div>
-      <div className="hidden flex-col px-3 py-4 md:block md:px-2">
-        {children}
-      </div>
-      <div className="relative h-full flex-col px-3 py-4 md:hidden md:px-2">
-        <Bars3Icon className="w-6 cursor-pointer" onClick={handleModalOpen} />
-        {isModalOpen && (
+      <div className="hidden md:block">{children}</div>
+      <div className="bg-gray-50 p-3 md:hidden">
+        <Bars3Icon
+          className="w-6 cursor-pointer"
+          onClick={() => openModal('mobileMerchants')}
+        />
+        {isModalOpen('mobileMerchants') && (
           <div
-            className="fixed inset-0 z-50 flex flex-col bg-white p-4"
-            onClick={handleModalClose}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900"
+            onClick={() => {
+              closeModal('mobileMerchants');
+              unblockBodyScroll();
+            }}
           >
             <div
-              className="flex justify-between"
+              className="relative mx-auto h-full w-full max-w-md  bg-white p-4"
               onClick={(e) => e.stopPropagation()}
             >
-              <h2 className="text-lg font-bold">Menu</h2>
-              <XMarkIcon
-                className="w-6 cursor-pointer"
-                onClick={handleModalClose}
-              />
+              <div className="relative flex justify-end">
+                <XCircleIcon
+                  className="w-6 cursor-pointer"
+                  onClick={() => {
+                    closeModal('mobileMerchants');
+                    unblockBodyScroll();
+                  }}
+                />
+              </div>
+              <div className="h-full overflow-y-auto">{children}</div>
             </div>
-            {children}
           </div>
         )}
       </div>

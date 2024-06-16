@@ -17,10 +17,10 @@ export async function MerchantsList() {
             key={merchant.merchant_name}
             href={`/dashboard/merchants/${merchant.merchant_id}`}
             className={clsx(
-              'h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex md:justify-start md:p-2 md:px-3',
+              'my-2 flex h-[48px] grow items-center justify-start gap-2 rounded-md bg-gray-50 px-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:p-2',
             )}
           >
-            <p className="">{merchant.merchant_name}</p>
+            <p>{merchant.merchant_name}</p>
           </Link>
         );
       })}

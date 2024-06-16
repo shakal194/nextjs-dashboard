@@ -3,11 +3,23 @@
 import { PlusIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 import { useFormState, useFormStatus } from 'react-dom';
-import { useState } from 'react';
+import { useState, forwardRef, useImperativeHandle } from 'react';
 import { createMerchant } from '@/app/lib/actions';
+import { useInput } from '@/app/ui/dashboard/merchants/context/InputContext';
 
-export default function MerchantForm() {
+const MerchantForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
+  const [merchantName, setMerchantName] = useState('');
+  const { inputValue, setInputValue } = useInput();
+
+  /*useImperativeHandle(ref, () => ({
+    get value() {
+      return merchantName;
+    },
+    set value(name) {
+      setMerchantName(name);
+    },
+  }));*/
 
   const initialState = {
     message: null,
@@ -27,6 +39,8 @@ export default function MerchantForm() {
             type="text"
             id="merchant_name"
             name="merchant_name"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
             required
             className="w-full rounded-md border-gray-300 p-2"
             placeholder="Merchant name"
@@ -60,7 +74,9 @@ export default function MerchantForm() {
       </div>
     </form>
   );
-}
+};
+
+export default MerchantForm;
 
 function MerchantButton() {
   const { pending } = useFormStatus();

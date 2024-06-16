@@ -1,36 +1,37 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { PlusIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/app/ui/button';
 import MerchantForm from '@/app/ui/dashboard/merchants/MerchantsForm';
+import { useModal } from '@/app/ui/dashboard/merchants/context/ModalContext';
+import { useInput } from '@/app/ui/dashboard/merchants/context/InputContext';
 
 export function Merchants() {
+  const inputRef = useRef(null);
   const pathname = usePathname();
+  const { resetInput } = useInput();
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  //const [isModalOpen, setIsModalOpen] = useState(false);
   const [merchantName, setMerchantName] = useState('');
 
-  const toggleModal = useCallback(() => {
-    setIsModalOpen((prev) => !prev);
-    if (!isModalOpen) {
-      setMerchantName('');
-    }
-  }, [isModalOpen, setMerchantName, setIsModalOpen]);
+  const { openModal, closeModal, isModalOpen, closeTopModal } = useModal();
 
   useEffect(() => {
     const handleEscapeKeyPress = (e: any) => {
       if (e.key === 'Escape') {
-        toggleModal();
+        closeTopModal();
+        resetInput();
       }
     };
 
     const handleClickOutsideModal = (e: any) => {
       if (e.target.classList.contains('bg-opacity-50')) {
-        toggleModal();
+        closeTopModal();
+        resetInput();
       }
     };
 
@@ -41,10 +42,10 @@ export function Merchants() {
       document.removeEventListener('keydown', handleEscapeKeyPress);
       document.removeEventListener('click', handleClickOutsideModal);
     };
-  }, [toggleModal]);
+  }, [closeTopModal]);
 
   return (
-    <div className="flex grow">
+    <div className="my-2 flex grow">
       <Link
         href="/dashboard/merchants"
         className={clsx(
@@ -59,14 +60,14 @@ export function Merchants() {
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            toggleModal();
+            openModal('createMerchant');
           }}
         >
           <PlusIcon className="w-6" />
         </Button>
       </Link>
 
-      {isModalOpen && (
+      {isModalOpen('createMerchant') && (
         <div
           className="fixed inset-0 flex h-full items-center justify-center bg-gray-900 bg-opacity-50"
           onClick={(e) => {
@@ -75,9 +76,9 @@ export function Merchants() {
         >
           <div className="relative w-96 rounded-md bg-white p-8">
             <div className="mb-4 border border-x-0 border-t-0 border-b-slate-300">
-              <XMarkIcon
+              <XCircleIcon
                 className="absolute right-0 top-0 m-3 h-6 w-6 cursor-pointer text-gray-700"
-                onClick={toggleModal}
+                onClick={() => closeModal('createMerchant')}
               />
               <h2 className="mb-4 text-xl font-bold">Create new merchant</h2>
             </div>
