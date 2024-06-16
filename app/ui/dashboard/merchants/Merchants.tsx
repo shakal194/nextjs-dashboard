@@ -23,6 +23,7 @@ export function Merchants() {
   useEffect(() => {
     const handleEscapeKeyPress = (e: any) => {
       if (e.key === 'Escape') {
+        //closeModal('createMerchant');
         closeTopModal();
         resetInput();
       }
@@ -30,7 +31,7 @@ export function Merchants() {
 
     const handleClickOutsideModal = (e: any) => {
       if (e.target.classList.contains('bg-opacity-50')) {
-        closeTopModal();
+        closeModal('createMerchant');
         resetInput();
       }
     };
@@ -42,7 +43,7 @@ export function Merchants() {
       document.removeEventListener('keydown', handleEscapeKeyPress);
       document.removeEventListener('click', handleClickOutsideModal);
     };
-  }, [closeTopModal]);
+  }, [closeModal]);
 
   return (
     <div className="my-2 flex grow">
@@ -69,7 +70,7 @@ export function Merchants() {
 
       {isModalOpen('createMerchant') && (
         <div
-          className="fixed inset-0 flex h-full items-center justify-center bg-gray-900 bg-opacity-50"
+          className="fixed inset-0 z-50 flex h-full items-center justify-center bg-gray-900 bg-opacity-50"
           onClick={(e) => {
             e.stopPropagation(); // Prevent closing parent modal
           }}
