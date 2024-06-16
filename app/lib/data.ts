@@ -16,8 +16,8 @@ import { auth } from '@/auth';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-//const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
-const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API_USA;
+const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
+//const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API_USA;
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
