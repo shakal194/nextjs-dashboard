@@ -9,6 +9,44 @@ export type User = {
   password: string;
 };
 
+/*export type Settings = {
+  [category: string]: {
+    [option: string]: {
+      Email: boolean;
+      Google2Fa: boolean;
+      SMS: boolean;
+    };
+  };
+};*/
+
+export type OptionSettings = {
+  Email: boolean;
+  Google2Fa: boolean;
+  SMS: boolean;
+};
+
+export type CategorySettings = {
+  [option: string]: OptionSettings;
+};
+
+export type Settings = {
+  [category: string]: CategorySettings;
+};
+
+export type NotificationSettings = {
+  Email: boolean;
+  Telegram: boolean;
+  SMS: boolean;
+};
+
+export type CategoryNotificationSettings = {
+  [option: string]: NotificationSettings;
+};
+
+export type SettingsNotification = {
+  [category: string]: CategoryNotificationSettings;
+};
+
 export type Merchant = {
   merchant_id: string;
   user_id: string;
