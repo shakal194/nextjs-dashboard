@@ -43,7 +43,7 @@ export function Merchants() {
       document.removeEventListener('keydown', handleEscapeKeyPress);
       document.removeEventListener('click', handleClickOutsideModal);
     };
-  }, [closeModal]);
+  }, [closeModal, closeTopModal, resetInput]);
 
   return (
     <div className="my-2 flex grow">
