@@ -14,13 +14,14 @@ import HomeSession from '@/app/ui/_components/HomeSession';
 
 export const metadata: Metadata = {
   title: 'CoinsFish Home Page',
-  description: 'Welcome to CoinsFish. Helps You Receive Payments From Anyone In The World.',
+  description:
+    'Welcome to CoinsFish. Helps You Receive Payments From Anyone In The World.',
 };
 
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 justify-between rounded-lg bg-blue-500 p-4 md:h-20">
+      <div className="flex h-20 shrink-0 items-center justify-between rounded-lg bg-blue-500 p-4 md:h-20">
         <Link href="/">
           <CoinsFishLogo />
         </Link>

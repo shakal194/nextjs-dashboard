@@ -6,6 +6,7 @@ import {
   CategorySettings,
   Settings,
 } from '@/app/lib/definitions';
+import SettingsSideNav from '@/app/ui/dashboard/SettingsSideNav';
 
 /*interface OptionSettings {
   Email: boolean;
