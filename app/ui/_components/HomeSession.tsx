@@ -10,12 +10,12 @@ export default function HomeSession() {
   return session ? (
     <Link
       href="/dashboard"
-      className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+      className="mt-10 flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
     >
       <span>Go to dashboard</span> <ArrowRightIcon className="w-5 md:w-6" />
     </Link>
   ) : (
-    <ul className="flex">
+    <ul className="mt-10 flex">
       <li className="mr-5">
         <Link
           href="/login"
