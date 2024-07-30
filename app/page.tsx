@@ -11,6 +11,7 @@ import Accordion from '@/app/ui/_components/accordion';
 import ThemeButton from '@/app/ui/_components/ThemeButton';
 import { Metadata } from 'next';
 import HomeSession from '@/app/ui/_components/HomeSession';
+import HeaderSession from '@/app/ui/_components/HeaderSession';
 
 export const metadata: Metadata = {
   title: 'CoinsFish Home Page',
@@ -26,11 +27,16 @@ export default function Page() {
           <CoinsFishLogo />
         </Link>
         <div className="flex items-end items-center justify-center gap-2 p-6 text-white">
-          <Link href="/about-us">About Us</Link>
-          <Link href="/contacts">Contacts</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/login">Login</Link>
-
+          <Link href="/about-us" className="hover:underline focus:underline">
+            About Us
+          </Link>
+          <Link href="/contacts" className="hover:underline focus:underline">
+            Contacts
+          </Link>
+          <Link href="/pricing" className="hover:underline focus:underline">
+            Pricing
+          </Link>
+          <HeaderSession />
           <ThemeButton />
         </div>
       </div>
