@@ -12,6 +12,7 @@ import ThemeButton from '@/app/ui/_components/ThemeButton';
 import { Metadata } from 'next';
 import HomeSession from '@/app/ui/_components/HomeSession';
 import HeaderSession from '@/app/ui/_components/HeaderSession';
+import Header from '@/app/ui/_components/Header';
 
 export const metadata: Metadata = {
   title: 'CoinsFish Home Page',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
-      <div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between rounded-lg bg-blue-500 p-4 md:h-20">
+      {/*<div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between rounded-lg bg-blue-500 p-4 md:h-20">
         <Link href="/">
           <CoinsFishLogo />
         </Link>
@@ -39,7 +40,9 @@ export default function Page() {
           <HeaderSession />
           <ThemeButton />
         </div>
-      </div>
+      </div>*/}
+
+      <Header />
 
       <div className="mt-4 flex justify-between rounded-lg bg-gray-100 p-4">
         <ul className="flex gap-4">
@@ -511,7 +514,7 @@ export default function Page() {
           </div>
         </section>
       </div>
-      <Footer></Footer>
+      <Footer />
     </main>
   );
 }
