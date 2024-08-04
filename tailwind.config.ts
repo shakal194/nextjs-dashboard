@@ -9,6 +9,9 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     extend: {
+      maxWidth: {
+        '33%': 'calc(33% - 24px)',
+      },
       backgroundImage: {
         'bg-pattern': "url('/public/bg_light.png')",
       },

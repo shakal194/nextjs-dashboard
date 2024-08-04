@@ -1,4 +1,5 @@
 import CoinsFishLogo from '@/app/ui/coinsfish-logo';
+import Header from '@/app/ui/_components/Header';
 import Footer from '@/app/ui/footer';
 import Link from 'next/link';
 import { lusitana } from '@/app/ui/fonts';
@@ -12,7 +13,6 @@ import ThemeButton from '@/app/ui/_components/ThemeButton';
 import { Metadata } from 'next';
 import HomeSession from '@/app/ui/_components/HomeSession';
 import HeaderSession from '@/app/ui/_components/HeaderSession';
-import Header from '@/app/ui/_components/Header';
 
 export const metadata: Metadata = {
   title: 'CoinsFish Home Page',
@@ -22,8 +22,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col p-6">
-      {/*<div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between rounded-lg bg-blue-500 p-4 md:h-20">
+    <div className="relative min-h-screen">
+      <Header />
+      <main className="flex min-h-screen flex-col p-6">
+        {/*<div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between rounded-lg bg-blue-500 p-4 md:h-20">
         <Link href="/">
           <CoinsFishLogo />
         </Link>
@@ -42,205 +44,203 @@ export default function Page() {
         </div>
       </div>*/}
 
-      <Header />
+        <div className="mt-4 flex justify-between rounded-lg bg-gray-100 p-4">
+          <ul className="flex gap-4">
+            <li className="group relative hover:cursor-pointer">
+              <Link
+                href="/merchant-digital-wallets"
+                className="hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline"
+              >
+                Merchant Digital Wallets
+              </Link>
+              <ul className="invisible absolute -left-4 min-w-[calc(100%+90px)] rounded-lg bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_16px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] transition delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100">
+                <li>
+                  <Link
+                    href="/merchant-solution"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline"
+                  >
+                    Merchant Digital Wallet Solution
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/available-currencies"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
+                  >
+                    Available Currencies
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fees-pricing"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
+                  >
+                    Fees & Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/solution-comparison"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
+                  >
+                    Solution Comparison
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/minimum-deposits-withdrawals"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
+                  >
+                    Minimum Deposits and Withdrawals
+                  </Link>
+                </li>
+              </ul>
+            </li>
 
-      <div className="mt-4 flex justify-between rounded-lg bg-gray-100 p-4">
-        <ul className="flex gap-4">
-          <li className="group relative hover:cursor-pointer">
-            <Link
-              href="/merchant-digital-wallets"
-              className="hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline"
-            >
-              Merchant Digital Wallets
-            </Link>
-            <ul className="invisible absolute -left-4 min-w-[calc(100%+90px)] rounded-lg bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_16px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] group-hover:visible group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-300 group-hover:ease-in-out">
-              <li>
-                <Link
-                  href="/merchant-solution"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline"
-                >
-                  Merchant Digital Wallet Solution
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/available-currencies"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
-                >
-                  Available Currencies
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/fees-pricing"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
-                >
-                  Fees & Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solution-comparison"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
-                >
-                  Solution Comparison
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/minimum-deposits-withdrawals"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
-                >
-                  Minimum Deposits and Withdrawals
-                </Link>
-              </li>
-            </ul>
-          </li>
+            <li className="group relative hover:cursor-pointer">
+              <Link
+                href="/enterprise-blockchain-wallets"
+                className="hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline"
+              >
+                Enterprise Blockchain Wallets
+              </Link>
+              <ul className="invisible absolute -left-4 min-w-[calc(100%+50px)] rounded-lg bg-blue-500 bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_46px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] transition delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100">
+                <li>
+                  <Link
+                    href="/enterprise-solution"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
+                  >
+                    Enterprise Blockchain Wallets Solution
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/available-currencies"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
+                  >
+                    Available Currencies
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fees-pricing"
+                    className="block py-2.5 pl-2.5 pr-[26px]   text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
+                  >
+                    Fees & Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/solution-comparison"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
+                  >
+                    Solution Comparison
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/minimum-deposits-withdrawals"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
+                  >
+                    Minimum Deposits and Withdrawals
+                  </Link>
+                </li>
+              </ul>
+            </li>
 
-          <li className="group relative hover:cursor-pointer">
-            <Link
-              href="/enterprise-blockchain-wallets"
-              className="hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline"
-            >
-              Enterprise Blockchain Wallets
-            </Link>
-            <ul className="invisible absolute -left-4 min-w-[calc(100%+50px)] rounded-lg bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_46px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] group-hover:visible group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-300 group-hover:ease-in-out">
-              <li>
-                <Link
-                  href="/enterprise-solution"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
-                >
-                  Enterprise Blockchain Wallets Solution
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/available-currencies"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
-                >
-                  Available Currencies
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/fees-pricing"
-                  className="block py-2.5 pl-2.5 pr-[26px]   text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
-                >
-                  Fees & Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solution-comparison"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
-                >
-                  Solution Comparison
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/minimum-deposits-withdrawals"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline "
-                >
-                  Minimum Deposits and Withdrawals
-                </Link>
-              </li>
-            </ul>
-          </li>
+            <li className="group relative hover:cursor-pointer">
+              <Link
+                href="/swap-wallets"
+                className="hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline"
+              >
+                Swap Wallets
+              </Link>
+            </li>
+          </ul>
 
-          <li className="group relative hover:cursor-pointer">
-            <Link
-              href="/swap-wallets"
-              className="hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline"
-            >
-              Swap Wallets
-            </Link>
-          </li>
-        </ul>
-
-        <div>
-          <div className="group relative hover:cursor-pointer">
-            <Link
-              href="/support"
-              className="hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline"
-            >
-              Support
-            </Link>
-            <ul className="bg-opacity-98 invisible absolute right-0 min-w-[calc(100%+70px)] rounded-lg bg-white p-4 shadow-lg backdrop-blur-[115px] transition-opacity duration-300 group-hover:visible group-hover:opacity-100">
-              <li>
-                <Link
-                  href="/api"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline"
-                >
-                  API
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/release-notes"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline"
-                >
-                  Release Notes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/guides"
-                  className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline"
-                >
-                  Guides (How To)
-                </Link>
-              </li>
-            </ul>
+          <div>
+            <div className="group relative hover:cursor-pointer">
+              <Link
+                href="/support"
+                className="hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline"
+              >
+                Support
+              </Link>
+              <ul className="bg-opacity-98 invisible absolute right-0 min-w-[calc(100%+70px)] rounded-lg bg-white p-4 opacity-0 shadow-lg backdrop-blur-[115px] transition-all delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100">
+                <li>
+                  <Link
+                    href="/api"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline"
+                  >
+                    API
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/release-notes"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline"
+                  >
+                    Release Notes
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/guides"
+                    className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline"
+                  >
+                    Guides (How To)
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="mt-4 flex grow flex-col gap-4 md:flex-row md:gap-10 lg:gap-52">
-        <div className="flex flex-col justify-center rounded-lg bg-gray-50 dark:bg-inherit">
-          <p className="mb-8 text-[15px] font-medium leading-[150%] text-[#91919e]">
-            Digital Assets Processing
-          </p>
-          <p
-            className={`${lusitana.className} text-xl text-gray-800 dark:text-white md:text-3xl md:leading-normal`}
-          >
-            <strong>Accept Bitcoin Payments with CoinsFish</strong>
-          </p>
-          <p className="mt-4 text-[24px] font-medium leading-[32px] text-[#3b4048]">
-            Send, Store, Exchange and Accept Cryptocurrency.
-          </p>
+        <div className="mt-4 flex grow flex-col gap-4 md:flex-row md:gap-10 lg:gap-52">
+          <div className="flex flex-col justify-center rounded-lg bg-gray-50 dark:bg-inherit">
+            <p className="mb-8 text-[15px] font-medium leading-[150%] text-[#91919e]">
+              Digital Assets Processing
+            </p>
+            <p
+              className={`${lusitana.className} text-xl text-gray-800 dark:text-white md:text-3xl md:leading-normal`}
+            >
+              <strong>Accept Bitcoin Payments with CoinsFish</strong>
+            </p>
+            <p className="mt-4 text-[24px] font-medium leading-[32px] text-[#3b4048]">
+              Send, Store, Exchange and Accept Cryptocurrency.
+            </p>
 
-          <HomeSession />
+            <HomeSession />
+          </div>
+          <div className="flex items-center justify-center">
+            {/* Add Hero Images Here */}
+            <Image
+              src="/Main-picture-1-1000x748.png"
+              width={1000}
+              height={748}
+              className="hidden lg:block"
+              alt="DesctopMain picture"
+              sizes="(max-width: 500px) 500px, (max-width: 800px) 800px, (max-width: 2048px) 1000px"
+            />
+            <Image
+              src="/Main-picture-1-800x599.png"
+              width={800}
+              height={599}
+              className="hidden md:block lg:hidden"
+              alt="Tablet picture"
+              sizes="(max-width: 500px) 500px, (max-width: 800px) 800px, (max-width: 2048px) 1000px"
+            />
+            <Image
+              src="/Main-picture-1-500x374.png"
+              width={500}
+              height={374}
+              className="block md:hidden"
+              alt="Mobile picture"
+              sizes="(max-width: 500px) 500px, (max-width: 800px) 800px, (max-width: 2048px) 1000px"
+            />
+          </div>
         </div>
-        <div className="flex items-center justify-center">
-          {/* Add Hero Images Here */}
-          <Image
-            src="/Main-picture-1-1000x748.png"
-            width={1000}
-            height={748}
-            className="hidden lg:block"
-            alt="DesctopMain picture"
-            sizes="(max-width: 500px) 500px, (max-width: 800px) 800px, (max-width: 2048px) 1000px"
-          />
-          <Image
-            src="/Main-picture-1-800x599.png"
-            width={800}
-            height={599}
-            className="hidden md:block lg:hidden"
-            alt="Tablet picture"
-            sizes="(max-width: 500px) 500px, (max-width: 800px) 800px, (max-width: 2048px) 1000px"
-          />
-          <Image
-            src="/Main-picture-1-500x374.png"
-            width={500}
-            height={374}
-            className="block md:hidden"
-            alt="Mobile picture"
-            sizes="(max-width: 500px) 500px, (max-width: 800px) 800px, (max-width: 2048px) 1000px"
-          />
-        </div>
-      </div>
-      {/*<div className="mb-8 mt-4 lg:mb-14">
+        {/*<div className="mb-8 mt-4 lg:mb-14">
         <h2 className="text-5xl font-bold">
           What are CoinsFish crypto payment gateway features?
         </h2>
@@ -399,8 +399,8 @@ export default function Page() {
         </div>
       </div>*/}
 
-      {/* Accordion in mobile and tablet */}
-      {/*<div className="block rounded-3xl bg-slate-300 p-8 dark:bg-gray-700 lg:hidden">
+        {/* Accordion in mobile and tablet */}
+        {/*<div className="block rounded-3xl bg-slate-300 p-8 dark:bg-gray-700 lg:hidden">
         <Accordion />
       </div>
 
@@ -410,111 +410,116 @@ export default function Page() {
       <div className="pt-43 pr-82 pb-63 mt-4">
         <CoinSlider data={dataCoinSlider} />
       </div>*/}
-      <div className="container mx-auto px-4">
-        <section className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div className="flex flex-col items-center">
-            <Image
-              src="/svg/Icons-2.svg"
-              alt="All types of crypto"
-              width={50}
-              height={50}
-            />
-            <h3 className="mt-4 text-lg font-semibold">All types of crypto</h3>
-            <p className="text-center">
-              Coins, StableCoins, Tokens are supported.
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="/svg/Icons-3.svg"
-              alt="Major Blockchains"
-              width={50}
-              height={50}
-            />
-            <h3 className="mt-4 text-lg font-semibold">Major Blockchains</h3>
-            <p className="text-center">
-              Bitcoin, Ethereum, Solana, Binance Smart Chain, Ripple, etc.
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="/svg/Group.svg"
-              alt="Free of Charge"
-              width={50}
-              height={50}
-            />
-            <h3 className="mt-4 text-lg font-semibold">Free of Charge</h3>
-            <p className="text-center">
-              All outgoing transactions, transfers and payouts in crypto are
-              free of charge.
-            </p>
-          </div>
-        </section>
+        <div className="container mx-auto px-4">
+          <section className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="flex flex-col items-center">
+              <Image
+                src="/svg/Icons-2.svg"
+                alt="All types of crypto"
+                width={50}
+                height={50}
+              />
+              <h3 className="mt-4 text-lg font-semibold">
+                All types of crypto
+              </h3>
+              <p className="text-center">
+                Coins, StableCoins, Tokens are supported.
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Image
+                src="/svg/Icons-3.svg"
+                alt="Major Blockchains"
+                width={50}
+                height={50}
+              />
+              <h3 className="mt-4 text-lg font-semibold">Major Blockchains</h3>
+              <p className="text-center">
+                Bitcoin, Ethereum, Solana, Binance Smart Chain, Ripple, etc.
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Image
+                src="/svg/Group.svg"
+                alt="Free of Charge"
+                width={50}
+                height={50}
+              />
+              <h3 className="mt-4 text-lg font-semibold">Free of Charge</h3>
+              <p className="text-center">
+                All outgoing transactions, transfers and payouts in crypto are
+                free of charge.
+              </p>
+            </div>
+          </section>
 
-        <section className="mt-16">
-          <h2 className="text-2xl font-bold">Our Products</h2>
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="flex flex-col md:flex-row">
-              <div className="md:w-1/2">
-                <h3 className="text-xl font-semibold">
-                  Merchant Digital Wallets
-                </h3>
-                <p className="mt-2">
-                  Crypto payment solution for businesses looking to offer
-                  customers another method of payment and attract new clients
-                  who want to pay with cryptocurrency.
-                </p>
-                <ul className="mt-4 space-y-2">
-                  <li>Seamless payment processing</li>
-                  <li>Global market reach</li>
-                  <li>Enhanced security</li>
-                </ul>
-                <Link
-                  href="/merchant-digital-wallets"
-                  className="mt-4 text-blue-600 hover:underline"
-                >
-                  Read more
-                </Link>
+          <section className="mt-16">
+            <h2 className="text-2xl font-bold">Our Products</h2>
+            <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+              <div className="flex flex-col md:flex-row">
+                <div className="md:w-1/2">
+                  <h3 className="text-xl font-semibold">
+                    Merchant Digital Wallets
+                  </h3>
+                  <p className="mt-2">
+                    Crypto payment solution for businesses looking to offer
+                    customers another method of payment and attract new clients
+                    who want to pay with cryptocurrency.
+                  </p>
+                  <ul className="mt-4 space-y-2">
+                    <li>Seamless payment processing</li>
+                    <li>Global market reach</li>
+                    <li>Enhanced security</li>
+                  </ul>
+                  <Link
+                    href="/merchant-digital-wallets"
+                    className="mt-4 text-blue-600 hover:underline"
+                  >
+                    Read more
+                  </Link>
+                </div>
+                <div className="mt-4 md:mt-0 md:w-1/2">
+                  <Image
+                    src="/svg/Wallets-2.svg"
+                    alt="Dashboard Screenshot"
+                    width={400}
+                    height={300}
+                  />
+                </div>
               </div>
-              <div className="mt-4 md:mt-0 md:w-1/2">
-                <Image
-                  src="/path/to/dashboard-screenshot.png"
-                  alt="Dashboard Screenshot"
-                  width={400}
-                  height={300}
-                />
+              <div className="flex flex-col md:flex-row">
+                <div className="md:w-1/2">
+                  <h3 className="text-xl font-semibold">
+                    Enterprise Blockchain Wallets
+                  </h3>
+                  <p className="mt-2">
+                    Blockchain wallet solution that lets you get access to all
+                    blockchains through a single API. With a single reach you
+                    can offer everything: integrating with good blockchain
+                    security, use one solution and get access to all
+                    blockchains.
+                  </p>
+                  <ul className="mt-4 space-y-2">
+                    <li>Robust infrastructure tailored for businesses</li>
+                    <li>Scalable solution</li>
+                    <li>
+                      Comprehensive reporting and analytics tools for
+                      transactions
+                    </li>
+                  </ul>
+                  <Link
+                    href="/enterprise-blockchain-wallets"
+                    className="mt-4 text-blue-600 hover:underline"
+                  >
+                    Read more
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row">
-              <div className="md:w-1/2">
-                <h3 className="text-xl font-semibold">
-                  Enterprise Blockchain Wallets
-                </h3>
-                <p className="mt-2">
-                  Blockchain wallet solution that lets you get access to all
-                  blockchains through a single API. With a single reach you can
-                  offer everything: integrating with good blockchain security,
-                  use one solution and get access to all blockchains.
-                </p>
-                <ul className="mt-4 space-y-2">
-                  <li>Robust infrastructure tailored for businesses</li>
-                  <li>Scalable solution</li>
-                  <li>
-                    Comprehensive reporting and analytics tools for transactions
-                  </li>
-                </ul>
-                <Link
-                  href="/enterprise-blockchain-wallets"
-                  className="mt-4 text-blue-600 hover:underline"
-                >
-                  Read more
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <Footer />
-    </main>
+          </section>
+        </div>
+        <Footer />
+      </main>{' '}
+    </div>
   );
 }
