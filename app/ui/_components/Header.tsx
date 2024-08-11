@@ -5,8 +5,8 @@ import HeaderSession from '@/app/ui/_components/HeaderSession';
 
 const Header = () => {
   return (
-    <>
-      <div className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between rounded-lg bg-blue-500 p-4 md:h-20">
+    <header className="sticky top-0 z-10 ">
+      <div className="flex h-20 shrink-0 items-center justify-between rounded-lg bg-blue-500 p-4 md:h-20">
         <Link href="/">
           <CoinsFishLogo />
         </Link>
@@ -24,7 +24,7 @@ const Header = () => {
           <ThemeButton />
         </div>
       </div>
-    </>
+    </header>
   );
 };
 

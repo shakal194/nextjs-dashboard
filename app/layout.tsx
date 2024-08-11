@@ -5,6 +5,8 @@ import { SessionProvider } from 'next-auth/react';
 import Providers from '@/app/providers';
 import { ModalProvider } from '@/app/ui/dashboard/merchants/context/ModalContext';
 import { InputProvider } from '@/app/ui/dashboard/merchants/context/InputContext';
+import Header from '@/app/ui/_components/Header';
+import Footer from '@/app/ui/footer';
 
 export default function RootLayout({
   children,
@@ -19,7 +21,11 @@ export default function RootLayout({
         <Providers>
           <InputProvider>
             <ModalProvider>
-              <SessionProvider>{children}</SessionProvider>
+              <SessionProvider>
+                {/*<Header />*/}
+                {children}
+                {/*<Footer />*/}
+              </SessionProvider>
             </ModalProvider>
           </InputProvider>
         </Providers>

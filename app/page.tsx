@@ -48,7 +48,7 @@ export default function Page() {
           <ul className="flex gap-4">
             <li className="group relative hover:cursor-pointer">
               <Link
-                href="/merchant-digital-wallets"
+                href="/cryptocurrency-payment-gateway"
                 className="hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline"
               >
                 Merchant Digital Wallets
@@ -56,7 +56,7 @@ export default function Page() {
               <ul className="invisible absolute -left-4 min-w-[calc(100%+90px)] rounded-lg bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_16px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] transition delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100">
                 <li>
                   <Link
-                    href="/merchant-solution"
+                    href="/cryptocurrency-payment-gateway"
                     className="block py-2.5 pl-2.5 pr-[26px] text-sm hover:cursor-pointer hover:text-blue-800 hover:underline"
                   >
                     Merchant Digital Wallet Solution
@@ -402,14 +402,14 @@ export default function Page() {
         {/* Accordion in mobile and tablet */}
         {/*<div className="block rounded-3xl bg-slate-300 p-8 dark:bg-gray-700 lg:hidden">
         <Accordion />
-      </div>
-
-      <div className="bg-gray pt-43 pr-82 pb-63 mt-4 max-w-max rounded-3xl bg-[url('/bg_light.png')] bg-right bg-no-repeat">
-        <Slider data={dataSlider} />
-      </div>
-      <div className="pt-43 pr-82 pb-63 mt-4">
-        <CoinSlider data={dataCoinSlider} />
       </div>*/}
+
+        <div className="bg-gray pt-43 pr-82 pb-63 mt-4 max-w-max rounded-3xl bg-[url('/bg_light.png')] bg-right bg-no-repeat">
+          <Slider data={dataSlider} />
+        </div>
+        <div className="pt-43 pr-82 pb-63 mt-4">
+          <CoinSlider data={dataCoinSlider} />
+        </div>
         <div className="container mx-auto px-4">
           <section className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="flex flex-col items-center">

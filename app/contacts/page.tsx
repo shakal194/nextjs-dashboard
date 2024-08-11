@@ -4,7 +4,7 @@ import Footer from '@/app/ui/footer';
 const Contact = () => {
   return (
     <main className="flex min-h-screen flex-col p-6">
-      <Header />
+      {/*<Header />*/}
       <section className="block_contact_us py-40">
         <div className="container mx-auto px-4">
           <div className="block_contact_us__inner flex flex-wrap justify-between gap-y-9 md:flex-row">
