@@ -31,7 +31,7 @@ const SliderCryptocurrency: React.FC<SliderProps> = ({ data }) => {
           <SwiperSlide key={id}>
             <div
               key={id}
-              className="block_hero_slider_item h-[150px] rounded bg-white p-4 shadow-md"
+              className="block_hero_slider_item h-[150px] rounded bg-white p-4 shadow-md dark:bg-slate-700"
             >
               <h4 className="text-xl font-semibold">{title}</h4>
               <p className="mt-2">{description}</p>
