@@ -101,7 +101,7 @@ const CryptoCurrencyPaymentGateway = () => {
             <div className="svg_scheme flex justify-center">
               <div className="svg_scheme_container resize-v2-wrapper">
                 <Image
-                  className="lazy resize-v2 m-w-full w-full"
+                  className="lazy resize-v2 w-full max-w-full"
                   decoding="async"
                   loading="lazy"
                   priority={false}
@@ -432,7 +432,7 @@ const CryptoCurrencyPaymentGateway = () => {
             <div className="svg_scheme">
               <div className="svg_scheme_container resize-v2-wrapper">
                 <Image
-                  className="lazy resize-v2 m-w-full h-[500px] w-[500px]"
+                  className="lazy resize-v2 h-[500px] w-[500px] max-w-full"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -481,7 +481,7 @@ const CryptoCurrencyPaymentGateway = () => {
             <div className="block_business_model_slider_row flex flex-wrap justify-between">
               <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
                 <Image
-                  className="lazy max-h-[50px]object-contain mb-[24px] max-h-[50px] max-w-[50px]"
+                  className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -501,7 +501,7 @@ const CryptoCurrencyPaymentGateway = () => {
               </div>
               <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
                 <Image
-                  className="lazy mb-[24px] max-h-[50px] max-w-[50px] object-contain"
+                  className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -520,7 +520,7 @@ const CryptoCurrencyPaymentGateway = () => {
               </div>
               <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
                 <Image
-                  className="lazy mb-[24px] max-h-[50px] max-w-[50px] object-contain"
+                  className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -540,7 +540,7 @@ const CryptoCurrencyPaymentGateway = () => {
               </div>
               <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
                 <Image
-                  className="lazy mb-[24px] max-h-[50px] max-w-[50px] object-contain"
+                  className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -560,7 +560,7 @@ const CryptoCurrencyPaymentGateway = () => {
               </div>
               <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
                 <Image
-                  className="lazy mb-[24px] max-h-[50px] max-w-[50px] object-contain"
+                  className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -579,7 +579,7 @@ const CryptoCurrencyPaymentGateway = () => {
               </div>
               <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
                 <Image
-                  className="lazy mb-[24px] max-h-[50px] max-w-[50px] object-contain"
+                  className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -599,7 +599,7 @@ const CryptoCurrencyPaymentGateway = () => {
               </div>
               <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
                 <Image
-                  className="lazy mb-[24px] max-h-[50px] max-w-[50px] object-contain"
+                  className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -619,7 +619,7 @@ const CryptoCurrencyPaymentGateway = () => {
               </div>
               <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
                 <Image
-                  className="lazy mb-[24px] max-h-[50px] max-w-[50px] object-contain"
+                  className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -639,7 +639,7 @@ const CryptoCurrencyPaymentGateway = () => {
               </div>
               <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
                 <Image
-                  className="lazy mb-[24px] max-h-[50px] max-w-[50px] object-contain"
+                  className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
                   decoding="async"
                   loading="lazy"
                   width={0}
