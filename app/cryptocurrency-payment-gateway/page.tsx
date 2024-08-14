@@ -1,6 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { CheckIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  CheckIcon,
+  XMarkIcon,
+  ArrowLongRightIcon,
+  ArrowRightIcon,
+} from '@heroicons/react/24/outline';
 import Header from '@/app/ui/_components/Header';
 import Footer from '@/app/ui/footer';
 import { Button } from '@/app/ui/button';
@@ -28,28 +33,11 @@ const CryptoCurrencyPaymentGateway = () => {
                   all major coins and exchange it all into Coins or Stablecoins.
                 </h4>
                 <Link
-                  className="b2b-btn-arrow external_links_checked mt-14 mt-4 inline-block text-blue-500 hover:underline"
-                  target="_blank"
-                  href="http://coinsfish.com/login"
-                  rel="noopener noreferrer"
+                  href="coinsfish.com/signup"
+                  className="mt-[56px] flex w-full max-w-[201px] items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
                 >
-                  <Button>Open Account</Button>
-
-                  <svg
-                    width="6"
-                    height="10"
-                    viewBox="0 0 6 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="ml-2 inline-block"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5.59491 5.856C6.01714 5.46083 6.01714 4.79096 5.59492 4.39579L2.13024 1.15308C1.83566 0.877377 1.37774 0.877377 1.08317 1.15308C0.759918 1.45562 0.759639 1.96837 1.08256 2.27126L4.12595 5.1259L1.08256 7.98053C0.75964 8.28342 0.759918 8.79617 1.08317 9.09871C1.37774 9.37442 1.83566 9.37442 2.13024 9.09871L5.59491 5.856Z"
-                      fill="#F3F3F3"
-                    />
-                  </svg>
+                  Open account
+                  <ArrowRightIcon className="w-5" />
                 </Link>
               </div>
               <div className="block_hero_row_image_box max-w-[660px] p-4">
@@ -797,6 +785,90 @@ const CryptoCurrencyPaymentGateway = () => {
                     className="rounded-md"
                     sizes="(max-width: 414px) 414px, (max-width: 662px) 662px, (max-width: 828px) 828px, (max-width: 1242px) 1242px, (max-width: 1272px) 1272px"
                   />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-white pb-[150px]">
+          <div className="container mx-auto px-4">
+            <div className="block_box_with_list_row align-center flex justify-between">
+              <div className="block_box_with_list_row_left w-full max-w-[45%]">
+                <div className="section_top_parth mb-12 w-full max-w-[580px]">
+                  <h2 className="mb-8 text-3xl font-semibold leading-[48px]">
+                    Fully Compliant with Your Regulator!
+                  </h2>
+                  <p className="text-base font-normal leading-[26px] text-gray-700">
+                    Stay compliant by tracking the legitimacy of your crypto
+                    funds. Crypto analytics enhance due diligence and AML
+                    compliance procedures for every business dealing in
+                    cryptocurrency.
+                  </p>
+                </div>
+                <div className="block_box_with_list_row_left_images mt-12">
+                  <h5 className="mb-6 text-base font-medium leading-[25px] text-gray-500">
+                    Integrated with:
+                  </h5>
+                  <div className="align-center flex gap-[28px]">
+                    <Image
+                      className="lazy w-[178px]"
+                      decoding="async"
+                      loading="lazy"
+                      width={0}
+                      height={0}
+                      src="/svg/Chainalysis-logo-1.svg"
+                      alt="Chainalysis-logo 1"
+                      title="Chainalysis-logo 1"
+                    />
+                    <Image
+                      className="lazy w-[178px]"
+                      decoding="async"
+                      loading="lazy"
+                      width={0}
+                      height={0}
+                      src="/svg/Group-48095601.svg"
+                      alt="Group 48095601"
+                      title="Group 48095601"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="w-full max-w-[50%]">
+                <div className="mb-[26px] flex items-center">
+                  <ArrowLongRightIcon className="w-7 text-blue-500" />
+                  <p className="ml-[15px] text-[15px] font-medium leading-[22px]">
+                    Сomply with CTF regulations
+                  </p>
+                </div>
+                <div className="mb-[26px] flex items-center">
+                  <ArrowLongRightIcon className="w-7 text-blue-500" />
+                  <p className="ml-[15px] text-[15px] font-medium leading-[22px]">
+                    In-depth case by case investigations
+                  </p>
+                </div>
+                <div className="mb-[26px] flex items-center">
+                  <ArrowLongRightIcon className="w-7 text-blue-500" />
+                  <p className="ml-[15px] text-[15px] font-medium leading-[22px]">
+                    Monitor and control over risky transactions
+                  </p>
+                </div>
+                <div className="mb-[26px] flex items-center">
+                  <ArrowLongRightIcon className="w-7 text-blue-500" />
+                  <p className="ml-[15px] text-[15px] font-medium leading-[22px]">
+                    Identify high-risk activities automatically
+                  </p>
+                </div>
+                <div className="mb-[26px] flex items-center">
+                  <ArrowLongRightIcon className="w-7 text-blue-500" />
+                  <p className="ml-[15px] text-[15px] font-medium leading-[22px]">
+                    Identify all criminal activity on the blockchain
+                  </p>
+                </div>
+                <div className="mb-[26px] flex items-center">
+                  <ArrowLongRightIcon className="w-7 text-blue-500" />
+                  <p className="ml-[15px] text-[15px] font-medium leading-[22px]">
+                    Track ransomware payments
+                  </p>
                 </div>
               </div>
             </div>
