@@ -8,13 +8,14 @@ import {
 } from '@heroicons/react/24/outline';
 import Header from '@/app/ui/_components/Header';
 import Footer from '@/app/ui/footer';
-import { Button } from '@/app/ui/button';
 import dataSliderCryptocurrencyMerchantDigitalWallets from '@/app/ui/_data/SliderCryptocurrencyMerchantDigitalWallets.json';
 import SliderCryptocurrencyMerchantDigitalWallets from '@/app/ui/_components/SliderCryptocurrencyMerchantDigitalWallets';
 import dataSliderCryptoPaymentServiceProvider from '@/app/ui/_data/SliderCryptoPaymentServiceProvider.json';
 import SliderCryptoPaymentServiceProvider from '@/app/ui/_components/SliderCryptoPaymentServiceProvider';
 import CryptocurrencyOutstandingFeatures from '@/app/ui/_components/CryptocurrencyOutstandingFeatures';
-import CryptocurrencyMerchantDigitalWalletsPaymentPage from '@/app/ui/_data/CryptocurrencyMerchantDigitalWalletsPaymentPage.json';
+import CryptocurrencyPaymentPage from '@/app/ui/_data/CryptocurrencyPaymentPage.json';
+import AMLComplianceTransactionsChecking from '@/app/ui/_components/AMLComplianceTransactionsChecking';
+import CryptocurrencyBackOffice from '@/app/ui/_components/CryptocurrencyBackOffice';
 
 const CryptoCurrencyPaymentGateway = () => {
   return (
@@ -420,7 +421,7 @@ const CryptoCurrencyPaymentGateway = () => {
             <div className="svg_scheme">
               <div className="svg_scheme_container resize-v2-wrapper">
                 <Image
-                  className="lazy resize-v2 h-[500px] w-[500px] max-w-full"
+                  className="lazy resize-v2 w-full max-w-full"
                   decoding="async"
                   loading="lazy"
                   width={0}
@@ -743,7 +744,6 @@ const CryptoCurrencyPaymentGateway = () => {
         </section>
         <section className="block_box_opacity white_section pb-[150px]">
           <div className="container mx-auto">
-            {' '}
             <div className="block_box_opacity_row flex w-full max-w-full justify-between">
               <div className="block_box_opacity_row_left w-full max-w-[45%] p-4">
                 <div className="section_top_parth mb-8 mb-[90px] w-full max-w-[580px]">
@@ -757,21 +757,19 @@ const CryptoCurrencyPaymentGateway = () => {
                   </p>
                 </div>
                 <div className="block_box_opacity_row_inner flex w-full max-w-full flex-row flex-wrap justify-between">
-                  {CryptocurrencyMerchantDigitalWalletsPaymentPage.map(
-                    (item) => (
-                      <div
-                        key={item.id}
-                        className="block_box_opacity_row_box group relative mb-[72px] w-full max-w-[45%] cursor-pointer border-t-[1px] border-[#f0f0f0] opacity-80 transition-all delay-300 duration-300 ease-in-out hover:border-[#204bdb] hover:opacity-100 dark:border-slate-800"
-                      >
-                        <h4 className="mb-2 mt-[25px] text-[18px] font-semibold leading-[27px] text-[#3b4048]">
-                          {item.title}
-                        </h4>
-                        <p className="text-[15px] font-normal leading-[24px] text-[#5f5f6a] dark:text-slate-400">
-                          {item.description}
-                        </p>
-                      </div>
-                    ),
-                  )}
+                  {CryptocurrencyPaymentPage.map((item) => (
+                    <div
+                      key={item.id}
+                      className="block_box_opacity_row_box group relative mb-[72px] w-full max-w-[45%] cursor-pointer border-t-[1px] border-[#f0f0f0] opacity-80 transition-all delay-300 duration-300 ease-in-out hover:border-[#204bdb] hover:opacity-100 dark:border-slate-800"
+                    >
+                      <h4 className="mb-2 mt-[25px] text-[18px] font-semibold leading-[27px] text-[#3b4048]">
+                        {item.title}
+                      </h4>
+                      <p className="text-[15px] font-normal leading-[24px] text-[#5f5f6a] dark:text-slate-400">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="block_box_opacity_row_right relative max-h-[779px] w-full max-w-[48.7%] p-4">
@@ -870,6 +868,38 @@ const CryptoCurrencyPaymentGateway = () => {
                     Track ransomware payments
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <AMLComplianceTransactionsChecking />
+        <CryptocurrencyBackOffice />
+        <section className="block_scheme white_section py-16">
+          <div className="container mx-auto">
+            <div className="section_top_parth mb-[90px] w-full max-w-[580px]">
+              <h2 className="mb-8 text-3xl font-semibold leading-[48px]">
+                The Best API Solution
+              </h2>
+              <p className="section_top_parth_description text-base font-normal leading-[26px] text-gray-700">
+                Fast integration with ease via Rest API. Our state-of-the-art
+                technology enables you to integrate invoicing and handle
+                acquiring and transfers the exact way you need it.
+              </p>
+            </div>
+          </div>
+          <div className="container mx-auto">
+            <div className="svg_scheme flex justify-center">
+              <div className="svg_scheme_container resize-v2-wrapper">
+                <Image
+                  className="lazy resize-v2 w-full max-w-full"
+                  decoding="async"
+                  loading="lazy"
+                  src="https://coinsbuy.com/app/uploads/2023/06/Frame-48095742.svg"
+                  alt="API Solution"
+                  title="API Solution"
+                  width={0}
+                  height={0}
+                />
               </div>
             </div>
           </div>

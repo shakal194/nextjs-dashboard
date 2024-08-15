@@ -402,14 +402,14 @@ export default function Page() {
         {/* Accordion in mobile and tablet */}
         {/*<div className="block rounded-3xl bg-slate-300 p-8 dark:bg-gray-700 lg:hidden">
         <Accordion />
-      </div>*/}
+      </div>
 
         <div className="bg-gray pt-43 pr-82 pb-63 mt-4 max-w-max rounded-3xl bg-[url('/bg_light.png')] bg-right bg-no-repeat">
           <Slider data={dataSlider} />
         </div>
         <div className="pt-43 pr-82 pb-63 mt-4">
           <CoinSlider data={dataCoinSlider} />
-        </div>
+        </div>*/}
         <div className="container mx-auto px-4">
           <section className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="flex flex-col items-center">
