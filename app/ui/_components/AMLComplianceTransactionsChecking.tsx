@@ -9,7 +9,7 @@ const AMLComplianceTransactionsChecking = () => {
 
   return (
     <section className="block_box_with_tabs white_section pb-[150px]">
-      <div className="container mx-auto">
+      <div className="container mx-auto w-full max-w-[1356px] p-0">
         <div className="block_box_with_tabs_row align-center flex w-full max-w-full justify-between">
           <div className="block_box_with_tabs_row_left w-full max-w-[45%]">
             <div className="section_top_parth mb-12 w-full max-w-[580px]">

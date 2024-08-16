@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import HomeSession from '@/app/ui/_components/HomeSession';
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
 
 const AvailableCurrenciesSection = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -343,77 +344,38 @@ const AvailableCurrenciesSection = () => {
           <div className="block_linksbox block_linksbox_alignstart flex w-full flex-wrap justify-start gap-9">
             <Link
               href="/minimum-deposits-withdrawals"
-              className="short_box block_linksbox_single duration-400 max-w-33% group mb-4 w-full rounded-lg border border-gray-200 p-8 transition delay-200 ease-in-out hover:border-[#204bdb] hover:bg-gray-100"
+              className="short_box block_linksbox_single group mb-4 w-full max-w-33% transform rounded-lg border border-gray-200 p-8 transition-transform duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100"
             >
               <h4 className="mb-3 text-lg font-semibold text-[#262e39]">
                 Minimum Deposits
               </h4>
-              <p className="b2b_link duration-400 mb-0 mt-6 flex items-center text-sm text-[#91919e] transition delay-200 ease-in-out group-hover:text-[#204bdb]">
+              <p className="b2b_link mb-0 mt-6 flex items-center text-sm text-[#91919e] transition-transform duration-300 ease-in-out group-hover:text-[#204bdb]">
                 Explore
-                <svg
-                  width="7"
-                  height="10"
-                  viewBox="0 0 7 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="duration-400 ml-2 fill-[#717174] transition delay-200 ease-in-out group-hover:fill-[#204bdb]"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M5.69648 5.86406C6.1187 5.46889 6.1187 4.79902 5.69648 4.40384L2.2318 1.16114C1.93722 0.885434 1.47931 0.885433 1.18473 1.16114C0.861481 1.46368 0.861202 1.97643 1.18412 2.27932L4.22752 5.13395L1.18412 7.98859C0.861203 8.29148 0.861481 8.80423 1.18473 9.10677C1.47931 9.38247 1.93722 9.38247 2.2318 9.10677L5.69648 5.86406Z"
-                  />
-                </svg>
+                <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
               </p>
             </Link>
             <Link
               href="/crypto-processing-solutions-comparison"
-              className="short_box block_linksbox_single duration-400 max-w-33% group mb-4 w-full rounded-lg border border-gray-200 p-8 transition delay-200 ease-in-out hover:border-[#204bdb] hover:bg-gray-100"
+              className="short_box block_linksbox_single group mb-4 w-full max-w-33% transform rounded-lg border border-gray-200 p-8 transition-transform duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100"
             >
               <h4 className="mb-3 text-lg font-semibold text-[#262e39]">
                 Solutions Comparison
               </h4>
-              <p className="b2b_link duration-400 mb-0 mt-6 flex items-center text-sm text-[#91919e] transition delay-200 ease-in-out group-hover:text-[#204bdb]">
+              <p className="b2b_link mb-0 mt-6 flex items-center text-sm text-[#91919e] transition-transform duration-300 ease-in-out group-hover:text-[#204bdb]">
                 Explore
-                <svg
-                  width="7"
-                  height="10"
-                  viewBox="0 0 7 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="duration-400 ml-2 fill-[#717174] transition delay-200 ease-in-out group-hover:fill-[#204bdb]"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M5.69648 5.86406C6.1187 5.46889 6.1187 4.79902 5.69648 4.40384L2.2318 1.16114C1.93722 0.885434 1.47931 0.885433 1.18473 1.16114C0.861481 1.46368 0.861202 1.97643 1.18412 2.27932L4.22752 5.13395L1.18412 7.98859C0.861203 8.29148 0.861481 8.80423 1.18473 9.10677C1.47931 9.38247 1.93722 9.38247 2.2318 9.10677L5.69648 5.86406Z"
-                  />
-                </svg>
+                <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
               </p>
             </Link>
             <Link
               href="/fees-pricing"
-              className="short_box block_linksbox_single duration-400 max-w-33% group mb-4 w-full rounded-lg border border-gray-200 p-8 transition delay-200 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 "
+              className="short_box block_linksbox_single group mb-4 w-full max-w-33% transform rounded-lg border border-gray-200 p-8 transition-transform duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 "
             >
               <h4 className="mb-3 text-lg font-semibold text-[#262e39]">
                 Fees &amp; Pricing
               </h4>
-              <p className="b2b_link duration-400 mb-0 mt-6 flex items-center text-sm text-[#91919e] transition delay-200 ease-in-out group-hover:text-[#204bdb]">
+              <p className="b2b_link mb-0 mt-6 flex items-center text-sm text-[#91919e] transition-transform duration-300 ease-in-out group-hover:text-[#204bdb]">
                 Explore
-                <svg
-                  width="7"
-                  height="10"
-                  viewBox="0 0 7 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="duration-400 ml-2 fill-[#717174] transition delay-200 ease-in-out group-hover:fill-[#204bdb]"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M5.69648 5.86406C6.1187 5.46889 6.1187 4.79902 5.69648 4.40384L2.2318 1.16114C1.93722 0.885434 1.47931 0.885433 1.18473 1.16114C0.861481 1.46368 0.861202 1.97643 1.18412 2.27932L4.22752 5.13395L1.18412 7.98859C0.861203 8.29148 0.861481 8.80423 1.18473 9.10677C1.47931 9.38247 1.93722 9.38247 2.2318 9.10677L5.69648 5.86406Z"
-                  />
-                </svg>
+                <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
               </p>
             </Link>
           </div>

@@ -1,5 +1,7 @@
 import Header from '@/app/ui/_components/Header';
 import Footer from '@/app/ui/footer';
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
+import Link from 'next/link';
 
 const Contact = () => {
   return (
@@ -30,27 +32,13 @@ const Contact = () => {
               </div>
               <div className="block_contact_us__inner__right__box">
                 <p className="mb-2 text-lg">Or fill the form</p>
-                <a
+                <Link
                   href="#popup-form"
-                  className="b2b_link js-popup-open flex items-center text-blue-600"
+                  className="b2b_link js-popup-open group flex items-center text-blue-600 hover:text-blue-800"
                 >
                   Contact BD Team
-                  <svg
-                    width="7"
-                    height="14"
-                    viewBox="0 0 7 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="ml-2"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M6.84184 8.6457C7.21027 8.25936 7.21027 7.65176 6.84184 7.26542L2.44465 2.65456C2.05814 2.24927 1.41134 2.24927 1.02484 2.65456C0.663702 3.03324 0.663377 3.62872 1.0241 4.0078L4.78072 7.95556L1.0241 11.9033C0.663378 12.2824 0.663702 12.8779 1.02484 13.2566C1.41134 13.6618 2.05814 13.6618 2.44465 13.2566L6.84184 8.6457Z"
-                      fill="#204BDB"
-                    ></path>
-                  </svg>
-                </a>
+                  <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
+                </Link>
               </div>
             </div>
           </div>

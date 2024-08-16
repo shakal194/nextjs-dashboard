@@ -5,6 +5,7 @@ import {
   XMarkIcon,
   ArrowLongRightIcon,
   ArrowRightIcon,
+  ChevronRightIcon,
 } from '@heroicons/react/24/outline';
 import Header from '@/app/ui/_components/Header';
 import Footer from '@/app/ui/footer';
@@ -16,6 +17,8 @@ import CryptocurrencyOutstandingFeatures from '@/app/ui/_components/Cryptocurren
 import CryptocurrencyPaymentPage from '@/app/ui/_data/CryptocurrencyPaymentPage.json';
 import AMLComplianceTransactionsChecking from '@/app/ui/_components/AMLComplianceTransactionsChecking';
 import CryptocurrencyBackOffice from '@/app/ui/_components/CryptocurrencyBackOffice';
+import CryptocurrencySecureAndSafe from '@/app/ui/_components/CryptocurrencySecureAndSafe';
+import CryptocurrencyFAQ from '@/app/ui/_components/CryptocurrencyFAQ';
 
 const CryptoCurrencyPaymentGateway = () => {
   return (
@@ -34,7 +37,7 @@ const CryptoCurrencyPaymentGateway = () => {
                   all major coins and exchange it all into Coins or Stablecoins.
                 </h4>
                 <Link
-                  href="coinsfish.com/signup"
+                  href="/signup"
                   className="mt-[56px] flex w-full max-w-[201px] items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
                 >
                   Open account
@@ -650,7 +653,7 @@ const CryptoCurrencyPaymentGateway = () => {
         </section>
         <CryptocurrencyOutstandingFeatures />
         <section className="block_textbox_dynamic_slider white_section pb-[150px]">
-          <div className="container mx-auto">
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
             <div className="block_textbox_dynamic_slider_row block_business_model_slider_row grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               <div className="block_textbox_dynamic_slider_box rounded-md bg-white p-4 dark:bg-transparent dark:bg-transparent dark:shadow-sm dark:shadow-slate-50">
                 <h4 className="mb-4 text-[24px] font-semibold leading-[36px] dark:text-slate-100">
@@ -743,7 +746,7 @@ const CryptoCurrencyPaymentGateway = () => {
           </div>
         </section>
         <section className="block_box_opacity white_section pb-[150px]">
-          <div className="container mx-auto">
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
             <div className="block_box_opacity_row flex w-full max-w-full justify-between">
               <div className="block_box_opacity_row_left w-full max-w-[45%] p-4">
                 <div className="section_top_parth mb-8 mb-[90px] w-full max-w-[580px]">
@@ -789,7 +792,7 @@ const CryptoCurrencyPaymentGateway = () => {
           </div>
         </section>
         <section className="bg-white pb-[150px]">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
             <div className="block_box_with_list_row align-center flex justify-between">
               <div className="block_box_with_list_row_left w-full max-w-[45%]">
                 <div className="section_top_parth mb-12 w-full max-w-[580px]">
@@ -874,10 +877,10 @@ const CryptoCurrencyPaymentGateway = () => {
         </section>
         <AMLComplianceTransactionsChecking />
         <CryptocurrencyBackOffice />
-        <section className="block_scheme white_section py-16">
-          <div className="container mx-auto">
+        <section className="block_scheme white_section pb-[150px]">
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
             <div className="section_top_parth mb-[90px] w-full max-w-[580px]">
-              <h2 className="mb-8 text-3xl font-semibold leading-[48px]">
+              <h2 className="mb-[32px] text-[36px] font-bold leading-[48px]">
                 The Best API Solution
               </h2>
               <p className="section_top_parth_description text-base font-normal leading-[26px] text-gray-700">
@@ -887,7 +890,7 @@ const CryptoCurrencyPaymentGateway = () => {
               </p>
             </div>
           </div>
-          <div className="container mx-auto">
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
             <div className="svg_scheme flex justify-center">
               <div className="svg_scheme_container resize-v2-wrapper">
                 <Image
@@ -904,6 +907,244 @@ const CryptoCurrencyPaymentGateway = () => {
             </div>
           </div>
         </section>
+        <section className="block_box_with_list right_down white_section pb-[150px]">
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
+            <div className="block_box_with_list_row flex justify-between">
+              <div className="block_box_with_list_row_left w-full max-w-[45%]">
+                <div className="section_top_parth">
+                  <h2 className="mb-[32px] text-[36px] font-bold leading-[48px]">
+                    Staging / Sandbox Environment for your integration
+                  </h2>
+                  <p className="section_top_parth_description text-base font-normal leading-[26px] text-gray-700">
+                    Testing is a major part of the Coinsbuy integration process
+                    which helps eliminate any potential problems before going
+                    live.
+                  </p>
+                </div>
+              </div>
+              <div className="block_box_with_list_row_right flex w-full max-w-[50%] flex-col gap-4 pt-[32px]">
+                <div className="block_box_with_list_row_right_top flex justify-between">
+                  <div className="block_box_with_list_row_right_top_left mb-[40px]">
+                    <h3 className="mb-[4px] text-[24px] font-semibold leading-[36px] text-[#1d2127]">
+                      Sandbox
+                    </h3>
+                    <p className="mt-2 text-[15px] font-medium leading-[22.5px] text-[#5f5f6a]">
+                      Get quick access to our solutions.
+                    </p>
+                  </div>
+                  <div className="block_box_with_list_row_right_top_right">
+                    <Link
+                      className="flex w-full max-w-full items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+                      target="_blank"
+                      href="/signup"
+                    >
+                      Register &amp; Try
+                      <ArrowRightIcon className="w-5" />
+                    </Link>
+                  </div>
+                </div>
+                <div className="block_box_with_list_row_right_item flex items-center gap-2">
+                  <ArrowLongRightIcon className="w-7 text-blue-500" />
+                  <p className="text-base">
+                    Our solution comes with a staging environment for all your
+                    testing needs.
+                  </p>
+                </div>
+                <div className="block_box_with_list_row_right_item flex items-center gap-2">
+                  <ArrowLongRightIcon className="w-7 text-blue-500" />
+                  <p className="text-base">
+                    Test any new integrations or functionality on a staging
+                    environment before publishing the changes to a production
+                    one.
+                  </p>
+                </div>
+                <div className="block_box_with_list_row_right_item flex items-center gap-2">
+                  <ArrowLongRightIcon className="w-7 text-blue-500" />
+                  <p className="text-base">
+                    Test any financial operations on a staging environment
+                    before doing them on production with real financial
+                    instruments.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="block_scheme white_section pb-[150px]">
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
+            <div className="section_top_parth mb-[90px] w-full max-w-[580px]">
+              <h2 className="mb-[32px] text-[36px] font-bold leading-[48px]">
+                High-Performance Software Infrastructure
+              </h2>
+              <p className="section_top_parth_description text-base font-normal leading-[26px] text-gray-700">
+                Our infrastructure operates on multiple servers across several
+                data centres ensuring super-fast data delivery and the lowest
+                possible latency. We have redundant hosting and load-balanced
+                environments to&nbsp;ensure maximum reliability.
+              </p>
+            </div>
+          </div>
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
+            <div className="svg_scheme flex justify-center">
+              <div className="svg_scheme_container resize-v2-wrapper">
+                <Image
+                  className="lazy resize-v2 w-full max-w-full"
+                  decoding="async"
+                  loading="lazy"
+                  src="/svg/Frame-48095778-1.svg"
+                  alt="High-Performance Software Infrastructure"
+                  title="High-Performance Software Infrastructure"
+                  width={0}
+                  height={0}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="block_textbox_dynamic_slider white_section pb-[150px]">
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
+            <div className="block_textbox_dynamic_slider_row block_business_model_slider_row mb-[-56px] ml-0 mr-0 flex flex-wrap justify-between">
+              <div className="block_textbox_dynamic_slider_box mb-[56px] w-full max-w-[32%]">
+                <h4 className="mb-[16px] text-[24px] font-semibold">
+                  IP Whitelists &amp; Permissions
+                </h4>
+                <p className="text-base font-normal leading-[26px] text-gray-700">
+                  Whitelist settings mean that you can allow connection only to
+                  the specific IPs (access to API). Permission settings give you
+                  the flexibility to differentiate your employees’ rights
+                  including roles like “view only” and “withdrawals with
+                  confirmation”.
+                </p>
+              </div>
+              <div className="block_textbox_dynamic_slider_box mb-[56px] w-full max-w-[32%]">
+                <h4 className="mb-[16px] text-[24px] font-semibold">
+                  Scalable and Secure Servers
+                </h4>
+                <p className="text-base font-normal leading-[26px] text-gray-700">
+                  Our infrastructure incorporates various layers of security and
+                  scalability with loadbalancers across several data centres,
+                  ensuring the stability of the whole system and the lowest
+                  possible latency.
+                </p>
+              </div>
+              <div className="block_textbox_dynamic_slider_box mb-[56px] w-full max-w-[32%]">
+                <h4 className="mb-[16px] text-[24px] font-semibold">
+                  Security Patches and Upgrades
+                </h4>
+                <p className="text-base font-normal leading-[26px] text-gray-700">
+                  Periodic updates and patches enable you to consistently
+                  maintain security as well as increase and optimise the
+                  system’s functionality.
+                </p>
+              </div>
+              <div className="block_textbox_dynamic_slider_box mb-[56px] w-full max-w-[32%]">
+                <h4 className="mb-[16px] text-[24px] font-semibold">
+                  Backups &amp; Storage
+                </h4>
+                <p className="text-base font-normal leading-[26px] text-gray-700">
+                  Backups in combination with a distributed file system with no
+                  single point of failure provide the ultimate guarantee against
+                  loss of data.
+                </p>
+              </div>
+              <div className="block_textbox_dynamic_slider_box mb-[56px] w-full max-w-[32%]">
+                <h4 className="mb-[16px] text-[24px] font-semibold">
+                  Secure API Access
+                </h4>
+                <p className="text-base font-normal leading-[26px] text-gray-700">
+                  Our API endpoints are encrypted through SSL so user traffic is
+                  secured when data is requested. We require that our clients
+                  check the API callback requests for maximum security.
+                </p>
+              </div>
+              <div className="block_textbox_dynamic_slider_box mb-[56px] w-full max-w-[32%]">
+                <h4 className="mb-[16px] text-[24px] font-semibold">
+                  WAF &amp; Anti-DDoS
+                </h4>
+                <p className="text-base font-normal leading-[26px] text-gray-700">
+                  Application-level protection with a web application firewall,
+                  continuous monitoring, and automatic mitigation of network
+                  attack risks.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <CryptocurrencySecureAndSafe />
+        <section className="block_technical_support white_section pb-[150px]">
+          <div className="container mx-auto w-full max-w-[1356px] p-0">
+            <div className="block_technical_support_row flex items-center justify-between">
+              <div className="block_technical_support_row_left w-full max-w-[45%]">
+                <div className="section_top_parth mb-[40px] w-full max-w-[580px]">
+                  <h2 className="mb-[32px] text-[36px] font-bold leading-[48px]">
+                    Technical Support and Availability
+                  </h2>
+                  <p className="section_top_parth_description mb-2 text-base font-normal leading-[26px] text-gray-700">
+                    Our professional customer service team is always available
+                    to help with any queries. Feel free to get in touch.
+                  </p>
+                </div>
+                <Link
+                  className="b2b_link tangerine_link group flex items-center space-x-2 text-[#204bdb] hover:text-[#204bdb]"
+                  target="_blank"
+                  href="/signup"
+                >
+                  Get Support
+                  <ChevronRightIcon className="ml-2 h-4 w-4 transform text-blue-600 transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
+                </Link>
+              </div>
+              <div className="block_technical_support_row_right w-full max-w-[45%] text-[94px] font-semibold leading-[135px] text-[#204bdb]">
+                <p>24/7/365</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="block_linksbox_section white_section pb-[150px] pt-0">
+          <div className="container mx-auto w-full max-w-[1356px]">
+            <h2 className="mb-[84px] text-[36px] font-bold leading-[48px]">
+              More useful links
+            </h2>
+            <div className="block_linksbox block_linksbox_alignstart flex w-full flex-wrap justify-start gap-9">
+              <Link
+                href="/available-currencies"
+                className="short_box block_linksbox_single group mb-4 w-full max-w-33% transform rounded-lg border border-gray-200 p-8 transition-transform duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100"
+              >
+                <h4 className="mb-3 text-lg font-semibold text-[#262e39]">
+                  Available Currencies
+                </h4>
+                <p className="b2b_link mb-0 mt-6 flex items-center text-sm text-[#91919e] transition-transform duration-300 ease-in-out group-hover:text-[#204bdb]">
+                  Explore
+                  <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
+                </p>
+              </Link>
+              <Link
+                href="/crypto-processing-solutions-comparison"
+                className="short_box block_linksbox_single group mb-4 w-full max-w-33% transform rounded-lg border border-gray-200 p-8 transition-transform duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100"
+              >
+                <h4 className="mb-3 text-lg font-semibold text-[#262e39]">
+                  Solutions Comparison
+                </h4>
+                <p className="b2b_link mb-0 mt-6 flex items-center text-sm text-[#91919e] transition-transform duration-300 ease-in-out group-hover:text-[#204bdb]">
+                  Explore
+                  <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
+                </p>
+              </Link>
+              <Link
+                href="/minimum-deposits-withdrawals"
+                className="short_box block_linksbox_single group mb-4 w-full max-w-33% transform rounded-lg border border-gray-200 p-8 transition-transform duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 "
+              >
+                <h4 className="mb-3 text-lg font-semibold text-[#262e39]">
+                  Minimum Deposits
+                </h4>
+                <p className="b2b_link mb-0 mt-6 flex items-center text-sm text-[#91919e] transition-transform duration-300 ease-in-out group-hover:text-[#204bdb]">
+                  Explore
+                  <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
+                </p>
+              </Link>
+            </div>
+          </div>
+        </section>
+        <CryptocurrencyFAQ />
       </main>
       <Footer />
     </>
