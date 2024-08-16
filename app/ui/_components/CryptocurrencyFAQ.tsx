@@ -59,7 +59,7 @@ const CryptocurrencyFAQ = () => {
                           <Link
                             key={index}
                             href="/fees-pricing"
-                            className="text-underline hover:cursor-pointer hover:text-blue-700"
+                            className="border-b hover:cursor-pointer hover:border-blue-700 hover:text-blue-700"
                           >
                             here
                           </Link>
