@@ -48,7 +48,7 @@ const CryptocurrencyFAQ = () => {
               return (
                 <div
                   key={feature.id}
-                  data-number={feature.id}
+                  data-number-faq={feature.id}
                   className="block_sticky_main_boxes_single js-sticky-trigger-secure-and-safe relative flex justify-between pb-[72px] pt-[24px] before:absolute before:top-0 before:h-[1px] before:w-full before:max-w-full before:bg-[#204bdb] before:content-['']"
                 >
                   <h3>{feature.question}</h3>

@@ -13,6 +13,7 @@ import ThemeButton from '@/app/ui/_components/ThemeButton';
 import { Metadata } from 'next';
 import HomeSession from '@/app/ui/_components/HomeSession';
 import HeaderSession from '@/app/ui/_components/HeaderSession';
+import HomeOurProducts from '@/app/ui/_components/HomeOurProducts';
 
 export const metadata: Metadata = {
   title: 'CoinsFish Home Page',
@@ -216,6 +217,7 @@ export default function Page() {
             {/* Add Hero Images Here */}
             <Image
               src="/Main-picture-1-1000x748.png"
+              priority={true}
               width={1000}
               height={748}
               className="hidden lg:block"
@@ -224,6 +226,7 @@ export default function Page() {
             />
             <Image
               src="/Main-picture-1-800x599.png"
+              priority={true}
               width={800}
               height={599}
               className="hidden md:block lg:hidden"
@@ -232,6 +235,7 @@ export default function Page() {
             />
             <Image
               src="/Main-picture-1-500x374.png"
+              priority={true}
               width={500}
               height={374}
               className="block md:hidden"
@@ -414,10 +418,11 @@ export default function Page() {
           <section className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="flex flex-col items-center">
               <Image
+                className="lazy h-[50px] w-[50px]"
                 src="/svg/Icons-2.svg"
                 alt="All types of crypto"
-                width={50}
-                height={50}
+                width={0}
+                height={0}
               />
               <h3 className="mt-4 text-lg font-semibold">
                 All types of crypto
@@ -428,10 +433,11 @@ export default function Page() {
             </div>
             <div className="flex flex-col items-center">
               <Image
+                className="lazy h-[50px] w-[50px]"
                 src="/svg/Icons-3.svg"
                 alt="Major Blockchains"
-                width={50}
-                height={50}
+                width={0}
+                height={0}
               />
               <h3 className="mt-4 text-lg font-semibold">Major Blockchains</h3>
               <p className="text-center">
@@ -440,6 +446,7 @@ export default function Page() {
             </div>
             <div className="flex flex-col items-center">
               <Image
+                className="lazy h-[50px] w-[50px]"
                 src="/svg/Group.svg"
                 alt="Free of Charge"
                 width={50}
@@ -452,71 +459,7 @@ export default function Page() {
               </p>
             </div>
           </section>
-
-          <section className="mt-16">
-            <h2 className="text-2xl font-bold">Our Products</h2>
-            <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/2">
-                  <h3 className="text-xl font-semibold">
-                    Merchant Digital Wallets
-                  </h3>
-                  <p className="mt-2">
-                    Crypto payment solution for businesses looking to offer
-                    customers another method of payment and attract new clients
-                    who want to pay with cryptocurrency.
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    <li>Seamless payment processing</li>
-                    <li>Global market reach</li>
-                    <li>Enhanced security</li>
-                  </ul>
-                  <Link
-                    href="/merchant-digital-wallets"
-                    className="mt-4 text-blue-600 hover:underline"
-                  >
-                    Read more
-                  </Link>
-                </div>
-                <div className="mt-4 md:mt-0 md:w-1/2">
-                  <Image
-                    src="/svg/Wallets-2.svg"
-                    alt="Dashboard Screenshot"
-                    width={400}
-                    height={300}
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/2">
-                  <h3 className="text-xl font-semibold">
-                    Enterprise Blockchain Wallets
-                  </h3>
-                  <p className="mt-2">
-                    Blockchain wallet solution that lets you get access to all
-                    blockchains through a single API. With a single reach you
-                    can offer everything: integrating with good blockchain
-                    security, use one solution and get access to all
-                    blockchains.
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    <li>Robust infrastructure tailored for businesses</li>
-                    <li>Scalable solution</li>
-                    <li>
-                      Comprehensive reporting and analytics tools for
-                      transactions
-                    </li>
-                  </ul>
-                  <Link
-                    href="/enterprise-blockchain-wallets"
-                    className="mt-4 text-blue-600 hover:underline"
-                  >
-                    Read more
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
+          <HomeOurProducts />
         </div>
         <Footer />
       </main>{' '}

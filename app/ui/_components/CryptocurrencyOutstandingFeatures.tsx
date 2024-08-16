@@ -57,7 +57,7 @@ const CryptocurrencyOutstandingFeatures = () => {
             {features.map((feature) => (
               <div
                 key={feature.id}
-                data-number={feature.id}
+                data-number-oustanding={feature.id}
                 className="block_sticky_main_boxes_single js-sticky-trigger relative flex pb-[300px] pt-6 before:absolute before:top-0 before:h-[1px] before:w-full before:max-w-full before:bg-gradient-to-r before:from-[#204bdb]  before:to-[rgba(255,114,92,0)] before:content-['']"
               >
                 <h3 className="mr-9 w-full max-w-[201px] hyphens-auto text-2xl font-semibold leading-9">
@@ -77,7 +77,7 @@ const CryptocurrencyOutstandingFeatures = () => {
               {features.map((feature, index) => (
                 <div
                   key={feature.id}
-                  data-number={feature.id}
+                  data-number-oustanding={feature.id}
                   className={`block_sticky_main_carousel_box_img js-sticky-img ease absolute left-0 top-0 h-full w-full transition-opacity duration-75 ${visibleImageIndex === index ? 'opacity-1 visible' : 'invisible opacity-0'}`}
                 >
                   <Image
