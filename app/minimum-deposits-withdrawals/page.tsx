@@ -131,7 +131,9 @@ const MinimumDepositsWithdrawals = () => {
                             </div>
                           </div>
                           <div className="row flex-0 m-0 flex w-full max-w-full flex-nowrap justify-start border-b border-[#ededed] pb-3 pt-3">
-                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5"></div>
+                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
+                              3
+                            </div>
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
                               <Image
                                 loading="lazy"
@@ -166,8 +168,8 @@ const MinimumDepositsWithdrawals = () => {
               {activeTab === 1 && (
                 <div
                   className="block__crypto-table__tabs__content__table active"
-                  data-model="1"
-                  data-license="1"
+                  data-model="0"
+                  data-license="0"
                 >
                   <div className="mb-15 flex w-full max-w-full">
                     <h4 className="mr-9 flex w-full max-w-[197px] justify-between text-xl font-semibold">
@@ -181,19 +183,19 @@ const MinimumDepositsWithdrawals = () => {
                               №
                             </div>
                             <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
-                              Alpha
-                            </div>
-                            <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
-                              Alias
-                            </div>
-                            <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
                               Name
                             </div>
                             <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
                               Blockchain
                             </div>
                             <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
-                              Type
+                              Deposit / Payout, min*
+                            </div>
+                            <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              Default** сonfirmations, min
+                            </div>
+                            <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              Message, for Payout
                             </div>
                           </div>
                           <div className="row flex-0 m-0 flex w-full max-w-full flex-nowrap items-center justify-start border-b border-[#ededed] pb-3 pt-3">
@@ -210,19 +212,19 @@ const MinimumDepositsWithdrawals = () => {
                                 alt="btc"
                                 className="mr-5"
                               />
-                              BTC
-                            </div>
-                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
-                              –
-                            </div>
-                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
                               Bitcoin
                             </div>
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
                               Bitcoin
                             </div>
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
-                              Coin
+                              0.0001
+                            </div>
+                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
+                              3
+                            </div>
+                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
+                              -
                             </div>
                           </div>{' '}
                           <div className="row flex-0 m-0 flex w-full max-w-full flex-nowrap justify-start border-b border-[#ededed] pb-3 pt-3">
@@ -239,19 +241,19 @@ const MinimumDepositsWithdrawals = () => {
                                 alt="eth"
                                 className="mr-5"
                               />
-                              ETH
+                              Ethereum
                             </div>
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
-                              –
+                              Ethereum
                             </div>
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
-                              Etherium
+                              0.002
                             </div>
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
-                              Etherium
+                              3
                             </div>
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
-                              Coin
+                              -
                             </div>
                           </div>
                           <div className="row flex-0 m-0 flex w-full max-w-full flex-nowrap justify-start border-b border-[#ededed] pb-3 pt-3">
@@ -268,19 +270,19 @@ const MinimumDepositsWithdrawals = () => {
                                 alt="usdt"
                                 className="mr-5"
                               />
-                              USDT
-                            </div>
-                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
-                              –
-                            </div>
-                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
                               Tether
                             </div>
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
                               Tether
                             </div>
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
-                              Coin
+                              0.0002
+                            </div>
+                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
+                              3
+                            </div>
+                            <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
+                              -
                             </div>
                           </div>
                         </div>
