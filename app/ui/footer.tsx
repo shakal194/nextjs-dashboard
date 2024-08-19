@@ -24,7 +24,7 @@ export default function Footer() {
                 <Link href="#">Home</Link>
               </li>
               <li>
-                <Link href="#">Tarrifs</Link>
+                <Link href="/fees-pricing">Pricing</Link>
               </li>
               <li>
                 <Link href="#">Roadmap</Link>
