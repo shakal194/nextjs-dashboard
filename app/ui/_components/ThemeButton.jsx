@@ -19,7 +19,7 @@ const ThemeButton = () => {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="flex items-center justify-center rounded-lg p-2 transition-colors delay-200 duration-300 hover:bg-zinc-300 dark:hover:bg-zinc-700"
+      className="flex items-center justify-center rounded-lg p-2 transition-colors duration-300 ease-in-out hover:bg-zinc-300 dark:hover:bg-zinc-700"
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {resolvedTheme === 'dark' ? (

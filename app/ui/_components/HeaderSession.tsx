@@ -7,11 +7,17 @@ export default function HeaderSession() {
   const { data: session, status } = useSession();
 
   return session ? (
-    <Link href="/dashboard" className="hover:underline focus:underline">
+    <Link
+      href="/dashboard"
+      className="transition-all delay-200 duration-300 ease-in-out hover:border-b focus:border-b"
+    >
       Dashboard
     </Link>
   ) : (
-    <Link href="/login" className="hover:underline focus:underline">
+    <Link
+      href="/login"
+      className="transition-all delay-200 duration-300 ease-in-out hover:border-b focus:border-b"
+    >
       Login
     </Link>
   );

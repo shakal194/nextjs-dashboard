@@ -11,13 +11,22 @@ const Header = () => {
           <CoinsFishLogo />
         </Link>
         <div className="flex items-end items-center justify-center gap-2 p-6 text-white">
-          <Link href="/about-us" className="hover:underline focus:underline">
+          <Link
+            href="/about-us"
+            className="transition-all delay-200 duration-300 ease-in-out hover:border-b focus:border-b"
+          >
             About Us
           </Link>
-          <Link href="/contacts" className="hover:underline focus:underline">
+          <Link
+            href="/contacts"
+            className="transition-all delay-200 duration-300 ease-in-out hover:border-b focus:border-b"
+          >
             Contacts
           </Link>
-          <Link href="/pricing" className="hover:underline focus:underline">
+          <Link
+            href="/pricing"
+            className="transition-all delay-200 duration-300 ease-in-out hover:border-b focus:border-b"
+          >
             Pricing
           </Link>
           <HeaderSession />

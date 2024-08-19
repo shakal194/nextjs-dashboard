@@ -20,7 +20,7 @@ const MerchantDigitalWallets = () => {
             </h4>
             <Link
               href="/signup"
-              className="mt-[56px] flex w-full max-w-[201px] items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+              className="mt-[56px] flex w-full max-w-[201px] items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors delay-200 duration-300 ease-in-out hover:bg-blue-400 md:text-base"
             >
               Open account
               <ArrowRightIcon className="w-5" />
