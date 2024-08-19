@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import features from '@/app/ui/_data/CryptocurrencyFAQ.json';
+import features from '@/app/ui/_data/MerchantDigitalWallets/CryptocurrencyFAQ.json';
 
 const CryptocurrencyFAQ = () => {
   //const [visibleImageIndex, setVisibleImageIndex] = useState<number>(0);

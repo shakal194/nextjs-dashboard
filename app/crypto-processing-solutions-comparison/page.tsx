@@ -908,7 +908,7 @@ const CompareSection: React.FC = () => {
                 <div className="block_compare_table_row_group flex w-full max-w-full items-start border-b border-[#ecedf2] pb-[20px]">
                   <div className="block_compare_table_row_item block_compare_table_row-1 w-full max-w-[276px]">
                     <p className="pl-4 text-base font-normal leading-6 text-[#3b4048]">
-                      CoinsBuy Payment Page/Invoice
+                      Coinsfish Payment Page/Invoice
                     </p>
                   </div>
                   <div className="block_compare_table_row_item block_compare_table_row-2 flex w-full max-w-[152px] justify-center">
@@ -919,7 +919,7 @@ const CompareSection: React.FC = () => {
                   </div>
                   <div className="block_compare_table_row_item block_compare_table_row-4 flex w-full max-w-full">
                     <p className="pl-4 text-sm font-normal leading-[21px] text-[#5f5f6a]">
-                      Invoice generated on CoinsBuy side
+                      Invoice generated on Coinsfish side
                     </p>
                   </div>
                 </div>
@@ -973,7 +973,7 @@ const CompareSection: React.FC = () => {
                   </div>
                   <div className="block_compare_table_row_item block_compare_table_row-4 flex w-full max-w-full">
                     <p className="pl-4 text-sm font-normal leading-[21px] text-[#5f5f6a]">
-                      Possibility to select payment currencies on the CoinsBuy
+                      Possibility to select payment currencies on the Coinsfish
                       payment page
                     </p>
                   </div>
@@ -1038,7 +1038,7 @@ const CompareSection: React.FC = () => {
                   <div className="block_compare_table_row_item block_compare_table_row-4 flex w-full max-w-full">
                     <p className="pl-4 text-sm font-normal leading-[21px] text-[#5f5f6a]">
                       Integration made on client side without even showing
-                      CoinsBuy branding
+                      Coinsfish branding
                     </p>
                   </div>
                 </div>

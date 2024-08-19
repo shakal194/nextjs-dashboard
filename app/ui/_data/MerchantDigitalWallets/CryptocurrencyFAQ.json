@@ -2,12 +2,12 @@
   {
     "id": 1,
     "question": "How do I accept cryptocurrencies?",
-    "answer": "It’s really easy to integrate Coinsbuy crypto payment gateway into your current operations or launch it as a new service. Forward us your request, proceed with the integration and you’re ready to offer your customers Bitcoin (BTC), Ethereum (ETH), Ripple (XRP), Bitcoin Cash (BCH), Litecoin (LTC) and a whole range more as a payment method!"
+    "answer": "It’s really easy to integrate Coinsfish crypto payment gateway into your current operations or launch it as a new service. Forward us your request, proceed with the integration and you’re ready to offer your customers Bitcoin (BTC), Ethereum (ETH), Ripple (XRP), Bitcoin Cash (BCH), Litecoin (LTC) and a whole range more as a payment method!"
   },
   {
     "id": 2,
     "question": "What cryptocurrencies are on offer?",
-    "answer": "Coinsbuy can handle all your cryptocurrency processing needs with cryptos including Bitcoin, Ethereum, Litecoin, Bitcoin Cash, Monero, Binance Coin, Stellar, Zcash, Cardano, Ripple, Doge, TRON and etc. Please see full list <a href='/fees-pricing/'>here</a>."
+    "answer": "Coinsfish can handle all your cryptocurrency processing needs with cryptos including Bitcoin, Ethereum, Litecoin, Bitcoin Cash, Monero, Binance Coin, Stellar, Zcash, Cardano, Ripple, Doge, TRON and etc. Please see full list <a href='/fees-pricing/'>here</a>."
   },
   {
     "id": 3,
@@ -26,7 +26,7 @@
   },
   {
     "id": 6,
-    "question": "Is Coinsbuy secure?",
+    "question": "Is Coinsfish secure?",
     "answer": "Yes, of course! We take security very seriously and never ever compromise. As specialists in our field, we always offer our clients a safe, secure and reliable environment. Our API endpoints are encrypted through SSL so user traffic is secured when requesting data."
   },
   {

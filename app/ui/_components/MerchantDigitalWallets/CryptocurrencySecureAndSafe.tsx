@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import features from '@/app/ui/_data/CryptocurrencySecureAndSafe.json';
+import features from '@/app/ui/_data/MerchantDigitalWallets/CryptocurrencySecureAndSafe.json';
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 
 const CryptocurrencySecureAndSafe = () => {
@@ -51,7 +51,7 @@ const CryptocurrencySecureAndSafe = () => {
             Secure and Safe
           </h2>
           <p className="text-base font-normal leading-[26px] text-gray-700">
-            Coinsbuy always ensures your safety.
+            Coinsfish always ensures your safety.
           </p>
         </div>
       </div>
