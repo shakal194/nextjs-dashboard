@@ -85,7 +85,7 @@ export default function CreateWalletForm({ id }: { id: string }) {
             </div>
           </div>
         ))}
-      </div>{' '}
+      </div>
       <div className="mt-6 flex gap-4">
         <Link
           href={`/dashboard/merchants/${id}`}

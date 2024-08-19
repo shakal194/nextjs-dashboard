@@ -100,7 +100,7 @@ const MinimumDepositsWithdrawals = () => {
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
                               -
                             </div>
-                          </div>{' '}
+                          </div>
                           <div className="row flex-0 m-0 flex w-full max-w-full flex-nowrap justify-start border-b border-[#ededed] pb-3 pt-3">
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
                               2
@@ -226,7 +226,7 @@ const MinimumDepositsWithdrawals = () => {
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
                               -
                             </div>
-                          </div>{' '}
+                          </div>
                           <div className="row flex-0 m-0 flex w-full max-w-full flex-nowrap justify-start border-b border-[#ededed] pb-3 pt-3">
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
                               2

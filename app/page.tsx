@@ -81,7 +81,7 @@ export default function Page() {
                 </li>
                 <li>
                   <Link
-                    href="/solution-comparison"
+                    href="/crypto-processing-solutions-comparison"
                     className="block py-2.5 pl-2.5 pr-[26px] text-sm transition-all delay-200 duration-300 ease-in-out hover:cursor-pointer hover:font-bold hover:text-blue-800"
                   >
                     Solution Comparison
@@ -132,7 +132,7 @@ export default function Page() {
                 </li>
                 <li>
                   <Link
-                    href="/solution-comparison"
+                    href="/crypto-processing-solutions-comparison"
                     className="block py-2.5 pl-2.5 pr-[26px] text-sm transition-all delay-200 duration-300 ease-in-out hover:cursor-pointer hover:font-bold hover:text-blue-800"
                   >
                     Solution Comparison

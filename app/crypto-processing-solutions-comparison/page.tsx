@@ -1061,7 +1061,7 @@ const CompareSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>{' '}
+            </div>
             <div className="block_compare_table_box flex w-full max-w-full border-t border-[#ecedf2] pt-[20px]">
               <div className="block_compare_table_title w-full max-w-[232px]">
                 <h4 className="m-0 text-base font-medium leading-6 text-[#1d2127]">

@@ -15,7 +15,7 @@ const AvailableCurrenciesSection = () => {
     <main className="flex min-h-screen flex-col p-6">
       <Header />
       <section className="block__available-currencies white_section flex w-full max-w-full flex-col pb-40 pt-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto w-full max-w-[1356px] px-4">
           <div className="block__available-currencies__heading mb-8 text-center">
             <h1 className="text-3xl font-semibold">
               Available Cryptocurrencies
@@ -100,7 +100,7 @@ const AvailableCurrenciesSection = () => {
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
                               Coin
                             </div>
-                          </div>{' '}
+                          </div>
                           <div className="row flex-0 m-0 flex w-full max-w-full flex-nowrap justify-start border-b border-[#ededed] pb-3 pt-3">
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
                               2
@@ -226,7 +226,7 @@ const AvailableCurrenciesSection = () => {
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px]  flex-nowrap justify-start text-xs leading-5">
                               Coin
                             </div>
-                          </div>{' '}
+                          </div>
                           <div className="row flex-0 m-0 flex w-full max-w-full flex-nowrap justify-start border-b border-[#ededed] pb-3 pt-3">
                             <div className="row__col octopus m-0 mr-5 flex flex-[0_1_144px] flex-nowrap justify-start text-xs leading-5">
                               2
