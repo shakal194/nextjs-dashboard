@@ -100,7 +100,7 @@ export default function Page() {
 
             <li className="group relative hover:cursor-pointer">
               <Link
-                href="/enterprise-blockchain-wallets"
+                href="/cryptocurrency-wallets"
                 className="transition-all delay-200 duration-300 ease-in-out hover:border-b hover:border-blue-800 hover:text-blue-800 focus:border-b focus:border-blue-800 focus:text-blue-800"
               >
                 Enterprise Blockchain Wallets
@@ -108,7 +108,7 @@ export default function Page() {
               <ul className="invisible absolute -left-4 min-w-[calc(100%+90px)] rounded-lg bg-blue-500 bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_46px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] transition delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100">
                 <li>
                   <Link
-                    href="/enterprise-solution"
+                    href="/cryptocurrency-wallets"
                     className="block py-2.5 pl-2.5 pr-[26px] text-sm transition-all delay-200 duration-300 ease-in-out hover:cursor-pointer hover:cursor-pointer hover:font-bold hover:text-blue-800"
                   >
                     Enterprise Blockchain Wallets Solution
