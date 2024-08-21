@@ -4,8 +4,6 @@ import Footer from '@/app/ui/footer';
 import EnterpriseBlockchainWallets from '@/app/ui/_components/EnterpriseBlockchainWallets/EnterpriseBlockchainWallets';
 import PerfectlyWorks from '@/app/ui/_components/MerchantDigitalWallets/PerfectlyWorks';
 import CryptoVsCardFiat from '@/app/ui/_components/MerchantDigitalWallets/CryptoVsCardFiat';
-import Settlements from '@/app/ui/_components/MerchantDigitalWallets/Settlements';
-import CryptoPaymentServiceProvider from '@/app/ui/_components/MerchantDigitalWallets/CryptoPaymentServiceProvider';
 import CryptoWalletsTailored from '@/app/ui/_components/EnterpriseBlockchainWallets/CryptoWalletsTailored';
 import CryptocurrencyOutstandingFeatures from '@/app/ui/_components/EnterpriseBlockchainWallets/CryptocurrencyOutstandingFeatures';
 import BusinessModel from '@/app/ui/_components/MerchantDigitalWallets/BusinessModel';
@@ -32,8 +30,6 @@ const CryptocurrencyWallets = () => {
         <EnterpriseBlockchainWallets />
         <PerfectlyWorks />
         <CryptoVsCardFiat />
-        {/*<Settlements />
-        <CryptoPaymentServiceProvider />*/}
         <CryptoWalletsTailored />
         <CryptocurrencyOutstandingFeatures />
         <BusinessModel />
