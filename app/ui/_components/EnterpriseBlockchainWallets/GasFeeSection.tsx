@@ -34,7 +34,6 @@ const GasFeeSection = () => {
                   src="/svg/–-50-of-gas-fee.png"
                   alt="– 50% of gas fee"
                   title="– 50% of gas fee"
-                  layout="responsive"
                   width={500}
                   height={500}
                 />

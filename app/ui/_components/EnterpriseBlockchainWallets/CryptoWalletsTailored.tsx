@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import useCasesEnterpriseBlockchainWallets from '@/app/ui/_data/EnterpriseBlockchainWallets/CryptoWalletsTailored.json';
 
 const CryptoWalletsTailored = () => {
   return (
@@ -17,127 +18,40 @@ const CryptoWalletsTailored = () => {
         </div>
       </div>
       <div className="container mx-auto w-full max-w-[1356px] p-0">
-        <div className="block_business_model_slider_row flex flex-wrap justify-between">
-          <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
-            <Image
-              className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
-              decoding="async"
-              loading="lazy"
-              width={0}
-              height={0}
-              src="/svg/Icons.svg"
-              alt="Icons"
-              title="Icons"
-            />
-            <h4 className="mb-[8px] text-[18px] font-semibold leading-[27px] tracking-normal text-[#3b4048] dark:text-white">
-              Multi-Asset Brokers
-            </h4>
-            <p className="dark:text-slate-300">
-              Add crypto as an additional asset to your platform as well as
-              allow your clients a way to top up their accounts with crypto!
-            </p>
+        {useCasesEnterpriseBlockchainWallets.map((useCase, index) => (
+          <div
+            key={index}
+            className={`use-cases__row row-use-cases flex-start mb-8 flex flex-wrap ${index !== useCasesEnterpriseBlockchainWallets.length - 1 ? 'pb-4' : ''}`}
+          >
+            <div className="row-use-cases__list flex flex-[74.5%] flex-wrap items-start justify-between gap-4">
+              {useCase.items.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="row-use-cases__item flex-33% visible scale-100 p-4 py-6 pb-8 pt-6 opacity-100 transition duration-1000"
+                >
+                  <div className="icon mb-[24px]">
+                    <Image
+                      className="lazy"
+                      decoding="async"
+                      loading="lazy"
+                      fetchPriority="low"
+                      src={item.imgSrc}
+                      alt={item.imgAlt}
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <div className="title mb-2 text-lg font-semibold leading-[1.5] text-[#3b4048]">
+                    {item.title}
+                  </div>
+                  <div className="text text-sm leading-[1.6] text-[#5f5f6a]">
+                    {item.text}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
-            <Image
-              className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
-              decoding="async"
-              loading="lazy"
-              width={0}
-              height={0}
-              src="/svg/Icons-1.svg"
-              alt="Icons"
-              title="Icons"
-            />
-            <h4 className="mb-[8px] text-[18px] font-semibold leading-[27px] tracking-normal text-[#3b4048] dark:text-white">
-              Crypto Brokers
-            </h4>
-            <p className="dark:text-slate-300">
-              Offer your clients an opportunity to trade and deposit many
-              different cryptocurrencies.
-            </p>
-          </div>
-          <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
-            <Image
-              className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
-              decoding="async"
-              loading="lazy"
-              width={0}
-              height={0}
-              src="/svg/Icons-2 (1).svg"
-              alt="Icons"
-              title="Icons"
-            />
-            <h4 className="mb-[8px] text-[18px] font-semibold leading-[27px] tracking-normal text-[#3b4048] dark:text-white">
-              Converters
-            </h4>
-            <p className="dark:text-slate-300">
-              Provide your clients with an ability to convert their crypto and
-              fiat to any of the accepted currencies. Our solution offers
-              user-friendly interface and industry leading exchange rates!
-            </p>
-          </div>
-          <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
-            <Image
-              className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
-              decoding="async"
-              loading="lazy"
-              width={0}
-              height={0}
-              src="/svg/Icons-3 (1).svg"
-              alt="Icons"
-              title="Icons"
-            />
-            <h4 className="mb-[8px] text-[18px] font-semibold leading-[27px] tracking-normal text-[#3b4048] dark:text-white">
-              Margin Exchanges
-            </h4>
-            <p className="dark:text-slate-300">
-              Allow your clients to make spot purchases and sales of
-              cryptocurrencies using margin. Coinsbuy has all the functionality
-              needed to implement it!
-            </p>
-          </div>
-          <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
-            <Image
-              className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
-              decoding="async"
-              loading="lazy"
-              width={0}
-              height={0}
-              src="/svg/Icons-4.svg"
-              alt="Icons"
-              title="Icons"
-            />
-            <h4 className="mb-[8px] text-[18px] font-semibold leading-[27px] tracking-normal text-[#3b4048] dark:text-white">
-              Crypto Exchanges (CEX)
-            </h4>
-            <p className="dark:text-slate-300">
-              The core mechanism behind every exchange. Our gateway provides the
-              technology to handle all your crypto transactions.
-            </p>
-          </div>
-          <div className="block_business_model_slider_row_single mb-[56px] w-full max-w-[300px]">
-            <Image
-              className="lazy mb-[24px] h-[50px] w-[50px] object-contain"
-              decoding="async"
-              loading="lazy"
-              width={0}
-              height={0}
-              src="/svg/Icons-5.svg"
-              alt="Icons"
-              title="Icons"
-            />
-            <h4 className="mb-[8px] text-[18px] font-semibold leading-[27px] tracking-normal text-[#3b4048] dark:text-white">
-              Mobile Wallet Apps
-            </h4>
-            <p className="dark:text-slate-300">
-              Coinsbuy can be easily integrated with any mobile app. Offer your
-              clients a way to securely store cryptocurrencies, tokens and
-              stablecoins.
-            </p>
-          </div>
-          <div className="block_business_model_slider_row_single empty_box mb-[56px] w-full max-w-[300px]"></div>
-          <div className="block_business_model_slider_row_single empty_box mb-[56px] w-full max-w-[300px]"></div>
-        </div>
+        ))}
       </div>
     </section>
   );

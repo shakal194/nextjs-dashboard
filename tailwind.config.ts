@@ -12,6 +12,9 @@ const config: Config = {
       maxWidth: {
         '33%': 'calc(33% - 24px)',
       },
+      flex: {
+        '33%': '1 0 calc(33.33% - 12px)',
+      },
       backgroundImage: {
         'bg-pattern': "url('/public/bg_light.png')",
       },

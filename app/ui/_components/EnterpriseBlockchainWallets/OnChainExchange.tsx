@@ -35,7 +35,6 @@ const OnChainExchange = () => {
                   src="/svg/On-chain-Exchange.png"
                   alt="On-chain Exchange"
                   title="On-chain Exchange"
-                  layout="responsive"
                   width={0}
                   height={0}
                 />
