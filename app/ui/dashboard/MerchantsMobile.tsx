@@ -18,19 +18,6 @@ export default function MerchantsMobile({ children }: { children: ReactNode }) {
     document.body.style.overflow = '';
   };
 
-  /*const handleCloseModal = (modalName: any) => {
-    closeModal(modalName);
-    resetInput(); // Сброс состояния инпута при закрытии модалки
-  };*/
-
-  /*const handleModalOpen = () => {
-    setIsModalMainOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalMainOpen(false);
-  };*/
-
   useEffect(() => {
     if (isModalOpen('mobileMerchants')) {
       blockBodyScroll();
@@ -46,22 +33,11 @@ export default function MerchantsMobile({ children }: { children: ReactNode }) {
       }
     };
 
-    /*const handleClickOutsideModal = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (target.classList.contains('bg-opacity-50')) {
-        closeModal('mobileMerchants');
-        resetInput();
-        unblockBodyScroll();
-      }
-    };*/
-
     document.addEventListener('keydown', handleEscapeKeyPress);
-    //document.addEventListener('click', handleClickOutsideModal);
 
     return () => {
       document.removeEventListener('keydown', handleEscapeKeyPress);
-      //document.removeEventListener('click', handleClickOutsideModal);
-      unblockBodyScroll(); // Ensure to unblock scroll when component unmounts
+      unblockBodyScroll();
     };
   }, [closeModal, resetInput, isModalOpen]);
 
@@ -82,7 +58,7 @@ export default function MerchantsMobile({ children }: { children: ReactNode }) {
             }}
           >
             <div
-              className="relative mx-auto h-full w-full max-w-md  bg-white p-4"
+              className="relative mx-auto h-full w-full max-w-md bg-white p-4"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative flex justify-end">

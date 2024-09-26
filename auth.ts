@@ -1,4 +1,5 @@
 import NextAuth from 'next-auth';
+import withAuth from 'next-auth';
 import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
@@ -87,6 +88,7 @@ const config = {
     },
     session: async ({ session, token }: { session: any; token: any }) => {
       session.user.id = token.id;
+      //session.locale = token.locale || 'en';
       return session;
     },
   },

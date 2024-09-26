@@ -14,6 +14,10 @@ const config: Config = {
       },
       flex: {
         '33%': '1 0 calc(33.33% - 12px)',
+        '50%': '0 0 calc(50% - 8px)',
+        '62%': '0 0 calc(62% - 36px)',
+        '100': '0 0 100%',
+        '38': '0 0 38%',
       },
       backgroundImage: {
         'bg-pattern': "url('/public/bg_light.png')",

@@ -8,12 +8,12 @@ import { InputProvider } from '@/app/ui/dashboard/merchants/context/InputContext
 import Header from '@/app/ui/_components/Header';
 import Footer from '@/app/ui/footer';
 
+import { appWithTranslation } from 'next-i18next';
+
 export default function RootLayout({
   children,
-  //session,
 }: {
   children: React.ReactNode;
-  // session: SessionProviderProps;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
