@@ -6,19 +6,19 @@ import Link from 'next/link';
 const Contact = () => {
   return (
     <>
-      {/*<Header />*/}
+      <Header />
       <section className="block_contact_us py-[72px] lg:py-40">
         <div className="container mx-auto px-4">
           <div className="block_contact_us__inner flex flex-wrap md:gap-[36px] lg:flex-row lg:flex-nowrap lg:justify-between lg:gap-y-9">
-            <div className="block_contact_us__inner__left flex-100 lg:flex-38 lg:mb-0 lg:mb-8 lg:w-1/2">
+            <div className="block_contact_us__inner__left flex-100 lg:mb-0 lg:mb-8 lg:w-1/2 lg:flex-38">
               <h1 className="mb-4 text-2xl font-semibold md:text-4xl">
                 Have specific questions, or&nbsp;want a&nbsp;guided tour of our
                 services?
               </h1>
               <p className="text-lg">Contact us for more information.</p>
             </div>
-            <div className="block_contact_us__inner__right md:flex-100 lg:flex-62% flex flex-wrap md:gap-4">
-              <div className="block_contact_us__inner__right__box flex-100 md:flex-50% flex flex-col justify-center p-[32px] md:mb-8 md:gap-4">
+            <div className="block_contact_us__inner__right flex flex-wrap md:flex-100 md:gap-4 lg:flex-62%">
+              <div className="block_contact_us__inner__right__box flex flex-100 flex-col justify-center p-[32px] md:mb-8 md:flex-50% md:gap-4">
                 <p className="mb-2 text-center text-lg">Reach out through</p>
                 <a
                   href="mailto:sales@Coinsfish.com"
@@ -33,7 +33,7 @@ const Contact = () => {
                   +44 204 538 8142
                 </a>
               </div>
-              <div className="block_contact_us__inner__right__box flex-100 md:flex-50% flex flex-col justify-center gap-4 p-[32px]">
+              <div className="block_contact_us__inner__right__box flex flex-100 flex-col justify-center gap-4 p-[32px] md:flex-50%">
                 <p className="mb-2 text-center text-lg ">Or fill the form</p>
                 <Link
                   href="#popup-form"
