@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 import axios, { AxiosError } from 'axios';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiRegisterUrl = process.env.NEXT_PUBLIC_API_REGISTR_URL;
 
 const FormSchema = z.object({
   id: z.string(),
@@ -207,6 +208,132 @@ export async function createUser(prevState: UserState, formData: FormData) {
   revalidatePath('/');
   redirect('/success');
 }
+
+//BEGIN TEST REGISTR API
+
+export async function handleEmailSubmit(email: string) {
+  if (!email) {
+    console.error(`Email не может быть пустым.`);
+    return {
+      errors: { email: ['Email не может быть пустым.'] },
+    };
+    //throw new Error('Email не может быть пустым.');
+  }
+
+  const validateEmail = (email: string) => {
+    const regExp = /^[^\s@,]+@[^,\s@]+(\.[^\s@.,]+)+$/;
+    return regExp.test(String(email).toLowerCase()) && !/\.{2,}/.test(email);
+  };
+
+  if (!validateEmail(email)) {
+    console.error(`Введите корректный email`);
+    return {
+      errors: { email: ['Введите корректный email'] },
+    };
+    //throw new Error('Введите корректный email.');
+  }
+
+  try {
+    const response = await fetch(`${apiRegisterUrl}/Registration/sendcode`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: '*/*' },
+      body: JSON.stringify(email),
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      throw new Error(data.message || 'Ошибка при отправке кода.');
+    }
+  } catch (error) {
+    console.error('Ошибка при отправке запроса:', error);
+    throw new Error('Ошибка при отправке кода.');
+  }
+}
+
+const AddUser = z.object({
+  //id: z.string(),
+  login: z.string({ invalid_type_error: 'Please input login.' }),
+  email: z.string({ invalid_type_error: 'Please input email.' }),
+  otpcode: z.string({ invalid_type_error: 'Please input OTP Code.' }),
+  password: z.string({ invalid_type_error: 'Please input password.' }),
+  confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
+});
+
+export type AddUserState = {
+  errors?: {
+    email?: string[];
+    login?: string[];
+    otpcode?: string[];
+    password?: string[];
+    confirmPassword?: string[];
+  };
+  message?: string | null;
+};
+
+export async function addUser(prevState: AddUserState, formData: FormData) {
+  const validatedFields = AddUser.safeParse({
+    //id: uuidv4(),
+    email: formData.get('email'),
+    login: formData.get('login'),
+    otpcode: formData.get('otpcode'),
+    password: formData.get('password'),
+    confirmPassword: formData.get('confirmPassword'),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Create User.',
+    };
+  }
+
+  //const { id, name, email, password, confirmPassword } = validatedFields.data;
+  const { login, email, otpcode, password, confirmPassword } =
+    validatedFields.data;
+
+  if (password !== confirmPassword) {
+    console.log('Passwords do not match');
+    return {
+      errors: { password: ['Password and Confirm Password do not match'] },
+    };
+  }
+
+  //const hashedPassword = await bcrypt.hash(password, 10);
+
+  try {
+    const response = await fetch(`${apiRegisterUrl}/Registration/adduser`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: '*/*' },
+      body: JSON.stringify({ email, otpcode, password, login }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Error:', errorData);
+      if (errorData === 6) {
+        return {
+          errors: { otpcode: ['OTP Code not valid'] },
+        };
+      }
+      if (errorData === 0) {
+        return {
+          errors: { login: ['Login already exists'] },
+        };
+      }
+      //throw new Error(`Request failed with status ${response.status}`);
+    }
+
+    console.log('User add successfully.');
+  } catch (error) {
+    return {
+      message: 'Database Error: Failed to Create User.',
+    };
+  }
+  revalidatePath('/');
+  redirect('/login');
+}
+
+//END TEST REGISTR API
 
 export async function createWallet(sessionId: string) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
