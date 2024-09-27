@@ -8,7 +8,7 @@ import {
   ChevronDownIcon,
 } from '@heroicons/react/24/outline';
 import MobileMenuSession from '@/app/ui/_components/MobileMenuSession';
-import AccordionMobileMenuMerchant from '@/app/ui/_components/AccordionMobileMenuMerchant';
+import AccordionMobileMenu from '@/app/ui/_components/AccordionMobileMenu';
 
 type Submenus = {
   submenu1: boolean;
@@ -97,7 +97,7 @@ const MobileMenu = () => {
         >
           <XCircleIcon className="h-6 w-6 text-gray-800 dark:text-gray-200" />
         </button>
-        <AccordionMobileMenuMerchant />
+        <AccordionMobileMenu />
         {/*<ul className="mt-4 flex flex-col gap-4">
 
           <li className="group relative hover:cursor-pointer">

@@ -107,14 +107,14 @@ const HeaderNavMenu = () => {
               </li>
             </ul>
           </li>
-          <li className="group relative hover:cursor-pointer">
-            <Link
+          {/*<li className="group relative hover:cursor-pointer">
+             <Link
               href="/swap-wallets"
               className="transition-all delay-200 duration-300 ease-in-out hover:border-b hover:border-blue-800 hover:text-blue-800 focus:border-b focus:border-blue-800 focus:text-blue-800 dark:hover:border-blue-300 dark:hover:text-blue-300 dark:focus:border-blue-300 dark:focus:text-blue-300"
             >
               Swap Wallets
             </Link>
-          </li>
+          </li>*/}
         </ul>
         <div>
           <div className="group relative hover:cursor-pointer">

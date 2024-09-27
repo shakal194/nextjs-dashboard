@@ -4,7 +4,7 @@ import { Accordion, AccordionItem } from '@nextui-org/react';
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { AccordionData, AccordionItemMobileMenu } from '@/app/lib/definitions';
-import dataAccordion from '@/app/ui/_data/accordionMobileMenuMerchantData.json';
+import dataAccordion from '@/app/ui/_data/accordionMobileMenu.json';
 
 const data: AccordionData = dataAccordion;
 
