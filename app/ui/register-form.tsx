@@ -9,13 +9,17 @@ import {
   EyeSlashIcon,
   ShieldCheckIcon,
   UserIcon,
+  ArrowRightIcon,
 } from '@heroicons/react/24/outline';
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
 import { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import Link from 'next/link';
 import { addUser, handleEmailSubmit } from '@/app/lib/actions';
+import {
+  RegistrationSpinnerStep1,
+  RegistrationSpinnerStep2,
+} from '@/app/ui/_components/SignupButton';
 
 export default function SignupForm() {
   const [errorMessage, setErrorMessage] = useState('');
@@ -85,14 +89,16 @@ export default function SignupForm() {
                   ))}
               </div>
             </div>
-            <Button
+            {/*<Button
               type="submit"
               className="mt-4 w-full"
               onClick={handleSubmit}
             >
               Continue
               <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
-            </Button>
+            </Button>*/}
+
+            <RegistrationSpinnerStep1 onSubmit={handleSubmit} />
           </div>
         )}
         {step === 2 && (
@@ -274,7 +280,7 @@ export default function SignupForm() {
                 </div>
               </div>
             </div>
-            <SignupButton />
+            <RegistrationSpinnerStep2 />
           </>
         )}
         <div
@@ -294,13 +300,32 @@ export default function SignupForm() {
   );
 }
 
-function SignupButton() {
+/*function SignupButton() {
   const { pending } = useFormStatus();
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  const handleClick = () => {
+    setShowSpinner(true);
+    // Ваш код для отправки формы
+  };
 
   return (
-    <Button className="mt-4 w-full" aria-disabled={pending} type="submit">
-      {pending ? 'Registration' : 'Sign Up'}
-      <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
-    </Button>
+    <>
+      <Button
+        className="mt-4 w-full"
+        aria-disabled={pending}
+        type="submit"
+        onClick={handleClick}
+      >
+        {pending ? 'Registration' : 'Sign Up'}
+        <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+      </Button>
+      {showSpinner && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <Loading size="xl" />
+        </div>
+      )}
+    </>
   );
 }
+*/

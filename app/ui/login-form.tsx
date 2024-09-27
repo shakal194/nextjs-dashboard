@@ -11,6 +11,7 @@ import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import React from 'react';
+import { LoginButton } from '@/app/ui/_components/LoginButton';
 //import { Spinner } from '@nextui-org/react';
 //import { Notify } from 'notiflix/build/notiflix-notify-aio';
 //Notify.init({ distance: '30px' });
@@ -84,7 +85,7 @@ export default function LoginForm() {
     </form>
   );
 }
-
+/*
 function LoginButton() {
   const { pending } = useFormStatus();
   return (
@@ -94,3 +95,4 @@ function LoginButton() {
     </Button>
   );
 }
+*/

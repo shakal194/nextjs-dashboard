@@ -5,6 +5,7 @@ import { SessionProvider } from 'next-auth/react';
 import Providers from '@/app/providers';
 import { ModalProvider } from '@/app/ui/dashboard/merchants/context/ModalContext';
 import { InputProvider } from '@/app/ui/dashboard/merchants/context/InputContext';
+import { NextUIProvider } from '@nextui-org/react';
 import Header from '@/app/ui/_components/Header';
 import Footer from '@/app/ui/footer';
 
@@ -19,15 +20,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <Providers>
-          <InputProvider>
-            <ModalProvider>
-              <SessionProvider>
-                {/*<Header />*/}
-                {children}
-                {/*<Footer />*/}
-              </SessionProvider>
-            </ModalProvider>
-          </InputProvider>
+          <NextUIProvider>
+            <InputProvider>
+              <ModalProvider>
+                <SessionProvider>
+                  {/*<Header />*/}
+                  {children}
+                  {/*<Footer />*/}
+                </SessionProvider>
+              </ModalProvider>
+            </InputProvider>
+          </NextUIProvider>
         </Providers>
       </body>
     </html>
