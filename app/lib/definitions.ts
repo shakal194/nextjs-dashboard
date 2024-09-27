@@ -19,6 +19,15 @@ export type User = {
   };
 };*/
 
+export type AccordionItemMobileMenu = {
+  title: string;
+  link: string;
+};
+
+export type AccordionData = {
+  [key: string]: AccordionItemMobileMenu[];
+};
+
 export type OptionSettings = {
   Email: boolean;
   Google2Fa: boolean;
