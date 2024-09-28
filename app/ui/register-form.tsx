@@ -20,6 +20,7 @@ import {
   RegistrationSpinnerStep1,
   RegistrationSpinnerStep2,
 } from '@/app/ui/_components/SignupButton';
+import { Checkbox } from '@nextui-org/react';
 
 export default function SignupForm() {
   const [errorMessage, setErrorMessage] = useState('');
@@ -249,34 +250,33 @@ export default function SignupForm() {
               </div>
               <div className="mt-4">
                 <div className="flex items-center">
-                  <input
-                    id="privacy_and_terms"
-                    type="checkbox"
-                    name="privacy_and_terms"
-                    required
-                    className="hover:cursor-pointer focus:hover:cursor-pointer"
-                  />
-                  <label
-                    htmlFor="privacy_and_terms"
-                    className="ml-2 hover:cursor-pointer focus:hover:cursor-pointer"
-                  >
-                    <span>I agree with </span>
-                    <Link
-                      href="/terms"
-                      className="underline hover:text-[#007aff] hover:transition-all"
+                  <Checkbox color="success">
+                    <label
+                      htmlFor="privacy_and_terms"
+                      className="ml-2 hover:cursor-pointer focus:hover:cursor-pointer"
                     >
-                      Terms of Use
-                    </Link>
-                    <span> and </span>
-                    <span>
+                      <span>I agree with </span>
                       <Link
-                        href="/privacy"
+                        href="/terms"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="underline hover:text-[#007aff] hover:transition-all"
                       >
-                        Privacy Policy
+                        Terms of Use
                       </Link>
-                    </span>
-                  </label>
+                      <span> and </span>
+                      <span>
+                        <Link
+                          href="/privacy"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline hover:text-[#007aff] hover:transition-all"
+                        >
+                          Privacy Policy
+                        </Link>
+                      </span>
+                    </label>
+                  </Checkbox>
                 </div>
               </div>
             </div>

@@ -11,14 +11,16 @@ export const metadata: Metadata = {
 
 export default function RegistrationPage() {
   return (
-    <main className="flex min-h-screen flex-col p-6">
+    <>
       <Header />
-      <div className="flex justify-center">
-        <RegistrationForm />
-      </div>
-      <Link href="/" className="text-center">
-        <span className="text-center text-black">Forgot your password?</span>
-      </Link>
-    </main>
+      <main className="flex min-h-screen flex-col p-6">
+        <div className="flex justify-center">
+          <RegistrationForm />
+        </div>
+        <Link href="/" className="text-center">
+          <span className="text-center text-black">Forgot your password?</span>
+        </Link>
+      </main>
+    </>
   );
 }

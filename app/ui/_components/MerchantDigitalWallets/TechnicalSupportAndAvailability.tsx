@@ -19,6 +19,7 @@ const TechnicalSupportAndAvailability = () => {
             <Link
               className="b2b_link tangerine_link group flex items-center space-x-2 text-[#204bdb] hover:text-[#204bdb]"
               target="_blank"
+              rel="noopener noreferrer"
               href="/signup"
             >
               Get Support
