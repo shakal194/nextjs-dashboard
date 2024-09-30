@@ -6,15 +6,12 @@ import {
   KeyIcon,
   ExclamationCircleIcon,
 } from '@heroicons/react/24/outline';
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
-import { Button } from './button';
+import Link from 'next/link';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import React from 'react';
 import { LoginButton } from '@/app/ui/_components/LoginButton';
-//import { Spinner } from '@nextui-org/react';
 //import { Notify } from 'notiflix/build/notiflix-notify-aio';
-//Notify.init({ distance: '30px' });
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -63,6 +60,13 @@ export default function LoginForm() {
                 minLength={6}
               />
               <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900 dark:text-slate-50 dark:peer-focus:text-slate-50" />
+            </div>
+            <div className="mt-2 flex justify-center">
+              <Link href="/recovery">
+                <span className="text-center text-black underline transition-all delay-200 duration-300 ease-in-out hover:text-blue-800 focus:text-blue-800 dark:text-white dark:hover:text-blue-400 dark:focus:text-blue-400">
+                  Forgot your password?
+                </span>
+              </Link>
             </div>
           </div>
         </div>

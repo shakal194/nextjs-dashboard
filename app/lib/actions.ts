@@ -259,6 +259,11 @@ const AddUser = z.object({
   email: z.string({ invalid_type_error: 'Please input email.' }),
   otpcode: z.string({ invalid_type_error: 'Please input OTP Code.' }),
   password: z.string({ invalid_type_error: 'Please input password.' }),
+  /*password: z
+    .string({ invalid_type_error: 'Please input password.' })
+    .regex(/[!@#$%^&*(),.?":{}|<>]/, {
+      message: 'Password must contain at least one special character.',
+    }),*/
   confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
   privacy_and_terms: z.string({
     invalid_type_error: 'Read and accept the Privacy Policy and Terms of Use.',
