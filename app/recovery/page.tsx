@@ -1,4 +1,4 @@
-import RegistrationForm from '@/app/ui/register-form';
+import RecoveryForm from '@/app/ui/recovery-form';
 import Link from 'next/link';
 import Header from '@/app/ui/_components/Header';
 
@@ -9,20 +9,13 @@ export const metadata: Metadata = {
   description: 'Login to CoinsFish Crypto payments Gateway.',
 };
 
-export default function RegistrationPage() {
+export default function RecoveryPage() {
   return (
     <>
       <Header />
       <main className="flex min-h-screen flex-col p-6">
         <div className="flex justify-center">
-          <RegistrationForm />
-        </div>
-        <div className="mt-2 flex justify-center">
-          <Link href="/recovery">
-            <span className="text-center text-black dark:text-white">
-              Forgot your password?
-            </span>
-          </Link>
+          <RecoveryForm />
         </div>
       </main>
     </>

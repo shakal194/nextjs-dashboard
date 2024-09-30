@@ -221,8 +221,11 @@ export async function handleEmailSubmit(email: string) {
   }
 
   const validateEmail = (email: string) => {
+    const trimmedEmail = email.trim();
     const regExp = /^[^\s@,]+@[^,\s@]+(\.[^\s@.,]+)+$/;
-    return regExp.test(String(email).toLowerCase()) && !/\.{2,}/.test(email);
+    return (
+      regExp.test(trimmedEmail.toLowerCase()) && !/\.{2,}/.test(trimmedEmail)
+    );
   };
 
   if (!validateEmail(email)) {
@@ -257,6 +260,9 @@ const AddUser = z.object({
   otpcode: z.string({ invalid_type_error: 'Please input OTP Code.' }),
   password: z.string({ invalid_type_error: 'Please input password.' }),
   confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
+  privacy_and_terms: z.string({
+    invalid_type_error: 'Read and accept the Privacy Policy and Terms of Use.',
+  }),
 });
 
 export type AddUserState = {
@@ -266,6 +272,7 @@ export type AddUserState = {
     otpcode?: string[];
     password?: string[];
     confirmPassword?: string[];
+    privacy_and_terms?: string[];
   };
   message?: string | null;
 };
@@ -274,10 +281,11 @@ export async function addUser(prevState: AddUserState, formData: FormData) {
   const validatedFields = AddUser.safeParse({
     //id: uuidv4(),
     email: formData.get('email'),
-    login: formData.get('login'),
+    login: formData.get('email'),
     otpcode: formData.get('otpcode'),
     password: formData.get('password'),
     confirmPassword: formData.get('confirmPassword'),
+    privacy_and_terms: formData.get('privacy_and_terms'),
   });
 
   if (!validatedFields.success) {
@@ -317,7 +325,7 @@ export async function addUser(prevState: AddUserState, formData: FormData) {
       }
       if (errorData === 0) {
         return {
-          errors: { login: ['Login already exists'] },
+          errors: { email: ['Login already exists'] },
         };
       }
       //throw new Error(`Request failed with status ${response.status}`);
@@ -334,6 +342,97 @@ export async function addUser(prevState: AddUserState, formData: FormData) {
 }
 
 //END TEST REGISTR API
+
+//Begin recovery password
+
+const RecoveryUser = z.object({
+  //id: z.string(),
+  login: z.string({ invalid_type_error: 'Please input login.' }),
+  email: z.string({ invalid_type_error: 'Please input email.' }),
+  otpcode: z.string({ invalid_type_error: 'Please input OTP Code.' }),
+  newPassword: z.string({ invalid_type_error: 'Please input password.' }),
+  confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
+});
+
+export type RecoveryUserState = {
+  errors?: {
+    email?: string[];
+    login?: string[];
+    otpcode?: string[];
+    password?: string[];
+    confirmPassword?: string[];
+  };
+  message?: string | null;
+};
+
+export async function recoveryUser(
+  prevState: RecoveryUserState,
+  formData: FormData,
+) {
+  const validatedFields = RecoveryUser.safeParse({
+    //id: uuidv4(),
+    email: formData.get('email'),
+    login: formData.get('email'),
+    otpcode: formData.get('otpcode'),
+    newPassword: formData.get('password'),
+    confirmPassword: formData.get('confirmPassword'),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to recovery User password.',
+    };
+  }
+
+  //const { id, name, email, password, confirmPassword } = validatedFields.data;
+  const { login, email, otpcode, newPassword, confirmPassword } =
+    validatedFields.data;
+
+  if (newPassword !== confirmPassword) {
+    console.log('Passwords do not match');
+    return {
+      errors: { password: ['Password and Confirm Password do not match'] },
+    };
+  }
+
+  try {
+    const response = await fetch(
+      `${apiRegisterUrl}/Registration/changepassword`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: '*/*' },
+        body: JSON.stringify({ email, otpcode, newPassword, login }),
+      },
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Error:', errorData);
+      if (errorData === 6) {
+        return {
+          errors: { otpcode: ['OTP Code not valid'] },
+        };
+      }
+      if (errorData === 0) {
+        return {
+          errors: { login: ['Login already exists'] },
+        };
+      }
+      //throw new Error(`Request failed with status ${response.status}`);
+    }
+
+    console.log('User password recovery successfully.');
+  } catch (error) {
+    return {
+      message: 'Database Error: Failed to recovery User password.',
+    };
+  }
+  revalidatePath('/');
+  redirect('/login');
+}
+
+//end recovery password
 
 export async function createWallet(sessionId: string) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;

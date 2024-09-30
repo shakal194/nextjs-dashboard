@@ -1,4 +1,4 @@
-import CoinsFishLogo from '@/app/ui/coinsfish-logo';
+import Header from '../ui/_components/Header';
 import LoginForm from '@/app/ui/login-form';
 import Link from 'next/link';
 
@@ -11,20 +11,20 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-20">
-        <Link href="/">
-          <div className="text-white">
-            <CoinsFishLogo />
-          </div>
-        </Link>
-      </div>
-      <div className="flex justify-center">
-        <LoginForm />
-      </div>
-      <Link href="/" className="text-center">
-        <span className="text-center text-black">Forgot your password?</span>
-      </Link>
-    </main>
+    <>
+      <Header />
+      <main className="flex min-h-screen flex-col p-6">
+        <div className="flex justify-center">
+          <LoginForm />
+        </div>
+        <div className="mt-2 flex justify-center">
+          <Link href="/recovery">
+            <span className="text-center text-black dark:text-white">
+              Forgot your password?
+            </span>
+          </Link>
+        </div>
+      </main>
+    </>
   );
 }

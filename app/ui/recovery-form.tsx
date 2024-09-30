@@ -4,20 +4,21 @@ import { lusitana } from '@/app/ui/fonts';
 import {
   AtSymbolIcon,
   KeyIcon,
+  ExclamationCircleIcon,
   EyeIcon,
   EyeSlashIcon,
   ShieldCheckIcon,
+  UserIcon,
   ArrowRightIcon,
 } from '@heroicons/react/24/outline';
 import { Button } from './button';
 import { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import Link from 'next/link';
-import { addUser, handleEmailSubmit } from '@/app/lib/actions';
-import { Checkbox } from '@nextui-org/react';
+import { recoveryUser, handleEmailSubmit } from '@/app/lib/actions';
 import LoadingSpinner from '@/app/ui/_components/LoadingSpinner';
 
-export default function SignupForm() {
+export default function RecoveryForm() {
   const [errorMessage, setErrorMessage] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [step, setStep] = useState(1); // 1 - Email, 2 - OTP and Password
@@ -29,7 +30,7 @@ export default function SignupForm() {
     message: null,
     errors: {},
   };
-  const [state, dispatch] = useFormState(addUser, initialState);
+  const [state, dispatch] = useFormState(recoveryUser, initialState);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -62,11 +63,11 @@ export default function SignupForm() {
     <form action={dispatch} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8 dark:border dark:bg-black">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
-          Join to continue.
+          Reset password.
         </h1>
         {step === 1 && (
           <div className="w-full">
-            <div className="mt-4">
+            <div>
               <label
                 className="mb-3 mt-5 block text-xs font-medium text-gray-900 dark:text-white"
                 htmlFor="email"
@@ -88,10 +89,7 @@ export default function SignupForm() {
               </div>
               <div id="email-error" aria-live="polite" aria-atomic="true">
                 {errorMessage && (
-                  <p
-                    className="text-sm text-red-500 dark:text-red-400"
-                    key={errorMessage}
-                  >
+                  <p className="text-sm text-red-500 dark:text-red-400">
                     {errorMessage}
                   </p>
                 )}
@@ -111,7 +109,7 @@ export default function SignupForm() {
         {step === 2 && (
           <>
             <div className="w-full">
-              <div className="mt-4">
+              <div>
                 <label
                   className="mb-3 mt-5 block text-xs font-medium text-gray-900 dark:text-white"
                   htmlFor="email"
@@ -135,16 +133,13 @@ export default function SignupForm() {
                 <div id="email-error" aria-live="polite" aria-atomic="true">
                   {state.errors?.email &&
                     state.errors.email.map((error: string) => (
-                      <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
+                      <p className="mt-2 text-sm text-red-500" key={error}>
                         {error}
                       </p>
                     ))}
                 </div>
               </div>
-              <div className="mt-4">
+              <div>
                 <label
                   className="mb-3 mt-5 block text-xs font-medium text-gray-900 dark:text-white"
                   htmlFor="otpcode"
@@ -165,10 +160,7 @@ export default function SignupForm() {
                 <div id="otpcode-error" aria-live="polite" aria-atomic="true">
                   {state.errors?.otpcode &&
                     state.errors.otpcode.map((error: string) => (
-                      <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
+                      <p className="mt-2 text-sm text-red-500" key={error}>
                         {error}
                       </p>
                     ))}
@@ -179,7 +171,7 @@ export default function SignupForm() {
                   className="mb-3 mt-5 block text-xs font-medium text-gray-900 dark:text-white"
                   htmlFor="password"
                 >
-                  Password
+                  New Password
                 </label>
                 <div className="relative">
                   <input
@@ -207,10 +199,7 @@ export default function SignupForm() {
                 <div id="password-error" aria-live="polite" aria-atomic="true">
                   {state.errors?.password &&
                     state.errors.password.map((error: string) => (
-                      <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
+                      <p className="mt-2 text-sm text-red-500" key={error}>
                         {error}
                       </p>
                     ))}
@@ -236,57 +225,6 @@ export default function SignupForm() {
                   <KeyIcon className="peer-focus:text-gray-900cursor-pointer pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 dark:text-slate-50 dark:peer-focus:text-slate-50" />
                 </div>
               </div>
-              <div className="mt-4">
-                <div className="flex items-center">
-                  <Checkbox
-                    color="success"
-                    isRequired={true}
-                    name="privacy_and_terms"
-                    id="privacy_and_terms"
-                  >
-                    <label
-                      htmlFor="privacy_and_terms"
-                      className="ml-2 hover:cursor-pointer focus:hover:cursor-pointer"
-                    >
-                      <span>I agree with </span>
-                      <Link
-                        href="/terms"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-[#007aff] hover:transition-all"
-                      >
-                        Terms of Use
-                      </Link>
-                      <span> and </span>
-                      <span>
-                        <Link
-                          href="/privacy"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline hover:text-[#007aff] hover:transition-all"
-                        >
-                          Privacy Policy
-                        </Link>
-                      </span>
-                    </label>
-                  </Checkbox>
-                </div>
-                <div
-                  id="privacy_and_terms-error"
-                  aria-live="polite"
-                  aria-atomic="true"
-                >
-                  {state.errors?.privacy_and_terms &&
-                    state.errors.privacy_and_terms.map((error: string) => (
-                      <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
-                        {error}
-                      </p>
-                    ))}
-                </div>
-              </div>
             </div>
             <Button
               className="mt-4 w-full"
@@ -301,6 +239,11 @@ export default function SignupForm() {
             )}
           </>
         )}
+        <div
+          className="flex h-8 items-center space-x-1"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
       </div>
     </form>
   );
