@@ -16,7 +16,7 @@ const MinimumDepositsWithdrawals = () => {
   return (
     <>
       <Header />
-      <section className="block__crypto-table white_section flex w-full max-w-full flex-col py-[32px] lg:py-40">
+      <section className="block__crypto-table white_section flex w-full max-w-full flex-col py-[72px] lg:py-40">
         <div className="container mx-auto px-4">
           <div className="block__crypto-table__heading mb-8 lg:text-center">
             <h1 className="text-3xl font-semibold">
@@ -25,7 +25,7 @@ const MinimumDepositsWithdrawals = () => {
           </div>
           <div className="block__crypto-table__tabs mb-[72px]">
             <div className="block__crypto-table__tabs__header mb-20 flex cursor-pointer">
-              <Link
+              {/*<Link
                 className={`block__crypto-table__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[14px_20px] text-[12px] font-normal leading-[20px] text-[#91919e] text-[#999] no-underline transition ease-out md:p-[20px_32px] md:text-[18px] md:leading-[22px] ${activeTab === 0 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-[#204bdb] dark:text-blue-300' : ''}`}
                 data-model="0"
                 onClick={() => setActiveTab(0)}
@@ -33,8 +33,17 @@ const MinimumDepositsWithdrawals = () => {
                 href="#pricing_model_0"
               >
                 Merchant Digital Wallets
-              </Link>
-              <Link
+              </Link>*/}
+              <div
+                className={`block__crypto-table__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[14px_20px] text-[12px] font-normal leading-[20px] text-[#91919e] text-[#999] no-underline transition ease-out md:p-[20px_32px] md:text-[18px] md:leading-[22px] ${activeTab === 0 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-[#204bdb] dark:text-blue-300' : ''}`}
+                data-model="0"
+                onClick={() => setActiveTab(0)}
+                id="pricing_model_0"
+                //href="#pricing_model_0"
+              >
+                Merchant Digital Wallets
+              </div>
+              {/*<Link
                 className={`block__crypto-table__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[14px_20px] text-[12px] font-normal leading-[20px] text-[#91919e] text-[#999] no-underline transition ease-out md:p-[20px_32px] md:text-[18px] md:leading-[22px] ${activeTab === 1 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-[#204bdb] dark:text-blue-300' : ''}`}
                 data-model="1"
                 onClick={() => setActiveTab(1)}
@@ -42,7 +51,16 @@ const MinimumDepositsWithdrawals = () => {
                 href="#pricing_model_1"
               >
                 Enterprise Blockchain Wallets
-              </Link>
+              </Link>*/}
+              <div
+                className={`block__crypto-table__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[14px_20px] text-[12px] font-normal leading-[20px] text-[#91919e] text-[#999] no-underline transition ease-out md:p-[20px_32px] md:text-[18px] md:leading-[22px] ${activeTab === 1 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-[#204bdb] dark:text-blue-300' : ''}`}
+                data-model="1"
+                onClick={() => setActiveTab(1)}
+                id="pricing_model_1"
+                //href="#pricing_model_1"
+              >
+                Enterprise Blockchain Wallets
+              </div>
             </div>
             <div className="block__crypto-table__tabs__content">
               {activeTab === 0 && (

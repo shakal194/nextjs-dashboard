@@ -54,22 +54,22 @@ const AvailableCurrenciesSection = () => {
                         <div className="block__available-currencies__tabs__content__table__group__rows">
                           <div className="block__available-currencies__tabs__content__table__group__rows_scroller">
                             <div className="row first_row flex flex-nowrap justify-start border-b border-t-0 border-[#ededed] pb-3 pt-3">
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 №
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Alpha
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Alias
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Name
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Blockchain
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Type
                               </div>
                             </div>
@@ -180,22 +180,22 @@ const AvailableCurrenciesSection = () => {
                         <div className="block__available-currencies__tabs__content__table__group__rows">
                           <div className="block__available-currencies__tabs__content__table__group__rows_scroller">
                             <div className="row first_row flex flex-nowrap justify-start border-b border-t-0 border-[#ededed] pb-3 pt-3">
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 №
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Alpha
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Alias
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Name
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Blockchain
                               </div>
-                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] text-[#a9a9a9]">
+                              <div className="row__col octopus mr-5 flex-[0_1_144px] flex-col justify-start gap-2 text-xs text-xs font-normal font-normal leading-5 leading-[18px] text-[#1d2127] dark:text-[#a9a9a9]">
                                 Type
                               </div>
                             </div>

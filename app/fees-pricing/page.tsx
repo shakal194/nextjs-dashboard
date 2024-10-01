@@ -14,7 +14,7 @@ const AvailableCurrenciesSection = () => {
   return (
     <>
       <Header />
-      <section className="block__deposits white_section flex w-full max-w-full flex-col py-[32px] lg:py-40">
+      <section className="block__deposits white_section flex w-full max-w-full flex-col py-[72px] lg:py-40">
         <div className="container mx-auto w-full max-w-[1356px] px-4">
           <div className="block__deposits__heading mb-8 md:text-center">
             <h1 className="text-3xl font-semibold">Know Your Fees</h1>

@@ -22,37 +22,8 @@ export default function Page() {
       <HeaderNavMenu />
       <main className="flex min-h-screen flex-col p-6">
         <div className="container mx-auto px-4">
-          <div className="mt-4 flex grow flex-col gap-4 md:flex-row md:gap-10 lg:gap-52">
-            <div className="flex items-center justify-center md:hidden">
-              <Image
-                src="/Main-picture-1-1000x748.png"
-                priority={true}
-                width={1000}
-                height={748}
-                className="hidden lg:block"
-                alt="DesctopMain picture"
-                sizes="(max-width: 500px) 500px, (max-width: 800px) 800px, (max-width: 2048px) 1000px"
-              />
-              <Image
-                src="/Main-picture-1-800x599.png"
-                priority={true}
-                width={800}
-                height={599}
-                className="hidden md:block lg:hidden"
-                alt="Tablet picture"
-                sizes="(max-width: 500px) 500px, (max-width: 800px) 800px, (max-width: 2048px) 1000px"
-              />
-              <Image
-                src="/Main-picture-1-500x374.png"
-                priority={true}
-                width={500}
-                height={374}
-                className="block md:hidden"
-                alt="Mobile picture"
-                sizes="(max-width: 500px) 500px, (max-width: 800px) 800px, (max-width: 2048px) 1000px"
-              />
-            </div>
-            <div className="flex flex-col justify-center rounded-lg bg-gray-50 dark:bg-inherit">
+          <div className="mt-4 flex grow flex-col gap-4 lg:flex-row">
+            <div className="flex flex-col rounded-lg bg-gray-50 dark:bg-inherit">
               <p className="mb-8 hidden text-[15px] font-medium leading-[150%] text-[#91919e] dark:text-[#dedee3] md:block">
                 Digital Assets Processing
               </p>
@@ -64,9 +35,11 @@ export default function Page() {
               <p className="mt-4 text-[24px] font-medium leading-[32px] text-[#3b4048] dark:text-[#c3d0e6]">
                 Send, Store, Exchange and Accept Cryptocurrency.
               </p>
-              <HomeSession />
+              <div className="flex justify-center lg:justify-start">
+                <HomeSession />
+              </div>
             </div>
-            <div className="flex hidden items-center justify-center md:block">
+            <div className="flex items-center justify-center md:block">
               <Image
                 src="/Main-picture-1-1000x748.png"
                 priority={true}

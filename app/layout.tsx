@@ -1,5 +1,5 @@
 import '@/app/ui/global.css';
-import { inter } from '@/app/ui/fonts';
+import { inter, lusitana } from '@/app/ui/fonts';
 
 import { SessionProvider } from 'next-auth/react';
 import Providers from '@/app/providers';
@@ -18,6 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      {/*<body className={`${lusitana.className} antialiased`}>*/}
       <body className={`${inter.className} antialiased`}>
         <Providers>
           <NextUIProvider>
