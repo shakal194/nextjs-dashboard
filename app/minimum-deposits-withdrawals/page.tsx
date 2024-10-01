@@ -107,11 +107,11 @@ const MinimumDepositsWithdrawals = () => {
                               <Image
                                 loading="lazy"
                                 decoding="async"
-                                width="17"
-                                height="17"
+                                width={0}
+                                height={0}
                                 src="/svg/bitcoin_dashboard.svg"
                                 alt="btc"
-                                className="mr-5"
+                                className="mr-5 h-[17px] w-[17px]"
                               />
                               Bitcoin
                             </div>
@@ -165,11 +165,11 @@ const MinimumDepositsWithdrawals = () => {
                               <Image
                                 loading="lazy"
                                 decoding="async"
-                                width="17"
-                                height="17"
+                                width={0}
+                                height={0}
                                 src="/svg/tether_dashboard.svg"
                                 alt="usdt"
-                                className="mr-5"
+                                className="mr-5 h-[17px] w-[17px]"
                               />
                               Tether
                             </div>
@@ -236,11 +236,11 @@ const MinimumDepositsWithdrawals = () => {
                               <Image
                                 loading="lazy"
                                 decoding="async"
-                                width="17"
-                                height="17"
+                                width={0}
+                                height={0}
                                 src="/svg/bitcoin_dashboard.svg"
                                 alt="btc"
-                                className="mr-5"
+                                className="mr-5 h-[17px] w-[17px]"
                               />
                               Bitcoin
                             </div>
@@ -265,11 +265,11 @@ const MinimumDepositsWithdrawals = () => {
                               <Image
                                 loading="lazy"
                                 decoding="async"
-                                width="17"
-                                height="17"
+                                width={0}
+                                height={0}
                                 src="/svg/etherium_dashboard.svg"
                                 alt="eth"
-                                className="mr-5"
+                                className="mr-5 h-[17px] w-[17px]"
                               />
                               Ethereum
                             </div>
@@ -294,11 +294,11 @@ const MinimumDepositsWithdrawals = () => {
                               <Image
                                 loading="lazy"
                                 decoding="async"
-                                width="17"
-                                height="17"
+                                width={0}
+                                height={0}
                                 src="/svg/tether_dashboard.svg"
                                 alt="usdt"
-                                className="mr-5"
+                                className="mr-5 h-[17px] w-[17px]"
                               />
                               Tether
                             </div>
