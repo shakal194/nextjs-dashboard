@@ -2,7 +2,7 @@
 
 import Header from '@/app/ui/_components/Header';
 import Footer from '@/app/ui/footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import HomeSession from '@/app/ui/_components/HomeSession';
@@ -10,6 +10,23 @@ import { ChevronRightIcon } from '@heroicons/react/24/solid';
 
 const AvailableCurrenciesSection = () => {
   const [activeTab, setActiveTab] = useState(0);
+
+  const handleTabClick = (tabIndex: number, hash: string) => {
+    setActiveTab(tabIndex);
+
+    // Изменяем URL, добавив якорь без перезагрузки и скролла
+    window.history.pushState(null, '', hash);
+  };
+
+  // Обработка активного таба при загрузке страницы в зависимости от URL
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#currency_table_1') {
+      setActiveTab(1);
+    } else {
+      setActiveTab(0);
+    }
+  }, []);
 
   return (
     <>
@@ -27,14 +44,16 @@ const AvailableCurrenciesSection = () => {
                 <div
                   className={`block__available-currencies__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[20px_32px] text-[18px] font-normal leading-[22px] text-[#91919e] text-[#999] no-underline transition ease-out ${activeTab === 0 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-[#204bdb]' : ''}`}
                   data-model="0"
-                  onClick={() => setActiveTab(0)}
+                  onClick={() => handleTabClick(0, '#currency_table_0')}
+                  id="currency_table_0"
                 >
                   Merchant Digital Wallets
                 </div>
                 <div
                   className={`block__available-currencies__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[20px_32px] text-[18px] font-normal leading-[22px] text-[#91919e] text-[#999] no-underline transition ease-out ${activeTab === 1 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-[#204bdb]' : ''}`}
                   data-model="1"
-                  onClick={() => setActiveTab(1)}
+                  onClick={() => handleTabClick(1, '#currency_table_1')}
+                  id="currency_table_1"
                 >
                   Enterprise Blockchain Wallets
                 </div>

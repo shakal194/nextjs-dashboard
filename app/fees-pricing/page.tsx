@@ -722,7 +722,7 @@ const AvailableCurrenciesSection = () => {
         <div className="container mx-auto w-full max-w-[1356px] px-4">
           <div className="block_linksbox block_linksbox_alignstart flex w-full flex-col justify-start gap-9 lg:flex-row">
             <Link
-              href="/available-currencies"
+              href="/available-currencies#currency_table_0"
               className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 lg:max-w-33%"
             >
               <h4 className="mb-3 text-lg font-semibold text-[#262e39] dark:text-gray-200">
@@ -734,7 +734,7 @@ const AvailableCurrenciesSection = () => {
               </p>
             </Link>
             <Link
-              href="/available-currencies"
+              href="/available-currencies#currency_table_1"
               className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 lg:max-w-33%"
             >
               <h4 className="mb-3 text-lg font-semibold text-[#262e39] dark:text-gray-200">
