@@ -58,7 +58,7 @@ const AvailableCurrenciesSection = () => {
                     data-model="0"
                     data-license="0"
                   >
-                    <div className="tab-content__item_table mb-20 flex w-full max-w-full flex-col">
+                    <div className="tab-content__item_table mb-[40px] flex w-full max-w-full flex-col lg:mb-20">
                       <div className="tab-content__item_table_title mb-[32px] mt-[16px] w-full max-w-full md:my-auto md:mr-9 md:max-w-[197px]">
                         <h5 className="heading_h3 text-[20px] font-semibold leading-[32px]">
                           Digital Wallet Accounts*
@@ -96,13 +96,13 @@ const AvailableCurrenciesSection = () => {
                           Processing Fee**
                         </h5>
                       </div>
-                      <div className="tab-content__item_table_body flex w-full max-w-full flex-wrap md:max-w-[1124px] md:flex-col">
+                      <div className="tab-content__item_table_body flex w-full max-w-full flex-col md:max-w-[1124px]">
                         <div className="row-title md:pb-auto pb-[24px]">
                           <span className="text-[18px] font-semibold leading-[150%] text-[#204bdb] dark:text-blue-300">
                             For Coins
                           </span>
                         </div>
-                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] before:absolute before:left-0 before:top-[20%] before:h-[1px] before:w-full before:bg-[#ededed] before:content-[''] md:flex-nowrap">
+                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap lg:before:absolute lg:before:left-0 lg:before:top-[20%] lg:before:h-[1px] lg:before:w-full lg:before:bg-[#ededed] lg:before:content-['']">
                           <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300 md:pt-[74px]">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Incoming Transactions
@@ -166,7 +166,7 @@ const AvailableCurrenciesSection = () => {
                           </div>
                         </div>
                         <div className="tab-content__item_table_body_row flex flex-wrap justify-between border-b border-[#ededed] md:flex-nowrap">
-                          <div className="firs-coll w-full max-w-full py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300 md:max-w-[340px]">
+                          <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Outgoing Transactions
                             </span>
@@ -183,7 +183,7 @@ const AvailableCurrenciesSection = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] md:flex-nowrap">
+                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
                           <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Crypto Settlement
@@ -229,7 +229,7 @@ const AvailableCurrenciesSection = () => {
                             For StableCoins & Tokens
                           </span>
                         </div>
-                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] before:absolute before:left-0 before:top-[20%] before:h-[1px] before:w-full before:bg-[#ededed] before:content-[''] md:flex-nowrap">
+                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap lg:before:absolute lg:before:left-0 lg:before:top-[20%] lg:before:h-[1px] lg:before:w-full lg:before:bg-[#ededed] lg:before:content-['']">
                           <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300 md:pt-[74px]">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Incoming Transactions
@@ -237,10 +237,10 @@ const AvailableCurrenciesSection = () => {
                           </div>
                           <div className="colls flex w-full flex-col">
                             <div className="titles_row flex">
-                              <div className="titles_row_item w-full max-w-[462px] py-[16px] text-[14px] font-normal leading-[22px] text-[#494949] dark:text-gray-300 md:max-w-[391px]">
+                              <div className="titles_row_item w-full max-w-[462px] py-[16px] text-[14px] font-normal leading-[22px] text-[#494949] dark:text-gray-300 lg:max-w-[391px]">
                                 Turnover
                               </div>
-                              <div className="titles_row_item w-full max-w-[30%] py-[16px] text-[14px] font-normal leading-[22px] text-[#494949] dark:text-gray-300 md:max-w-[391px]">
+                              <div className="titles_row_item w-full max-w-[100%] py-[16px] text-[14px] font-normal leading-[22px] text-[#494949] dark:text-gray-300 lg:max-w-[391px]">
                                 Commission
                               </div>
                             </div>
@@ -267,7 +267,7 @@ const AvailableCurrenciesSection = () => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="line flex w-full max-w-[30%] flex-col">
+                              <div className="line flex w-full flex-col lg:max-w-[30%]">
                                 <div className="cell mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px]">
                                   <div className="item text-[14px] leading-[155%]">
                                     0.25%
@@ -292,8 +292,8 @@ const AvailableCurrenciesSection = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="tab-content__item_table_body_row flex flex-wrap justify-between border-b border-[#ededed] md:flex-nowrap">
-                          <div className="firs-coll w-full max-w-full py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300 md:max-w-[340px]">
+                        <div className="tab-content__item_table_body_row relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
+                          <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Outgoing Transactions
                             </span>
@@ -310,7 +310,7 @@ const AvailableCurrenciesSection = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="tab-content__item_table_body_row uniq_table relative flex justify-between border-b border-[#ededed]">
+                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
                           <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Crypto Settlement
@@ -328,7 +328,7 @@ const AvailableCurrenciesSection = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="tab-content__item_table_body_row uniq_table relative flex justify-between border-b border-[#ededed]">
+                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
                           <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Fiat Settlement
@@ -356,7 +356,7 @@ const AvailableCurrenciesSection = () => {
                             Minimum Commissions
                           </span>
                         </div>
-                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] md:flex-nowrap">
+                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
                           <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Per blockchain
@@ -381,7 +381,7 @@ const AvailableCurrenciesSection = () => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="line flex w-full max-w-[30%] flex-col text-right">
+                              <div className="line flex w-full flex-col text-right lg:max-w-[30%]">
                                 <div className="cell mb-[-1px] h-full min-h-[21px] border-b border-[#ededed] py-[16px] md:flex">
                                   <div className="item text-[14px] leading-[155%]">
                                     8$
@@ -451,54 +451,54 @@ const AvailableCurrenciesSection = () => {
                         </h5>
                       </div>
                       <div className="tab-content__item_table_body flex w-full max-w-[1124px] flex-col">
-                        <div className="row-title border-b border-[#ededed] pb-[33px]">
+                        <div className="row-title pb-[8px] lg:border-b lg:border-[#ededed] lg:pb-[33px]">
                           <span className="text-[18px] font-semibold leading-[150%] text-[#204bdb] dark:text-blue-300">
-                            For Coins, Stableсoins & Tokens
+                            For Coins, Stableсoins & Liquid Tokens
                           </span>
                         </div>
-                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] before:absolute before:left-0 before:top-[20%] before:h-[1px] before:w-full before:bg-[#ededed] before:content-[''] md:flex-nowrap">
-                          <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300 md:pt-[74px]">
+                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
+                          <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
-                              Incoming Transactions
+                              Outgoing Transactions
                             </span>
                           </div>
                           <div className="colls flex w-full flex-col">
                             <div className="titles_row flex"></div>
                             <div className="linews_row flex">
                               <div className="line flex w-full flex-col">
-                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] py-[16px] pr-[25px] font-bold">
+                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
+                                  <div className="item text-[14px] leading-[155%]">
+                                    0.025%
+                                  </div>
+                                </div>
+                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
+                                  <div className="item text-[14px] leading-[155%]">
+                                    0.03%
+                                  </div>
+                                </div>
+                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
+                                  <div className="item text-[14px] leading-[155%]">
+                                    0.035%
+                                  </div>
+                                </div>
+                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
+                                  <div className="item text-[14px] leading-[155%]">
+                                    0.04%
+                                  </div>
+                                </div>
+                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
+                                  <div className="item text-[14px] leading-[155%]">
+                                    0.045%
+                                  </div>
+                                </div>
+                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
                                   <div className="item text-[14px] leading-[155%]">
                                     0.05%
                                   </div>
                                 </div>
-                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
-                                  <div className="item text-[14px] leading-[155%]">
-                                    0.1%
-                                  </div>
-                                </div>
-                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
-                                  <div className="item text-[14px] leading-[155%]">
-                                    0.15%
-                                  </div>
-                                </div>
-                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
-                                  <div className="item text-[14px] leading-[155%]">
-                                    0.2%
-                                  </div>
-                                </div>
-                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
-                                  <div className="item text-[14px] leading-[155%]">
-                                    0.25%
-                                  </div>
-                                </div>
-                                <div className="cell md:pr-auto mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] pr-[25px] font-bold">
-                                  <div className="item text-[14px] leading-[155%]">
-                                    0.3%
-                                  </div>
-                                </div>
                               </div>
                               <div className="line flex w-full max-w-[30%] flex-col">
-                                <div className="cell mb-[-1px] flex h-full min-h-[21px] py-[16px] font-bold">
+                                <div className="cell mb-[-1px] flex h-full min-h-[21px] border-b border-[#ededed] py-[16px] font-bold">
                                   <div className="item text-[14px] leading-[155%] text-[#494949] dark:text-gray-300">
                                     &gt; $ 20 mln
                                   </div>
@@ -532,10 +532,10 @@ const AvailableCurrenciesSection = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="tab-content__item_table_body_row flex justify-between border-b border-[#ededed]">
-                          <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
+                        <div className="tab-content__item_table_body_row flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
+                          <div className="firs-coll w-full max-w-full py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300 md:max-w-[340px]">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
-                              Outgoing Transactions
+                              Incoming Transactions
                             </span>
                           </div>
                           <div className="colls flex w-full flex-col">
@@ -550,8 +550,8 @@ const AvailableCurrenciesSection = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="tab-content__item_table_body_row uniq_table relative flex justify-between border-b border-[#ededed]">
-                          <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
+                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
+                          <div className="firs-coll w-full py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300 lg:max-w-[340px]">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Settlement
                             </span>
@@ -578,8 +578,8 @@ const AvailableCurrenciesSection = () => {
                             For Illiquid Tokens
                           </span>
                         </div>
-                        <div className="tab-content__item_table_body_row flex justify-between border-b border-[#ededed]">
-                          <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
+                        <div className="tab-content__item_table_body_row flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
+                          <div className="firs-coll w-full py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300 lg:max-w-[340px]">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Outgoing Transactions
                             </span>
@@ -603,8 +603,8 @@ const AvailableCurrenciesSection = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="tab-content__item_table_body_row flex flex-col justify-between border-b border-[#ededed] lg:flex-row">
-                          <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
+                        <div className="tab-content__item_table_body_row flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
+                          <div className="firs-coll w-full py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300 lg:max-w-[340px]">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Incoming Transactions
                             </span>
@@ -621,7 +621,7 @@ const AvailableCurrenciesSection = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-col justify-between border-b border-[#ededed] lg:flex-row">
+                        <div className="tab-content__item_table_body_row uniq_table relative flex flex-wrap justify-between border-b border-[#ededed] lg:flex-nowrap">
                           <div className="firs-coll w-full max-w-[340px] py-[16px] text-[16px] font-medium text-[#1d2127] dark:text-gray-300">
                             <span className="font-inter text-[18px] font-semibold leading-[150%]">
                               Settlement
@@ -720,41 +720,41 @@ const AvailableCurrenciesSection = () => {
       </section>
       <section className="block_linksbox_section white_section pb-[70px] pt-0 md:pb-[150px]">
         <div className="container mx-auto w-full max-w-[1356px] px-4">
-          <div className="block_linksbox block_linksbox_alignstart flex w-full flex-col flex-wrap justify-start gap-9 md:flex-row">
+          <div className="block_linksbox block_linksbox_alignstart flex w-full flex-col justify-start gap-9 lg:flex-row">
             <Link
               href="/available-currencies"
-              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-transform duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 md:max-w-33%"
+              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 lg:max-w-33%"
             >
               <h4 className="mb-3 text-lg font-semibold text-[#262e39] dark:text-gray-200">
                 Available Currencies for Digital Wallet Solution
               </h4>
-              <p className="b2b_link mb-0 mt-6 flex items-center text-sm text-[#91919e] transition-transform duration-300 ease-in-out group-hover:text-[#204bdb] dark:text-blue-400 dark:group-hover:text-blue-200">
+              <p className="b2b_link mb-0 mt-6 flex transform items-center text-sm text-[#91919e] transition-all delay-200 duration-300 ease-in-out group-hover:text-[#204bdb] dark:text-blue-400 dark:group-hover:text-blue-200">
                 Explore
-                <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
+                <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-all delay-200 duration-300 ease-in-out group-hover:translate-x-2" />
               </p>
             </Link>
             <Link
               href="/available-currencies"
-              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-transform duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:bg-gray-600 md:max-w-33%"
+              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 lg:max-w-33%"
             >
               <h4 className="mb-3 text-lg font-semibold text-[#262e39] dark:text-gray-200">
                 Available Currencies for Blockchain Wallet Solution
               </h4>
-              <p className="b2b_link mb-0 mt-6 flex items-center text-sm text-[#91919e] transition-transform duration-300 ease-in-out group-hover:text-[#204bdb] dark:text-blue-400 dark:group-hover:text-blue-200">
+              <p className="b2b_link mb-0 mt-6 flex transform items-center text-sm text-[#91919e] transition-all delay-200 duration-300 ease-in-out group-hover:text-[#204bdb] dark:text-blue-400 dark:group-hover:text-blue-200">
                 Explore
-                <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
+                <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-all delay-200 duration-300 ease-in-out group-hover:translate-x-2" />
               </p>
             </Link>
             <Link
               href="/minimum-deposits-withdrawals"
-              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-transform duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 md:max-w-33% "
+              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 lg:max-w-33%"
             >
               <h4 className="mb-3 text-lg font-semibold text-[#262e39] dark:text-gray-200">
                 Minimum Deposits recommendations per currency
               </h4>
-              <p className="b2b_link mb-0 mt-6 flex items-center text-sm text-[#91919e] transition-transform duration-300 ease-in-out group-hover:text-[#204bdb] dark:text-blue-400 dark:group-hover:text-blue-200">
+              <p className="b2b_link mb-0 mt-6 flex transform items-center text-sm text-[#91919e] transition-all delay-200 duration-300 ease-in-out group-hover:text-[#204bdb] dark:text-blue-400 dark:group-hover:text-blue-200">
                 Explore
-                <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
+                <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-all delay-200 duration-300 ease-in-out group-hover:translate-x-2" />
               </p>
             </Link>
           </div>

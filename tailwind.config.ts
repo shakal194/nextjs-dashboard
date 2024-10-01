@@ -19,6 +19,9 @@ const config: Config = {
         '50%': '0 0 calc(50% - 8px)',
         '62%': '0 0 calc(62% - 36px)',
         '100': '0 0 100%',
+        '81px': '0 0 81px',
+        '100px': '0 0 100px',
+        '197px': '0 0 197px',
         '38': '0 0 38%',
       },
       backgroundImage: {
