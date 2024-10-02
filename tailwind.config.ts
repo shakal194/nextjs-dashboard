@@ -46,7 +46,26 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms'), nextui()],
+  plugins: [
+    require('@tailwindcss/forms'),
+    nextui(),
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, any>) => void;
+    }) {
+      addUtilities({
+        '.scrollbar-hide': {
+          /* Firefox */
+          'scrollbar-width': 'none',
+          /* Safari and Chrome */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      });
+    },
+  ],
 };
 
 export default config;
