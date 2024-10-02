@@ -76,7 +76,7 @@
     "id": 6,
     "title": "Rates Display",
     "description": ["All available pairs", "Sell and Buy prices"],
-    "imgSrc": "/svg/Rates-1.svg",
+    "imgSrc": "/svg/Rates.svg",
     "imgAlt": "Rates",
     "imgTitle": "Rates"
   }

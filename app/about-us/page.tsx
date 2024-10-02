@@ -6,7 +6,7 @@ const AboutUs = () => {
     <>
       <Header />
       <main className="flex min-h-screen flex-col">
-        <section className="title-descr white_section py-[72px] lg:py-40">
+        <section className="title-descr white_section pb-72px] pt-[32px] lg:py-40">
           <div className="container mx-auto px-4">
             <div className="title-descr__inner mx-auto max-w-2xl text-left">
               <h1 className="title-descr__title text-3xl font-semibold md:text-4xl">
@@ -36,7 +36,7 @@ const AboutUs = () => {
           </picture>
         </section>
 
-        <section className="new-standard white_section py-[72px] lg:py-40">
+        <section className="new-standard white_section pb-72px] pt-[32px] lg:py-40">
           <div className="container mx-auto px-4">
             <div className="new-standard__inner flex max-w-7xl flex-wrap justify-between lg:flex-nowrap">
               <div className="new-standard__box mb-8">

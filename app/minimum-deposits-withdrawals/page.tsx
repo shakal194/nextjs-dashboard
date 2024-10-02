@@ -31,7 +31,7 @@ const MinimumDepositsWithdrawals = () => {
   return (
     <>
       <Header />
-      <section className="block__crypto-table white_section flex w-full max-w-full flex-col py-[72px] lg:py-40">
+      <section className="block__crypto-table white_section flex w-full max-w-full flex-col pb-[72px] pt-[32px] lg:py-40">
         <div className="container mx-auto px-4">
           <div className="block__crypto-table__heading mb-8 lg:text-center">
             <h1 className="text-3xl font-semibold">

@@ -7,28 +7,28 @@ import SliderCryptocurrencyMerchantDigitalWallets from '@/app/ui/_components/Mer
 
 const MerchantDigitalWallets = () => {
   return (
-    <section className="block_hero white_section py-[150px]">
-      <div className="container mx-auto w-full max-w-[1356px] p-0">
-        <div className="block_hero_row z-2 relative flex items-center justify-between">
-          <div className="block_hero_row_text_box w-full max-w-[544px]">
-            <h1 className="mb-8 text-[48px] font-bold leading-[69px]">
+    <section className="block_hero white_section flex w-full max-w-full flex-col pb-[72px] lg:py-40">
+      <div className="container mx-auto w-full max-w-[1356px] px-4">
+        <div className="block_hero_row z-2 relative flex flex-col-reverse justify-between lg:flex-row lg:items-center">
+          <div className="block_hero_row_text_box w-full max-w-full lg:max-w-[544px]">
+            <h1 className="mb-[24px] text-[36px] font-bold leading-[50px] lg:mb-8 lg:text-[48px] lg:leading-[69px]">
               Merchant Digital Wallets
             </h1>
-            <h4 className="section_description mt-4 text-lg">
+            <h4 className="section_description mt-4 text-[20px] leading-[32px]">
               A solution enabling businesses to accept crypto payments in all
               major coins and exchange it all into Coins or Stablecoins.
             </h4>
             <Link
               href="/signup"
-              className="mt-[56px] flex w-full max-w-[201px] items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors delay-200 duration-300 ease-in-out hover:bg-blue-400 md:text-base"
+              className="mt-[56px] flex w-full max-w-full items-center justify-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors delay-200 duration-300 ease-in-out hover:bg-blue-400 md:max-w-[201px] md:justify-start md:text-base"
             >
               Open account
               <ArrowRightIcon className="w-5" />
             </Link>
           </div>
-          <div className="block_hero_row_image_box max-w-[660px] p-4">
+          <div className="block_hero_row_image_box w-full max-w-full lg:max-w-[660px]">
             <Image
-              className="lazy aspect-[413/269] h-[500px] w-full"
+              className="lazy aspect-[413/269] w-full max-w-full lg:max-w-[660px]"
               decoding="async"
               priority={true}
               src="/svg/Main-Screen_Merchants.svg"
@@ -39,8 +39,6 @@ const MerchantDigitalWallets = () => {
             />
           </div>
         </div>
-      </div>
-      <div className="container mx-auto w-full max-w-[1356px] p-0">
         <SliderCryptocurrencyMerchantDigitalWallets
           data={dataSliderCryptocurrencyMerchantDigitalWallets}
         />

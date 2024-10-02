@@ -14,7 +14,7 @@ const CompareSection: React.FC = () => {
   return (
     <>
       <Header />
-      <section className="block_compar ewhite_section py-[72px] lg:py-40">
+      <section className="block_compar ewhite_section pb-72px] pt-[32px] lg:py-40">
         <div className="container mx-auto w-full max-w-[1356px] px-4">
           <div className="block_compare_top mb-[52px] flex flex-col items-start lg:mb-[90px] lg:mt-8 lg:flex-row lg:items-center">
             <h2 className="mb-0 mr-[48px] text-[38px] font-semibold leading-[48px]">

@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <>
       <Header />
-      <section className="block_contact_us py-[72px] lg:py-40">
+      <section className="block_contact_us pb-72px] pt-[32px] lg:py-40">
         <div className="container mx-auto px-4">
           <div className="block_contact_us__inner flex flex-wrap md:gap-[36px] lg:flex-row lg:flex-nowrap lg:justify-between lg:gap-y-9">
             <div className="block_contact_us__inner__left flex-100 lg:mb-0 lg:mb-8 lg:w-1/2 lg:flex-38">

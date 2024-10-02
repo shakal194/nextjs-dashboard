@@ -5,40 +5,18 @@ import React, { useEffect, useState } from 'react';
 import features from '@/app/ui/_data/MerchantDigitalWallets/CryptocurrencyFAQ.json';
 
 const CryptocurrencyFAQ = () => {
-  //const [visibleImageIndex, setVisibleImageIndex] = useState<number>(0);
-
-  /*useEffect(() => {
-    const handleScroll = () => {
-      const targets = Array.from(
-        document.querySelectorAll('.js-sticky-trigger-secure-and-safe'),
-      );
-      targets.forEach((target, index) => {
-        const rect = target.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight - 200) {
-          setVisibleImageIndex(index);
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);*/
-
   return (
-    <section className="block_sticky white_section py-[150px]">
-      <div className="container mx-auto w-full max-w-[1356px] p-0">
-        <div className="section_top_parth mb-[90px] w-full max-w-[580px]">
+    <section className="block_sticky white_section flex w-full max-w-full flex-col pb-[72px] pt-[32px] lg:py-40">
+      <div className="container mx-auto w-full max-w-[1356px] px-4">
+        <div className="section_top_parth mb-[56px] w-full max-w-[580px] md:mb-[90px]">
           <h2 className="mb-8 text-[36px] font-bold leading-[48px]">FAQs</h2>
-          <p className="text-base font-normal leading-[26px] text-gray-700">
+          <p className="text-base font-normal leading-[26px] text-gray-700 dark:text-gray-400">
             Have a question? An encyclopedia of useful information regarding our
             products and services.
           </p>
         </div>
       </div>
-      <div className="container mx-auto w-full max-w-[1356px] p-0">
+      <div className="container mx-auto w-full max-w-[1356px] px-4">
         <div className="block_faq_row">
           <div className="mr-9 w-full hyphens-auto text-[24px] font-semibold leading-[36px]">
             {features.map((feature) => {
@@ -49,17 +27,19 @@ const CryptocurrencyFAQ = () => {
                 <div
                   key={feature.id}
                   data-number-faq={feature.id}
-                  className="block_sticky_main_boxes_single js-sticky-trigger-secure-and-safe relative flex justify-between pb-[72px] pt-[24px] before:absolute before:top-0 before:h-[1px] before:w-full before:max-w-full before:bg-[#204bdb] before:content-['']"
+                  className="block_sticky_main_boxes_single js-sticky-trigger-secure-and-safe relative flex flex-col justify-between pb-[72px] pt-[24px] before:absolute before:top-0 before:h-[1px] before:w-full before:max-w-full before:bg-[#204bdb] before:content-[''] md:flex-row"
                 >
-                  <h3>{feature.question}</h3>
-                  <div className="block_faq_row_answer flex w-full max-w-[47%] text-[15px] font-normal leading-[24px] tracking-normal text-[#5f5f6a]">
+                  <div className="block_faq_row_question mb-[16px] text-[22px] leading-[33px] md:mb-0 md:max-w-[47%] md:text-[24px] md:leading-[36px]">
+                    <p>{feature.question}</p>
+                  </div>
+                  <div className="block_faq_row_answer flex w-full text-[15px] font-normal leading-[24px] tracking-normal text-[#5f5f6a] dark:text-[#d3d3e3] md:max-w-[47%]">
                     <p>
                       {parts.map((part, index) =>
                         part === "<a href='/fees-pricing/'>here</a>" ? (
                           <Link
                             key={index}
                             href="/fees-pricing"
-                            className="border-b transition-all delay-200 duration-300 ease-in-out hover:cursor-pointer hover:border-blue-700 hover:text-blue-700 "
+                            className="border-b transition-all delay-200 duration-300 ease-in-out hover:cursor-pointer hover:border-blue-700 hover:text-blue-700"
                           >
                             here
                           </Link>

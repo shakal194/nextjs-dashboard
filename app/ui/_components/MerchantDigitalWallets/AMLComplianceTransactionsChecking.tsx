@@ -8,36 +8,36 @@ const AMLComplianceTransactionsChecking = () => {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <section className="block_box_with_tabs white_section pb-[150px]">
-      <div className="container mx-auto w-full max-w-[1356px] p-0">
-        <div className="block_box_with_tabs_row align-center flex w-full max-w-full justify-between">
-          <div className="block_box_with_tabs_row_left w-full max-w-[45%]">
+    <section className="block_box_with_tabs white_section flex w-full max-w-full flex-col pb-[72px] pt-[32px] lg:py-40">
+      <div className="container mx-auto w-full max-w-[1356px] px-4">
+        <div className="block_box_with_tabs_row align-center flex w-full max-w-full flex-col justify-between md:flex-row">
+          <div className="block_box_with_tabs_row_left w-full md:max-w-[45%]">
             <div className="section_top_parth mb-12 w-full max-w-[580px]">
               <h2 className="mb-8 text-3xl font-semibold leading-[48px]">
                 AML/Compliance transactions checking
               </h2>
-              <p className="section_top_parth_description text-base font-normal leading-[26px] text-gray-700">
+              <p className="section_top_parth_description text-base font-normal leading-[26px] text-gray-700 dark:text-gray-400">
                 KYT compliance technology makes sure your business ticks all the
                 boxes when it comes to&nbsp;anti-money laundering requirements.
               </p>
-              <p className="section_top_parth_description mt-4 text-base font-normal leading-[26px] text-gray-700">
+              <p className="section_top_parth_description mt-4 text-base font-normal leading-[26px] text-gray-700 dark:text-gray-400">
                 Comprehensive data-centric information relating to transactions
                 helps crypto businesses adhere to both local and global
                 regulations.
               </p>
             </div>
           </div>
-          <div className="block_box_with_tabs_row_right w-full max-w-[45%]">
+          <div className="block_box_with_tabs_row_right w-full md:max-w-[45%]">
             <div className="block_box_with_tabs_row_right_tab_head box-tabs-body-js relative mb-[51px] flex border-b border-gray-300 pb-4 pt-4">
               <div
-                className={`tab duration-400 relative flex w-full max-w-[50%] cursor-pointer items-center justify-center px-1 text-base font-medium leading-[25px] text-[#1d2127] opacity-100 transition ease-in-out ${activeTab === 1 ? 'active content-none after:absolute after:-bottom-[17px] after:left-0 after:w-full after:max-w-full after:-translate-y-1/2 after:transform after:border-b after:border-[#ee0064]' : ''}`}
+                className={`tab relative flex w-full max-w-[50%] cursor-pointer items-center justify-center px-1 text-base font-medium leading-[25px] text-[#1d2127] opacity-100 transition duration-400 ease-in-out dark:text-[#a9a9a9] ${activeTab === 1 ? 'active content-none after:absolute after:-bottom-[17px] after:left-0 after:w-full after:max-w-full after:-translate-y-1/2 after:transform after:border-b after:border-[#ee0064]' : ''}`}
                 onClick={() => setActiveTab(1)}
               >
                 <XMarkIcon className="mr-[13px] w-5 text-[#ee0064]" />
                 <p className="">Suspicious Transaction</p>{' '}
               </div>
               <div
-                className={`tab duration-400 relative flex w-full max-w-[50%] cursor-pointer items-center justify-center px-1 text-base font-medium leading-[25px] text-[#1d2127] opacity-100 transition ease-in-out ${activeTab === 2 ? 'active content-none after:absolute after:-bottom-[17px] after:left-0 after:w-full after:max-w-full after:-translate-y-1/2 after:transform after:border-b after:border-[#00b790]' : ''}`}
+                className={`tab relative flex w-full max-w-[50%] cursor-pointer items-center justify-center px-1 text-base font-medium leading-[25px] text-[#1d2127] opacity-100 transition duration-400 ease-in-out dark:text-[#a9a9a9] ${activeTab === 2 ? 'active content-none after:absolute after:-bottom-[17px] after:left-0 after:w-full after:max-w-full after:-translate-y-1/2 after:transform after:border-b after:border-[#00b790] dark:after:border-[#05edbc]' : ''}`}
                 onClick={() => setActiveTab(2)}
               >
                 <CheckIcon className="mr-[13px] w-5 text-[#00b790]" />

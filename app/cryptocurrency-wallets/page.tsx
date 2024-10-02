@@ -26,28 +26,26 @@ const CryptocurrencyWallets = () => {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col p-6">
-        <EnterpriseBlockchainWallets />
-        <PerfectlyWorks />
-        <CryptoVsCardFiat />
-        <CryptoWalletsTailored />
-        <CryptocurrencyOutstandingFeatures />
-        <BusinessModel />
-        <PaymentPage />
-        <OnChainExchange />
-        <FullyCompliant />
-        <AMLComplianceTransactionsChecking />
-        <CryptocurrencyBackOffice />
-        <BestAPISolution />
-        <StagingSandboxEnvironment />
-        <HighPerformanceSoftwareInfrastructure />
-        <IPWhitelists />
-        <GasFeeSection />
-        <CryptocurrencySecureAndSafe />
-        <TechnicalSupportAndAvailability />
-        <MoreUsefulLinks />
-        <CryptocurrencyFAQ />
-      </main>
+      <EnterpriseBlockchainWallets />
+      <PerfectlyWorks />
+      <CryptoVsCardFiat />
+      <CryptoWalletsTailored />
+      <CryptocurrencyOutstandingFeatures />
+      <BusinessModel />
+      <PaymentPage />
+      <OnChainExchange />
+      <FullyCompliant />
+      <AMLComplianceTransactionsChecking />
+      <CryptocurrencyBackOffice />
+      <BestAPISolution />
+      <StagingSandboxEnvironment />
+      <HighPerformanceSoftwareInfrastructure />
+      <IPWhitelists />
+      <GasFeeSection />
+      <CryptocurrencySecureAndSafe />
+      <TechnicalSupportAndAvailability />
+      <MoreUsefulLinks />
+      <CryptocurrencyFAQ />
       <Footer />
     </>
   );

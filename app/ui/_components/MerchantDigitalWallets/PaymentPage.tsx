@@ -3,27 +3,27 @@ import CryptocurrencyPaymentPage from '@/app/ui/_data/MerchantDigitalWallets/Cry
 
 const PaymentPage = () => {
   return (
-    <section className="block_box_opacity white_section pb-[150px]">
-      <div className="container mx-auto w-full max-w-[1356px] p-0">
-        <div className="block_box_opacity_row flex w-full max-w-full justify-between">
-          <div className="block_box_opacity_row_left w-full max-w-[45%] p-4">
-            <div className="section_top_parth mb-8 mb-[90px] w-full max-w-[580px]">
+    <section className="block_box_opacity white_section flex w-full max-w-full flex-col pb-[72px] pt-[32px] lg:py-40">
+      <div className="container mx-auto w-full max-w-[1356px] px-4">
+        <div className="block_box_opacity_row flex w-full max-w-full flex-col justify-between lg:flex-row">
+          <div className="block_box_opacity_row_left w-full p-4 lg:max-w-[45%]">
+            <div className="section_top_parth mb-[56px] w-full max-w-[580px] md:mb-[90px]">
               <h2 className="mb-4 text-[36px] font-semibold leading-[48px] dark:text-slate-100">
                 Payment Page
               </h2>
-              <p className="section_top_parth_description text-[16px] font-normal leading-[26px] text-[#3b4048] dark:text-slate-400">
+              <p className="section_top_parth_description text-[16px] font-normal leading-[26px] text-[#3b4048] dark:text-[#c3d0e6]">
                 A highly-responsive payment page with live data. All you need is
                 at your fingertips to create and send your customers detailed
                 invoices.
               </p>
             </div>
-            <div className="block_box_opacity_row_inner flex w-full max-w-full flex-row flex-wrap justify-between">
+            <div className="block_box_opacity_row_inner flex hidden w-full max-w-full flex-row flex-wrap justify-between lg:flex">
               {CryptocurrencyPaymentPage.map((item) => (
                 <div
                   key={item.id}
-                  className="block_box_opacity_row_box group relative mb-[72px] w-full max-w-[45%] cursor-pointer border-t-[1px] border-[#f0f0f0] opacity-80 transition-all delay-300 duration-300 ease-in-out hover:border-[#204bdb] hover:opacity-100 dark:border-slate-800"
+                  className="block_box_opacity_row_box group relative mb-[72px] w-full max-w-[45%] cursor-pointer border-t-[1px] border-[#f0f0f0] opacity-80 transition-all delay-300 duration-300 ease-in-out hover:border-[#204bdb] hover:opacity-100 dark:border-slate-100"
                 >
-                  <h4 className="mb-2 mt-[25px] text-[18px] font-semibold leading-[27px] text-[#3b4048]">
+                  <h4 className="mb-2 mt-[25px] text-[18px] font-semibold leading-[27px] text-[#3b4048] dark:text-[#c3d0e6]">
                     {item.title}
                   </h4>
                   <p className="text-[15px] font-normal leading-[24px] text-[#5f5f6a] dark:text-slate-400">
@@ -33,7 +33,7 @@ const PaymentPage = () => {
               ))}
             </div>
           </div>
-          <div className="block_box_opacity_row_right relative max-h-[779px] w-full max-w-[48.7%] p-4">
+          <div className="block_box_opacity_row_right relative w-full p-4 lg:max-h-[779px] lg:max-w-[48.7%]">
             <div className="block_box_opacity_row_right_item full_image opacity-100">
               <Image
                 src="/Currency-Selection-662x800.png"
@@ -45,6 +45,21 @@ const PaymentPage = () => {
                 sizes="(max-width: 414px) 414px, (max-width: 662px) 662px, (max-width: 828px) 828px, (max-width: 1242px) 1242px, (max-width: 1272px) 1272px"
               />
             </div>
+          </div>
+          <div className="block_box_opacity_row_inner flex w-full max-w-full flex-col flex-wrap items-center lg:hidden">
+            {CryptocurrencyPaymentPage.map((item) => (
+              <div
+                key={item.id}
+                className="block_box_opacity_row_box group relative mb-[72px] w-full cursor-pointer border-t-[1px] border-[#f0f0f0] opacity-80 transition-all delay-300 duration-300 ease-in-out hover:border-[#204bdb] hover:opacity-100 dark:border-slate-200 dark:focus:border-slate-200"
+              >
+                <h4 className="mb-2 mt-[25px] text-[18px] font-semibold leading-[27px] text-[#3b4048] dark:text-[#c3d0e6]">
+                  {item.title}
+                </h4>
+                <p className="text-[15px] font-normal leading-[24px] text-[#5f5f6a] dark:text-slate-400">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

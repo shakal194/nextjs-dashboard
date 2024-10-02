@@ -26,28 +26,26 @@ const CryptoCurrencyPaymentGateway = () => {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col p-6">
-        <MerchantDigitalWallets />
-        <PerfectlyWorks />
-        <CryptoVsCardFiat />
-        <Settlements />
-        <CryptoPaymentServiceProvider />
-        <CryptoProcessingTailored />
-        <CryptocurrencyOutstandingFeatures />
-        <BusinessModel />
-        <PaymentPage />
-        <FullyCompliant />
-        <AMLComplianceTransactionsChecking />
-        <CryptocurrencyBackOffice />
-        <BestAPISolution />
-        <StagingSandboxEnvironment />
-        <HighPerformanceSoftwareInfrastructure />
-        <IPWhitelists />
-        <CryptocurrencySecureAndSafe />
-        <TechnicalSupportAndAvailability />
-        <MoreUsefulLinks />
-        <CryptocurrencyFAQ />
-      </main>
+      <MerchantDigitalWallets />
+      <PerfectlyWorks />
+      <CryptoVsCardFiat />
+      <Settlements />
+      <CryptoPaymentServiceProvider />
+      <CryptoProcessingTailored />
+      <CryptocurrencyOutstandingFeatures />
+      <BusinessModel />
+      <PaymentPage />
+      <FullyCompliant />
+      <AMLComplianceTransactionsChecking />
+      <CryptocurrencyBackOffice />
+      <BestAPISolution />
+      <StagingSandboxEnvironment />
+      <HighPerformanceSoftwareInfrastructure />
+      <IPWhitelists />
+      <CryptocurrencySecureAndSafe />
+      <TechnicalSupportAndAvailability />
+      <MoreUsefulLinks />
+      <CryptocurrencyFAQ />
       <Footer />
     </>
   );

@@ -36,7 +36,7 @@ const HomeOurProducts = () => {
   return (
     <section className="py-[72px] lg:py-[150px]">
       <div className="container mx-auto w-full max-w-[1356px] p-0">
-        <div className="section_top_parth mb-[90px] w-full max-w-[580px]">
+        <div className="section_top_parth mb-[56px] w-full max-w-[580px] md:mb-[90px]">
           <h2 className="text-2xl font-bold">Our Products</h2>
         </div>
       </div>

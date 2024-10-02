@@ -32,7 +32,7 @@ const AvailableCurrenciesSection = () => {
   return (
     <>
       <Header />
-      <section className="block__available-currencies white_section flex w-full max-w-full flex-col pb-40 pt-12">
+      <section className="block__available-currencies white_section flex w-full max-w-full flex-col pb-[72px] pt-[32px] lg:py-40">
         <div className="container mx-auto w-full max-w-[1356px] px-4">
           <div className="block__available-currencies__heading mb-8 lg:text-center">
             <h1 className="text-3xl font-semibold">

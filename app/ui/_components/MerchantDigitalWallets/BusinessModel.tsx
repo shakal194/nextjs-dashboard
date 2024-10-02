@@ -1,7 +1,7 @@
 const BusinessModel = () => {
   return (
-    <section className="block_textbox_dynamic_slider white_section pb-[150px]">
-      <div className="container mx-auto w-full max-w-[1356px] p-0">
+    <section className="block_textbox_dynamic_slider white_section flex w-full max-w-full flex-col pb-[72px] pt-[32px] lg:py-40">
+      <div className="container mx-auto w-full max-w-[1356px] px-4">
         <div className="block_textbox_dynamic_slider_row block_business_model_slider_row grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <div className="block_textbox_dynamic_slider_box rounded-md bg-white p-4 dark:bg-transparent dark:bg-transparent dark:shadow-sm dark:shadow-slate-50">
             <h4 className="mb-4 text-[24px] font-semibold leading-[36px] dark:text-slate-100">

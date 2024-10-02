@@ -3,25 +3,25 @@ import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
 
 const FullyCompliant = () => {
   return (
-    <section className="bg-white pb-[150px]">
-      <div className="container mx-auto w-full max-w-[1356px] p-0">
-        <div className="block_box_with_list_row align-center flex justify-between">
-          <div className="block_box_with_list_row_left w-full max-w-[45%]">
+    <section className="pb-72px] flex w-full max-w-full flex-col pt-[32px] lg:py-40">
+      <div className="container mx-auto w-full max-w-[1356px] px-4">
+        <div className="block_box_with_list_row align-center flex flex-col justify-between md:flex-row">
+          <div className="block_box_with_list_row_left w-full md:max-w-[45%]">
             <div className="section_top_parth mb-12 w-full max-w-[580px]">
               <h2 className="mb-8 text-3xl font-semibold leading-[48px]">
                 Fully Compliant with Your Regulator!
               </h2>
-              <p className="text-base font-normal leading-[26px] text-gray-700">
+              <p className="text-base font-normal leading-[26px] text-gray-700 dark:text-gray-400">
                 Stay compliant by tracking the legitimacy of your crypto funds.
                 Crypto analytics enhance due diligence and AML compliance
                 procedures for every business dealing in cryptocurrency.
               </p>
             </div>
             <div className="block_box_with_list_row_left_images mt-12">
-              <h5 className="mb-6 text-base font-medium leading-[25px] text-gray-500">
+              <h5 className="mb-6 text-base font-medium leading-[25px] text-gray-500 dark:text-gray-300">
                 Integrated with:
               </h5>
-              <div className="align-center flex gap-[28px]">
+              <div className="align-center mb-[58px] flex gap-[28px] md:mb-0">
                 <Image
                   className="lazy w-[178px]"
                   decoding="async"
@@ -45,7 +45,7 @@ const FullyCompliant = () => {
               </div>
             </div>
           </div>
-          <div className="w-full max-w-[50%]">
+          <div className="w-full md:max-w-[50%]">
             <div className="mb-[26px] flex items-center">
               <ArrowLongRightIcon className="w-7 text-blue-500" />
               <p className="ml-[15px] text-[15px] font-medium leading-[22px]">
