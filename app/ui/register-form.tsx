@@ -86,7 +86,12 @@ export default function SignupForm() {
                 />
                 <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900 dark:text-slate-50 dark:peer-focus:text-slate-50" />
               </div>
-              <div id="email-error" aria-live="polite" aria-atomic="true">
+              <div
+                id="email-error"
+                aria-live="polite"
+                aria-atomic="true"
+                className="mt-2"
+              >
                 {errorMessage && (
                   <p
                     className="text-sm text-red-500 dark:text-red-400"
@@ -118,7 +123,7 @@ export default function SignupForm() {
                 >
                   Email
                 </label>
-                <div className="relative">
+                <div className="relative mb-4">
                   <input
                     className="autofill:bprder-yellow-200 peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-slate-800 dark:placeholder:text-slate-50"
                     id="email"
@@ -136,7 +141,7 @@ export default function SignupForm() {
                   {state.errors?.email &&
                     state.errors.email.map((error: string) => (
                       <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
+                        className="text-sm text-red-500 dark:text-red-400"
                         key={error}
                       >
                         {error}
@@ -189,7 +194,6 @@ export default function SignupForm() {
                     name="password"
                     placeholder="Enter password"
                     required
-                    minLength={6}
                   />
                   <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900 dark:text-slate-50 dark:peer-focus:text-slate-50" />
                   {passwordVisible ? (
@@ -205,15 +209,27 @@ export default function SignupForm() {
                   )}
                 </div>
                 <div id="password-error" aria-live="polite" aria-atomic="true">
-                  {state.errors?.password &&
-                    state.errors.password.map((error: string) => (
-                      <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
-                        {error}
-                      </p>
-                    ))}
+                  {(state.errors?.password ||
+                    state.errors?.confirmPassword) && (
+                    <>
+                      {state.errors?.password?.map((error: string) => (
+                        <p
+                          className="mt-2 text-sm text-red-500 dark:text-red-400"
+                          key={error}
+                        >
+                          {error}
+                        </p>
+                      ))}
+                      {state.errors?.confirmPassword?.map((error: string) => (
+                        <p
+                          className="mt-2 text-sm text-red-500 dark:text-red-400"
+                          key={error}
+                        >
+                          {error}
+                        </p>
+                      ))}
+                    </>
+                  )}
                 </div>
               </div>
               <div className="mt-4">
@@ -231,7 +247,6 @@ export default function SignupForm() {
                     name="confirmPassword"
                     placeholder="Confirm password"
                     required
-                    minLength={6}
                   />
                   <KeyIcon className="peer-focus:text-gray-900cursor-pointer pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 dark:text-slate-50 dark:peer-focus:text-slate-50" />
                 </div>

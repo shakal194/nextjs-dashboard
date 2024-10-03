@@ -213,9 +213,9 @@ export async function createUser(prevState: UserState, formData: FormData) {
 
 export async function handleEmailSubmit(email: string) {
   if (!email) {
-    console.error(`Email не может быть пустым.`);
+    console.error('Email can`t be empty.');
     return {
-      errors: { email: ['Email не может быть пустым.'] },
+      errors: { email: ['Email can`t be empty.'] },
     };
     //throw new Error('Email не может быть пустым.');
   }
@@ -229,27 +229,37 @@ export async function handleEmailSubmit(email: string) {
   };
 
   if (!validateEmail(email)) {
-    console.error(`Введите корректный email`);
+    console.error('Input correct email');
     return {
-      errors: { email: ['Введите корректный email'] },
+      errors: { email: ['Input correct email'] },
     };
     //throw new Error('Введите корректный email.');
   }
 
   try {
+    const emailValidation = await fetch(
+      `${apiRegisterUrl}/Validation/email-exist`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: '*/*' },
+        body: JSON.stringify(email),
+      },
+    );
+
+    if (emailValidation.status === 200) {
+      console.log(emailValidation.status, 'Email already exist');
+      return {
+        errors: { email: ['Email already exist.'] },
+      };
+    }
     const response = await fetch(`${apiRegisterUrl}/Registration/sendcode`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: '*/*' },
       body: JSON.stringify(email),
     });
-
-    if (!response.ok) {
-      const data = await response.json();
-      throw new Error(data.message || 'Ошибка при отправке кода.');
-    }
   } catch (error) {
-    console.error('Ошибка при отправке запроса:', error);
-    throw new Error('Ошибка при отправке кода.');
+    console.error('OTP Code don`t send:', error);
+    throw new Error('OTP Code don`t send.');
   }
 }
 
@@ -258,13 +268,20 @@ const AddUser = z.object({
   login: z.string({ invalid_type_error: 'Please input login.' }),
   email: z.string({ invalid_type_error: 'Please input email.' }),
   otpcode: z.string({ invalid_type_error: 'Please input OTP Code.' }),
-  password: z.string({ invalid_type_error: 'Please input password.' }),
-  /*password: z
+  //password: z.string({ invalid_type_error: 'Please input password.' }),
+  password: z
     .string({ invalid_type_error: 'Please input password.' })
-    .regex(/[!@#$%^&*(),.?":{}|<>]/, {
-      message: 'Password must contain at least one special character.',
-    }),*/
-  confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
+    .min(8, {
+      message: 'Password and Confirm Password must contains 8 or more symbols.',
+    })
+    .regex(/[!@#$%^&*(),.?":{}|<>]/),
+  //confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
+  confirmPassword: z
+    .string({ invalid_type_error: 'Please input password.' })
+    .min(8, {
+      message: 'Password and Confirm Password must contains 8 or more symbols.',
+    })
+    .regex(/[!@#$%^&*(),.?":{}|<>]/),
   privacy_and_terms: z.string({
     invalid_type_error: 'Read and accept the Privacy Policy and Terms of Use.',
   }),
@@ -355,8 +372,20 @@ const RecoveryUser = z.object({
   login: z.string({ invalid_type_error: 'Please input login.' }),
   email: z.string({ invalid_type_error: 'Please input email.' }),
   otpcode: z.string({ invalid_type_error: 'Please input OTP Code.' }),
-  newPassword: z.string({ invalid_type_error: 'Please input password.' }),
-  confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
+  //newPassword: z.string({ invalid_type_error: 'Please input password.' }),
+  newPassword: z
+    .string({ invalid_type_error: 'Please input password.' })
+    .min(8, {
+      message: 'Password and Confirm Password must contains 8 or more symbols.',
+    })
+    .regex(/[!@#$%^&*(),.?":{}|<>]/),
+  //confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
+  confirmPassword: z
+    .string({ invalid_type_error: 'Please input password.' })
+    .min(8, {
+      message: 'Password and Confirm Password must contains 8 or more symbols.',
+    })
+    .regex(/[!@#$%^&*(),.?":{}|<>]/),
 });
 
 export type RecoveryUserState = {
