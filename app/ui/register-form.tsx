@@ -60,7 +60,7 @@ export default function SignupForm() {
 
   return (
     <form action={dispatch} className="space-y-3">
-      <div className="flex-1 rounded-lg bg-gray-50 p-6 dark:border dark:bg-black">
+      <div className="flex-1 rounded-lg bg-gray-100 p-6 dark:border dark:bg-black">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
           Join to continue.
         </h1>
@@ -75,7 +75,7 @@ export default function SignupForm() {
               </label>
               <div className="relative">
                 <input
-                  className="autofill:bprder-yellow-200 peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-slate-800 dark:placeholder:text-slate-50"
+                  className="autofill:bprder-yellow-200 peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-gray-800 dark:placeholder:text-slate-50"
                   id="email"
                   type="email"
                   name="email"
@@ -125,7 +125,7 @@ export default function SignupForm() {
                 </label>
                 <div className="relative mb-4">
                   <input
-                    className="autofill:bprder-yellow-200 peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-slate-800 dark:placeholder:text-slate-50"
+                    className="autofill:bprder-yellow-200 peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-gray-800 dark:placeholder:text-slate-50"
                     id="email"
                     type="email"
                     name="email"
@@ -158,7 +158,7 @@ export default function SignupForm() {
                 </label>
                 <div className="relative">
                   <input
-                    className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-slate-800 dark:placeholder:text-slate-50"
+                    className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-gray-800 dark:placeholder:text-slate-50"
                     id="otpcode"
                     type="text"
                     name="otpcode"
@@ -188,7 +188,7 @@ export default function SignupForm() {
                 </label>
                 <div className="relative">
                   <input
-                    className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-slate-800 dark:placeholder:text-slate-50"
+                    className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-gray-800 dark:placeholder:text-slate-50"
                     id="password"
                     type={passwordVisible ? 'text' : 'password'}
                     name="password"
@@ -240,7 +240,7 @@ export default function SignupForm() {
                 </label>
                 <div className="relative">
                   <input
-                    className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-slate-800 dark:placeholder:text-slate-50"
+                    className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-gray-800 dark:placeholder:text-slate-50"
                     id="confirmPassword"
                     type="password"
                     name="confirmPassword"
@@ -267,7 +267,7 @@ export default function SignupForm() {
                         href="/terms"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-[#007aff] hover:transition-all"
+                        className="underline hover:text-blue-600 hover:transition-all"
                       >
                         Terms of Use
                       </Link>
@@ -277,7 +277,7 @@ export default function SignupForm() {
                           href="/privacy"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="underline hover:text-[#007aff] hover:transition-all"
+                          className="underline hover:text-blue-600 hover:transition-all"
                         >
                           Privacy Policy
                         </Link>

@@ -53,7 +53,7 @@ const HomeOurProducts = () => {
                   {feature.title}
                 </h3>
                 <div className="block_sticky_main_boxes_content flex w-full gap-[24px] md:max-w-[500px]">
-                  <div className="flex w-full flex-col gap-[24px] text-sm font-normal leading-6 tracking-normal text-[#5f5f6a] dark:text-[#d3d3e3]">
+                  <div className="flex w-full flex-col gap-[24px] text-sm font-normal leading-6 tracking-normal text-gray-700 dark:text-gray-300">
                     <p>{feature.description}</p>
                     {Array.isArray(feature.features) ? (
                       feature.features.map((desc, index) => (

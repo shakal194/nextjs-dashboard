@@ -20,7 +20,7 @@ export default async function Page() {
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Welcome {session?.user?.name ?? ''} to your Dashboard
       </h1>
-      <div className="bg-sky-100 p-4 dark:bg-slate-700">
+      <div className="bg-sky-100 p-4 dark:bg-gray-800">
         <Suspense fallback={<CardsSkeleton />}>
           <BalanceWrapper />
         </Suspense>

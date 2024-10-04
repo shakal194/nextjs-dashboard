@@ -23,10 +23,10 @@ const StagingSandboxEnvironment = () => {
           <div className="block_box_with_list_row_right flex w-full flex-col gap-4 pt-[32px] md:max-w-[50%]">
             <div className="block_box_with_list_row_right_top flex flex-col justify-between lg:flex-row">
               <div className="block_box_with_list_row_right_top_left mb-[40px]">
-                <h3 className="mb-[4px] text-[24px] font-semibold leading-[36px] text-[#3b4048] dark:text-[#c3d0e6]">
+                <h3 className="mb-[4px] text-[24px] font-semibold leading-[36px] text-gray-700 dark:text-gray-300">
                   Sandbox
                 </h3>
-                <p className="mt-2 text-[15px] font-medium leading-[22.5px] text-[#5f5f6a] dark:text-[#d3d3e3]">
+                <p className="mt-2 text-[15px] font-medium leading-[22.5px] text-gray-700 dark:text-gray-300">
                   Get quick access to our solutions.
                 </p>
               </div>

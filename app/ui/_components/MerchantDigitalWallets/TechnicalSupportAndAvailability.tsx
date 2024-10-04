@@ -17,7 +17,7 @@ const TechnicalSupportAndAvailability = () => {
               </p>
             </div>
             <Link
-              className="b2b_link tangerine_link group flex items-center space-x-2 text-[#204bdb] hover:text-[#204bdb]"
+              className="b2b_link tangerine_link group flex items-center space-x-2 text-gray-700 dark:text-gray-300"
               target="_blank"
               rel="noopener noreferrer"
               href="/signup"
@@ -26,7 +26,7 @@ const TechnicalSupportAndAvailability = () => {
               <ChevronRightIcon className="ml-2 h-4 w-4 transform text-blue-600 transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
             </Link>
           </div>
-          <div className="block_technical_support_row_right w-full text-[60px] font-semibold leading-[75px] text-[#204bdb] lg:max-w-[45%] lg:text-[94px] lg:leading-[135px]">
+          <div className="block_technical_support_row_right w-full text-[60px] font-semibold leading-[75px] text-blue-700 lg:max-w-[45%] lg:text-[94px] lg:leading-[135px]">
             <p>24/7/365</p>
           </div>
         </div>

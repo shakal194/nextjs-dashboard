@@ -15,7 +15,7 @@ const HomeUseCasesSection = () => {
             className={`use-cases__row row-use-cases flex-start relative mb-8 flex flex-wrap before:absolute before:left-0 before:top-0 before:h-[1px] before:w-full before:bg-[#ddd] before:content-[''] ${index !== useCasesMerchantDigitalWallets.length - 1 ? 'pb-4' : ''}`}
           >
             <div className="row-use-cases__title-col mb-4 flex flex-100 flex-[25%]">
-              <div className="row-use-cases__title mt-6 pr-9 text-2xl font-semibold leading-[1.5] text-[#3d3d3d] dark:text-[#d3d3e3]">
+              <div className="row-use-cases__title mt-6 pr-9 text-2xl font-semibold leading-[1.5] text-gray-700 dark:text-gray-300">
                 {useCase.title}
               </div>
             </div>
@@ -37,10 +37,10 @@ const HomeUseCasesSection = () => {
                       height={0}
                     />
                   </div>
-                  <div className="title mb-2 text-lg font-semibold leading-[1.5] text-[#3b4048] dark:text-[#c8cfdb]">
+                  <div className="title mb-2 text-lg font-semibold leading-[1.5] text-gray-700 dark:text-gray-300">
                     {item.title}
                   </div>
-                  <div className="text text-sm leading-[1.6] text-[#3b4048] dark:text-[#c2c2d1]">
+                  <div className="text text-sm leading-[1.6] text-gray-700 dark:text-gray-300">
                     {item.text}
                   </div>
                 </div>
@@ -54,7 +54,7 @@ const HomeUseCasesSection = () => {
             className={`use-cases__row row-use-cases flex-start relative mb-8 flex flex-wrap before:absolute before:left-0 before:top-0 before:h-[1px] before:w-full before:bg-[#ddd] before:content-[''] ${index !== useCasesEnterpriseBlockchainWallets.length - 1 ? 'pb-4' : ''}`}
           >
             <div className="row-use-cases__title-col mb-4 flex flex-[25%]">
-              <div className="row-use-cases__title mt-6 pr-9 text-2xl font-semibold leading-[1.5] text-[#3d3d3d] dark:text-[#d3d3e3]">
+              <div className="row-use-cases__title mt-6 pr-9 text-2xl font-semibold leading-[1.5] text-gray-700 dark:text-gray-300">
                 {useCase.title}
               </div>
             </div>
@@ -76,10 +76,10 @@ const HomeUseCasesSection = () => {
                       height={50}
                     />
                   </div>
-                  <div className="title mb-2 text-lg font-semibold leading-[1.5] text-[#3b4048] dark:text-[#c8cfdb]">
+                  <div className="title mb-2 text-lg font-semibold leading-[1.5] text-gray-700 dark:text-gray-300">
                     {item.title}
                   </div>
-                  <div className="text text-sm leading-[1.6] text-[#3b4048] dark:text-[#c2c2d1]">
+                  <div className="text text-sm leading-[1.6] text-gray-700 dark:text-gray-300">
                     {item.text}
                   </div>
                 </div>

@@ -68,7 +68,7 @@ const CryptocurrencySecureAndSafe = () => {
                   {feature.title}
                 </h3>
                 <div className="block_sticky_main_boxes_content flex w-full flex-col gap-6">
-                  <p className="w-full text-sm font-normal leading-6 tracking-normal text-[#5f5f6a] dark:text-[#d3d3e3]">
+                  <p className="w-full text-sm font-normal leading-6 tracking-normal text-gray-700 dark:text-gray-300">
                     {feature.description}
                   </p>
                   <div className="mobile_zone lg:hidden">

@@ -19,7 +19,7 @@ export default async function InvoicesTable({
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg bg-gray-50 p-2 dark:bg-slate-700 md:pt-0">
+        <div className="rounded-lg bg-gray-100 p-2 dark:bg-gray-800 md:pt-0">
           <div className="md:hidden">
             {invoices?.map((invoice) => (
               <div
@@ -80,7 +80,7 @@ export default async function InvoicesTable({
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white dark:bg-slate-600">
+            <tbody className="bg-white dark:bg-gray-800">
               {invoices?.map((invoice) => (
                 <tr
                   key={invoice.id}

@@ -11,7 +11,7 @@ const PaymentPage = () => {
               <h2 className="mb-4 text-[36px] font-semibold leading-[48px] dark:text-slate-100">
                 Payment Page
               </h2>
-              <p className="section_top_parth_description text-[16px] font-normal leading-[26px] text-[#3b4048] dark:text-[#c3d0e6]">
+              <p className="section_top_parth_description text-[16px] font-normal leading-[26px] text-gray-700 dark:text-gray-300">
                 A highly-responsive payment page with live data. All you need is
                 at your fingertips to create and send your customers detailed
                 invoices.
@@ -23,10 +23,10 @@ const PaymentPage = () => {
                   key={item.id}
                   className="block_box_opacity_row_box group relative mb-[72px] w-full max-w-[45%] cursor-pointer border-t-[1px] border-[#f0f0f0] opacity-80 transition-all delay-300 duration-300 ease-in-out hover:border-[#204bdb] hover:opacity-100 dark:border-slate-100"
                 >
-                  <h4 className="mb-2 mt-[25px] text-[18px] font-semibold leading-[27px] text-[#3b4048] dark:text-[#c3d0e6]">
+                  <h4 className="mb-2 mt-[25px] text-[18px] font-semibold leading-[27px] text-gray-700 dark:text-gray-300">
                     {item.title}
                   </h4>
-                  <p className="text-[15px] font-normal leading-[24px] text-[#5f5f6a] dark:text-slate-400">
+                  <p className="text-[15px] font-normal leading-[24px] text-gray-700 dark:text-gray-300">
                     {item.description}
                   </p>
                 </div>
@@ -52,10 +52,10 @@ const PaymentPage = () => {
                 key={item.id}
                 className="block_box_opacity_row_box group relative mb-[72px] w-full cursor-pointer border-t-[1px] border-[#f0f0f0] opacity-80 transition-all delay-300 duration-300 ease-in-out hover:border-[#204bdb] hover:opacity-100 dark:border-slate-200 dark:focus:border-slate-200"
               >
-                <h4 className="mb-2 mt-[25px] text-[18px] font-semibold leading-[27px] text-[#3b4048] dark:text-[#c3d0e6]">
+                <h4 className="mb-2 mt-[25px] text-[18px] font-semibold leading-[27px] text-gray-700 dark:text-gray-300">
                   {item.title}
                 </h4>
-                <p className="text-[15px] font-normal leading-[24px] text-[#5f5f6a] dark:text-slate-400">
+                <p className="text-[15px] font-normal leading-[24px] text-gray-700 dark:text-gray-300">
                   {item.description}
                 </p>
               </div>

@@ -9,7 +9,7 @@ const CryptoPaymentServiceProvider = () => {
           <h2 className="mb-8 text-[36px] font-bold leading-[48px]">
             Crypto Payment Service Provider
           </h2>
-          <p className="section_top_parth_description text-[16px] font-normal leading-[26px] text-[#3b4048] dark:text-white">
+          <p className="section_top_parth_description text-[16px] font-normal leading-[26px] text-gray-700 dark:text-gray-300">
             Send, Receive, Store, Exchange and Accept cryptocurrencies
             in&nbsp;minutes with an industry-leading payments provider.
           </p>

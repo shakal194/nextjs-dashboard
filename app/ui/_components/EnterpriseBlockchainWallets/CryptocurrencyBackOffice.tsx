@@ -51,7 +51,7 @@ const CryptocurrencyBackOffice = () => {
                   {feature.title}
                 </h3>
                 <div className="block_sticky_main_boxes_content flex w-full flex-col gap-6">
-                  <div className="flex w-full flex-col gap-[24px] text-sm font-normal leading-6 tracking-normal text-[#5f5f6a] dark:text-[#d3d3e3]">
+                  <div className="flex w-full flex-col gap-[24px] text-sm font-normal leading-6 tracking-normal text-gray-700 dark:text-gray-300">
                     {Array.isArray(feature.description) ? (
                       feature.description.map((desc, index) => (
                         <div

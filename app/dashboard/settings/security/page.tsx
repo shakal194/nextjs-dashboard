@@ -117,100 +117,98 @@ const SecurityPage: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen">
-      <main className="flex-1 p-6">
-        <h1 className="mb-4 text-2xl font-bold">Security Settings</h1>
-        <div className="space-y-6">
-          <table className="mb-6 min-w-full border border-gray-200 bg-white dark:bg-slate-700">
-            <thead>
-              <tr>
-                <th className="border-b border-gray-200 px-4 py-2 text-left">
-                  Category
+    <>
+      <h1 className="mb-4 text-2xl font-bold">Security Settings</h1>
+      <div className="space-y-6">
+        <table className="mb-6 min-w-full border border-gray-200 bg-white dark:bg-gray-800">
+          <thead>
+            <tr>
+              <th className="border-b border-gray-200 px-4 py-2 text-left">
+                Category
+              </th>
+              {columns.map((column) => (
+                <th
+                  key={column}
+                  className="border-b border-gray-200 px-4 py-2 text-left"
+                >
+                  {column}
                 </th>
-                {columns.map((column) => (
-                  <th
-                    key={column}
-                    className="border-b border-gray-200 px-4 py-2 text-left"
-                  >
-                    {column}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {settingsOptions.map((section) => (
-                <React.Fragment key={section.category}>
-                  <tr>
-                    <td
-                      colSpan={columns.length + 1}
-                      className="bg-gray-100 px-4 py-2 font-semibold dark:bg-gray-800"
-                    >
-                      {section.category}
-                    </td>
-                  </tr>
-                  {section.options.map((option) => (
-                    <tr key={option}>
-                      <td className="border-b border-gray-200 px-4 py-2">
-                        {option}
-                      </td>
-                      {columns.map((column) => (
-                        <td
-                          key={column}
-                          className="border-b border-gray-200 px-4 py-2"
-                        >
-                          <input
-                            type="checkbox"
-                            checked={settings[section.category][option][column]}
-                            onChange={() =>
-                              handleCheckboxChange(
-                                section.category,
-                                option,
-                                column,
-                              )
-                            }
-                          />
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </React.Fragment>
               ))}
-            </tbody>
-          </table>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <span>Email</span>
-              <div className="flex items-center">
-                <span className="mr-4 text-gray-500 dark:text-gray-400">
-                  sh******4@gm**l.com
-                </span>
-                <button className="rounded bg-gray-200 px-3 py-1 text-gray-700 dark:bg-gray-600 dark:text-gray-100">
-                  Change
-                </button>
-              </div>
-            </div>
-            <div className="flex items-center justify-between">
-              <span>Phone number</span>
-              <button className="rounded bg-black px-3 py-1 text-white">
-                Add
-              </button>
-            </div>
-            <div className="flex items-center justify-between">
-              <span>Password</span>
-              <button className="rounded bg-gray-200 px-3 py-1 text-gray-700 dark:bg-gray-600 dark:text-gray-100">
+            </tr>
+          </thead>
+          <tbody>
+            {settingsOptions.map((section) => (
+              <React.Fragment key={section.category}>
+                <tr>
+                  <td
+                    colSpan={columns.length + 1}
+                    className="bg-gray-100 px-4 py-2 font-semibold dark:bg-gray-600"
+                  >
+                    {section.category}
+                  </td>
+                </tr>
+                {section.options.map((option) => (
+                  <tr key={option}>
+                    <td className="border-b border-gray-200 px-4 py-2">
+                      {option}
+                    </td>
+                    {columns.map((column) => (
+                      <td
+                        key={column}
+                        className="border-b border-gray-200 px-4 py-2"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={settings[section.category][option][column]}
+                          onChange={() =>
+                            handleCheckboxChange(
+                              section.category,
+                              option,
+                              column,
+                            )
+                          }
+                        />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </React.Fragment>
+            ))}
+          </tbody>
+        </table>
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <span>Email</span>
+            <div className="flex items-center">
+              <span className="mr-4 text-gray-500 dark:text-gray-400">
+                sh******4@gm**l.com
+              </span>
+              <button className="rounded bg-gray-200 px-3 py-1 text-gray-700 dark:bg-gray-800 dark:text-gray-100">
                 Change
               </button>
             </div>
-            <div className="flex items-center justify-between">
-              <span>PIN code</span>
-              <button className="rounded bg-black px-3 py-1 text-white">
-                Add
-              </button>
-            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <span>Phone number</span>
+            <button className="rounded bg-black px-3 py-1 text-white">
+              Add
+            </button>
+          </div>
+          <div className="flex items-center justify-between">
+            <span>Password</span>
+            <button className="rounded bg-gray-200 px-3 py-1 text-gray-700 dark:bg-gray-800 dark:text-gray-100">
+              Change
+            </button>
+          </div>
+          <div className="flex items-center justify-between">
+            <span>PIN code</span>
+            <button className="rounded bg-black px-3 py-1 text-white">
+              Add
+            </button>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 };
 

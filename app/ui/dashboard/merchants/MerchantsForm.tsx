@@ -42,7 +42,7 @@ const MerchantForm = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             required
-            className="w-full rounded-md border-gray-300 p-2 dark:bg-slate-500 dark:placeholder:text-white"
+            className="w-full rounded-md border-gray-300 p-2 dark:bg-gray-500 dark:placeholder:text-white"
             placeholder="Merchant name"
           />
         </div>

@@ -41,10 +41,10 @@ const CryptoProcessingTailored = () => {
                       height={0}
                     />
                   </div>
-                  <div className="title mb-2 text-lg font-semibold leading-[1.5] text-[#3b4048] dark:text-[#c8cfdb]">
+                  <div className="title mb-2 text-lg font-semibold leading-[1.5] text-gray-700 dark:text-gray-300">
                     {item.title}
                   </div>
-                  <div className="text text-sm leading-[1.6] text-[#3b4048] dark:text-[#c2c2d1]">
+                  <div className="text text-sm leading-[1.6] text-gray-700 dark:text-gray-300">
                     {item.text}
                   </div>
                 </div>

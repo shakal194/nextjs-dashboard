@@ -44,21 +44,21 @@ export default function MerchantsMobile({ children }: { children: ReactNode }) {
   return (
     <div>
       <div className="hidden md:block">{children}</div>
-      <div className="bg-gray-50 p-3 dark:bg-gray-600 md:hidden">
+      <div className="bg-gray-100 p-3 dark:bg-gray-800 md:hidden">
         <Bars3Icon
           className="w-6 cursor-pointer"
           onClick={() => openModal('mobileMerchants')}
         />
         {isModalOpen('mobileMerchants') && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800"
             onClick={() => {
               closeModal('mobileMerchants');
               unblockBodyScroll();
             }}
           >
             <div
-              className="relative mx-auto h-full w-full max-w-md bg-white p-4 dark:bg-slate-800"
+              className="relative mx-auto h-full w-full max-w-md bg-white p-4 dark:bg-gray-800"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative flex justify-end">

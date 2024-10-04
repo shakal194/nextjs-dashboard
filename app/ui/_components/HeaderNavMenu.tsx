@@ -14,7 +14,7 @@ const HeaderNavMenu = () => {
             >
               Merchant Digital Wallets
             </Link>
-            <ul className="invisible absolute -left-4 min-w-[calc(100%+90px)] rounded-lg bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_16px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] transition delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100 dark:bg-slate-700">
+            <ul className="invisible absolute -left-4 min-w-[calc(100%+90px)] rounded-lg bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_16px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] transition delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100 dark:bg-gray-800">
               <li>
                 <Link
                   href="/cryptocurrency-payment-gateway"
@@ -64,7 +64,7 @@ const HeaderNavMenu = () => {
             >
               Enterprise Blockchain Wallets
             </Link>
-            <ul className="invisible absolute -left-4 min-w-[calc(100%+90px)] rounded-lg bg-blue-500 bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_46px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] transition delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100 dark:bg-slate-700">
+            <ul className="invisible absolute -left-4 min-w-[calc(100%+90px)] rounded-lg bg-blue-500 bg-white p-4 opacity-0 shadow-lg drop-shadow-[11px_16px_46px_rgba(30,29,28,0.16)] filter backdrop-blur-[115px] transition delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100 dark:bg-gray-800">
               <li>
                 <Link
                   href="/cryptocurrency-wallets"
@@ -124,7 +124,7 @@ const HeaderNavMenu = () => {
             >
               Support
             </Link>
-            <ul className="bg-opacity-98 invisible absolute right-0 min-w-[calc(100%+70px)] rounded-lg bg-white p-4 opacity-0 shadow-lg backdrop-blur-[115px] transition-all delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100 dark:bg-slate-700">
+            <ul className="bg-opacity-98 invisible absolute right-0 min-w-[calc(100%+70px)] rounded-lg bg-white p-4 opacity-0 shadow-lg backdrop-blur-[115px] transition-all delay-200 duration-300 ease-in-out group-hover:visible group-hover:opacity-100 dark:bg-gray-800">
               <li>
                 <Link
                   href="/api"

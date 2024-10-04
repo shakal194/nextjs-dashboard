@@ -32,7 +32,7 @@ const CryptocurrencyFAQ = () => {
                   <div className="block_faq_row_question mb-[16px] text-[22px] leading-[33px] md:mb-0 md:max-w-[47%] md:text-[24px] md:leading-[36px]">
                     <p>{feature.question}</p>
                   </div>
-                  <div className="block_faq_row_answer flex w-full text-[15px] font-normal leading-[24px] tracking-normal text-[#5f5f6a] dark:text-[#d3d3e3] md:max-w-[47%]">
+                  <div className="block_faq_row_answer flex w-full text-[15px] font-normal leading-[24px] tracking-normal text-gray-700 dark:text-gray-300 md:max-w-[47%]">
                     <p>
                       {parts.map((part, index) =>
                         part === "<a href='/fees-pricing/'>here</a>" ? (

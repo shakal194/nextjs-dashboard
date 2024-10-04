@@ -17,7 +17,7 @@ export async function MerchantsList() {
             key={merchant.merchant_name}
             href={`/dashboard/merchants/${merchant.merchant_id}`}
             className={clsx(
-              'my-2 flex h-[48px] grow items-center justify-start gap-2 rounded-md bg-gray-50 px-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-slate-300 md:p-2',
+              'my-2 flex h-[48px] grow items-center justify-start gap-2 rounded-md bg-gray-100 px-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-gray-400 md:p-2',
             )}
           >
             <p>{merchant.merchant_name}</p>
@@ -40,7 +40,7 @@ export async function MerchantsList() {
             key={merchant.merchant_name}
             href={`/dashboard/merchants/${merchant.merchant_id}`}
             className={clsx(
-              'h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex md:justify-start md:p-2 md:px-3',
+              'h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-100 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex md:justify-start md:p-2 md:px-3',
             )}
             onClick={onClose}
           >

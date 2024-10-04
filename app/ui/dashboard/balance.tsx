@@ -28,7 +28,7 @@ export function Balance({
   const Icon = iconMap[type];
 
   return (
-    <div className="rounded-xl bg-sky-100 dark:bg-slate-700">
+    <div className="rounded-xl bg-sky-100 dark:bg-gray-800">
       <div className="flex">
         {Icon ? (
           <Icon className="h-5 w-5 text-gray-700 dark:text-white" />

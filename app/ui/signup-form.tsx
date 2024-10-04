@@ -34,7 +34,7 @@ export default function SignupForm() {
   return (
     //<form onSubmit={handleSubmit} className="space-y-3">
     <form action={dispatch} className="space-y-3">
-      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
+      <div className="flex-1 rounded-lg bg-gray-100 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
           Join to continue.
         </h1>
@@ -162,7 +162,7 @@ export default function SignupForm() {
                 <span>I agree with </span>
                 <Link
                   href="/terms"
-                  className="underline hover:text-[#007aff] hover:transition-all"
+                  className="underline hover:text-blue-600 hover:transition-all"
                 >
                   Terms of Use
                 </Link>
@@ -170,7 +170,7 @@ export default function SignupForm() {
                 <span>
                   <Link
                     href="/privacy"
-                    className="underline hover:text-[#007aff] hover:transition-all"
+                    className="underline hover:text-blue-600 hover:transition-all"
                   >
                     Privacy Policy
                   </Link>

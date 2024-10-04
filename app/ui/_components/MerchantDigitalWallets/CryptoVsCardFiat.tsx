@@ -16,7 +16,7 @@ const CryptoVsCardFiat = () => {
       </div>
       <div className="container mx-auto w-full w-full max-w-[1356px] px-4">
         <div className="block_crypto_card_table">
-          <div className="block_crypto_card_table_thead flex border-b border-[#204bdb] p-[0_0_6px] text-[10px] font-normal leading-[16px] text-[#3d3d3d] md:p-[14px] md:text-[14px] md:leading-[22px]">
+          <div className="block_crypto_card_table_thead flex border-b border-[#204bdb] p-[0_0_6px] text-[10px] font-normal leading-[16px] text-gray-700 md:p-[14px] md:text-[14px] md:leading-[22px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 flex items-center first:w-full first:justify-start">
               <p className="dark:text-slate-400">Features</p>
             </div>
@@ -32,7 +32,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100 dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300 dark:text-slate-100">
                 Decentralisation
               </p>
             </div>
@@ -54,7 +54,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 Fast and Secure
               </p>
             </div>
@@ -76,7 +76,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 No Rolling Reserve
               </p>
             </div>
@@ -98,7 +98,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 Low Cost
               </p>
             </div>
@@ -120,7 +120,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 Easy Account Opening
               </p>
             </div>
@@ -142,7 +142,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 Transparency
               </p>
             </div>
@@ -164,7 +164,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 Fast Settlement
               </p>
             </div>
@@ -186,7 +186,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 No Risk of Fraud Card Usage
               </p>
             </div>
@@ -208,7 +208,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 Instant Payouts
               </p>
             </div>
@@ -232,7 +232,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 No Volatility Risks
               </p>
             </div>
@@ -254,7 +254,7 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 Regulated
               </p>
             </div>
@@ -280,21 +280,21 @@ const CryptoVsCardFiat = () => {
           </div>
           <div className="block_crypto_card_table_trow flex justify-between border-b border-[#ddd] p-[20px_14px] px-0 md:p-[20px_14px]">
             <div className="block_crypto_card_table_item first:max-w-1/2 first:w-full first:justify-start">
-              <p className="text-[16px] font-medium leading-[26px] text-[#1d2127] dark:text-slate-100">
+              <p className="text-[16px] font-medium leading-[26px] text-gray-800 dark:text-gray-300">
                 Transaction Limits
               </p>
             </div>
-            <div className="block_crypto_card_table_item relative flex w-full max-w-[18%] items-center justify-center text-[10px] font-normal leading-[16px] text-[#204bdb] md:text-[14px] md:leading-[22px]">
+            <div className="block_crypto_card_table_item relative flex w-full max-w-[18%] items-center justify-center text-[10px] font-normal leading-[16px] text-gray-700 md:text-[14px] md:leading-[22px]">
               <div className="block_crypto_card_table_item_blured_icon">
                 <p className="dark:text-sky-400">No limits</p>
               </div>
             </div>
-            <div className="block_crypto_card_table_item relative flex w-full max-w-[18%] items-center justify-center text-[10px] font-normal leading-[16px] text-[#204bdb] md:text-[14px] md:leading-[22px]">
+            <div className="block_crypto_card_table_item relative flex w-full max-w-[18%] items-center justify-center text-[10px] font-normal leading-[16px] text-gray-700 md:text-[14px] md:leading-[22px]">
               <div className="block_crypto_card_table_item_blured_icon">
                 <p className="dark:text-sky-400">No limits</p>
               </div>
             </div>
-            <div className="block_crypto_card_table_item relative flex w-full max-w-[18%] items-center justify-center text-[10px] font-normal leading-[16px] text-[#999999] md:text-[14px] md:leading-[22px]">
+            <div className="block_crypto_card_table_item relative flex w-full max-w-[18%] items-center justify-center text-[10px] font-normal leading-[16px] text-gray-400 md:text-[14px] md:leading-[22px]">
               <div className="block_crypto_card_table_item_blured_icon">
                 <p className="dark:text-slate-100">Restrictions</p>
               </div>

@@ -30,17 +30,17 @@ const AMLComplianceTransactionsChecking = () => {
           <div className="block_box_with_tabs_row_right w-full md:max-w-[45%]">
             <div className="block_box_with_tabs_row_right_tab_head box-tabs-body-js relative mb-[51px] flex border-b border-gray-300 pb-4 pt-4">
               <div
-                className={`tab relative flex w-full max-w-[50%] cursor-pointer items-center justify-center px-1 text-base font-medium leading-[25px] text-[#1d2127] opacity-100 transition duration-400 ease-in-out dark:text-[#a9a9a9] ${activeTab === 1 ? 'active content-none after:absolute after:-bottom-[17px] after:left-0 after:w-full after:max-w-full after:-translate-y-1/2 after:transform after:border-b after:border-[#ee0064]' : ''}`}
+                className={`tab relative flex w-full max-w-[50%] cursor-pointer items-center justify-center px-1 text-base font-medium leading-[25px] text-gray-800 opacity-100 transition duration-400 ease-in-out dark:text-gray-400 ${activeTab === 1 ? 'active content-none after:absolute after:-bottom-[17px] after:left-0 after:w-full after:max-w-full after:-translate-y-1/2 after:transform after:border-b after:border-[#ee0064]' : ''}`}
                 onClick={() => setActiveTab(1)}
               >
-                <XMarkIcon className="mr-[13px] w-5 text-[#ee0064]" />
+                <XMarkIcon className="mr-[13px] w-5 text-pink-400" />
                 <p className="">Suspicious Transaction</p>{' '}
               </div>
               <div
-                className={`tab relative flex w-full max-w-[50%] cursor-pointer items-center justify-center px-1 text-base font-medium leading-[25px] text-[#1d2127] opacity-100 transition duration-400 ease-in-out dark:text-[#a9a9a9] ${activeTab === 2 ? 'active content-none after:absolute after:-bottom-[17px] after:left-0 after:w-full after:max-w-full after:-translate-y-1/2 after:transform after:border-b after:border-[#00b790] dark:after:border-[#05edbc]' : ''}`}
+                className={`tab relative flex w-full max-w-[50%] cursor-pointer items-center justify-center px-1 text-base font-medium leading-[25px] text-gray-800 opacity-100 transition duration-400 ease-in-out dark:text-gray-400 ${activeTab === 2 ? 'active content-none after:absolute after:-bottom-[17px] after:left-0 after:w-full after:max-w-full after:-translate-y-1/2 after:transform after:border-b after:border-[#00b790] dark:after:border-[#05edbc]' : ''}`}
                 onClick={() => setActiveTab(2)}
               >
-                <CheckIcon className="mr-[13px] w-5 text-[#00b790]" />
+                <CheckIcon className="mr-[13px] w-5 text-teal-400" />
 
                 <p className="">Approved Transaction</p>
               </div>

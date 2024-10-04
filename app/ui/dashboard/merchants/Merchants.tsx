@@ -50,7 +50,7 @@ export function Merchants() {
       <Link
         href="/dashboard/merchants"
         className={clsx(
-          'flex h-[48px] grow items-center justify-between rounded-md border border-x-0 border-y-slate-300 bg-gray-50 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-slate-300 md:p-2 md:px-3',
+          'flex h-[48px] grow items-center justify-between rounded-md border border-x-0 border-y-slate-300 bg-gray-100 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-gray-400 md:p-2 md:px-3',
           {
             'bg-sky-100 text-blue-600': pathname === '/dashboard/merchants',
           },
@@ -70,12 +70,12 @@ export function Merchants() {
 
       {isModalOpen('createMerchant') && (
         <div
-          className="fixed inset-0 z-50 flex h-full items-center justify-center bg-gray-900 bg-opacity-50"
+          className="fixed inset-0 z-50 flex h-full items-center justify-center bg-gray-400 bg-opacity-50"
           onClick={(e) => {
             e.stopPropagation(); // Prevent closing parent modal
           }}
         >
-          <div className="relative w-96 rounded-md bg-white p-8 dark:bg-slate-700">
+          <div className="relative w-96 rounded-md bg-white p-8 dark:border dark:bg-gray-800">
             <div className="mb-4 border border-x-0 border-t-0 border-b-slate-300">
               <XCircleIcon
                 className="absolute right-0 top-0 m-3 h-6 w-6 cursor-pointer text-gray-700 dark:text-gray-300"
@@ -131,7 +131,7 @@ export function Merchants() {
       <Link
         href="/dashboard/merchants"
         className={clsx(
-          'flex h-[48px] grow items-center justify-between rounded-md border border-x-0 border-y-slate-300 bg-gray-50 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 md:p-2 md:px-3',
+          'flex h-[48px] grow items-center justify-between rounded-md border border-x-0 border-y-slate-300 bg-gray-100 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 md:p-2 md:px-3',
           {
             'bg-sky-100 text-blue-600': pathname === '/dashboard/merchants',
           },
@@ -152,7 +152,7 @@ export function Merchants() {
 
       {isModalOpen && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50"
+          className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50"
           onClick={(e) => {
             e.stopPropagation(); // Prevent closing parent modal
           }}

@@ -8,7 +8,7 @@ const Settlements = () => {
           <h2 className="mb-8 text-[36px] font-bold leading-[48px]">
             Settlements
           </h2>
-          <p className="section_top_parth_description text-[16px] font-normal leading-[26px] text-[#3b4048] dark:text-white">
+          <p className="section_top_parth_description text-[16px] font-normal leading-[26px] text-gray-700 dark:text-gray-300">
             We provide secure settlement options and statements in all the main
             cryptocurrencies and stablecoins.
           </p>

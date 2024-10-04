@@ -146,7 +146,7 @@ const NotificationsPage: React.FC = () => {
       <main className="flex-1 p-6">
         <h1 className="mb-4 text-2xl font-bold">Notification Settings</h1>
         <div className="space-y-6">
-          <table className="mb-6 min-w-full border border-gray-200 bg-white dark:bg-slate-700">
+          <table className="mb-6 min-w-full border border-gray-200 bg-white dark:bg-gray-800">
             <thead>
               <tr>
                 <th className="border-b border-gray-200 px-4 py-2 text-left">
@@ -168,7 +168,7 @@ const NotificationsPage: React.FC = () => {
                   <tr>
                     <td
                       colSpan={columns.length + 1}
-                      className="bg-gray-100 px-4 py-2 font-semibold dark:bg-gray-800"
+                      className="bg-gray-100 px-4 py-2 font-semibold dark:bg-gray-600"
                     >
                       {section.category}
                     </td>

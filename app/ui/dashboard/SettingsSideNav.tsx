@@ -13,7 +13,7 @@ export default function SettingsSideNav() {
           <CoinsFishLogo />
         </div>
       </Link>
-      <div className="flex grow flex-row items-center justify-between space-x-2 md:flex-col md:items-stretch md:space-x-0 md:space-y-2 md:overflow-y-auto">
+      <div className="flex grow flex-row items-center space-x-2 md:flex-col md:items-stretch md:space-x-0 md:space-y-2 md:overflow-y-auto">
         <SettingsNavLinks />
       </div>
     </div>

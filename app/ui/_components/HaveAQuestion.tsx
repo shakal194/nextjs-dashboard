@@ -24,10 +24,10 @@ const HaveAQuestion = () => {
             <div className="icon mb-[31px]">
               <UserIcon className="h-[50px] w-[50px] text-yellow-600" />
             </div>
-            <div className="title pt-1 text-lg font-semibold leading-[150%] text-[#3d3d3d] dark:text-[#d3d3e3]">
+            <div className="title pt-1 text-lg font-semibold leading-[150%] text-gray-700 dark:text-gray-300">
               For existing clients
             </div>
-            <div className="text pt-2 text-sm leading-[160%] text-[#91919e] dark:text-[#dedee3]">
+            <div className="text pt-2 text-sm leading-[160%] text-gray-400 dark:text-gray-300">
               If you already have an account please use our ticket system.
             </div>
             <Link
@@ -45,10 +45,10 @@ const HaveAQuestion = () => {
             <div className="icon mb-[31px]">
               <UserPlusIcon className="h-[50px] w-[50px] text-blue-600" />
             </div>
-            <div className="title pt-1 text-lg font-semibold leading-[150%] text-[#3d3d3d] dark:text-[#d3d3e3]">
+            <div className="title pt-1 text-lg font-semibold leading-[150%] text-gray-700 dark:text-gray-300">
               For new clients or partners
             </div>
-            <div className="text pt-2 text-sm leading-[160%] text-[#91919e] dark:text-[#dedee3]">
+            <div className="text pt-2 text-sm leading-[160%] text-gray-400 dark:text-gray-300">
               Please leave your inquiry and our Business Development Team will
               contact you shortly.
             </div>

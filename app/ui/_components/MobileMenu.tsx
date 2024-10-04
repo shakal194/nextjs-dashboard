@@ -87,7 +87,7 @@ const MobileMenu = () => {
       </div>
 
       <div
-        className={`fixed inset-0 flex flex-col overflow-y-auto bg-white p-4 transition-transform delay-200 duration-300 ease-in-out dark:bg-slate-700 lg:hidden ${
+        className={`fixed inset-0 flex flex-col overflow-y-auto bg-white p-4 transition-transform delay-200 duration-300 ease-in-out dark:bg-gray-800 lg:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -118,7 +118,7 @@ const MobileMenu = () => {
               />
             </div>
             <ul
-              className={`origin-top transform overflow-hidden rounded-lg bg-white p-4 shadow-lg transition-all duration-500 ease-in-out dark:bg-slate-700 ${
+              className={`origin-top transform overflow-hidden rounded-lg bg-white p-4 shadow-lg transition-all duration-500 ease-in-out dark:bg-gray-800 ${
                 submenus.submenu1
                   ? 'max-h-96 scale-y-100 opacity-100'
                   : 'max-h-0 scale-y-0 opacity-0'
@@ -184,7 +184,7 @@ const MobileMenu = () => {
               />
             </div>
             <ul
-              className={`relative origin-top transform overflow-hidden rounded-lg bg-white p-4 shadow-lg transition-all duration-500 ease-in-out dark:bg-slate-700 ${
+              className={`relative origin-top transform overflow-hidden rounded-lg bg-white p-4 shadow-lg transition-all duration-500 ease-in-out dark:bg-gray-800 ${
                 submenus.submenu2
                   ? 'max-h-96 scale-y-100 opacity-100'
                   : 'max-h-0 scale-y-0 opacity-0'
@@ -259,7 +259,7 @@ const MobileMenu = () => {
                 />
               </div>
               <ul
-                className={`relative origin-top transform overflow-hidden rounded-lg bg-white p-4 shadow-lg transition-all duration-500 ease-in-out dark:bg-slate-700 ${
+                className={`relative origin-top transform overflow-hidden rounded-lg bg-white p-4 shadow-lg transition-all duration-500 ease-in-out dark:bg-gray-800 ${
                   submenus.submenu3
                     ? 'max-h-96 scale-y-100 opacity-100'
                     : 'max-h-0 scale-y-0 opacity-0'

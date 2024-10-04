@@ -42,7 +42,7 @@ const AvailableCurrenciesSection = () => {
           <div className="block__available-currencies__tabs">
             <div className="block__available-currencies__tabs__header mb-20 flex cursor-pointer">
               <div
-                className={`block__available-currencies__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[14px_20px] text-[12px] font-normal leading-[20px] text-[#91919e] text-[#999] no-underline transition ease-out md:p-[20px_32px] md:text-[18px] md:leading-[22px] ${activeTab === 0 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-[#204bdb] dark:text-blue-300' : ''}`}
+                className={`block__available-currencies__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[14px_20px] text-[12px] font-normal leading-[20px] text-gray-400 no-underline transition ease-out md:p-[20px_32px] md:text-[18px] md:leading-[22px] ${activeTab === 0 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-gray-700 dark:text-blue-300' : ''}`}
                 data-model="0"
                 onClick={() => handleTabClick(0, '#currency_table_0')}
                 id="currency_table_0"
@@ -50,7 +50,7 @@ const AvailableCurrenciesSection = () => {
                 Merchant Digital Wallets
               </div>
               <div
-                className={`block__available-currencies__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[14px_20px] text-[12px] font-normal leading-[20px] text-[#91919e] text-[#999] no-underline transition ease-out md:p-[20px_32px] md:text-[18px] md:leading-[22px] ${activeTab === 1 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-[#204bdb] dark:text-blue-300' : ''}`}
+                className={`block__available-currencies__tabs__header__item solid #ededed whitespace-nowrap border-b-2 bg-transparent p-[14px_20px] text-[12px] font-normal leading-[20px] text-gray-400 no-underline transition ease-out md:p-[20px_32px] md:text-[18px] md:leading-[22px] ${activeTab === 1 ? 'active custom-gradient border-[#204bdb] bg-gradient-to-t from-[rgba(32,75,219,0.1)] to-[rgba(32,75,219,0)] text-gray-700 dark:text-blue-300' : ''}`}
                 data-model="1"
                 onClick={() => handleTabClick(1, '#currency_table_1')}
                 id="currency_table_1"
@@ -68,7 +68,7 @@ const AvailableCurrenciesSection = () => {
                   <div className="block__available-currencies__tabs__content__table__group__title mb-14 flex w-full max-w-full flex-col lg:flex-row ">
                     <h4 className="block__available-currencies__tabs__content__table__group__title flex w-full justify-between text-xl font-semibold md:max-w-[197px] lg:pr-[36px]">
                       Coins
-                      <span className="mobile__text flex items-center text-[14px] text-[#a9a9a9] md:hidden">
+                      <span className="mobile__text flex items-center text-[14px] text-gray-400 md:hidden">
                         Swipe <ArrowLongRightIcon className="ml-2 h-4 w-4" />
                       </span>
                     </h4>
@@ -76,25 +76,25 @@ const AvailableCurrenciesSection = () => {
                       <div className="block__available-currencies__tabs__content__table__group__rows mx-[-16px] my-0 overflow-x-auto px-[16px] py-0 scrollbar-hide lg:overflow-x-hidden">
                         <div className="block__available-currencies__tabs__content__table__group__rows_scroller min-w-[600px] max-w-[1124px]">
                           <div className="row first_row flex w-[760px] flex-nowrap justify-start border-b border-t-0 border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               №
                             </div>
                             <div className="row__col octopus hidden">
                               coin_id
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Alpha
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Alias
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Name
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Blockchain
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Type
                             </div>
                           </div>
@@ -200,7 +200,7 @@ const AvailableCurrenciesSection = () => {
                   <div className="block__available-currencies__tabs__content__table__group__title mb-14 flex w-full max-w-full flex-col lg:flex-row ">
                     <h4 className="block__available-currencies__tabs__content__table__group__title flex w-full justify-between text-xl font-semibold md:max-w-[197px] lg:pr-[36px]">
                       Coins
-                      <span className="mobile__text flex items-center text-[14px] text-[#a9a9a9] md:hidden">
+                      <span className="mobile__text flex items-center text-[14px] text-gray-400 md:hidden">
                         Swipe <ArrowLongRightIcon className="ml-2 h-4 w-4" />
                       </span>
                     </h4>
@@ -208,25 +208,25 @@ const AvailableCurrenciesSection = () => {
                       <div className="block__available-currencies__tabs__content__table__group__rows mx-[-16px] my-0 overflow-x-auto px-[16px] py-0 scrollbar-hide lg:overflow-x-hidden">
                         <div className="block__available-currencies__tabs__content__table__group__rows_scroller min-w-[600px] max-w-[1124px]">
                           <div className="row first_row flex w-[760px] flex-nowrap justify-start border-b border-t-0 border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               №
                             </div>
                             <div className="row__col octopus hidden">
                               coin_id
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Alpha
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Alias
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Name
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Blockchain
                             </div>
-                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-[#1d2127] dark:text-[#a9a9a9] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
+                            <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               Type
                             </div>
                           </div>
@@ -332,36 +332,36 @@ const AvailableCurrenciesSection = () => {
           <div className="block_linksbox block_linksbox_alignstart flex w-full flex-col justify-start gap-9 lg:flex-row">
             <Link
               href="/minimum-deposits-withdrawals"
-              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 lg:max-w-33%"
+              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-800 lg:max-w-33%"
             >
-              <h4 className="mb-3 text-lg font-semibold text-[#262e39] dark:text-gray-200">
+              <h4 className="mb-3 text-lg font-semibold text-gray-700 dark:text-gray-400">
                 Minimum Deposits
               </h4>
-              <p className="b2b_link mb-0 mt-6 flex transform items-center text-sm text-[#91919e] transition-all delay-200 duration-300 ease-in-out group-hover:text-[#204bdb] dark:text-blue-400 dark:group-hover:text-blue-200">
+              <p className="b2b_link mb-0 mt-6 flex transform items-center text-sm text-gray-400 transition-all delay-200 duration-300 ease-in-out group-hover:text-gray-700 dark:text-blue-300 dark:group-hover:text-blue-200">
                 Explore
                 <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-all delay-200 duration-300 ease-in-out group-hover:translate-x-2" />
               </p>
             </Link>
             <Link
               href="/crypto-processing-solutions-comparison"
-              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 lg:max-w-33%"
+              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-800 lg:max-w-33%"
             >
-              <h4 className="mb-3 text-lg font-semibold text-[#262e39] dark:text-gray-200">
+              <h4 className="mb-3 text-lg font-semibold text-gray-700 dark:text-gray-400">
                 Solutions Comparison
               </h4>
-              <p className="b2b_link mb-0 mt-6 flex transform items-center text-sm text-[#91919e] transition-all delay-200 duration-300 ease-in-out group-hover:text-[#204bdb] dark:text-blue-400 dark:group-hover:text-blue-200">
+              <p className="b2b_link mb-0 mt-6 flex transform items-center text-sm text-gray-400 transition-all delay-200 duration-300 ease-in-out group-hover:text-gray-700 dark:text-blue-300 dark:group-hover:text-blue-200">
                 Explore
                 <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-all delay-200 duration-300 ease-in-out group-hover:translate-x-2" />
               </p>
             </Link>
             <Link
               href="/fees-pricing"
-              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-600 lg:max-w-33%"
+              className="short_box block_linksbox_single group mb-4 w-full max-w-full transform rounded-lg border border-gray-200 p-8 transition-all delay-200 duration-300 ease-in-out hover:border-[#204bdb] hover:bg-gray-100 dark:hover:bg-gray-800 lg:max-w-33%"
             >
-              <h4 className="mb-3 text-lg font-semibold text-[#262e39] dark:text-gray-200">
+              <h4 className="mb-3 text-lg font-semibold text-gray-700 dark:text-gray-400">
                 Fees &amp; Pricing
               </h4>
-              <p className="b2b_link mb-0 mt-6 flex transform items-center text-sm text-[#91919e] transition-all delay-200 duration-300 ease-in-out group-hover:text-[#204bdb] dark:text-blue-400 dark:group-hover:text-blue-200">
+              <p className="b2b_link mb-0 mt-6 flex transform items-center text-sm text-gray-400 transition-all delay-200 duration-300 ease-in-out group-hover:text-gray-700 dark:text-blue-300 dark:group-hover:text-blue-200">
                 Explore
                 <ChevronRightIcon className="ml-2 h-4 w-4 transform transition-all delay-200 duration-300 ease-in-out group-hover:translate-x-2" />
               </p>

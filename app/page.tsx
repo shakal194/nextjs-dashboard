@@ -23,8 +23,8 @@ export default function Page() {
       <main className="flex min-h-screen flex-col p-6">
         <div className="container mx-auto px-4">
           <div className="mt-4 flex grow flex-col gap-4 lg:flex-row">
-            <div className="flex flex-col rounded-lg bg-gray-50 dark:bg-inherit">
-              <p className="mb-8 hidden text-[15px] font-medium leading-[150%] text-[#91919e] dark:text-[#dedee3] md:block">
+            <div className="flex flex-col rounded-lg bg-gray-100 dark:bg-inherit">
+              <p className="mb-8 hidden text-[15px] font-medium leading-[150%] text-gray-400 dark:text-gray-300 md:block">
                 Digital Assets Processing
               </p>
               <p
@@ -32,7 +32,7 @@ export default function Page() {
               >
                 <strong>Accept Bitcoin Payments with CoinsFish</strong>
               </p>
-              <p className="mt-4 text-[24px] font-medium leading-[32px] text-[#3b4048] dark:text-[#c3d0e6]">
+              <p className="mt-4 text-[24px] font-medium leading-[32px] text-gray-700 dark:text-gray-300">
                 Send, Store, Exchange and Accept Cryptocurrency.
               </p>
               <div className="flex justify-center lg:justify-start">

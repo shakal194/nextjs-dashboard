@@ -28,8 +28,8 @@ export default async function RevenueChart() {
       {/* NOTE: comment in this code when you get to this point in the course */}
 
       {
-        <div className="rounded-xl bg-gray-50 p-4 dark:bg-slate-600">
-          <div className="mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 dark:bg-slate-600 sm:grid-cols-13 md:gap-4">
+        <div className="rounded-xl bg-gray-100 p-4 dark:bg-gray-800">
+          <div className="mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 dark:bg-gray-800 sm:grid-cols-13 md:gap-4">
             <div
               className="mb-6 hidden flex-col justify-between text-sm text-gray-400 dark:text-gray-200 sm:flex"
               style={{ height: `${chartHeight}px` }}
