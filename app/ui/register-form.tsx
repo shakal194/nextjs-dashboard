@@ -13,7 +13,7 @@ import { Button } from './button';
 import { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import Link from 'next/link';
-import { addUser, handleEmailSubmit } from '@/app/lib/actions';
+import { addUser, handleEmailSubmitRegister } from '@/app/lib/actions';
 import { Checkbox } from '@nextui-org/react';
 import LoadingSpinner from '@/app/ui/_components/LoadingSpinner';
 
@@ -39,7 +39,7 @@ export default function SignupForm() {
     e.preventDefault();
     try {
       setErrorMessage('');
-      const result = await handleEmailSubmit(email);
+      const result = await handleEmailSubmitRegister(email);
       if (result?.errors) {
         setErrorMessage(result.errors.email[0]);
       } else {
@@ -208,19 +208,18 @@ export default function SignupForm() {
                     />
                   )}
                 </div>
+                <div className="mt-2 text-[10px]">
+                  <ul>
+                    <li className="mb-2">
+                      Includes at least one special symbol
+                    </li>
+                    <li>Contains 8 or more symbols</li>
+                  </ul>
+                </div>
                 <div id="password-error" aria-live="polite" aria-atomic="true">
-                  {(state.errors?.password ||
-                    state.errors?.confirmPassword) && (
+                  {state.errors?.password && (
                     <>
-                      {state.errors?.password?.map((error: string) => (
-                        <p
-                          className="mt-2 text-sm text-red-500 dark:text-red-400"
-                          key={error}
-                        >
-                          {error}
-                        </p>
-                      ))}
-                      {state.errors?.confirmPassword?.map((error: string) => (
+                      {state.errors.password.map((error: string) => (
                         <p
                           className="mt-2 text-sm text-red-500 dark:text-red-400"
                           key={error}

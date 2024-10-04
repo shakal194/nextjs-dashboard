@@ -28,10 +28,10 @@ export default async function RevenueChart() {
       {/* NOTE: comment in this code when you get to this point in the course */}
 
       {
-        <div className="rounded-xl bg-gray-50 p-4">
-          <div className="mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 sm:grid-cols-13 md:gap-4">
+        <div className="rounded-xl bg-gray-50 p-4 dark:bg-slate-600">
+          <div className="mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 dark:bg-slate-600 sm:grid-cols-13 md:gap-4">
             <div
-              className="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
+              className="mb-6 hidden flex-col justify-between text-sm text-gray-400 dark:text-gray-200 sm:flex"
               style={{ height: `${chartHeight}px` }}
             >
               {yAxisLabels.map((label) => (
@@ -50,15 +50,17 @@ export default async function RevenueChart() {
                     height: `${(chartHeight / topLabel) * month.revenue}px`,
                   }}
                 ></div>
-                <p className="-rotate-90 text-sm text-gray-400 sm:rotate-0">
+                <p className="-rotate-90 text-sm text-gray-400 dark:text-gray-200 sm:rotate-0">
                   {month.month}
                 </p>
               </div>
             ))}
           </div>
           <div className="flex items-center pb-2 pt-6">
-            <CalendarIcon className="h-5 w-5 text-gray-500" />
-            <h3 className="ml-2 text-sm text-gray-500 ">Last 12 months</h3>
+            <CalendarIcon className="h-5 w-5 text-gray-500 dark:text-gray-200" />
+            <h3 className="ml-2 text-sm text-gray-500 dark:text-gray-200">
+              Last 12 months
+            </h3>
           </div>
         </div>
       }

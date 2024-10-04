@@ -42,14 +42,17 @@ const MerchantForm = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             required
-            className="w-full rounded-md border-gray-300 p-2"
+            className="w-full rounded-md border-gray-300 p-2 dark:bg-slate-500 dark:placeholder:text-white"
             placeholder="Merchant name"
           />
         </div>
         <div id="merchant_name-error" aria-live="polite" aria-atomic="true">
           {state?.errors?.merchant_name &&
             state.errors.merchant_name.map((error: string) => (
-              <p className="mt-2 text-sm text-red-500" key={error}>
+              <p
+                className="mt-2 text-sm text-red-500 dark:text-red-400"
+                key={error}
+              >
                 {error}
               </p>
             ))}
@@ -67,8 +70,10 @@ const MerchantForm = () => {
       >
         {errorMessage && (
           <>
-            <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-            <p className="text-xs text-red-500 md:text-sm">{errorMessage}</p>
+            <ExclamationCircleIcon className="h-5 w-5 text-red-500 dark:text-red-400" />
+            <p className="text-xs text-red-500 dark:text-red-400 md:text-sm">
+              {errorMessage}
+            </p>
           </>
         )}
       </div>

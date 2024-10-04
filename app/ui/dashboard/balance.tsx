@@ -28,9 +28,11 @@ export function Balance({
   const Icon = iconMap[type];
 
   return (
-    <div className="rounded-xl bg-sky-100">
+    <div className="rounded-xl bg-sky-100 dark:bg-slate-700">
       <div className="flex">
-        {Icon ? <Icon className="h-5 w-5 text-gray-700" /> : null}
+        {Icon ? (
+          <Icon className="h-5 w-5 text-gray-700 dark:text-white" />
+        ) : null}
         <h3 className="ml-2 text-sm font-medium">Available {title}</h3>
       </div>
       <p

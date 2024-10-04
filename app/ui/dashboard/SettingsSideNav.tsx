@@ -15,7 +15,6 @@ export default function SettingsSideNav() {
       </Link>
       <div className="flex grow flex-row items-center justify-between space-x-2 md:flex-col md:items-stretch md:space-x-0 md:space-y-2 md:overflow-y-auto">
         <SettingsNavLinks />
-        <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
       </div>
     </div>
   );

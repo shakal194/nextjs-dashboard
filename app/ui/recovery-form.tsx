@@ -15,8 +15,9 @@ import { Button } from './button';
 import { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import Link from 'next/link';
-import { recoveryUser, handleEmailSubmit } from '@/app/lib/actions';
+import { recoveryUser, handleEmailSubmitRecovery } from '@/app/lib/actions';
 import LoadingSpinner from '@/app/ui/_components/LoadingSpinner';
+import { stat } from 'fs';
 
 export default function RecoveryForm() {
   const [errorMessage, setErrorMessage] = useState('');
@@ -40,7 +41,7 @@ export default function RecoveryForm() {
     e.preventDefault();
     try {
       setErrorMessage('');
-      const result = await handleEmailSubmit(email);
+      const result = await handleEmailSubmitRecovery(email);
       if (result?.errors) {
         setErrorMessage(result.errors.email[0]);
       } else {
@@ -58,6 +59,13 @@ export default function RecoveryForm() {
   const handleSubmitStep2 = () => {
     setShowSpinnerStep2(true);
   };
+
+  const uniqueErrors = Array.from(
+    new Set([
+      ...(state.errors?.newPassword || []),
+      ...(state.errors?.confirmPassword || []),
+    ]),
+  );
 
   return (
     <form action={dispatch} className="space-y-3">
@@ -176,9 +184,9 @@ export default function RecoveryForm() {
                 <div className="relative">
                   <input
                     className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-slate-800 dark:placeholder:text-slate-50"
-                    id="password"
+                    id="newPassword"
                     type={passwordVisible ? 'text' : 'password'}
-                    name="password"
+                    name="newPassword"
                     placeholder="Enter password"
                     required
                   />
@@ -195,13 +203,27 @@ export default function RecoveryForm() {
                     />
                   )}
                 </div>
+                <div className="mt-2 text-[10px]">
+                  <ul>
+                    <li className="mb-2">
+                      Includes at least one special symbol
+                    </li>
+                    <li>Contains 8 or more symbols</li>
+                  </ul>
+                </div>
                 <div id="password-error" aria-live="polite" aria-atomic="true">
-                  {state.errors?.password &&
-                    state.errors.password.map((error: string) => (
-                      <p className="mt-2 text-sm text-red-500" key={error}>
-                        {error}
-                      </p>
-                    ))}
+                  {state.errors?.newPassword && (
+                    <>
+                      {state.errors.newPassword.map((error: string) => (
+                        <p
+                          className="mt-2 text-sm text-red-500 dark:text-red-400"
+                          key={error}
+                        >
+                          {error}
+                        </p>
+                      ))}
+                    </>
+                  )}
                 </div>
               </div>
               <div className="mt-4">
@@ -229,7 +251,7 @@ export default function RecoveryForm() {
               type="submit"
               onClick={handleSubmitStep2}
             >
-              Sign Up
+              Change password
               <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
             </Button>
             {!state.errors && showSpinnerStep2 && (

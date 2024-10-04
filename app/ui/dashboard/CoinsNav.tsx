@@ -11,7 +11,7 @@ export async function CoinsNav() {
       {coins.map((coin) => (
         <div
           key={coin.title}
-          className="flex cursor-pointer items-center justify-between hover:bg-sky-100 hover:text-blue-600 md:p-2 md:px-3"
+          className="my-4 flex cursor-pointer items-center justify-between rounded-md bg-gray-50 p-3 hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-slate-300 md:px-3"
         >
           <div className="flex items-center">
             <div className="mr-2 flex h-11 w-11 items-center justify-center rounded-3xl">
@@ -26,7 +26,7 @@ export async function CoinsNav() {
             <div>{coin.title}</div>
           </div>
           <div className="flex flex-col">
-            <div>{balanceInCurrency}</div>
+            <div className="">{balanceInCurrency}</div>
             <div>
               {typeof balanceInUsdBinance === 'number'
                 ? `$${balanceInUsdBinance}`

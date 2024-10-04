@@ -121,7 +121,7 @@ const SecurityPage: React.FC = () => {
       <main className="flex-1 p-6">
         <h1 className="mb-4 text-2xl font-bold">Security Settings</h1>
         <div className="space-y-6">
-          <table className="mb-6 min-w-full border border-gray-200 bg-white">
+          <table className="mb-6 min-w-full border border-gray-200 bg-white dark:bg-slate-700">
             <thead>
               <tr>
                 <th className="border-b border-gray-200 px-4 py-2 text-left">
@@ -143,7 +143,7 @@ const SecurityPage: React.FC = () => {
                   <tr>
                     <td
                       colSpan={columns.length + 1}
-                      className="bg-gray-100 px-4 py-2 font-semibold"
+                      className="bg-gray-100 px-4 py-2 font-semibold dark:bg-gray-800"
                     >
                       {section.category}
                     </td>
@@ -181,8 +181,10 @@ const SecurityPage: React.FC = () => {
             <div className="flex items-center justify-between">
               <span>Email</span>
               <div className="flex items-center">
-                <span className="mr-4 text-gray-500">sh******4@gm**l.com</span>
-                <button className="rounded bg-gray-200 px-3 py-1 text-gray-700">
+                <span className="mr-4 text-gray-500 dark:text-gray-400">
+                  sh******4@gm**l.com
+                </span>
+                <button className="rounded bg-gray-200 px-3 py-1 text-gray-700 dark:bg-gray-600 dark:text-gray-100">
                   Change
                 </button>
               </div>
@@ -195,7 +197,7 @@ const SecurityPage: React.FC = () => {
             </div>
             <div className="flex items-center justify-between">
               <span>Password</span>
-              <button className="rounded bg-gray-200 px-3 py-1 text-gray-700">
+              <button className="rounded bg-gray-200 px-3 py-1 text-gray-700 dark:bg-gray-600 dark:text-gray-100">
                 Change
               </button>
             </div>

@@ -44,7 +44,7 @@ export default function MerchantsMobile({ children }: { children: ReactNode }) {
   return (
     <div>
       <div className="hidden md:block">{children}</div>
-      <div className="bg-gray-50 p-3 md:hidden">
+      <div className="bg-gray-50 p-3 dark:bg-gray-600 md:hidden">
         <Bars3Icon
           className="w-6 cursor-pointer"
           onClick={() => openModal('mobileMerchants')}
@@ -58,7 +58,7 @@ export default function MerchantsMobile({ children }: { children: ReactNode }) {
             }}
           >
             <div
-              className="relative mx-auto h-full w-full max-w-md bg-white p-4"
+              className="relative mx-auto h-full w-full max-w-md bg-white p-4 dark:bg-slate-800"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative flex justify-end">
@@ -70,7 +70,7 @@ export default function MerchantsMobile({ children }: { children: ReactNode }) {
                   }}
                 />
               </div>
-              <div className="h-full overflow-y-auto">{children}</div>
+              <div className="h-full overflow-y-auto p-2">{children}</div>
             </div>
           </div>
         )}

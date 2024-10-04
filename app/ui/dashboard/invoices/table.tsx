@@ -19,7 +19,7 @@ export default async function InvoicesTable({
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+        <div className="rounded-lg bg-gray-50 p-2 dark:bg-slate-700 md:pt-0">
           <div className="md:hidden">
             {invoices?.map((invoice) => (
               <div
@@ -58,7 +58,7 @@ export default async function InvoicesTable({
             ))}
           </div>
           <table className="hidden min-w-full text-gray-900 md:table">
-            <thead className="rounded-lg text-left text-sm font-normal">
+            <thead className="rounded-lg text-left text-sm font-normal dark:text-gray-300">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
                   Customer
@@ -80,11 +80,11 @@ export default async function InvoicesTable({
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white">
+            <tbody className="bg-white dark:bg-slate-600">
               {invoices?.map((invoice) => (
                 <tr
                   key={invoice.id}
-                  className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
+                  className="w-full border-b py-3 text-sm last-of-type:border-none dark:text-gray-50 [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
                 >
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
