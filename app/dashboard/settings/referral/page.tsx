@@ -1,33 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
-import {
-  OptionSettings,
-  CategorySettings,
-  Settings,
-} from '@/app/lib/definitions';
+import React, { useState, useEffect } from 'react';
+import { OptionSettings, Settings } from '@/app/lib/definitions';
+import { Accordion, AccordionItem } from '@nextui-org/react';
+import settingsData from '@/app/ui/_data/SettingsSecurity.json';
 
-/*interface ColumnSettings {
-  Email: boolean;
-  Google2Fa: boolean;
-  SMS: boolean;
-}
-
-interface SecurityOptions {
-  [key: string]: ColumnSettings;
-}
-
-interface Settings {
-  'Account Security': SecurityOptions;
-  'General Security': SecurityOptions;
-}
-
-interface SettingsOption {
-  category: keyof Settings;
-  options: string[];
-}*/
-
-const settingsOptions = [
+/*const settingsOptions = [
   {
     category: 'Account Security',
     options: [
@@ -97,12 +75,28 @@ const initialSettings: Settings = {
     'Payout API key': { Email: false, Google2Fa: false, SMS: false },
     'Unfreeze staked funds': { Email: false, Google2Fa: false, SMS: false },
   },
-};
+};*/
 
+const settingsOptions = settingsData.settingsOptions;
+const initialSettings: Settings = settingsData.initialSettings;
 const columns: (keyof OptionSettings)[] = ['Email', 'Google2Fa', 'SMS'];
 
 export default function ReferralPage() {
   const [settings, setSettings] = useState<Settings>(initialSettings);
+  /*const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);*/
 
   const handleCheckboxChange = (
     category: keyof Settings,
@@ -125,7 +119,38 @@ export default function ReferralPage() {
     <div className="flex h-screen">
       <main className="flex-1 p-6">
         <h1 className="mb-4 text-2xl font-bold">Referral Settings</h1>
-        <div className="space-y-6">
+        <div className="space-y-6 lg:hidden">
+          {settingsOptions.map((section) => (
+            <div key={section.category}>
+              <h2 className="mb-2 text-xl font-semibold">{section.category}</h2>
+              <Accordion selectionMode="multiple">
+                {section.options.map((option) => (
+                  <AccordionItem key={option} title={option}>
+                    <div className="mb-4 flex justify-between">
+                      {columns.map((column) => (
+                        <label key={column} className="flex items-center">
+                          <input
+                            type="checkbox"
+                            checked={settings[section.category][option][column]}
+                            onChange={() =>
+                              handleCheckboxChange(
+                                section.category,
+                                option,
+                                column,
+                              )
+                            }
+                          />
+                          <span className="ml-2">{column}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          ))}
+        </div>
+        <div className="hidden space-y-6 lg:block">
           <table className="mb-6 min-w-full border border-gray-200 bg-white dark:bg-gray-800">
             <thead>
               <tr>

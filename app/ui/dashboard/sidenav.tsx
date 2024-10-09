@@ -6,7 +6,8 @@ import { signOut } from '@/auth';
 import { CoinsNav } from '@/app/ui/dashboard/CoinsNav';
 import { Merchants } from '@/app/ui/dashboard/merchants/Merchants';
 import { MerchantsList } from '@/app/ui/dashboard/merchants/MerchantsList';
-import MerchantsMobile from '@/app/ui/dashboard/MerchantsMobile';
+import MerchantsMobile from '@/app/ui/dashboard/MerchantsMobileMenu';
+import SettingsButton from '@/app/ui/_components/SettingsButton';
 /*import { CoinsNavMobile } from '@/app/ui/dashboard/CoinsNav';
 import { MobileMerchants } from '@/app/ui/dashboard/merchants/Merchants';
 import { MerchantsListMobile } from '@/app/ui/dashboard/merchants/MerchantsList';*/
@@ -14,24 +15,25 @@ import { MerchantsListMobile } from '@/app/ui/dashboard/merchants/MerchantsList'
 export default function SideNav() {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
-      <Link
+      {/*<Link
         className="mb-2 flex min-h-40 items-end justify-start rounded-md bg-blue-600 p-4"
         href="/"
       >
         <div className="flex items-center text-white">
           <CoinsFishLogo />
         </div>
-      </Link>
+      </Link>*/}
       <div className="flex grow flex-row items-center justify-between space-x-2 md:flex-col md:items-stretch md:space-x-0 md:space-y-2 md:overflow-y-auto">
         <NavLinks />
-        {/*<CoinsNav />
+        <CoinsNav />
         <Merchants />
-  <MerchantsList />*/}
-        <MerchantsMobile>
+        <MerchantsList />
+        {/*<SettingsButton />*/}
+        {/*<MerchantsMobile>
           <CoinsNav />
           <Merchants />
           <MerchantsList />
-        </MerchantsMobile>
+        </MerchantsMobile>*/}
         <div className="hidden h-auto w-full grow rounded-md bg-gray-100 md:block"></div>
         <form
           action={async () => {

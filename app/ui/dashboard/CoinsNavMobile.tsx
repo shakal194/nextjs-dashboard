@@ -3,11 +3,11 @@ import { fetchBtcBalance } from '@/app/lib/data';
 import coins from '@/app/ui/_data/coin_slider-data.json';
 import React, { useEffect, useState } from 'react';
 
-export async function CoinsNav() {
+export async function CoinsNavMobile() {
   const { balanceInUsdBinance, balanceInCurrency } = await fetchBtcBalance();
 
   return (
-    <div className="hidden md:block">
+    <div className="">
       {coins.map((coin) => (
         <div
           key={coin.title}

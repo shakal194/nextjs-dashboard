@@ -1,27 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   NotificationSettings,
-  CategoryNotificationSettings,
   SettingsNotification,
 } from '@/app/lib/definitions';
+import { Accordion, AccordionItem } from '@nextui-org/react';
+import settingsData from '@/app/ui/_data/SettingsNotification.json';
 
-/*interface NotificationSettings {
-  Email: boolean;
-  Telegram: boolean;
-  SMS: boolean;
-}
-
-interface CategorySettings {
-  [option: string]: NotificationSettings;
-}
-
-interface Settings {
-  [category: string]: CategorySettings;
-}*/
-
-const settingsOptions = [
+/*const settingsOptions = [
   {
     category: 'Account notifications',
     options: [
@@ -116,13 +103,29 @@ const initialSettings: SettingsNotification = {
       SMS: false,
     },
   },
-};
+};*/
 
+const settingsOptions = settingsData.settingsOptions;
+const initialSettings: SettingsNotification = settingsData.initialSettings;
 const columns: (keyof NotificationSettings)[] = ['Email', 'Telegram', 'SMS'];
 
 const NotificationsPage: React.FC = () => {
   const [settings, setSettings] =
     useState<SettingsNotification>(initialSettings);
+  /*const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);*/
 
   const handleCheckboxChange = (
     category: string,
@@ -145,7 +148,38 @@ const NotificationsPage: React.FC = () => {
     <div className="flex h-screen">
       <main className="flex-1 p-6">
         <h1 className="mb-4 text-2xl font-bold">Notification Settings</h1>
-        <div className="space-y-6">
+        <div className="space-y-6 lg:hidden">
+          {settingsOptions.map((section) => (
+            <div key={section.category}>
+              <h2 className="mb-2 text-xl font-semibold">{section.category}</h2>
+              <Accordion selectionMode="multiple">
+                {section.options.map((option) => (
+                  <AccordionItem key={option} title={option}>
+                    <div className="mb-4 flex justify-between">
+                      {columns.map((column) => (
+                        <label key={column} className="flex items-center">
+                          <input
+                            type="checkbox"
+                            checked={settings[section.category][option][column]}
+                            onChange={() =>
+                              handleCheckboxChange(
+                                section.category,
+                                option,
+                                column,
+                              )
+                            }
+                          />
+                          <span className="ml-2">{column}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          ))}
+        </div>
+        <div className="hidden space-y-6 lg:block">
           <table className="mb-6 min-w-full border border-gray-200 bg-white dark:bg-gray-800">
             <thead>
               <tr>

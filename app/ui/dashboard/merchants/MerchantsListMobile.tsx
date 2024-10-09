@@ -5,12 +5,12 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { fetchMerchants } from '@/app/lib/data';
 
-export async function MerchantsList() {
+export async function MerchantsListMobile() {
   //const pathname = usePathname();
   const merchants = await fetchMerchants();
 
   return (
-    <div className="hidden md:block">
+    <>
       {merchants.map((merchant: any) => {
         return (
           <Link
@@ -24,7 +24,7 @@ export async function MerchantsList() {
           </Link>
         );
       })}
-    </div>
+    </>
   );
 }
 

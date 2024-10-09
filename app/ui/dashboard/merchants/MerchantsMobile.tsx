@@ -10,7 +10,7 @@ import MerchantForm from '@/app/ui/dashboard/merchants/MerchantsForm';
 import { useModal } from '@/app/ui/dashboard/merchants/context/ModalContext';
 import { useInput } from '@/app/ui/dashboard/merchants/context/InputContext';
 
-export function Merchants() {
+export function MerchantsMobile() {
   const inputRef = useRef(null);
   const pathname = usePathname();
   const { resetInput } = useInput();
@@ -46,7 +46,7 @@ export function Merchants() {
   }, [closeModal, closeTopModal, resetInput]);
 
   return (
-    <div className="my-2 hidden grow md:flex">
+    <div className="my-2 flex grow">
       <Link
         href="/dashboard/merchants"
         className={clsx(
