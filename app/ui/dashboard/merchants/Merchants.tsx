@@ -46,7 +46,7 @@ export function Merchants() {
   }, [closeModal, closeTopModal, resetInput]);
 
   return (
-    <div className="my-2 hidden grow md:flex">
+    <div className="my-2 hidden md:flex">
       <Link
         href="/dashboard/merchants"
         className={clsx(
