@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import ThemeButton from '@/app/ui/_components/ThemeButton';
-import HeaderSession from '@/app/ui/_components/session/HeaderSession';
-import MobileMenu from '@/app/ui/_components/MobileMenu';
 
 const HeaderDashboard = () => {
   return (
