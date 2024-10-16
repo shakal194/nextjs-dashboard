@@ -1,4 +1,4 @@
-import Header from '../ui/_components/Header';
+import Header from '../ui/_components/Headers/Header';
 import Footer from '@/app/ui/footer';
 import Link from 'next/link';
 

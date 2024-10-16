@@ -2,7 +2,7 @@ import Link from 'next/link';
 import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import ThemeButton from '@/app/ui/_components/ThemeButton';
 import SettingsButton from '@/app/ui/_components/SettingsButton';
-import HeaderSession from '@/app/ui/_components/HeaderSession';
+import HeaderSession from '@/app/ui/_components/session/HeaderSession';
 import MobileMenu from '@/app/ui/_components/MobileMenu';
 import { CoinsNavMobile } from '@/app/ui/dashboard/CoinsNavMobile';
 import { MerchantsMobile } from '@/app/ui/dashboard/merchants/MerchantsMobile';

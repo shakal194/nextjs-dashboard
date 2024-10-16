@@ -1,6 +1,6 @@
 'use client';
 
-import Header from '@/app/ui/_components/Header';
+import Header from '@/app/ui/_components/Headers/Header';
 import Footer from '@/app/ui/footer';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';

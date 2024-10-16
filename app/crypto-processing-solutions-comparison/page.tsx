@@ -5,7 +5,7 @@ import {
   XMarkIcon,
   ChevronRightIcon,
 } from '@heroicons/react/24/outline';
-import Header from '@/app/ui/_components/Header';
+import Header from '@/app/ui/_components/Headers/Header';
 import Footer from '@/app/ui/footer';
 
 import React from 'react';

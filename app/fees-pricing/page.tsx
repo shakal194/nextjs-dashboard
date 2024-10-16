@@ -1,11 +1,9 @@
 'use client';
 
-import Header from '@/app/ui/_components/Header';
+import Header from '@/app/ui/_components/Headers/Header';
 import Footer from '@/app/ui/footer';
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import HomeSession from '@/app/ui/_components/HomeSession';
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
 
 const AvailableCurrenciesSection = () => {

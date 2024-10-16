@@ -42,10 +42,6 @@ const SliderCryptocurrency: React.FC<SliderProps> = ({ data }) => {
             slidesPerView: 3,
             spaceBetween: 20,
           },
-          '@1.0': {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
         }}
         modules={[Autoplay, Navigation, Pagination]}
         className="custom-slider-cryptopayment !py-4"

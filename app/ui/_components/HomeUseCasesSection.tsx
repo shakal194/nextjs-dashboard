@@ -66,14 +66,14 @@ const HomeUseCasesSection = () => {
                 >
                   <div className="icon mb-[24px]">
                     <Image
-                      className="lazy"
+                      className="lazy h-[50px] w-[50px]"
                       decoding="async"
                       loading="lazy"
                       fetchPriority="low"
                       src={item.imgSrc}
                       alt={item.imgAlt}
-                      width={50}
-                      height={50}
+                      width={0}
+                      height={0}
                     />
                   </div>
                   <div className="title mb-2 text-lg font-semibold leading-[1.5] text-gray-700 dark:text-gray-300">

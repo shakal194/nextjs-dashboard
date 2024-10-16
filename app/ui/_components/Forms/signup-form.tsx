@@ -1,6 +1,5 @@
 'use client';
 
-import { lusitana } from '@/app/ui/fonts';
 import {
   AtSymbolIcon,
   KeyIcon,
@@ -8,9 +7,9 @@ import {
   EyeIcon,
   EyeSlashIcon,
   UserIcon,
-} from '@heroicons/react/24/outline';
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
-import { Button } from './button';
+  ArrowRightIcon,
+} from '@heroicons/react/24/solid';
+import { Button } from '../../button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useState } from 'react';
 import { createUser } from '@/app/lib/actions';
@@ -35,9 +34,7 @@ export default function SignupForm() {
     //<form onSubmit={handleSubmit} className="space-y-3">
     <form action={dispatch} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-100 px-6 pb-4 pt-8">
-        <h1 className={`${lusitana.className} mb-3 text-2xl`}>
-          Join to continue.
-        </h1>
+        <h1 className={`mb-3 text-2xl`}>Join to continue.</h1>
         <div className="w-full">
           <div>
             <label
@@ -186,10 +183,10 @@ export default function SignupForm() {
           aria-atomic="true"
         >
           {errorMessage && (
-            <>
-              <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
+            <div className="mt-2 flex">
+              <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
               <p className="text-xs text-red-500 md:text-sm">{errorMessage}</p>
-            </>
+            </div>
           )}
         </div>
       </div>

@@ -1,12 +1,12 @@
-import RegistrationForm from '@/app/ui/register-form';
+import RegistrationForm from '@/app/ui/_components/Forms/register-form';
 import Link from 'next/link';
-import Header from '@/app/ui/_components/Header';
+import Header from '@/app/ui/_components/Headers/Header';
 
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'CoinsFish Login Page',
-  description: 'Login to CoinsFish Crypto payments Gateway.',
+  description: 'Sign up to CoinsFish.',
 };
 
 export default function RegistrationPage() {

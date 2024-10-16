@@ -1,11 +1,10 @@
 'use client';
 
-import Header from '@/app/ui/_components/Header';
+import Header from '@/app/ui/_components/Headers/Header';
 import Footer from '@/app/ui/footer';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import HomeSession from '@/app/ui/_components/HomeSession';
 import {
   ChevronRightIcon,
   ArrowLongRightIcon,
@@ -65,7 +64,7 @@ const AvailableCurrenciesSection = () => {
                   data-model="0"
                   data-license="0"
                 >
-                  <div className="block__available-currencies__tabs__content__table__group__title mb-14 flex w-full max-w-full flex-col lg:flex-row ">
+                  <div className="block__available-currencies__tabs__content__table__group__title mb-14 flex w-full max-w-full flex-col lg:flex-row">
                     <h4 className="block__available-currencies__tabs__content__table__group__title flex w-full justify-between text-xl font-semibold md:max-w-[197px] lg:pr-[36px]">
                       Coins
                       <span className="mobile__text flex items-center text-[14px] text-gray-400 md:hidden">
@@ -75,7 +74,7 @@ const AvailableCurrenciesSection = () => {
                     <div className="crypto_table_main flex w-full max-w-full flex-col">
                       <div className="block__available-currencies__tabs__content__table__group__rows mx-[-16px] my-0 overflow-x-auto px-[16px] py-0 scrollbar-hide lg:overflow-x-hidden">
                         <div className="block__available-currencies__tabs__content__table__group__rows_scroller min-w-[600px] max-w-[1124px]">
-                          <div className="row first_row flex w-[760px] flex-nowrap justify-start border-b border-t-0 border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
+                          <div className="row first_row flex w-[760px] flex-nowrap justify-start border-b border-t-0 border-[#ededed] py-[12px] md:w-full md:max-w-full md:py-3">
                             <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               №
                             </div>
@@ -98,7 +97,7 @@ const AvailableCurrenciesSection = () => {
                               Type
                             </div>
                           </div>
-                          <div className="row flex-0 m-0 flex flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
+                          <div className="row flex-0 m-0 flex flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-full md:max-w-full md:py-3">
                             <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[12px] font-normal leading-[18px] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               1
                             </div>
@@ -127,7 +126,7 @@ const AvailableCurrenciesSection = () => {
                               Coin
                             </div>
                           </div>
-                          <div className="row flex-0 m-0 flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
+                          <div className="row flex-0 m-0 flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-full md:max-w-full md:py-3">
                             <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[12px] font-normal leading-[18px] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               2
                             </div>
@@ -156,7 +155,7 @@ const AvailableCurrenciesSection = () => {
                               Coin
                             </div>
                           </div>
-                          <div className="row flex-0 m-0 flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
+                          <div className="row flex-0 m-0 flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-full md:max-w-full md:py-3">
                             <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[12px] font-normal leading-[18px] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               3
                             </div>
@@ -207,7 +206,7 @@ const AvailableCurrenciesSection = () => {
                     <div className="crypto_table_main flex w-full max-w-full flex-col">
                       <div className="block__available-currencies__tabs__content__table__group__rows mx-[-16px] my-0 overflow-x-auto px-[16px] py-0 scrollbar-hide lg:overflow-x-hidden">
                         <div className="block__available-currencies__tabs__content__table__group__rows_scroller min-w-[600px] max-w-[1124px]">
-                          <div className="row first_row flex w-[760px] flex-nowrap justify-start border-b border-t-0 border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
+                          <div className="row first_row flex w-[760px] flex-nowrap justify-start border-b border-t-0 border-[#ededed] py-[12px] md:w-full md:max-w-full md:py-3">
                             <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[10px] font-normal leading-[18px] text-gray-400 lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               №
                             </div>
@@ -230,7 +229,7 @@ const AvailableCurrenciesSection = () => {
                               Type
                             </div>
                           </div>
-                          <div className="row flex-0 m-0 flex flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
+                          <div className="row flex-0 m-0 flex flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-full md:max-w-full md:py-3">
                             <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[12px] font-normal leading-[18px] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               1
                             </div>
@@ -259,7 +258,7 @@ const AvailableCurrenciesSection = () => {
                               Coin
                             </div>
                           </div>
-                          <div className="row flex-0 m-0 flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
+                          <div className="row flex-0 m-0 flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-full md:max-w-full md:py-3">
                             <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[12px] font-normal leading-[18px] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               2
                             </div>
@@ -288,7 +287,7 @@ const AvailableCurrenciesSection = () => {
                               Coin
                             </div>
                           </div>
-                          <div className="row flex-0 m-0 flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-[1124px] md:max-w-full md:py-3">
+                          <div className="row flex-0 m-0 flex w-[760px] flex-nowrap items-center justify-start border-b border-[#ededed] py-[12px] md:w-full md:max-w-full md:py-3">
                             <div className="row__col octopus mr-[16px] flex max-w-[126px] flex-[0_1_144px] shrink-0 flex-col justify-start gap-2 text-[12px] font-normal leading-[18px] lg:mr-[20px] lg:max-w-full lg:shrink lg:text-[12px]">
                               3
                             </div>

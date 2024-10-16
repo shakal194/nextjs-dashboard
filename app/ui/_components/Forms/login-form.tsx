@@ -1,6 +1,5 @@
 'use client';
 
-import { lusitana } from '@/app/ui/fonts';
 import {
   AtSymbolIcon,
   KeyIcon,
@@ -11,7 +10,6 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import React from 'react';
 import { LoginButton } from '@/app/ui/_components/LoginButton';
-//import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -19,9 +17,7 @@ export default function LoginForm() {
   return (
     <form action={dispatch} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-100 p-6 dark:border dark:bg-black">
-        <h1 className={`${lusitana.className} mb-3 text-2xl`}>
-          Please log in to continue.
-        </h1>
+        <h1 className="mb-3 text-2xl">Please log in to continue.</h1>
         <div className="w-full">
           <div>
             <label
@@ -77,10 +73,10 @@ export default function LoginForm() {
           aria-atomic="true"
         >
           {errorMessage && (
-            <>
-              <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
+            <div className="mt-2 flex">
+              <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
               <p className="text-sm text-red-500">{errorMessage}</p>
-            </>
+            </div>
           )}
 
           {/* {Notify.failure(errorMessage)}*/}

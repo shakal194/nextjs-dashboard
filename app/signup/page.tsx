@@ -1,5 +1,5 @@
 import CoinsFishLogo from '@/app/ui/coinsfish-logo';
-import SignupForm from '@/app/ui/signup-form';
+import SignupForm from '@/app/ui/_components/Forms/signup-form';
 import Link from 'next/link';
 
 export default function LoginPage() {

@@ -1,4 +1,4 @@
-import Header from '@/app/ui/_components/Header';
+import Header from '@/app/ui/_components/Headers/Header';
 import Footer from '@/app/ui/footer';
 
 import EnterpriseBlockchainWallets from '@/app/ui/_components/EnterpriseBlockchainWallets/EnterpriseBlockchainWallets';

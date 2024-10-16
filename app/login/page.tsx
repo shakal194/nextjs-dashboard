@@ -1,5 +1,5 @@
-import Header from '../ui/_components/Header';
-import LoginForm from '@/app/ui/login-form';
+import Header from '../ui/_components/Headers/Header';
+import LoginForm from '@/app/ui/_components/Forms/login-form';
 import Link from 'next/link';
 
 import { Metadata } from 'next';

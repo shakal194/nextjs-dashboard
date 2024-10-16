@@ -2,7 +2,7 @@ import Link from 'next/link';
 import SettingsNavLinks from '@/app/ui/dashboard/SettingsNav-links';
 import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import ThemeButton from '@/app/ui/_components/ThemeButton';
-import HeaderDashboard from '@/app/ui/_components/HeaderDashboard';
+import HeaderDashboard from '@/app/ui/_components/Headers/HeaderDashboard';
 
 export default function SettingsSideNav() {
   return (

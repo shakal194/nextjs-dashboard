@@ -1,7 +1,7 @@
 import SettingsSideNav from '@/app/ui/dashboard/SettingsSideNav';
 import ThemeButton from '@/app/ui/_components/ThemeButton';
-import HeaderSettings from '@/app/ui/_components/HeaderSettings';
-import HeaderDashboard from '@/app/ui/_components/HeaderDashboard';
+import HeaderSettings from '@/app/ui/_components/Headers/HeaderSettings';
+import HeaderDashboard from '@/app/ui/_components/Headers/HeaderDashboard';
 import CoinsFishLogo from '@/app/ui/coinsfish-logo';
 import Link from 'next/link';
 

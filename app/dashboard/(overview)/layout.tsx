@@ -1,7 +1,7 @@
 import SideNav from '@/app/ui/dashboard/sidenav';
 import ThemeButton from '@/app/ui/_components/ThemeButton';
 import SettingsButton from '@/app/ui/_components/SettingsButton';
-import HeaderDashboard from '@/app/ui/_components/HeaderDashboard';
+import HeaderDashboard from '@/app/ui/_components/Headers/HeaderDashboard';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

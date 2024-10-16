@@ -26,16 +26,16 @@ const EnterpriseBlockchainWallets = () => {
               <ArrowRightIcon className="w-5" />
             </Link>
           </div>
-          <div className="block_hero_row_image_box mb-[55px] w-full max-w-full lg:max-w-[660px]">
+          <div className="block_hero_row_image_box mb-[55px] flex w-full max-w-full justify-center lg:max-w-[660px]">
             <Image
-              className="lazy aspect-[413/269] w-full max-w-full lg:max-w-[660px]"
+              className="lazy h-full w-[660px] max-w-full md:h-[420px] lg:max-w-[660px]"
               decoding="async"
               priority={true}
-              src="/svg/block-hero.png"
+              src="/svg/block-hero-800x510.png"
               alt="Main Screen Enterprise"
               title="Main Screen Enterprise"
               width={660}
-              height={0}
+              height={420}
             />
           </div>
         </div>

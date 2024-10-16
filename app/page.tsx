@@ -1,9 +1,8 @@
-import Header from '@/app/ui/_components/Header';
+import Header from '@/app/ui/_components/Headers/Header';
 import Footer from '@/app/ui/footer';
-import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import HomeSession from '@/app/ui/_components/HomeSession';
+import HomeSession from '@/app/ui/_components/Session/HomeSession';
 import HomeOurProducts from '@/app/ui/_components/HomeOurProducts';
 import HomeUseCasesSection from '@/app/ui/_components/HomeUseCasesSection';
 import HaveAQuestion from '@/app/ui/_components/HaveAQuestion';
@@ -27,9 +26,7 @@ export default function Page() {
               <p className="mb-8 hidden text-[15px] font-medium leading-[150%] text-gray-400 dark:text-gray-300 md:block">
                 Digital Assets Processing
               </p>
-              <p
-                className={`${lusitana.className} text-3xl text-gray-800 dark:text-white md:text-3xl md:leading-normal`}
-              >
+              <p className="text-3xl text-gray-800 dark:text-white md:text-3xl md:leading-normal">
                 <strong>Accept Bitcoin Payments with CoinsFish</strong>
               </p>
               <p className="mt-4 text-[24px] font-medium leading-[32px] text-gray-700 dark:text-gray-300">

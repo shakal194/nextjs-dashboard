@@ -1,7 +1,5 @@
 import { BanknotesIcon } from '@heroicons/react/24/outline';
-import { lusitana } from '@/app/ui/fonts';
 import { fetchBtcBalance } from '@/app/lib/data';
-//import Link from 'next/link';
 
 const iconMap = {
   balance: BanknotesIcon,
@@ -35,10 +33,7 @@ export function Balance({
         ) : null}
         <h3 className="ml-2 text-sm font-medium">Available {title}</h3>
       </div>
-      <p
-        className={`${lusitana.className}
-          truncate rounded-xl py-8 text-2xl`}
-      >
+      <p className="truncate rounded-xl py-8 text-2xl">
         {typeof value === 'number' ? `$${value}` : value}
       </p>
     </div>

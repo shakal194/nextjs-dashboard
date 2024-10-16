@@ -1,6 +1,5 @@
 'use client';
 
-import { lusitana } from '@/app/ui/fonts';
 import {
   AtSymbolIcon,
   KeyIcon,
@@ -8,8 +7,9 @@ import {
   EyeSlashIcon,
   ShieldCheckIcon,
   ArrowRightIcon,
-} from '@heroicons/react/24/outline';
-import { Button } from './button';
+  ExclamationCircleIcon,
+} from '@heroicons/react/24/solid';
+import { Button } from '@/app/ui/button';
 import { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import Link from 'next/link';
@@ -61,9 +61,7 @@ export default function SignupForm() {
   return (
     <form action={dispatch} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-100 p-6 dark:border dark:bg-black">
-        <h1 className={`${lusitana.className} mb-3 text-2xl`}>
-          Join to continue.
-        </h1>
+        <h1 className="mb-3 text-2xl">Join to continue.</h1>
         {step === 1 && (
           <div className="w-full">
             <div className="mt-4">
@@ -93,12 +91,15 @@ export default function SignupForm() {
                 className="mt-2"
               >
                 {errorMessage && (
-                  <p
-                    className="text-sm text-red-500 dark:text-red-400"
-                    key={errorMessage}
-                  >
-                    {errorMessage}
-                  </p>
+                  <div className="mt-2 flex">
+                    <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
+                    <p
+                      className="text-sm text-red-500 dark:text-red-400"
+                      key={errorMessage}
+                    >
+                      {errorMessage}
+                    </p>
+                  </div>
                 )}
               </div>
             </div>
@@ -140,12 +141,12 @@ export default function SignupForm() {
                 <div id="email-error" aria-live="polite" aria-atomic="true">
                   {state.errors?.email &&
                     state.errors.email.map((error: string) => (
-                      <p
-                        className="text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
-                        {error}
-                      </p>
+                      <div key={error} className="mt-2 flex">
+                        <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
+                        <p className="text-sm text-red-500 dark:text-red-400">
+                          {error}
+                        </p>
+                      </div>
                     ))}
                 </div>
               </div>
@@ -170,12 +171,15 @@ export default function SignupForm() {
                 <div id="otpcode-error" aria-live="polite" aria-atomic="true">
                   {state.errors?.otpcode &&
                     state.errors.otpcode.map((error: string) => (
-                      <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
-                        {error}
-                      </p>
+                      <div key={error} className="mt-2 flex">
+                        <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
+                        <p
+                          className="mt-2 text-sm text-red-500 dark:text-red-400"
+                          key={error}
+                        >
+                          {error}
+                        </p>
+                      </div>
                     ))}
                 </div>
               </div>
@@ -220,12 +224,15 @@ export default function SignupForm() {
                   {state.errors?.password && (
                     <>
                       {state.errors.password.map((error: string) => (
-                        <p
-                          className="mt-2 text-sm text-red-500 dark:text-red-400"
-                          key={error}
-                        >
-                          {error}
-                        </p>
+                        <div key={error} className="mt-2 flex">
+                          <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
+                          <p
+                            className="mt-2 text-sm text-red-500 dark:text-red-400"
+                            key={error}
+                          >
+                            {error}
+                          </p>
+                        </div>
                       ))}
                     </>
                   )}
@@ -292,12 +299,15 @@ export default function SignupForm() {
                 >
                   {state.errors?.privacy_and_terms &&
                     state.errors.privacy_and_terms.map((error: string) => (
-                      <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
-                        {error}
-                      </p>
+                      <div key={error} className="mt-2 flex">
+                        <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
+                        <p
+                          className="mt-2 text-sm text-red-500 dark:text-red-400"
+                          key={error}
+                        >
+                          {error}
+                        </p>
+                      </div>
                     ))}
                 </div>
               </div>

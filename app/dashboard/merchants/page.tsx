@@ -1,5 +1,4 @@
 import BalanceWrapper from '@/app/ui/dashboard/balance';
-import { lusitana } from '@/app/ui/fonts';
 import { Suspense } from 'react';
 import { CardsSkeleton } from '@/app/ui/skeletons';
 import { auth } from '@/auth';
@@ -11,7 +10,7 @@ export default async function Page() {
 
   return (
     <main>
-      <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
+      <h1 className="mb-4 text-xl md:text-2xl">
         Welcome {session?.user?.name ?? ''} to your Dashboard
       </h1>
       <div className="bg-sky-100 p-4">

@@ -69,12 +69,12 @@ const MerchantForm = () => {
         aria-atomic="true"
       >
         {errorMessage && (
-          <>
-            <ExclamationCircleIcon className="h-5 w-5 text-red-500 dark:text-red-400" />
+          <div className="mt-2 flex">
+            <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500 dark:text-red-400" />
             <p className="text-xs text-red-500 dark:text-red-400 md:text-sm">
               {errorMessage}
             </p>
-          </>
+          </div>
         )}
       </div>
     </form>
