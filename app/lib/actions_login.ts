@@ -130,7 +130,6 @@ export async function authenticate(
   try {
     await signIn('credentials', formData);
   } catch (error) {
-    console.log(error);
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin':
@@ -284,10 +283,13 @@ const AddUser = z
     confirmPassword: z.string({
       invalid_type_error: 'Please input confirm password.',
     }),
+    privacy_and_terms: z.string({
+      invalid_type_error: 'Please read and confirm Terms and Privacy.',
+    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: 'Passwords do not match.',
-    path: ['newPassword'],
+    path: ['password'],
   });
 
 export type AddUserState = {
@@ -362,7 +364,7 @@ export async function addUser(prevState: AddUserState, formData: FormData) {
       message: 'Database Error: Failed to Create User.',
     };
   }
-  revalidatePath('/');
+  //revalidatePath('/');
   redirect('/login');
 }
 
@@ -512,139 +514,6 @@ export async function recoveryUser(
 }
 
 //end recovery password
-
-//BEGIN SIGNIN TEST
-
-export async function handleEmailSubmitSign(email: string) {
-  if (!email) {
-    console.error('Email can`t be empty.');
-    return {
-      errors: { email: ['Email can`t be empty.'] },
-    };
-    //throw new Error('Email не может быть пустым.');
-  }
-
-  const validateEmail = (email: string) => {
-    const trimmedEmail = email.trim();
-    const regExp = /^[^\s@,]+@[^,\s@]+(\.[^\s@.,]+)+$/;
-    return (
-      regExp.test(trimmedEmail.toLowerCase()) && !/\.{2,}/.test(trimmedEmail)
-    );
-  };
-
-  if (!validateEmail(email)) {
-    console.error('Input correct email');
-    return {
-      errors: { email: ['Input correct email'] },
-    };
-    //throw new Error('Введите корректный email.');
-  }
-
-  try {
-    const emailValidation = await fetch(
-      `${apiRegisterUrl}/Validation/email-exist`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: '*/*' },
-        body: JSON.stringify(email),
-      },
-    );
-
-    if (emailValidation.status === 400) {
-      console.log(emailValidation.status, 'Email not found');
-      return {
-        errors: { email: ['Email not found.'] },
-      };
-    }
-    const response = await fetch(`${apiRegisterUrl}/Registration/sendcode`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: '*/*' },
-      body: JSON.stringify(email),
-    });
-  } catch (error) {
-    console.error('OTP Code don`t send:', error);
-    throw new Error('OTP Code don`t send.');
-  }
-}
-
-const SignUser = z.object({
-  //id: z.string(),
-  login: z.string({ invalid_type_error: 'Please input login.' }),
-  email: z.string({ invalid_type_error: 'Please input email.' }),
-  otpcode: z.string({ invalid_type_error: 'Please input OTP Code.' }),
-  //password: z.string({ invalid_type_error: 'Please input password.' }),
-  password: z.string({ invalid_type_error: 'Please input password.' }).min(8, {
-    message: 'Please input correct password.',
-  }),
-});
-
-export type SignUserState = {
-  errors?: {
-    email?: string[];
-    login?: string[];
-    otpcode?: string[];
-    password?: string[];
-  };
-  message?: string | null;
-};
-
-export async function signUser(prevState: SignUserState, formData: FormData) {
-  const validatedFields = SignUser.safeParse({
-    //id: uuidv4(),
-    email: formData.get('email'),
-    login: formData.get('email'),
-    otpcode: formData.get('otpcode'),
-    password: formData.get('password'),
-  });
-
-  if (!validatedFields.success) {
-    return {
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to Create User.',
-    };
-  }
-
-  //const { id, name, email, password, confirmPassword } = validatedFields.data;
-  const { login, email, otpcode, password } = validatedFields.data;
-
-  //const hashedPassword = await bcrypt.hash(password, 10);
-
-  try {
-    const response = await fetch(`${apiRegisterUrl}/Registration/signin`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: '*/*' },
-      body: JSON.stringify({ email, otpcode, password, login }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Error:', errorData);
-      if (errorData === 6) {
-        return {
-          errors: { otpcode: ['OTP Code not valid'] },
-        };
-      }
-      if (errorData === 12) {
-        return {
-          errors: { email: ['User not found'] },
-        };
-      }
-      //throw new Error(`Request failed with status ${response.status}`);
-    }
-
-    const responseData = await response.json();
-    console.log('User signin successfully.');
-    console.log('Response:', responseData);
-  } catch (error) {
-    return {
-      message: 'Database Error: Failed to Create User.',
-    };
-  }
-  //revalidatePath('/');
-  //redirect('/login');
-}
-
-//END SIGNIN TEST
 
 export async function createWallet(sessionId: string) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;

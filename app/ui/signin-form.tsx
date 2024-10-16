@@ -8,17 +8,26 @@ import {
   EyeSlashIcon,
   ShieldCheckIcon,
   ArrowRightIcon,
+  ExclamationCircleIcon,
 } from '@heroicons/react/24/outline';
-import { Button } from './button';
-import { useState } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
 import Link from 'next/link';
-import { addUser, handleEmailSubmitRegister } from '@/app/lib/actions';
-import { Checkbox } from '@nextui-org/react';
+import { useFormState, useFormStatus } from 'react-dom';
+import {
+  authenticate,
+  handleEmailSubmitSign,
+  signUser,
+} from '@/app/lib/actions';
+import { useState } from 'react';
+import React from 'react';
+import { LoginButton } from '@/app/ui/_components/LoginButton';
 import LoadingSpinner from '@/app/ui/_components/LoadingSpinner';
+import { Button } from './button';
+//import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-export default function SignupForm() {
-  const [errorMessage, setErrorMessage] = useState('');
+export default function SignForm() {
+  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+
+  const [errorMessageForm, setErrorMessage] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [step, setStep] = useState(1); // 1 - Email, 2 - OTP and Password
   const [email, setEmail] = useState('');
@@ -29,7 +38,7 @@ export default function SignupForm() {
     message: null,
     errors: {},
   };
-  const [state, dispatch] = useFormState(addUser, initialState);
+  // const [state, dispatch] = useFormState(signUser, initialState);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -37,20 +46,20 @@ export default function SignupForm() {
 
   const handleSubmitStep1 = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowSpinnerStep1(true);
-
     try {
       setErrorMessage('');
-      const result = await handleEmailSubmitRegister(email);
+      const result = await handleEmailSubmitSign(email);
       if (result?.errors) {
         setErrorMessage(result.errors.email[0]);
       } else {
-        setStep(2);
+        setShowSpinnerStep1(true);
+        setTimeout(() => {
+          setStep(2);
+          setShowSpinnerStep1(false);
+        }, 500);
       }
     } catch (error) {
       setErrorMessage((error as Error).message);
-    } finally {
-      setShowSpinnerStep1(false); // Скрываем спиннер
     }
   };
 
@@ -62,7 +71,7 @@ export default function SignupForm() {
     <form action={dispatch} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-100 p-6 dark:border dark:bg-black">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
-          Join to continue.
+          Sign in to continue.
         </h1>
         {step === 1 && (
           <div className="w-full">
@@ -92,12 +101,9 @@ export default function SignupForm() {
                 aria-atomic="true"
                 className="mt-2"
               >
-                {errorMessage && (
-                  <p
-                    className="text-sm text-red-500 dark:text-red-400"
-                    key={errorMessage}
-                  >
-                    {errorMessage}
+                {errorMessageForm && (
+                  <p className="text-sm text-red-500 dark:text-red-400">
+                    {errorMessageForm}
                   </p>
                 )}
               </div>
@@ -138,15 +144,12 @@ export default function SignupForm() {
                   <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900  dark:text-slate-50 dark:peer-focus:text-slate-50" />
                 </div>
                 <div id="email-error" aria-live="polite" aria-atomic="true">
-                  {state.errors?.email &&
-                    state.errors.email.map((error: string) => (
-                      <p
-                        className="text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
-                        {error}
-                      </p>
-                    ))}
+                  {/*{errorMessage && (
+                    <>
+                      <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
+                      <p className="text-sm text-red-500">{errorMessage}</p>
+                    </>
+                  )}*/}
                 </div>
               </div>
               <div className="mt-4">
@@ -168,15 +171,12 @@ export default function SignupForm() {
                   <ShieldCheckIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900 dark:text-slate-50 dark:peer-focus:text-slate-50" />
                 </div>
                 <div id="otpcode-error" aria-live="polite" aria-atomic="true">
-                  {state.errors?.otpcode &&
-                    state.errors.otpcode.map((error: string) => (
-                      <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
-                        {error}
-                      </p>
-                    ))}
+                  {/*{errorMessage && (
+                    <>
+                      <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
+                      <p className="text-sm text-red-500">{errorMessage}</p>
+                    </>
+                  )}*/}
                 </div>
               </div>
               <div className="mt-4">
@@ -216,89 +216,18 @@ export default function SignupForm() {
                     <li>Contains 8 or more symbols</li>
                   </ul>
                 </div>
-                <div id="password-error" aria-live="polite" aria-atomic="true">
-                  {state.errors?.password && (
-                    <>
-                      {state.errors.password.map((error: string) => (
-                        <p
-                          className="mt-2 text-sm text-red-500 dark:text-red-400"
-                          key={error}
-                        >
-                          {error}
-                        </p>
-                      ))}
-                    </>
-                  )}
-                </div>
-              </div>
-              <div className="mt-4">
-                <label
-                  className="mb-3 mt-5 block text-xs font-medium text-gray-900 dark:text-white"
-                  htmlFor="confirmPassword"
-                >
-                  Confirm Password
-                </label>
-                <div className="relative">
-                  <input
-                    className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-gray-800 dark:placeholder:text-slate-50"
-                    id="confirmPassword"
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirm password"
-                    required
-                  />
-                  <KeyIcon className="peer-focus:text-gray-900cursor-pointer pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 dark:text-slate-50 dark:peer-focus:text-slate-50" />
-                </div>
-              </div>
-              <div className="mt-4">
-                <div className="flex items-center">
-                  <Checkbox
-                    color="success"
-                    isRequired={true}
-                    name="privacy_and_terms"
-                    id="privacy_and_terms"
-                  >
-                    <label
-                      htmlFor="privacy_and_terms"
-                      className="ml-2 hover:cursor-pointer focus:hover:cursor-pointer"
-                    >
-                      <span>I agree with </span>
-                      <Link
-                        href="/terms"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-blue-600 hover:transition-all"
-                      >
-                        Terms of Use
-                      </Link>
-                      <span> and </span>
-                      <span>
-                        <Link
-                          href="/privacy"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline hover:text-blue-600 hover:transition-all"
-                        >
-                          Privacy Policy
-                        </Link>
-                      </span>
-                    </label>
-                  </Checkbox>
-                </div>
                 <div
-                  id="privacy_and_terms-error"
+                  id="password-error"
                   aria-live="polite"
                   aria-atomic="true"
+                  className="flex"
                 >
-                  {state.errors?.privacy_and_terms &&
-                    state.errors.privacy_and_terms.map((error: string) => (
-                      <p
-                        className="mt-2 text-sm text-red-500 dark:text-red-400"
-                        key={error}
-                      >
-                        {error}
-                      </p>
-                    ))}
+                  {errorMessage && (
+                    <>
+                      <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
+                      <p className="text-sm text-red-500">{errorMessage}</p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -310,7 +239,7 @@ export default function SignupForm() {
               Sign Up
               <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
             </Button>
-            {!state.errors && showSpinnerStep2 && (
+            {!errorMessage && showSpinnerStep2 && (
               <LoadingSpinner size="lg" color="white" />
             )}
           </>

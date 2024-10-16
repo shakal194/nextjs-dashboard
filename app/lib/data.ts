@@ -269,7 +269,7 @@ export async function getUser(email: string) {
 
 export async function fetchBtcBalance() {
   try {
-    const balance = await axios.get(`${apiUrl}/getwalletinfo`);
+    const balance = await axios.get(`${apiUrl}/Btc/getwalletinfo`);
 
     const binance = await axios.get(`${binanceApi}`);
 

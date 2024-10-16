@@ -19,7 +19,7 @@ export default function LoginPage() {
         </div>
         <div className="mt-2 flex justify-center">
           Not a member?{' '}
-          <Link href="/recovery" className="ml-[5px]">
+          <Link href="/registration" className="ml-[5px]">
             <span className="underline transition-all delay-200 duration-300 ease-in-out hover:text-blue-800 focus:text-blue-800 dark:text-white dark:text-white dark:hover:text-blue-400 dark:focus:text-blue-400">
               Sign up
             </span>
