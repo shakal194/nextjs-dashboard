@@ -286,7 +286,7 @@ export async function fetchBtcBalance() {
 
     return { balanceInCurrency, balanceInUsdBinance };
   } catch (error: any) {
-    console.error('Error fetching data:', error);
+    //console.error('Error fetching data:', error);
 
     /*if (error.response.status === 500) {
       const balanceInUsdBinance = 'Waiting';

@@ -94,7 +94,6 @@ const config = {
           const { email, password, otpcode } = parsedCredentials.data;
 
           try {
-            // Здесь происходит запрос к стороннему API для авторизации
             const res = await fetch(`${apiRegisterUrl}/Registration/signin`, {
               method: 'POST',
               headers: {
@@ -112,6 +111,7 @@ const config = {
 
             // Если пользователь найден и авторизация успешна
             if (res.ok && user) {
+              console.log("user", user);
               return user;
             }
             // Возвращаем null, если авторизация не удалась

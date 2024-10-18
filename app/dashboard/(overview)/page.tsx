@@ -13,6 +13,7 @@ import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
 
 export default async function Page() {
   const session = await auth();
+
   return (
     <main>
       <h1 className="mb-4 text-xl md:text-2xl">
