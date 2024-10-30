@@ -11,7 +11,7 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
 }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <Spinner size={size} color={color} />
+      <Spinner size={size} color={color} label="Loading..." />
     </div>
   );
 };

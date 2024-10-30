@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative">
       <Header />
       <HeaderNavMenu />
-      <main className="flex min-h-screen flex-col p-6">
+      <main className="flex flex-col p-6">
         <div className="container mx-auto px-4">
           <div className="mt-4 flex grow flex-col gap-4 lg:flex-row">
             <div className="flex flex-col rounded-lg bg-gray-100 dark:bg-inherit">

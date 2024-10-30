@@ -10,7 +10,8 @@ import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import axios, { AxiosError } from 'axios';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiMainUrl = process.env.NEXT_PUBLIC_API_MAIN_URL;
+const apiMiniUrl = process.env.NEXT_PUBLIC_API_MINI_URL;
 const apiRegisterUrl = process.env.NEXT_PUBLIC_API_REGISTR_URL;
 
 const FormSchema = z.object({
@@ -647,10 +648,10 @@ export async function signUser(prevState: SignUserState, formData: FormData) {
 //END SIGNIN TEST
 
 export async function createWallet(sessionId: string) {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const apiMainUrl = process.env.NEXT_PUBLIC_API_URL;
 
   try {
-    const response = await axios.post(`${apiUrl}/adduser`, sessionId, {
+    const response = await axios.post(`${apiMainUrl}/adduser`, sessionId, {
       headers: { 'Content-Type': 'application/json' },
     });
     console.log(response);
@@ -679,10 +680,10 @@ export async function createWallet(sessionId: string) {
 }
 
 export async function createWalletEth(sessionId: string) {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const apiMainUrl = process.env.NEXT_PUBLIC_API_URL;
 
   try {
-    const response = await axios.post(`${apiUrl}/adduser`, sessionId, {
+    const response = await axios.post(`${apiMainUrl}/adduser`, sessionId, {
       headers: { 'Content-Type': 'application/json' },
     });
     console.log(response);
@@ -712,7 +713,7 @@ export async function createWalletEth(sessionId: string) {
 
 export async function createWalletUsdt(sessionId: string) {
   try {
-    const response = await axios.post(`${apiUrl}/adduser`, sessionId, {
+    const response = await axios.post(`${apiMainUrl}/adduser`, sessionId, {
       headers: { 'Content-Type': 'application/json' },
     });
     console.log(response);
@@ -801,3 +802,87 @@ export async function createMerchant(
   revalidatePath('/dashboard/merchants');
   redirect(`/dashboard/merchants/${merchant_id}`);
 }
+
+//TESTS API START
+
+async function testApiConnection(
+  url: string,
+  successMessage: string,
+  badRequestMessage: string,
+  errorMessage: string,
+) {
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: '*/*',
+        'X-Api-Key': 'secretApiKey',
+      },
+    });
+
+    if (response.status === 200) {
+      console.log(successMessage);
+      return { status: 200, message: successMessage };
+    } else if (response.status === 400) {
+      console.error(badRequestMessage);
+      return { status: 400, message: badRequestMessage };
+    } else {
+      console.error('Unexpected status code:', response.status);
+      return {
+        status: response.status,
+        message: `Unexpected status code: ${response.status}`,
+      };
+    }
+  } catch (error) {
+    console.error(errorMessage, error);
+    throw new Error(errorMessage);
+  }
+}
+
+export async function testMainApiConnection() {
+  return testApiConnection(
+    `${apiMainUrl}/Batman/test-main-api-connection`,
+    'Connected.',
+    'Bad request',
+    'Error occurred while connecting to the main API.',
+  );
+}
+
+export async function testMainApiConnectionToMiniApi() {
+  return testApiConnection(
+    `${apiMainUrl}/Batman/test-btc-api-connection`,
+    'Connected.',
+    'Bad request',
+    'Error occurred while connecting to the main API.',
+  );
+}
+
+export async function testMainApiCoreConnection() {
+  return testApiConnection(
+    `${apiMainUrl}/Batman/test-bitcoin-api-bitcoincore-connection`,
+    'Connected.',
+    'Bad request',
+    'Error occurred while connecting to the main API.',
+  );
+}
+
+export async function testMiniApiConnection() {
+  return testApiConnection(
+    `${apiMiniUrl}/Batman/test-connection-api-btc`,
+    'Connected.',
+    'Bad request',
+    'Error occurred while connecting to the main API.',
+  );
+}
+
+export async function testMiniApiCoreConnection() {
+  return testApiConnection(
+    `${apiMiniUrl}/Batman/test-core-connection`,
+    'Connected.',
+    'Bad request',
+    'Error occurred while connecting to the main API.',
+  );
+}
+
+//TEST API END

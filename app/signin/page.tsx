@@ -1,4 +1,4 @@
-import Header from '../ui/_components/Headers/Header';
+import HeaderSettings from '../ui/_components/Headers/HeaderSettings';
 import SignForm from '@/app/ui/_components/Forms/signin-form';
 import Link from 'next/link';
 
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function LoginPage() {
   return (
     <>
-      <Header />
-      <main className="flex min-h-screen flex-col p-6">
+      <HeaderSettings />
+      <main className="flex flex-col p-6">
         <div className="flex justify-center">
           <SignForm />
         </div>

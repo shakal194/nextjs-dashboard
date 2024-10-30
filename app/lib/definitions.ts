@@ -139,3 +139,10 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export type testApiStatus = {
+  nameApiTest: string;
+  statusApiTest: 'loading' | 'success' | 'error';
+  statusCode: number;
+  message?: string;
+};

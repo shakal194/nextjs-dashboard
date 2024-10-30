@@ -1,6 +1,6 @@
 import RegistrationForm from '@/app/ui/_components/Forms/register-form';
 import Link from 'next/link';
-import Header from '@/app/ui/_components/Headers/Header';
+import HeaderSettings from '@/app/ui/_components/Headers/HeaderSettings';
 
 import { Metadata } from 'next';
 
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function RegistrationPage() {
   return (
     <>
-      <Header />
-      <main className="flex min-h-screen flex-col p-6">
+      <HeaderSettings />
+      <main className="flex flex-col p-6">
         <div className="flex justify-center">
           <RegistrationForm />
         </div>

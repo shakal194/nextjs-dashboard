@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col">
+      <main className="flex flex-col">
         <section className="title-descr white_section pb-72px] pt-[32px] lg:py-40">
           <div className="container mx-auto px-4">
             <div className="title-descr__inner mx-auto max-w-2xl text-left">
