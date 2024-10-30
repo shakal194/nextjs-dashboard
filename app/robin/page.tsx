@@ -29,6 +29,9 @@ function ApiStatus({
       {statusCode === 400 && (
         <XCircleIcon className="ml-2 h-5 w-5 text-red-500" />
       )}
+      {statusCode === 504 && (
+        <XCircleIcon className="ml-2 h-5 w-5 text-red-500" />
+      )}
     </div>
   );
 }
