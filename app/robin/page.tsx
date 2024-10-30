@@ -117,7 +117,6 @@ export default function Page() {
   return (
     <>
       <HeaderSettings />
-      {error && <div>{error}</div>}
       <main className="flex justify-center p-6">
         <div>
           {testStatuses.map((status, index) => (
