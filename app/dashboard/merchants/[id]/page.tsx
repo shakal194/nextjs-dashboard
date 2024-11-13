@@ -9,11 +9,15 @@ import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
 import MerchantMenuPage from '@/app/ui/dashboard/merchants/MerchantsMenu';
 import { CreateWallet } from '@/app/ui/dashboard/merchants/wallet/buttons';
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const id = params.id;
+export default async function Page({
+  params,
+}: {
+  params: { nameWallet: string };
+}) {
+  const nameWallet = params.nameWallet;
   const [merchant, wallet] = await Promise.all([
-    fetchMerchantById(id),
-    fetchMerchantWalletById(id),
+    fetchMerchantById(nameWallet),
+    fetchMerchantWalletById(nameWallet),
   ]);
 
   if (!wallet) {
@@ -37,7 +41,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <Suspense fallback={<CardsSkeleton />}>
           <div className="flex justify-between">
             <h1 className="text-2xl font-bold">{merchant.merchant_name}</h1>
-            <CreateWallet id={id} />
+            <CreateWallet nameWallet={nameWallet} />
           </div>
           <BalanceWrapper />
         </Suspense>
@@ -46,7 +50,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <WithdrawalButton />
         </div>
       </div>
-      <MerchantMenuPage id={id} />
+      <MerchantMenuPage nameWallet={nameWallet} />
     </main>
   );
 }

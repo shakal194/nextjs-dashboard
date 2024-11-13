@@ -509,7 +509,7 @@ export async function recoveryUser(
     };
   }
   revalidatePath('/');
-  redirect('/login');
+  redirect('/signin');
 }
 
 //end recovery password
@@ -651,9 +651,13 @@ export async function createWallet(sessionId: string) {
   const apiMainUrl = process.env.NEXT_PUBLIC_API_URL;
 
   try {
-    const response = await axios.post(`${apiMainUrl}/adduser`, sessionId, {
-      headers: { 'Content-Type': 'application/json' },
-    });
+    const response = await axios.post(
+      `${apiMainUrl}/Wallet/create-wallet`,
+      sessionId,
+      {
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
     console.log(response);
     return { message: 'Successfully created wallet.' };
   } catch (error) {
@@ -744,6 +748,7 @@ export async function createWalletUsdt(sessionId: string) {
 const CreateMerchant = z.object({
   merchant_id: z.string(),
   user_id: z.string(),
+  //apiKey: z.string(),
   merchant_name: z.string({ invalid_type_error: 'Please input name.' }),
 });
 
@@ -758,8 +763,10 @@ export async function createMerchant(
   prevState: MerchantState,
   formData: FormData,
 ) {
+  const apiMainUrl = process.env.NEXT_PUBLIC_API_MAIN_URL;
   const session = await auth();
   const userId = session?.user?.id;
+  const apiKey = session?.user?.apiKey;
 
   const validatedFields = CreateMerchant.safeParse({
     merchant_id: uuidv4(),
@@ -774,33 +781,45 @@ export async function createMerchant(
     };
   }
 
-  const { merchant_id, user_id, merchant_name } = validatedFields.data;
-
-  const merchantNameExist =
-    await sql`SELECT merchant_name from merchants WHERE merchant_name = ${merchant_name}`;
-  if (merchantNameExist.rows[0]) {
-    console.error(`Merchant name - ${merchant_name} already exists`);
-    return {
-      errors: {
-        merchant_name: [`Merchant name - ${merchant_name} already exists`],
-      },
-    };
-  }
+  const { merchant_id } = validatedFields.data;
 
   try {
-    await sql`
-      INSERT INTO merchants (merchant_id, user_id, merchant_name)
-      VALUES (${merchant_id}, ${user_id}, ${merchant_name})
-    `;
-    console.log(`Merchant name - ${merchant_name} inserted successfully.`);
+    const response = await axios.post(
+      `${apiMainUrl}/Wallet/create-wallet`,
+      {
+        nameWallet: validatedFields.data.merchant_name,
+        status: true,
+        typeCurency: 'BTC',
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: '*/*',
+          'X-Api-Key': apiKey,
+        },
+      },
+    );
+    console.log(response.data);
+    revalidatePath('/dashboard/merchants');
+    redirect(`/dashboard/merchants/${merchant_id}`);
+    return { message: 'Successfully created wallet.' };
   } catch (error) {
-    return {
-      message: 'Database Error: Failed to Create User.',
-    };
+    if (axios.isAxiosError(error)) {
+      const axiosError = error as AxiosError;
+      if (
+        axiosError.response &&
+        axiosError.response.status === 400 &&
+        axiosError.response.statusText === 'Bad Request'
+      ) {
+        console.error('Failed to create wallet:', error?.response?.data);
+        return {
+          errors: { merchant_name: ['Merchant already exists'] },
+        };
+      }
+    }
+    console.error('Failed to create wallet:', error);
+    return { message: 'Failed to create wallet.' };
   }
-
-  revalidatePath('/dashboard/merchants');
-  redirect(`/dashboard/merchants/${merchant_id}`);
 }
 
 //TESTS API START

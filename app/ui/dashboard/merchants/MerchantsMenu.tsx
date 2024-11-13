@@ -4,7 +4,11 @@ import { useState } from 'react';
 //import { fetchMerchantById } from '@/app/lib/data';
 //import { usePathname } from 'next/navigation';
 
-export default function MerchantMenuPage({ id }: { id: string }) {
+export default function MerchantMenuPage({
+  nameWallet,
+}: {
+  nameWallet: string;
+}) {
   const [activeTab, setActiveTab] = useState('history');
   const [settingsTab, setSettingsTab] = useState('settingsApiIntegration');
 
@@ -91,7 +95,7 @@ export default function MerchantMenuPage({ id }: { id: string }) {
               <div>Активный</div>
               <div>...</div>
               <div>...</div>
-              <div>{id}</div>
+              <div>{nameWallet}</div>
               <div>...</div>
             </div>
           </div>

@@ -15,6 +15,7 @@ import axios, { AxiosError } from 'axios';
 import { auth } from '@/auth';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiMainUrl = process.env.NEXT_PUBLIC_API_MAIN_URL;
 
 //const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API;
 //const binanceApi = process.env.NEXT_PUBLIC_BINANCE_API_USA;
@@ -324,7 +325,7 @@ export async function fetchMerchants() {
   }
 }
 
-export async function fetchMerchantById(id: string) {
+/*export async function fetchMerchantById(id: string) {
   noStore();
 
   try {
@@ -344,24 +345,69 @@ export async function fetchMerchantById(id: string) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch merchant.');
   }
+}*/
+
+export async function fetchMerchantById(nameWallet: string) {
+  noStore();
+  const session = await auth();
+  const apiKey = session?.user?.apiKey;
+
+  try {
+    const response = await axios.post(
+      `${apiMainUrl}/Wallet/get-Wallet`,
+      {
+        walletName: nameWallet,
+        typeCurrency: 'BTC',
+      },
+      {
+        headers: {
+          'x-api-key': apiKey,
+        },
+      },
+    );
+
+    const merchant = response.data; // Assuming the response data contains the merchant information
+
+    console.log(merchant);
+
+    return merchant;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch merchant.');
+  }
 }
 
-export async function fetchMerchantWalletById(id: string) {
-  try {
-    const response = await axios.get(`${apiUrl}/getallusers`);
-    const users = response.data;
+export async function fetchMerchantWalletById(nameWallet: string) {
+  const session = await auth();
+  const apiKey = session?.user?.apiKey;
 
-    // Фильтруем массив пользователей по login, соответствующему id мерчанта
-    const user = users.find((user: any) => user.login === id);
+  console.log('nameWallet:', nameWallet);
+
+  try {
+    const response = await axios.post(
+      `${apiMainUrl}/Wallet/get-Wallet`,
+      {
+        walletName: nameWallet,
+        typeCurrency: 'BTC',
+      },
+      {
+        headers: {
+          'x-api-key': apiKey,
+        },
+      },
+    );
+    const user = response.data;
 
     return user;
   } catch (error: any) {
-    console.error('Error fetching user:', error);
-    if (error.response.status === 500) {
+    console.error('Error fetching merchant wallet:', error);
+
+    /*if (error.response.status === 500) {
       const errorHandler = 'Waiting';
 
       return { errorHandler };
     }
-    throw new Error('Failed to fetch user.');
+    */
+    throw new Error('Error fetching merchant wallet.');
   }
 }

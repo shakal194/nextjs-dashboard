@@ -3,23 +3,13 @@
 import { PlusIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 import { useFormState, useFormStatus } from 'react-dom';
-import { useState, forwardRef, useImperativeHandle } from 'react';
+import { useState } from 'react';
 import { createMerchant } from '@/app/lib/actions';
 import { useInput } from '@/app/ui/dashboard/merchants/context/InputContext';
 
 const MerchantForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
-  const [merchantName, setMerchantName] = useState('');
   const { inputValue, setInputValue } = useInput();
-
-  /*useImperativeHandle(ref, () => ({
-    get value() {
-      return merchantName;
-    },
-    set value(name) {
-      setMerchantName(name);
-    },
-  }));*/
 
   const initialState = {
     message: null,
@@ -28,7 +18,6 @@ const MerchantForm = () => {
   const [state, dispatch] = useFormState(createMerchant, initialState);
 
   return (
-    //<form onSubmit={handleSubmit} className="space-y-3">
     <form action={dispatch} className="space-y-3">
       <div className="mb-4">
         <label htmlFor="merchant_name" className="mb-2 block font-bold">

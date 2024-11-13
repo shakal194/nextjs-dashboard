@@ -1,66 +1,14 @@
-import NextAuth, { CredentialsSignin } from 'next-auth';
+import NextAuth from 'next-auth';
 import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
-import { sql } from '@vercel/postgres';
-import type { User } from '@/app/lib/definitions';
+
 const apiRegisterUrl = process.env.NEXT_PUBLIC_API_REGISTR_URL;
-import bcrypt from 'bcrypt';
 
-async function getUser(email: string): Promise<User | undefined> {
-  try {
-    const user = await sql<User>`SELECT * FROM users WHERE email=${email}`;
-    return user.rows[0];
-  } catch (error) {
-    console.error('Failed to fetch user:', error);
-    throw new Error('Failed to fetch user.');
+declare module 'next-auth' {
+  interface User {
+    apiKey?: string | null;
   }
-}
-
-/*const config = {
-  ...authConfig,
-  providers: [
-    Credentials({
-      async authorize(credentials) {
-        const parsedCredentials = z
-          .object({ email: z.string().email(), password: z.string().min(6) })
-          .safeParse(credentials);
-
-        if (parsedCredentials.success) {
-          const { email, password } = parsedCredentials.data;
-          const user = await getUser(email);
-          if (!user) return null;
-          const passwordsMatch = await bcrypt.compare(password, user.password);
-
-          if (passwordsMatch) return user;
-        }
-
-        console.log('Invalid credentials');
-        return null;
-      },
-    }),
-  ],
-  session: {
-    strategy: 'jwt' as const,
-    maxAge: 30 * 24 * 60 * 60, // How long until an idle session expires and is no longer valid.
-  },
-  callbacks: {
-    jwt: async ({ token, user }: { token: any; user: any }) => {
-      if (user) {
-        token.id = user.id;
-      }
-      return token;
-    },
-    session: async ({ session, token }: { session: any; token: any }) => {
-      session.user.id = token.id;
-      //session.locale = token.locale || 'en';
-      return session;
-    },
-  },
-};*/
-
-export class InvalidLoginError extends CredentialsSignin {
-  code = 'invalid_credentials';
 }
 
 const config = {
@@ -111,7 +59,6 @@ const config = {
 
             // Если пользователь найден и авторизация успешна
             if (res.ok && user) {
-              console.log("user", user);
               return user;
             }
             // Возвращаем null, если авторизация не удалась
@@ -134,15 +81,24 @@ const config = {
   callbacks: {
     jwt: async ({ token, user }: { token: any; user: any }) => {
       if (user) {
+        console.log(token);
         token.id = user.id;
         token.accessToken = user.tokenRespondeModel.access;
+        token.apiKey = user.apiKey;
       }
+      console.log('#############');
+      console.log('USER', user);
+      console.log('#############');
+      console.log('TOKEN', token);
       return token;
     },
     session: async ({ session, token }: { session: any; token: any }) => {
       session.user.id = token.id;
       session.user.token = token.accessToken;
       session.user.tokenExpiry = token.exp;
+      session.user.apiKey = token.apiKey;
+      console.log('#############');
+      console.log('SESSION', session);
       return session;
     },
   },
