@@ -86,10 +86,6 @@ const config = {
         token.accessToken = user.tokenRespondeModel.access;
         token.apiKey = user.apiKey;
       }
-      console.log('#############');
-      console.log('USER', user);
-      console.log('#############');
-      console.log('TOKEN', token);
       return token;
     },
     session: async ({ session, token }: { session: any; token: any }) => {
@@ -97,8 +93,6 @@ const config = {
       session.user.token = token.accessToken;
       session.user.tokenExpiry = token.exp;
       session.user.apiKey = token.apiKey;
-      console.log('#############');
-      console.log('SESSION', session);
       return session;
     },
   },
