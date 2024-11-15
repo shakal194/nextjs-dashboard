@@ -291,7 +291,7 @@ export type AddUserState = {
   errors?: {
     email?: string[];
     login?: string[];
-    otpcode?: number[];
+    otpcode?: string[];
     password?: string[];
     confirmPassword?: string[];
     privacy_and_terms?: string[];
@@ -748,7 +748,6 @@ export async function createMerchant(
 ) {
   const apiMainUrl = process.env.NEXT_PUBLIC_API_MAIN_URL;
   const session = await auth();
-  const userId = session?.user?.id;
   const apiKey = session?.user?.apiKey;
 
   const validatedFields = CreateMerchant.safeParse({
@@ -762,11 +761,13 @@ export async function createMerchant(
     };
   }
 
+  const merchant_name = validatedFields.data.merchant_name;
+
   try {
     const response = await axios.post(
       `${apiMainUrl}/Wallet/create-wallet`,
       {
-        nameWallet: validatedFields.data.merchant_name,
+        nameWallet: merchant_name,
         status: true,
         typeCurency: 'BTC',
       },
@@ -805,9 +806,9 @@ export async function createMerchant(
     }
 
     console.error('Failed to create wallet:', error);
-    /*return {
+    return {
       errors: { merchant_name: ['Failed to create wallet. Try again later'] },
-    };*/
+    };
   }
 }
 

@@ -161,7 +161,7 @@ export default function SignupForm() {
                   <input
                     className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 dark:border-slate-50 dark:bg-gray-800 dark:placeholder:text-slate-50"
                     id="otpcode"
-                    type="number"
+                    type="text"
                     name="otpcode"
                     placeholder="Enter OTP Code"
                     required
@@ -170,7 +170,7 @@ export default function SignupForm() {
                 </div>
                 <div id="otpcode-error" aria-live="polite" aria-atomic="true">
                   {state.errors?.otpcode &&
-                    state.errors.otpcode.map((error: number) => (
+                    state.errors.otpcode.map((error: string) => (
                       <div key={error} className="mt-2 flex items-center">
                         <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
                         <p
