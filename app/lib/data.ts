@@ -347,7 +347,7 @@ export async function fetchMerchants() {
   }
 }*/
 
-export async function fetchMerchantById(nameWallet: string) {
+export async function fetchMerchantById(id: string, nameWallet: string) {
   noStore();
   const session = await auth();
   const apiKey = session?.user?.apiKey;
@@ -372,16 +372,14 @@ export async function fetchMerchantById(nameWallet: string) {
 
     return merchant;
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch merchant.');
+    //console.error('Database Error:', error);
+    //throw new Error('Failed to fetch merchant.');
   }
 }
 
 export async function fetchMerchantWalletById(nameWallet: string) {
   const session = await auth();
   const apiKey = session?.user?.apiKey;
-
-  console.log('nameWallet:', nameWallet);
 
   try {
     const response = await axios.post(
@@ -400,14 +398,13 @@ export async function fetchMerchantWalletById(nameWallet: string) {
 
     return user;
   } catch (error: any) {
-    console.error('Error fetching merchant wallet:', error);
-
+    //console.error('Error fetching merchant wallet:', error);
     /*if (error.response.status === 500) {
       const errorHandler = 'Waiting';
 
       return { errorHandler };
     }
     */
-    throw new Error('Error fetching merchant wallet.');
+    //throw new Error('Error fetching merchant wallet.');
   }
 }

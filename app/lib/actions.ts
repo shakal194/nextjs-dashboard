@@ -265,37 +265,33 @@ export async function handleEmailSubmitRegister(email: string) {
   }
 }
 
-const AddUser = z
-  .object({
-    //id: z.string(),
-    login: z.string({ invalid_type_error: 'Please input login.' }),
-    email: z.string({ invalid_type_error: 'Please input email.' }),
-    otpcode: z.string({ invalid_type_error: 'Please input OTP Code.' }),
-    //password: z.string({ invalid_type_error: 'Please input password.' }),
-    password: z
-      .string({ invalid_type_error: 'Please input password.' })
-      .min(8, {
-        message:
-          'Password and Confirm Password must contains 8 or more symbols.',
-      })
-      .regex(/[!@#$%^&*(),.?":{}|<>]/, {
-        message: 'Password and Confirm Password must contains special symbols.',
-      }),
-    //confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
-    confirmPassword: z.string({
-      invalid_type_error: 'Please input confirm password.',
+const AddUser = z.object({
+  login: z.string({ invalid_type_error: 'Please input login.' }),
+  email: z.string({ invalid_type_error: 'Please input email.' }),
+  otpcode: z
+    .string({ invalid_type_error: 'Please input a valid OTP Code.' })
+    .regex(/^\d{5}$/, { message: 'OTP Code must be exactly 5 digits.' }),
+  password: z
+    .string({ invalid_type_error: 'Please input password.' })
+    .min(8, {
+      message: 'Passwords must contains 8 or more symbols.',
+    })
+    .regex(/[!@#$%^&*(),.?":{}|<>]/, {
+      message: 'Passwords must contains special symbols.',
     }),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: 'Passwords do not match.',
-    path: ['newPassword'],
-  });
+  confirmPassword: z.string({
+    invalid_type_error: 'Please input confirm password.',
+  }),
+  privacy_and_terms: z.string({
+    invalid_type_error: 'Read and accept the Privacy Policy and Terms of Use.',
+  }),
+});
 
 export type AddUserState = {
   errors?: {
     email?: string[];
     login?: string[];
-    otpcode?: string[];
+    otpcode?: number[];
     password?: string[];
     confirmPassword?: string[];
     privacy_and_terms?: string[];
@@ -305,7 +301,6 @@ export type AddUserState = {
 
 export async function addUser(prevState: AddUserState, formData: FormData) {
   const validatedFields = AddUser.safeParse({
-    //id: uuidv4(),
     email: formData.get('email'),
     login: formData.get('email'),
     otpcode: formData.get('otpcode'),
@@ -315,24 +310,21 @@ export async function addUser(prevState: AddUserState, formData: FormData) {
   });
 
   if (!validatedFields.success) {
+    // Собираем все ошибки
+    const errors = validatedFields.error.flatten().fieldErrors;
+
+    // Дополнительная проверка для логики, не учтенной в `zod`
+    if (formData.get('password') !== formData.get('confirmPassword')) {
+      errors.password = [...(errors.password || []), 'Passwords do not match.'];
+    }
+
     return {
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to Create User.',
+      errors,
+      message: 'Validation Failed. Failed to Create User.',
     };
   }
 
-  //const { id, name, email, password, confirmPassword } = validatedFields.data;
-  const { login, email, otpcode, password, confirmPassword } =
-    validatedFields.data;
-
-  if (password !== confirmPassword) {
-    console.log('Passwords do not match');
-    return {
-      errors: { password: ['Password and Confirm Password do not match'] },
-    };
-  }
-
-  //const hashedPassword = await bcrypt.hash(password, 10);
+  const { login, email, otpcode, password } = validatedFields.data;
 
   try {
     const response = await fetch(`${apiRegisterUrl}/Registration/adduser`, {
@@ -364,7 +356,7 @@ export async function addUser(prevState: AddUserState, formData: FormData) {
     };
   }
   revalidatePath('/');
-  redirect('/login');
+  redirect('/signin');
 }
 
 //END TEST REGISTR API
@@ -408,31 +400,24 @@ export async function handleEmailSubmitRecovery(email: string) {
   }
 }
 
-const RecoveryUser = z
-  .object({
-    //id: z.string(),
-    login: z.string({ invalid_type_error: 'Please input login.' }),
-    email: z.string({ invalid_type_error: 'Please input email.' }),
-    otpcode: z.string({ invalid_type_error: 'Please input OTP Code.' }),
-    //newPassword: z.string({ invalid_type_error: 'Please input password.' }),
-    newPassword: z
-      .string({ invalid_type_error: 'Please input password.' })
-      .min(8, {
-        message:
-          'Password and Confirm Password must contains 8 or more symbols.',
-      })
-      .regex(/[!@#$%^&*(),.?":{}|<>]/, {
-        message: 'Password and Confirm Password must contains special symbols.',
-      }),
-    //confirmPassword: z.string({ invalid_type_error: 'Please input password.' }),
-    confirmPassword: z.string({
-      invalid_type_error: 'Please input confirm password.',
+const RecoveryUser = z.object({
+  login: z.string({ invalid_type_error: 'Please input login.' }),
+  email: z.string({ invalid_type_error: 'Please input email.' }),
+  otpcode: z
+    .string({ invalid_type_error: 'Please input a valid OTP Code.' })
+    .regex(/^\d{5}$/, { message: 'OTP Code must be exactly 5 digits.' }),
+  newPassword: z
+    .string({ invalid_type_error: 'Please input password.' })
+    .min(8, {
+      message: 'Passwords must contains 8 or more symbols.',
+    })
+    .regex(/[!@#$%^&*(),.?":{}|<>]/, {
+      message: 'Passwords must contains special symbols.',
     }),
-  })
-  .refine((data) => data.newPassword === data.confirmPassword, {
-    message: 'Passwords do not match.',
-    path: ['newPassword'],
-  });
+  confirmPassword: z.string({
+    invalid_type_error: 'Please input confirm password.',
+  }),
+});
 
 export type RecoveryUserState = {
   errors?: {
@@ -450,7 +435,6 @@ export async function recoveryUser(
   formData: FormData,
 ) {
   const validatedFields = RecoveryUser.safeParse({
-    //id: uuidv4(),
     email: formData.get('email'),
     login: formData.get('email'),
     otpcode: formData.get('otpcode'),
@@ -459,22 +443,24 @@ export async function recoveryUser(
   });
 
   if (!validatedFields.success) {
+    // Собираем все ошибки
+    const errors = validatedFields.error.flatten().fieldErrors;
+
+    // Дополнительная проверка для логики, не учтенной в `zod`
+    if (formData.get('newPassword') !== formData.get('confirmPassword')) {
+      errors.newPassword = [
+        ...(errors.newPassword || []),
+        'Passwords do not match.',
+      ];
+    }
+
     return {
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to recovery User password.',
+      errors,
+      message: 'Validation Failed. Failed to Create User.',
     };
   }
 
-  //const { id, name, email, password, confirmPassword } = validatedFields.data;
-  const { login, email, otpcode, newPassword, confirmPassword } =
-    validatedFields.data;
-
-  if (newPassword !== confirmPassword) {
-    console.log('Passwords do not match');
-    return {
-      errors: { password: ['Password and Confirm Password do not match'] },
-    };
-  }
+  const { login, email, otpcode, newPassword } = validatedFields.data;
 
   try {
     const response = await fetch(
@@ -746,9 +732,6 @@ export async function createWalletUsdt(sessionId: string) {
 }
 
 const CreateMerchant = z.object({
-  merchant_id: z.string(),
-  user_id: z.string(),
-  //apiKey: z.string(),
   merchant_name: z.string({ invalid_type_error: 'Please input name.' }),
 });
 
@@ -769,8 +752,6 @@ export async function createMerchant(
   const apiKey = session?.user?.apiKey;
 
   const validatedFields = CreateMerchant.safeParse({
-    merchant_id: uuidv4(),
-    user_id: userId,
     merchant_name: formData.get('merchant_name'),
   });
 
@@ -780,8 +761,6 @@ export async function createMerchant(
       message: 'Missing Fields. Failed to Create Merchant.',
     };
   }
-
-  const { merchant_id } = validatedFields.data;
 
   try {
     const response = await axios.post(
@@ -799,9 +778,16 @@ export async function createMerchant(
         },
       },
     );
+
     console.log(response.data);
-    revalidatePath('/dashboard/merchants');
-    redirect(`/dashboard/merchants/${merchant_id}`);
+
+    const merchant_id = response.data.uniqGuid;
+
+    if (merchant_id) {
+      revalidatePath('/dashboard/merchants');
+      redirect(`/dashboard/merchants/${merchant_id}`);
+    }
+
     return { message: 'Successfully created wallet.' };
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -809,7 +795,7 @@ export async function createMerchant(
       if (
         axiosError.response &&
         axiosError.response.status === 400 &&
-        axiosError.response.statusText === 'Bad Request'
+        axiosError.response.data === 6
       ) {
         console.error('Failed to create wallet:', error?.response?.data);
         return {
@@ -817,8 +803,11 @@ export async function createMerchant(
         };
       }
     }
+
     console.error('Failed to create wallet:', error);
-    return { message: 'Failed to create wallet.' };
+    /*return {
+      errors: { merchant_name: ['Failed to create wallet. Try again later'] },
+    };*/
   }
 }
 

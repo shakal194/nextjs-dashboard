@@ -12,13 +12,17 @@ import { CreateWallet } from '@/app/ui/dashboard/merchants/wallet/buttons';
 export default async function Page({
   params,
 }: {
-  params: { nameWallet: string };
+  params: { id: string; nameWallet: string };
 }) {
+  const id = params.id;
   const nameWallet = params.nameWallet;
+
   const [merchant, wallet] = await Promise.all([
-    fetchMerchantById(nameWallet),
-    fetchMerchantWalletById(nameWallet),
+    fetchMerchantById(id, nameWallet),
+    fetchMerchantWalletById(id),
   ]);
+
+  console.log('merchant', merchant);
 
   if (!wallet) {
     notFound();

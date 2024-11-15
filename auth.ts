@@ -81,7 +81,6 @@ const config = {
   callbacks: {
     jwt: async ({ token, user }: { token: any; user: any }) => {
       if (user) {
-        console.log(token);
         token.id = user.id;
         token.accessToken = user.tokenRespondeModel.access;
         token.apiKey = user.apiKey;
