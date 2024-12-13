@@ -34,9 +34,9 @@ export default function CreateWalletForm({ id }: { id: string }) {
       if (result.status === 200) {
         Notify.init({ distance: '30px' });
         Notify.success(result.message);
-        /*setTimeout(() => {
+        setTimeout(() => {
           window.location.href = `/dashboard/merchants/${id}`;
-        }, 2000);*/
+        }, 2000);
       } else if (result.status === 400) {
         setErrorMessage(result.message);
         Notify.init({ distance: '30px' });
