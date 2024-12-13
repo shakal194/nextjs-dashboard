@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Bitcoin",
+    "coin": "BTC",
     "image": "/svg/bitcoin_1.svg",
     "image_dashobard": "/svg/bitcoin_dashboard.svg",
     "background": "rgb(249 115 22)",
@@ -10,6 +11,7 @@
   {
     "id": 3,
     "title": "Tether",
+    "coin": "USDT",
     "image": "/svg/tether.svg",
     "image_dashobard": "/svg/tether_dashboard.svg",
     "background": "rgb(80 175 149)",
@@ -28,8 +30,9 @@
   {
     "id": 5,
     "title": "Etherium",
+    "coin": "ETH",
     "image": "/svg/etherium.svg",
-    "image_dashobard": "/svg/trx_dashboard.svg",
+    "image_dashobard": "/svg/etherium_dashboard.svg",
     "background": "rgb(98 126 234)",
     "network": [
       {

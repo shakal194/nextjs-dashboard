@@ -1,10 +1,18 @@
 import { PlusIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
-export function CreateWallet({ nameWallet }: { nameWallet: string }) {
+/*export function CreateWallet({ nameWallet }: { nameWallet: string }) */
+
+export function CreateWallet({
+  id,
+  nameWallet,
+}: {
+  id: string;
+  nameWallet: string;
+}) {
   return (
     <Link
-      href={`/dashboard/merchants/${nameWallet}/wallet/create`}
+      href={`/dashboard/merchants/${id}/wallet/create?nameWallet=${encodeURIComponent(nameWallet)}`}
       className="flex h-10 items-center rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
     >
       <span className="hidden md:block">Create Wallet</span>{' '}

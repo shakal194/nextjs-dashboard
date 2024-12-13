@@ -1,5 +1,5 @@
 import CreateWalletForm from '@/app/ui/dashboard/merchants/wallet/create-form';
-import Breadcrumbs from '@/app/ui/dashboard/merchants/wallet/breadcrumbs';
+import Breadcrumbs from '@/app/ui/dashboard/merchants/breadcrumbs';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;

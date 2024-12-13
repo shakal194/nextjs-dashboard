@@ -287,13 +287,6 @@ export async function fetchBtcBalance() {
 
     return { balanceInCurrency, balanceInUsdBinance };
   } catch (error: any) {
-    //console.error('Error fetching data:', error);
-
-    /*if (error.response.status === 500) {
-      const balanceInUsdBinance = 'Waiting';
-
-      return { balanceInUsdBinance };
-    }*/
     if (error.code) {
       const balanceInUsdBinance = 'Waiting';
 
@@ -303,7 +296,7 @@ export async function fetchBtcBalance() {
   }
 }
 
-export async function fetchMerchants() {
+/*export async function fetchMerchants() {
   const session = await auth();
   const userId = session?.user?.id;
 
@@ -318,6 +311,31 @@ export async function fetchMerchants() {
     `;
 
     const merchants = data.rows;
+    return merchants;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch all merchants.');
+  }
+}*/
+
+export async function fetchMerchants() {
+  const session = await auth();
+  const apiKey = session?.user?.apiKey;
+
+  try {
+    const response = await axios.get(
+      `${apiMainUrl}/Wallet/get-wallets-details`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: '*/*',
+          'X-Api-Key': apiKey,
+        },
+      },
+    );
+
+    const merchants = response.data;
+
     return merchants;
   } catch (error) {
     console.error('Database Error:', error);
@@ -347,64 +365,60 @@ export async function fetchMerchants() {
   }
 }*/
 
-export async function fetchMerchantById(id: string, nameWallet: string) {
+export async function fetchMerchantById(id: string) {
   noStore();
   const session = await auth();
   const apiKey = session?.user?.apiKey;
 
   try {
     const response = await axios.post(
-      `${apiMainUrl}/Wallet/get-Wallet`,
-      {
-        walletName: nameWallet,
-        typeCurrency: 'BTC',
-      },
+      `${apiMainUrl}/Wallet/get-wallet-by-guid-no-update-balance`,
+      id,
       {
         headers: {
-          'x-api-key': apiKey,
+          'Content-Type': 'application/json',
+          Accept: '*/*',
+          'X-Api-Key': apiKey,
         },
       },
     );
 
-    const merchant = response.data; // Assuming the response data contains the merchant information
-
-    console.log(merchant);
+    const merchant = response.data;
 
     return merchant;
   } catch (error) {
-    //console.error('Database Error:', error);
-    //throw new Error('Failed to fetch merchant.');
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch merchant.');
   }
 }
 
-export async function fetchMerchantWalletById(nameWallet: string) {
+export async function fetchMerchantWallet(walletName: string) {
   const session = await auth();
   const apiKey = session?.user?.apiKey;
 
   try {
     const response = await axios.post(
-      `${apiMainUrl}/Wallet/get-Wallet`,
+      `${apiMainUrl}/Wallet/get-addresses`,
       {
-        walletName: nameWallet,
+        walletName: walletName,
         typeCurrency: 'BTC',
       },
       {
         headers: {
-          'x-api-key': apiKey,
+          'Content-Type': 'application/json',
+          Accept: '*/*',
+          'X-Api-Key': apiKey,
         },
       },
     );
-    const user = response.data;
 
-    return user;
+    return response.data; // Возвращает массив адресов
   } catch (error: any) {
-    //console.error('Error fetching merchant wallet:', error);
-    /*if (error.response.status === 500) {
-      const errorHandler = 'Waiting';
-
-      return { errorHandler };
+    console.error('Error fetching merchant wallet:', error);
+    if (error.response?.status === 500) {
+      return { errorHandler: 'Waiting' }; // Возвращает статус ошибки
     }
-    */
-    //throw new Error('Error fetching merchant wallet.');
+
+    throw new Error('Error fetching merchant wallet.');
   }
 }

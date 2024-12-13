@@ -1,5 +1,5 @@
-import Breadcrumbs from '@/app/ui/dashboard/invoices/breadcrumbs';
-import { fetchMerchantById, fetchMerchantWalletById } from '@/app/lib/data';
+import Breadcrumbs from '@/app/ui/dashboard/merchants/breadcrumbs';
+import { fetchMerchantById, fetchMerchantWallet } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 import BalanceWrapper from '@/app/ui/dashboard/balance';
 import { Suspense } from 'react';
@@ -8,29 +8,18 @@ import ReceiveButton from '@/app/ui/_components/ReceiveButton';
 import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
 import MerchantMenuPage from '@/app/ui/dashboard/merchants/MerchantsMenu';
 import { CreateWallet } from '@/app/ui/dashboard/merchants/wallet/buttons';
+import { BanknotesIcon } from '@heroicons/react/24/outline';
 
-export default async function Page({
-  params,
-}: {
-  params: { id: string; nameWallet: string };
-}) {
+export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
-  const nameWallet = params.nameWallet;
 
-  const [merchant, wallet] = await Promise.all([
-    fetchMerchantById(id, nameWallet),
-    fetchMerchantWalletById(id),
-  ]);
+  const merchant = await fetchMerchantById(id);
 
-  console.log('merchant', merchant);
+  //const merchant = await fetchMerchantById(id);
+  const merchantName = merchant.nameWallet;
+  const merchantBalance = merchant.Balance;
 
-  if (!wallet) {
-    notFound();
-  }
-
-  if (wallet.errorHandler === 'Waiting') {
-    wallet.address = 'Waiting';
-  }
+  const merchantWallet = await fetchMerchantWallet(merchantName);
 
   if (!merchant) {
     notFound();
@@ -39,22 +28,43 @@ export default async function Page({
   return (
     <main>
       <Breadcrumbs
-        breadcrumbs={[{ label: 'Merchants', href: '/dashboard/merchants' }]}
+        breadcrumbs={[
+          { label: 'Merchants', href: '/dashboard/merchants' },
+          {
+            label: `${merchantName}`,
+            href: `/dashboard/merchants/${id}`,
+            active: true,
+          },
+        ]}
       />
-      <div className="bg-sky-100 p-4">
+      <div className="bg-sky-100 p-4 dark:bg-gray-800">
         <Suspense fallback={<CardsSkeleton />}>
           <div className="flex justify-between">
-            <h1 className="text-2xl font-bold">{merchant.merchant_name}</h1>
-            <CreateWallet nameWallet={nameWallet} />
+            <h1 className="text-2xl font-bold">{merchantName}</h1>
+            <CreateWallet id={id} nameWallet={merchantName} />
+            {/*<CreateWallet />*/}
           </div>
-          <BalanceWrapper />
+          {/*<BalanceWrapper />*/}
+          <div className="rounded-xl bg-sky-100 dark:bg-gray-800">
+            <div className="flex">
+              <BanknotesIcon className="h-5 w-5 text-gray-700 dark:text-white" />
+              <h3 className="ml-2 text-sm font-medium">
+                Available {merchantBalance}
+              </h3>
+            </div>
+            <p className="truncate rounded-xl py-8 text-2xl">
+              {merchantBalance} USDT
+            </p>
+          </div>
         </Suspense>
         <div className="grid gap-2 md:grid-cols-2">
-          <ReceiveButton walletAddress={wallet?.address} />
+          <ReceiveButton walletAddress={merchantWallet} />
+          {/*<ReceiveButton />*/}
           <WithdrawalButton />
         </div>
       </div>
-      <MerchantMenuPage nameWallet={nameWallet} />
+      <MerchantMenuPage nameWallet={merchant.nameWallet} />
+      {/*<MerchantMenuPage />*/}
     </main>
   );
 }

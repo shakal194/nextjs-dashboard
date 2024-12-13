@@ -5,7 +5,8 @@ import { auth } from '@/auth';
 import ReceiveButton from '@/app/ui/_components/ReceiveButton';
 import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
 
-export default async function Page() {
+export default async function Page({ params }: { params: { id: string } }) {
+  const id = params.id;
   const session = await auth();
 
   return (
@@ -13,7 +14,7 @@ export default async function Page() {
       <h1 className="mb-4 text-xl md:text-2xl">
         Welcome {session?.user?.name ?? ''} to your Dashboard
       </h1>
-      <div className="bg-sky-100 p-4">
+      <div className="bg-sky-100 p-4 dark:bg-gray-800">
         <Suspense fallback={<CardsSkeleton />}>
           <BalanceWrapper />
         </Suspense>

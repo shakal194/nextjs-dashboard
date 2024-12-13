@@ -1,74 +1,36 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { PlusIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import { useState, useEffect, useRef } from 'react';
+import { PlusIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { Button } from '@/app/ui/button';
-import MerchantForm from '@/app/ui/dashboard/merchants/MerchantsForm';
-import { useModal } from '@/app/ui/dashboard/merchants/context/ModalContext';
-import { useInput } from '@/app/ui/dashboard/merchants/context/InputContext';
 
 export function MerchantsMobile() {
-  const inputRef = useRef(null);
   const pathname = usePathname();
-  const { resetInput } = useInput();
-
-  //const [isModalOpen, setIsModalOpen] = useState(false);
-  const [merchantName, setMerchantName] = useState('');
-
-  const { openModal, closeModal, isModalOpen, closeTopModal } = useModal();
-
-  useEffect(() => {
-    const handleEscapeKeyPress = (e: any) => {
-      if (e.key === 'Escape') {
-        //closeModal('createMerchant');
-        closeTopModal();
-        resetInput();
-      }
-    };
-
-    const handleClickOutsideModal = (e: any) => {
-      if (e.target.classList.contains('bg-opacity-50')) {
-        closeModal('createMerchant');
-        resetInput();
-      }
-    };
-
-    document.addEventListener('keydown', handleEscapeKeyPress);
-    document.addEventListener('click', handleClickOutsideModal);
-
-    return () => {
-      document.removeEventListener('keydown', handleEscapeKeyPress);
-      document.removeEventListener('click', handleClickOutsideModal);
-    };
-  }, [closeModal, closeTopModal, resetInput]);
 
   return (
-    <div className="my-2 flex grow">
+    <div
+      className={clsx(
+        'flex h-[48px] grow items-center justify-between rounded-md border border-x-0 border-y-slate-300 bg-gray-100 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-gray-400 md:p-2 md:px-3',
+        {
+          'bg-sky-100 text-blue-600': pathname === '/dashboard/merchants',
+        },
+      )}
+    >
+      <Link href="/dashboard/merchants" className="w-[75%]">
+        Merchants
+      </Link>
       <Link
-        href="/dashboard/merchants"
+        href="/dashboard/merchants/create"
         className={clsx(
-          'flex h-[48px] grow items-center justify-between rounded-md border border-x-0 border-y-slate-300 bg-gray-100 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-gray-400 md:p-2 md:px-3',
-          {
-            'bg-sky-100 text-blue-600': pathname === '/dashboard/merchants',
-          },
+          'flex h-10 items-center rounded-lg bg-blue-500 px-4 text-sm font-medium text-white transition-colors delay-200 duration-300 hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50',
         )}
       >
-        Merchants
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            openModal('createMerchant');
-          }}
-        >
-          <PlusIcon className="w-6" />
-        </Button>
+        <PlusIcon className="w-6" />
       </Link>
 
-      {isModalOpen('createMerchant') && (
+      {/*{isModalOpen('createMerchant') && (
         <div
           className="fixed inset-0 z-50 flex h-full items-center justify-center bg-gray-400 bg-opacity-50"
           onClick={(e) => {
@@ -86,7 +48,7 @@ export function MerchantsMobile() {
             <MerchantForm />
           </div>
         </div>
-      )}
+      )}*/}
     </div>
   );
 }

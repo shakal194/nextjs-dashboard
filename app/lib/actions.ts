@@ -9,6 +9,7 @@ import { AuthError } from 'next-auth';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import axios, { AxiosError } from 'axios';
+import { useModal } from '@/app/ui/dashboard/merchants/context/ModalContext';
 
 const apiMainUrl = process.env.NEXT_PUBLIC_API_MAIN_URL;
 const apiMiniUrl = process.env.NEXT_PUBLIC_API_MINI_URL;
@@ -633,104 +634,6 @@ export async function signUser(prevState: SignUserState, formData: FormData) {
 
 //END SIGNIN TEST
 
-export async function createWallet(sessionId: string) {
-  const apiMainUrl = process.env.NEXT_PUBLIC_API_URL;
-
-  try {
-    const response = await axios.post(
-      `${apiMainUrl}/Wallet/create-wallet`,
-      sessionId,
-      {
-        headers: { 'Content-Type': 'application/json' },
-      },
-    );
-    console.log(response);
-    return { message: 'Successfully created wallet.' };
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      const axiosError = error as AxiosError;
-      if (
-        axiosError.response &&
-        axiosError.response.status === 400 &&
-        axiosError.response.statusText === 'Bad Request'
-      ) {
-        console.error('Failed to create wallet:', error?.response?.data);
-        return {
-          status: 400,
-          message: 'Failed to create wallet',
-        };
-      }
-    }
-    console.error('Failed to create wallet:', error);
-    return { message: 'Failed to create wallet.' };
-  }
-
-  //revalidatePath('/dashboard/wallet/create');
-  // redirect('/dashboard/wallet/create');
-}
-
-export async function createWalletEth(sessionId: string) {
-  const apiMainUrl = process.env.NEXT_PUBLIC_API_URL;
-
-  try {
-    const response = await axios.post(`${apiMainUrl}/adduser`, sessionId, {
-      headers: { 'Content-Type': 'application/json' },
-    });
-    console.log(response);
-    return { message: 'Successfully created wallet.' };
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      const axiosError = error as AxiosError;
-      if (
-        axiosError.response &&
-        axiosError.response.status === 400 &&
-        axiosError.response.statusText === 'Bad Request'
-      ) {
-        console.error('Failed to create wallet:', error?.response?.data);
-        return {
-          status: 400,
-          message: 'Failed to create wallet',
-        };
-      }
-    }
-    console.error('Failed to create wallet:', error);
-    return { message: 'Failed to create wallet.' };
-  }
-
-  //revalidatePath('/dashboard/wallet/create');
-  // redirect('/dashboard/wallet/create');
-}
-
-export async function createWalletUsdt(sessionId: string) {
-  try {
-    const response = await axios.post(`${apiMainUrl}/adduser`, sessionId, {
-      headers: { 'Content-Type': 'application/json' },
-    });
-    console.log(response);
-    return { message: 'Successfully created wallet.' };
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      const axiosError = error as AxiosError;
-      if (
-        axiosError.response &&
-        axiosError.response.status === 400 &&
-        axiosError.response.statusText === 'Bad Request'
-      ) {
-        console.error('Failed to create wallet:', error?.response?.data);
-        return {
-          status: 400,
-          message: 'Failed to create wallet',
-        };
-      }
-    }
-    console.error('Failed to create wallet:', error);
-    return { message: 'Failed to create wallet.' };
-  }
-
-  //revalidatePath('/dashboard/wallet/create');
-  // redirect('/dashboard/wallet/create');
-}
-
 const CreateMerchant = z.object({
   merchant_name: z.string({ invalid_type_error: 'Please input name.' }),
 });
@@ -746,7 +649,6 @@ export async function createMerchant(
   prevState: MerchantState,
   formData: FormData,
 ) {
-  const apiMainUrl = process.env.NEXT_PUBLIC_API_MAIN_URL;
   const session = await auth();
   const apiKey = session?.user?.apiKey;
 
@@ -762,14 +664,15 @@ export async function createMerchant(
   }
 
   const merchant_name = validatedFields.data.merchant_name;
+  let merchantId: string | undefined;
 
   try {
     const response = await axios.post(
       `${apiMainUrl}/Wallet/create-wallet`,
       {
-        nameWallet: merchant_name,
+        WalletName: merchant_name,
         status: true,
-        typeCurency: 'BTC',
+        typeCurrency: 'BTC',
       },
       {
         headers: {
@@ -780,16 +683,9 @@ export async function createMerchant(
       },
     );
 
-    console.log(response.data);
+    console.log('Successfuly create merchant', response.data);
 
-    const merchant_id = response.data.uniqGuid;
-
-    if (merchant_id) {
-      revalidatePath('/dashboard/merchants');
-      redirect(`/dashboard/merchants/${merchant_id}`);
-    }
-
-    return { message: 'Successfully created wallet.' };
+    merchantId = response.data.uniqGuid;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError;
@@ -798,18 +694,65 @@ export async function createMerchant(
         axiosError.response.status === 400 &&
         axiosError.response.data === 6
       ) {
-        console.error('Failed to create wallet:', error?.response?.data);
+        console.error('Failed to create merchant:', error?.response?.data);
+        console.error(error?.response);
         return {
           errors: { merchant_name: ['Merchant already exists'] },
         };
       }
     }
 
-    console.error('Failed to create wallet:', error);
+    console.error('Failed to create merchant:', error);
     return {
-      errors: { merchant_name: ['Failed to create wallet. Try again later'] },
+      errors: { merchant_name: ['Failed to create merchant. Try again later'] },
     };
   }
+
+  revalidatePath('/dashboard');
+  redirect(`/dashboard/merchants/${merchantId}`);
+}
+
+export async function createWallet(walletName: string, selectedCoin: string) {
+  const session = await auth();
+  const apiKey = session?.user?.apiKey;
+
+  try {
+    const response = await axios.post(
+      `${apiMainUrl}/Wallet/add-address`,
+      { walletName, typeCurrency: selectedCoin },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: '*/*',
+          'X-Api-Key': apiKey,
+        },
+      },
+    );
+
+    console.log('Successfuly create wallet', response);
+
+    return { status: 200, message: 'Successfully created wallet.' };
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const axiosError = error as AxiosError;
+      if (
+        axiosError.response &&
+        axiosError.response.status === 400 &&
+        axiosError.response.statusText === 'Bad Request'
+      ) {
+        console.error('Failed to create wallet:', error?.response?.data);
+        return {
+          status: 400,
+          message: 'Failed to create wallet',
+        };
+      }
+    }
+    console.error('Failed to create wallet:', error);
+    return { message: 'Failed to create wallet.' };
+  }
+
+  //revalidatePath('/dashboard/wallet/create');
+  // redirect('/dashboard/wallet/create');
 }
 
 //TESTS API START

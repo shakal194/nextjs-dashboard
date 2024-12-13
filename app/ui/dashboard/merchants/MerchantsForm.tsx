@@ -3,22 +3,29 @@
 import { PlusIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 import { useFormState, useFormStatus } from 'react-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createMerchant } from '@/app/lib/actions';
-import { useInput } from '@/app/ui/dashboard/merchants/context/InputContext';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const MerchantForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
-  const { inputValue, setInputValue } = useInput();
 
-  const initialState = {
-    message: null,
-    errors: {},
-  };
+  const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createMerchant, initialState);
 
+  useEffect(() => {
+    if (state.errors && Object.keys(state.errors).length > 0) {
+      const errorMessages = Object.values(state.errors).flat().join(', ');
+      Notify.init({ distance: '30px' });
+      Notify.failure(errorMessages);
+    }
+  }, [state.errors]);
+
   return (
-    <form action={dispatch} className="space-y-3">
+    <form
+      action={dispatch}
+      className="mx-auto my-0 w-full space-y-3 lg:w-[500px]"
+    >
       <div className="mb-4">
         <label htmlFor="merchant_name" className="mb-2 block font-bold">
           Enter a merchant name
@@ -28,14 +35,12 @@ const MerchantForm = () => {
             type="text"
             id="merchant_name"
             name="merchant_name"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
             required
             className="w-full rounded-md border-gray-300 p-2 dark:bg-gray-500 dark:placeholder:text-white"
             placeholder="Merchant name"
           />
         </div>
-        <div id="merchant_name-error" aria-live="polite" aria-atomic="true">
+        {/*<div id="merchant_name-error" aria-live="polite" aria-atomic="true">
           {state?.errors?.merchant_name &&
             state.errors.merchant_name.map((error: string) => (
               <p
@@ -45,7 +50,7 @@ const MerchantForm = () => {
                 {error}
               </p>
             ))}
-        </div>
+        </div>*/}
       </div>
 
       <div className="flex justify-end">

@@ -7,7 +7,7 @@ import ReceiveForm from '@/app/ui/dashboard/ReceiveForm';
 export default function ReceiveButton({
   walletAddress,
 }: {
-  walletAddress: string;
+  walletAddress: string[];
 }) {
   const [showCoinForm, setShowCoinForm] = useState(false);
 

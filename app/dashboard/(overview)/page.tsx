@@ -1,4 +1,4 @@
-import RevenueChart from '@/app/ui/dashboard/revenue-chart';
+//import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import BalanceWrapper from '@/app/ui/dashboard/balance';
 import { Suspense } from 'react';
@@ -29,9 +29,9 @@ export default async function Page() {
         </div>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        <Suspense fallback={<RevenueChartSkeleton />}>
+        {/*<Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
-        </Suspense>
+        </Suspense>*/}
         <Suspense fallback={<LatestInvoicesSkeleton />}>
           <LatestInvoices />
         </Suspense>

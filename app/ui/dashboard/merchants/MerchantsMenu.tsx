@@ -4,6 +4,12 @@ import { useState } from 'react';
 //import { fetchMerchantById } from '@/app/lib/data';
 //import { usePathname } from 'next/navigation';
 
+/*export default function MerchantMenuPage({
+  nameWallet,
+}: {
+  nameWallet: string;
+}) */
+
 export default function MerchantMenuPage({
   nameWallet,
 }: {

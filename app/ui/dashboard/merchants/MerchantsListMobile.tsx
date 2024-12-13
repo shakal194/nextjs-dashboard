@@ -14,13 +14,13 @@ export async function MerchantsListMobile() {
       {merchants.map((merchant: any) => {
         return (
           <Link
-            key={merchant.merchant_name}
-            href={`/dashboard/merchants/${merchant.merchant_id}`}
+            key={merchant.guid}
+            href={`/dashboard/merchants/${merchant.guid}`}
             className={clsx(
               'my-2 flex h-[48px] grow items-center justify-start gap-2 rounded-md bg-gray-100 px-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-gray-400 md:p-2',
             )}
           >
-            <p>{merchant.merchant_name}</p>
+            <p>{merchant.walletName}</p>
           </Link>
         );
       })}

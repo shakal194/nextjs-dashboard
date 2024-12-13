@@ -2,19 +2,17 @@
 
 import { ReactNode, useState, useEffect } from 'react';
 import { Bars3Icon, XCircleIcon } from '@heroicons/react/24/outline';
-import { useModal } from '@/app/ui/dashboard/merchants/context/ModalContext';
-import { useInput } from '@/app/ui/dashboard/merchants/context/InputContext';
 import ThemeButton from '@/app/ui/_components/ThemeButton';
-import SettingsButton from '@/app/ui/_components/SettingsButton';
+import { usePathname } from 'next/navigation';
 
 export default function MerchantsMobileMenu({
   children,
 }: {
   children: ReactNode;
 }) {
-  //const [isModalMainOpen, setIsModalMainOpen] = useState(false);
-  const { openModal, closeModal, isModalOpen } = useModal();
-  const { resetInput } = useInput();
+  // Состояние для отслеживания модального окна
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const pathname = usePathname();
 
   const blockBodyScroll = () => {
     document.body.style.overflow = 'hidden';
@@ -25,7 +23,7 @@ export default function MerchantsMobileMenu({
   };
 
   useEffect(() => {
-    if (isModalOpen('mobileMerchants')) {
+    if (isModalOpen) {
       blockBodyScroll();
     } else {
       unblockBodyScroll();
@@ -33,8 +31,7 @@ export default function MerchantsMobileMenu({
 
     const handleEscapeKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        closeModal('mobileMerchants');
-        resetInput();
+        closeModal();
         unblockBodyScroll();
       }
     };
@@ -45,21 +42,27 @@ export default function MerchantsMobileMenu({
       document.removeEventListener('keydown', handleEscapeKeyPress);
       unblockBodyScroll();
     };
-  }, [closeModal, resetInput, isModalOpen]);
+  }, [isModalOpen]);
+
+  // Закрытие модального окна при изменении пути
+  useEffect(() => {
+    setIsModalOpen(false); // Закрываем модальное окно, когда путь меняется
+  }, [pathname]);
+
+  // Функции открытия и закрытия модального окна
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div>
       <div className="hidden">{children}</div>
       <div className="p-3 md:hidden">
-        <Bars3Icon
-          className="w-6 cursor-pointer"
-          onClick={() => openModal('mobileMerchants')}
-        />
-        {isModalOpen('mobileMerchants') && (
+        <Bars3Icon className="w-6 cursor-pointer" onClick={openModal} />
+        {isModalOpen && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800"
             onClick={() => {
-              closeModal('mobileMerchants');
+              closeModal();
               unblockBodyScroll();
             }}
           >
@@ -76,7 +79,7 @@ export default function MerchantsMobileMenu({
                   <XCircleIcon
                     className="w-6 cursor-pointer"
                     onClick={() => {
-                      closeModal('mobileMerchants');
+                      closeModal();
                       unblockBodyScroll();
                     }}
                   />

@@ -9,19 +9,15 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 export default function ReceiveForm({
   walletAddress,
 }: {
-  walletAddress: string;
+  walletAddress: string[];
 }) {
   const [selectedCoin, setSelectedCoin] = useState('');
   const [selectedNetwork, setSelectedNetwork] = useState('');
-  const [address, setAddress] = useState(walletAddress);
+  const [selectedAddress, setSelectedAddress] = useState<string>('');
   const addressInputRef = useRef<HTMLInputElement>(null);
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    setAddress(walletAddress);
-  }, [walletAddress]);
-
-  const handleCoinChange = (e: any) => {
+  const handleCoinChange = async (e: any) => {
     setSelectedCoin(e.target.value);
     setSelectedNetwork('');
     //setAddress('');
@@ -32,7 +28,7 @@ export default function ReceiveForm({
   };
 
   const handleAddressChange = (e: any) => {
-    setAddress(e.target.value);
+    setSelectedAddress(e.target.value);
   };
 
   const handleCopySuccess = () => {
@@ -42,28 +38,6 @@ export default function ReceiveForm({
       setCopied(false);
     }, 2000);
   };
-
-  /*const handleCopyToClipboard = async () => {
-    if (addressInputRef.current) {
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(
-            addressInputRef.current.innerText,
-          );
-          Notify.init({ distance: '30px' });
-          Notify.success('Address copied');
-        } else {
-          throw new Error('Clipboard API not supported');
-        }
-      } catch (err) {
-        const alertMessage = `Failed to copy: ${err}`;
-        console.log(err);
-        alert(alertMessage);
-        Notify.init({ distance: '30px' });
-        Notify.failure('Failed to copy:', err);
-      }
-    }
-  };*/
 
   // Находим объект монеты по выбранному значению
   const selectedCoinData = coins.find(
@@ -121,12 +95,32 @@ export default function ReceiveForm({
             <label htmlFor="walletAddress">
               <strong>Wallet Address:</strong>
             </label>
-            <CopyToClipboard text={address} onCopy={handleCopySuccess}>
-              <div className="flex rounded border bg-white p-2 hover:cursor-pointer hover:text-blue-600">
-                <DocumentDuplicateIcon className="mr-2 w-5 md:w-6" />
-                {address}
-              </div>
-            </CopyToClipboard>
+            <select
+              id="walletAddress"
+              value={selectedAddress}
+              onChange={handleAddressChange}
+              className="mb-4 rounded border p-2"
+            >
+              <option value="" disabled>
+                Select an address
+              </option>
+              {walletAddress.map((address, index) => (
+                <option key={index} value={address}>
+                  {address}
+                </option>
+              ))}
+            </select>
+            {selectedAddress && (
+              <CopyToClipboard
+                text={selectedAddress}
+                onCopy={handleCopySuccess}
+              >
+                <div className="flex rounded border bg-white p-2 hover:cursor-pointer hover:text-blue-600">
+                  <DocumentDuplicateIcon className="mr-2 w-5 md:w-6" />
+                  Copy to clipboard
+                </div>
+              </CopyToClipboard>
+            )}
           </div>
         )}
       </form>

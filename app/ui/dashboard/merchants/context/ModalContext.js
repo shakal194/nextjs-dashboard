@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const ModalContext = createContext();
 
@@ -12,11 +12,6 @@ export function ModalProvider({ children }) {
     setModals((prev) => [...prev, modalName]);
   };
 
-  const closeModal = (modalName) => {
-      setModals((prev) => prev.filter((name) => name !== modalName));
-      setMerchantName('');
-  };
-
   const isModalOpen = (modalName) => modals.includes(modalName);
 
   const closeTopModal = () => {
@@ -24,7 +19,7 @@ export function ModalProvider({ children }) {
   };
 
   return (
-    <ModalContext.Provider value={{ openModal, closeModal, isModalOpen, closeTopModal }}>
+    <ModalContext.Provider value={{ openModal, isModalOpen, closeTopModal }}>
       {children}
     </ModalContext.Provider>
   );
