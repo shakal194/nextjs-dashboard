@@ -20,7 +20,7 @@ const TechnicalSupportAndAvailability = () => {
               className="b2b_link tangerine_link group flex items-center space-x-2 text-gray-700 dark:text-gray-300"
               target="_blank"
               rel="noopener noreferrer"
-              href="/signup"
+              href="/registration"
             >
               Get Support
               <ChevronRightIcon className="ml-2 h-4 w-4 transform text-blue-600 transition-transform duration-300 ease-in-out group-hover:translate-x-2" />

@@ -31,7 +31,7 @@ const HaveAQuestion = () => {
               If you already have an account please use our ticket system.
             </div>
             <Link
-              href="/signup"
+              href="/registration"
               className="b2b_link external_links_checked group mt-4 flex items-center text-blue-500 transition-transform duration-300 ease-in-out hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500"
               target="_blank"
               rel="noopener noreferrer"

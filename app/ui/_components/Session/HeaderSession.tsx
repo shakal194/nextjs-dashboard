@@ -15,7 +15,7 @@ export default function HeaderSession() {
     </Link>
   ) : (
     <Link
-      href="/login"
+      href="/signin"
       className="text-white transition-all delay-200 duration-300 ease-in-out hover:border-b focus:border-b"
     >
       Login

@@ -19,7 +19,7 @@ const MerchantDigitalWallets = () => {
               major coins and exchange it all into Coins or Stablecoins.
             </h4>
             <Link
-              href="/signup"
+              href="/registration"
               className="mt-[56px] flex w-full max-w-full items-center justify-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors delay-200 duration-300 ease-in-out hover:bg-blue-400 md:max-w-[201px] md:justify-start md:text-base"
             >
               Open account
