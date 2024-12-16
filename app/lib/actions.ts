@@ -755,6 +755,50 @@ export async function createWallet(walletName: string, selectedCoin: string) {
   // redirect('/dashboard/wallet/create');
 }
 
+export async function fetchMerchantWallet(
+  walletName: string,
+  selectedCoin: string,
+) {
+  const session = await auth();
+  const apiKey = session?.user?.apiKey;
+
+  try {
+    const response = await axios.post(
+      `${apiMainUrl}/Wallet/get-addresses`,
+      {
+        walletName: walletName,
+        typeCurrency: selectedCoin,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: '*/*',
+          'X-Api-Key': apiKey,
+        },
+      },
+    );
+
+    return { status: 200, message: response.data };
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const axiosError = error as AxiosError;
+      if (
+        axiosError.response &&
+        axiosError.response.status === 400 &&
+        axiosError.response.statusText === 'Bad Request'
+      ) {
+        console.error('Failed to fetch address:', error?.response?.data);
+        return {
+          status: 400,
+          message: 'Failed to fetch address',
+        };
+      }
+    }
+    console.error('Failed to fetch address:', error);
+    return { message: 'Failed to fetch address.' };
+  }
+}
+
 //TESTS API START
 
 async function testApiConnection(

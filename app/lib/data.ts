@@ -392,25 +392,38 @@ export async function fetchMerchantById(id: string) {
   }
 }
 
-export async function fetchMerchantWallet(walletName: string) {
+/*
+export async function fetchMerchantWallet(
+  walletName: string,
+  selectedCoin: string,
+) {
+  noStore();
   const session = await auth();
   const apiKey = session?.user?.apiKey;
+
+  console.log('data session', session);
+  console.log('data selectedCoin', selectedCoin);
+  console.log('walletName', walletName);
 
   try {
     const response = await axios.post(
       `${apiMainUrl}/Wallet/get-addresses`,
       {
         walletName: walletName,
-        typeCurrency: 'BTC',
+        typeCurrency: selectedCoin,
       },
       {
         headers: {
           'Content-Type': 'application/json',
-          Accept: '*/*',
+          */
+//  Accept: '*/*',
+/*
           'X-Api-Key': apiKey,
         },
       },
     );
+
+    console.log(response.data);
 
     return response.data; // Возвращает массив адресов
   } catch (error: any) {
@@ -422,3 +435,4 @@ export async function fetchMerchantWallet(walletName: string) {
     throw new Error('Error fetching merchant wallet.');
   }
 }
+  */

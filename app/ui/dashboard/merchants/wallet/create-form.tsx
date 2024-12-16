@@ -75,7 +75,7 @@ export default function CreateWalletForm({ id }: { id: string }) {
                   className="h-11 w-11"
                   width="44"
                   height="44"
-                  src={coin.image_dashobard}
+                  src={coin.image_dashboard}
                   alt={coin.title}
                 />
               </div>

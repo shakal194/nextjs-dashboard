@@ -1,10 +1,10 @@
 import Breadcrumbs from '@/app/ui/dashboard/merchants/breadcrumbs';
-import { fetchMerchantById, fetchMerchantWallet } from '@/app/lib/data';
+import { fetchMerchantById } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 import BalanceWrapper from '@/app/ui/dashboard/balance';
 import { Suspense } from 'react';
 import { CardsSkeleton } from '@/app/ui/skeletons';
-import ReceiveButton from '@/app/ui/_components/ReceiveButton';
+import ReceiveButton from '@/app/ui/dashboard/merchants/receive/ReceiveButton';
 import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
 import MerchantMenuPage from '@/app/ui/dashboard/merchants/MerchantsMenu';
 import { CreateWallet } from '@/app/ui/dashboard/merchants/wallet/buttons';
@@ -15,11 +15,8 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   const merchant = await fetchMerchantById(id);
 
-  //const merchant = await fetchMerchantById(id);
   const merchantName = merchant.nameWallet;
   const merchantBalance = merchant.Balance;
-
-  const merchantWallet = await fetchMerchantWallet(merchantName);
 
   if (!merchant) {
     notFound();
@@ -58,7 +55,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           </div>
         </Suspense>
         <div className="grid gap-2 md:grid-cols-2">
-          <ReceiveButton walletAddress={merchantWallet} />
+          <ReceiveButton id={id} walletAddress={merchantName} />
           {/*<ReceiveButton />*/}
           <WithdrawalButton />
         </div>
