@@ -5,7 +5,7 @@ import BalanceWrapper from '@/app/ui/dashboard/balance';
 import { Suspense } from 'react';
 import { CardsSkeleton } from '@/app/ui/skeletons';
 import ReceiveButton from '@/app/ui/dashboard/merchants/receive/ReceiveButton';
-import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
+import WithdrawButton from '@/app/ui/dashboard/merchants/withdraw/WithdrawButton';
 import MerchantMenuPage from '@/app/ui/dashboard/merchants/MerchantsMenu';
 import { CreateWallet } from '@/app/ui/dashboard/merchants/wallet/buttons';
 import { BanknotesIcon } from '@heroicons/react/24/outline';
@@ -54,14 +54,13 @@ export default async function Page({ params }: { params: { id: string } }) {
             </p>
           </div>
         </Suspense>
-        <div className="grid gap-2 md:grid-cols-2">
-          <ReceiveButton id={id} walletAddress={merchantName} />
-          {/*<ReceiveButton />*/}
-          <WithdrawalButton />
+        {/*<div className="grid gap-2 md:grid-cols-2">*/}
+        <div className="flex justify-between">
+          <ReceiveButton id={id} walletName={merchantName} />
+          <WithdrawButton id={id} walletName={merchantName} />
         </div>
       </div>
       <MerchantMenuPage nameWallet={merchant.nameWallet} />
-      {/*<MerchantMenuPage />*/}
     </main>
   );
 }

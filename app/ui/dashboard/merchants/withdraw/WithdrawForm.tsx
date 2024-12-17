@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { DocumentDuplicateIcon } from '@heroicons/react/24/outline';
 import coins from '@/app/ui/_data/coin_slider-data.json';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import { useSession } from 'next-auth/react';
 import { fetchMerchantWallet } from '@/app/lib/actions';
 import { Select, SelectItem, Avatar, Snippet } from '@nextui-org/react';
-import LoadingSpinner from '@/app/ui/_components/LoadingSpinner';
+import Image from 'next/image';
 
 export default function ReceiveForm({
   id,
@@ -19,6 +21,7 @@ export default function ReceiveForm({
   const [selectedCoin, setSelectedCoin] = useState('');
   const [selectedNetwork, setSelectedNetwork] = useState('');
   const [selectedAddress, setSelectedAddress] = useState<string>('');
+  const addressInputRef = useRef<HTMLInputElement>(null);
   const [copied, setCopied] = useState(false);
   const [result, setResult] = useState<string[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -68,8 +71,6 @@ export default function ReceiveForm({
   const selectedCoinData = coins.find(
     (coin: any) => coin.coin === selectedCoin,
   );
-
-  if (status === 'loading') return <LoadingSpinner />;
 
   return (
     <div className="mx-auto my-0 rounded-2xl bg-gray-200 p-3 dark:bg-gray-700">

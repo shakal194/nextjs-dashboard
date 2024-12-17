@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowDownIcon } from '@heroicons/react/24/outline';
-import ReceiveForm from '@/app/ui/dashboard/ReceiveForm';
+import ReceiveForm from '@/app/ui/dashboard/ReceiveForm_old';
 
 export default function ReceiveButton({
   walletAddress,

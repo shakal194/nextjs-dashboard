@@ -8,8 +8,8 @@ import {
   CardsSkeleton,
 } from '@/app/ui/skeletons';
 import { auth } from '@/auth';
-import ReceiveButton from '@/app/ui/_components/ReceiveButton';
-import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
+//import ReceiveButton from '@/app/ui/_components/ReceiveButton';
+//import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
 
 export default async function Page() {
   const session = await auth();

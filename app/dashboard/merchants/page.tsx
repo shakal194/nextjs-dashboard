@@ -2,8 +2,8 @@ import BalanceWrapper from '@/app/ui/dashboard/balance';
 import { Suspense } from 'react';
 import { CardsSkeleton } from '@/app/ui/skeletons';
 import { auth } from '@/auth';
-import ReceiveButton from '@/app/ui/_components/ReceiveButton';
-import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
+//import ReceiveButton from '@/app/ui/_components/ReceiveButton';
+//import WithdrawalButton from '@/app/ui/_components/WithdrawalButton';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;

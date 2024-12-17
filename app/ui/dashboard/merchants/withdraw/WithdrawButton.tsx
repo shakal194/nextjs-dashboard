@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { ArrowDownIcon } from '@heroicons/react/24/outline';
-import ReceiveForm from '@/app/ui/dashboard/merchants/receive/ReceiveForm';
+import WithdrawForm from '@/app/ui/dashboard/merchants/withdraw/WithdrawForm';
 import Link from 'next/link';
 
-export default function ReceiveButton({
+export default function WithdrawButton({
   id,
   walletName,
 }: {
@@ -22,14 +22,14 @@ export default function ReceiveButton({
     <div>
       <Link
         className="flex max-w-[200px] items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-        href={`/dashboard/merchants/${id}/receive`}
+        href={`/dashboard/merchants/${id}/withdraw`}
       >
         <ArrowDownIcon className="w-5 md:w-6" />
-        Receive
+        Withdraw
       </Link>
 
       {/* Если showCoinForm равно true, отображаем CoinForm */}
-      {showCoinForm && <ReceiveForm id={id} walletName={walletName} />}
+      {showCoinForm && <WithdrawForm id={id} walletName={walletName} />}
     </div>
   );
 }
