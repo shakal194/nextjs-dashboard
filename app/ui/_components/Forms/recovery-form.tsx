@@ -40,6 +40,7 @@ export default function RecoveryForm() {
     try {
       setErrorMessage('');
       const result = await handleEmailSubmitRecovery(email);
+      console.log(result);
       if (result?.errors) {
         setErrorMessage(result.errors.email[0]);
       } else {

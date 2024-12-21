@@ -255,6 +255,7 @@ export async function handleEmailSubmitRegister(email: string) {
         errors: { email: ['Email already exist.'] },
       };
     }
+
     const response = await fetch(`${apiRegisterUrl}/Registration/sendcode`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: '*/*' },
@@ -266,27 +267,33 @@ export async function handleEmailSubmitRegister(email: string) {
   }
 }
 
-const AddUser = z.object({
-  login: z.string({ invalid_type_error: 'Please input login.' }),
-  email: z.string({ invalid_type_error: 'Please input email.' }),
-  otpcode: z
-    .string({ invalid_type_error: 'Please input a valid OTP Code.' })
-    .regex(/^\d{5}$/, { message: 'OTP Code must be exactly 5 digits.' }),
-  password: z
-    .string({ invalid_type_error: 'Please input password.' })
-    .min(8, {
-      message: 'Passwords must contains 8 or more symbols.',
-    })
-    .regex(/[!@#$%^&*(),.?":{}|<>]/, {
-      message: 'Passwords must contains special symbols.',
+const AddUser = z
+  .object({
+    login: z.string({ invalid_type_error: 'Please input login.' }),
+    email: z.string({ invalid_type_error: 'Please input email.' }),
+    otpcode: z
+      .string({ invalid_type_error: 'Please input a valid OTP Code.' })
+      .regex(/^\d{5}$/, { message: 'OTP Code must be exactly 5 digits.' }),
+    password: z
+      .string({ invalid_type_error: 'Please input password.' })
+      .min(8, {
+        message: 'Passwords must contains 8 or more symbols.',
+      })
+      .regex(/[!@#$%^&*(),.?":{}|<>]/, {
+        message: 'Passwords must contains special symbols.',
+      }),
+    confirmPassword: z.string({
+      invalid_type_error: 'Please input confirm password.',
     }),
-  confirmPassword: z.string({
-    invalid_type_error: 'Please input confirm password.',
-  }),
-  privacy_and_terms: z.string({
-    invalid_type_error: 'Read and accept the Privacy Policy and Terms of Use.',
-  }),
-});
+    privacy_and_terms: z.string({
+      invalid_type_error:
+        'Read and accept the Privacy Policy and Terms of Use.',
+    }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    path: ['password'],
+    message: 'Passwords do not match.',
+  });
 
 export type AddUserState = {
   errors?: {
@@ -315,9 +322,9 @@ export async function addUser(prevState: AddUserState, formData: FormData) {
     const errors = validatedFields.error.flatten().fieldErrors;
 
     // Дополнительная проверка для логики, не учтенной в `zod`
-    if (formData.get('password') !== formData.get('confirmPassword')) {
+    /* if (formData.get('password') !== formData.get('confirmPassword')) {
       errors.password = [...(errors.password || []), 'Passwords do not match.'];
-    }
+    }*/
 
     return {
       errors,
@@ -390,6 +397,22 @@ export async function handleEmailSubmitRecovery(email: string) {
   }
 
   try {
+    const emailValidation = await fetch(
+      `${apiRegisterUrl}/Validation/email-exist`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: '*/*' },
+        body: JSON.stringify(email),
+      },
+    );
+
+    if (emailValidation.status === 400) {
+      console.log(emailValidation.status, 'Cant find email');
+      return {
+        errors: { email: ['Cant find email.'] },
+      };
+    }
+
     const response = await fetch(`${apiRegisterUrl}/Registration/sendcode`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: '*/*' },
@@ -401,24 +424,29 @@ export async function handleEmailSubmitRecovery(email: string) {
   }
 }
 
-const RecoveryUser = z.object({
-  login: z.string({ invalid_type_error: 'Please input login.' }),
-  email: z.string({ invalid_type_error: 'Please input email.' }),
-  otpcode: z
-    .string({ invalid_type_error: 'Please input a valid OTP Code.' })
-    .regex(/^\d{5}$/, { message: 'OTP Code must be exactly 5 digits.' }),
-  newPassword: z
-    .string({ invalid_type_error: 'Please input password.' })
-    .min(8, {
-      message: 'Passwords must contains 8 or more symbols.',
-    })
-    .regex(/[!@#$%^&*(),.?":{}|<>]/, {
-      message: 'Passwords must contains special symbols.',
+const RecoveryUser = z
+  .object({
+    login: z.string({ invalid_type_error: 'Please input login.' }),
+    email: z.string({ invalid_type_error: 'Please input email.' }),
+    otpcode: z
+      .string({ invalid_type_error: 'Please input a valid OTP Code.' })
+      .regex(/^\d{5}$/, { message: 'OTP Code must be exactly 5 digits.' }),
+    newPassword: z
+      .string({ invalid_type_error: 'Please input password.' })
+      .min(8, {
+        message: 'Passwords must contains 8 or more symbols.',
+      })
+      .regex(/[!@#$%^&*(),.?":{}|<>]/, {
+        message: 'Passwords must contains special symbols.',
+      }),
+    confirmPassword: z.string({
+      invalid_type_error: 'Please input confirm password.',
     }),
-  confirmPassword: z.string({
-    invalid_type_error: 'Please input confirm password.',
-  }),
-});
+  })
+  .refine((data) => data.newPassword === data.confirmPassword, {
+    path: ['newPassword'],
+    message: 'Passwords do not match.',
+  });
 
 export type RecoveryUserState = {
   errors?: {

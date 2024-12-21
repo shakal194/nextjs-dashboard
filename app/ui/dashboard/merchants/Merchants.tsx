@@ -11,7 +11,7 @@ export function Merchants() {
   return (
     <div
       className={clsx(
-        'my-2 flex hidden h-[48px] grow items-center rounded-md border border-x-0 border-y-slate-300 bg-gray-100 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-gray-400 md:flex md:p-2 md:px-3',
+        'my-2 flex hidden h-[48px] items-center rounded-md border border-x-0 border-y-slate-300 bg-gray-100 p-3 text-sm font-bold hover:bg-sky-100 hover:text-blue-600 dark:bg-gray-600 dark:hover:bg-gray-400 md:flex md:p-2 md:px-3',
         {
           'bg-sky-100 text-blue-600': pathname === '/dashboard/merchants',
         },

@@ -11,8 +11,10 @@ import { useState } from 'react';
 }) */
 
 export default function MerchantMenuPage({
+  apiKey,
   nameWallet,
 }: {
+  apiKey: string;
   nameWallet: string;
 }) {
   const [activeTab, setActiveTab] = useState('history');
@@ -102,7 +104,7 @@ export default function MerchantMenuPage({
               <div>...</div>
               <div>...</div>
               <div>{nameWallet}</div>
-              <div>...</div>
+              <div>{apiKey}</div>
             </div>
           </div>
         </div>

@@ -9,9 +9,15 @@ import WithdrawButton from '@/app/ui/dashboard/merchants/withdraw/WithdrawButton
 import MerchantMenuPage from '@/app/ui/dashboard/merchants/MerchantsMenu';
 import { CreateWallet } from '@/app/ui/dashboard/merchants/wallet/buttons';
 import { BanknotesIcon } from '@heroicons/react/24/outline';
+import { auth } from '@/auth';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
+
+  const session = await auth();
+  const apiKey = session?.user?.apiKey;
+
+  console.log(apiKey);
 
   const merchant = await fetchMerchantById(id);
 
@@ -60,7 +66,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <WithdrawButton id={id} walletName={merchantName} />
         </div>
       </div>
-      <MerchantMenuPage nameWallet={merchant.nameWallet} />
+      <MerchantMenuPage apiKey={apiKey} nameWallet={merchant.nameWallet} />
     </main>
   );
 }
