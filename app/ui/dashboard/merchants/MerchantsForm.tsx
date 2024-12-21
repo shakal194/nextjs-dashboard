@@ -6,9 +6,13 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { useState, useEffect } from 'react';
 import { createMerchant } from '@/app/lib/actions';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Select, SelectItem, Avatar, Snippet } from '@nextui-org/react';
+import coins from '@/app/ui/_data/coin_slider-data.json';
+import LoadingSpinner from '@/app/ui/_components/LoadingSpinner';
 
 const MerchantForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
+  const [selectedCoin, setSelectedCoin] = useState('');
 
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createMerchant, initialState);
@@ -21,37 +25,86 @@ const MerchantForm = () => {
     }
   }, [state.errors]);
 
+  const handleCoinChange = async (e: any) => {
+    const coinSelected = e.target.value;
+    setSelectedCoin(coinSelected);
+  };
+
+  const selectedCoinData = coins.find(
+    (coin: any) => coin.coin === selectedCoin,
+  );
+
+  if (status === 'loading') return <LoadingSpinner />;
+
   return (
     <form
       action={dispatch}
       className="mx-auto my-0 w-full space-y-3 lg:w-[500px]"
     >
-      <div className="mb-4">
-        <label htmlFor="merchant_name" className="mb-2 block font-bold">
-          Enter a merchant name
-        </label>
-        <div className="relative">
-          <input
-            type="text"
-            id="merchant_name"
-            name="merchant_name"
-            required
-            className="w-full rounded-md border-gray-300 p-2 dark:bg-gray-500 dark:placeholder:text-white"
-            placeholder="Merchant name"
-          />
-        </div>
-        {/*<div id="merchant_name-error" aria-live="polite" aria-atomic="true">
-          {state?.errors?.merchant_name &&
-            state.errors.merchant_name.map((error: string) => (
-              <p
-                className="mt-2 text-sm text-red-500 dark:text-red-400"
-                key={error}
-              >
-                {error}
-              </p>
-            ))}
-        </div>*/}
+      <div className="flex flex-col">
+        <Select
+          className="max-w-sm md:max-w-md"
+          label="Select coin"
+          labelPlacement="outside"
+          id="coin"
+          name="coin"
+          radius="md"
+          value={selectedCoin}
+          isRequired
+          onChange={handleCoinChange}
+          items={coins}
+          renderValue={(items) => {
+            return items.map((item: any) => (
+              <div key={item.key} className="flex items-center gap-2">
+                <Avatar
+                  alt={item.data.title}
+                  className="flex shrink-0"
+                  size="sm"
+                  src={item.data.image_dashboard}
+                />
+                <div className="flex flex-col">
+                  <span>{item.data.title}</span>
+                </div>
+              </div>
+            ));
+          }}
+        >
+          {(coin: any) => (
+            <SelectItem
+              key={coin.coin}
+              value={coin.coin}
+              textValue={coin.title}
+            >
+              <div className="flex items-center gap-2">
+                <Avatar
+                  alt={coin.title}
+                  className="flex shrink-0"
+                  size="sm"
+                  src={coin.image_dashboard}
+                />
+                {coin.title}
+              </div>
+            </SelectItem>
+          )}
+        </Select>
       </div>
+      {selectedCoinData && (
+        <div className="mb-4">
+          <label htmlFor="merchant_name" className="mb-2 block font-bold">
+            Enter a merchant name
+          </label>
+          <div className="relative">
+            <input
+              type="text"
+              id="merchant_name"
+              name="merchant_name"
+              required
+              className="w-full rounded-md border-gray-300 p-2 dark:bg-gray-500 dark:placeholder:text-white"
+              placeholder="Merchant name"
+            />
+          </div>
+        </div>
+      )}
 
       <div className="flex justify-end">
         <MerchantButton />

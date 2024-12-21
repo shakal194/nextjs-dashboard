@@ -17,14 +17,16 @@ export default async function Page({ params }: { params: { id: string } }) {
   const session = await auth();
   const apiKey = session?.user?.apiKey;
 
-  console.log(apiKey);
-
   const merchant = await fetchMerchantById(id);
 
   const merchantName = merchant.nameWallet;
   const merchantBalance = merchant.Balance;
 
   if (!merchant) {
+    notFound();
+  }
+
+  if (!apiKey) {
     notFound();
   }
 

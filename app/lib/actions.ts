@@ -664,6 +664,7 @@ export async function signUser(prevState: SignUserState, formData: FormData) {
 
 const CreateMerchant = z.object({
   merchant_name: z.string({ invalid_type_error: 'Please input name.' }),
+  typeCurrency: z.string({ invalid_type_error: 'Please input coin.' }),
 });
 
 export type MerchantState = {
@@ -682,6 +683,7 @@ export async function createMerchant(
 
   const validatedFields = CreateMerchant.safeParse({
     merchant_name: formData.get('merchant_name'),
+    typeCurrency: formData.get('coin'),
   });
 
   if (!validatedFields.success) {
@@ -692,6 +694,8 @@ export async function createMerchant(
   }
 
   const merchant_name = validatedFields.data.merchant_name;
+  const typeCurrency = validatedFields.data.typeCurrency;
+
   let merchantId: string | undefined;
 
   try {
@@ -700,7 +704,7 @@ export async function createMerchant(
       {
         WalletName: merchant_name,
         status: true,
-        typeCurrency: 'BTC',
+        typeCurrency: typeCurrency,
       },
       {
         headers: {
