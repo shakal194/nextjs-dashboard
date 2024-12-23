@@ -22,6 +22,11 @@ import LoadingSpinner from '@/app/ui/_components/LoadingSpinner';
 import { Button } from '@/app/ui/button';
 
 export default function SignForm() {
+  /* const initialState = {
+    message: null,
+    errors: {},
+  };*/
+
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
 
   const [errorMessageForm, setErrorMessage] = useState('');
@@ -30,11 +35,6 @@ export default function SignForm() {
   const [email, setEmail] = useState('');
   const [showSpinnerStep1, setShowSpinnerStep1] = useState(false);
   const [showSpinnerStep2, setShowSpinnerStep2] = useState(false);
-
-  const initialState = {
-    message: null,
-    errors: {},
-  };
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);

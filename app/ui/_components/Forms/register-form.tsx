@@ -309,6 +309,17 @@ export default function SignupForm() {
                         </p>
                       </div>
                     ))}
+                  {state.message && (
+                    <div key={state.message} className="mt-2 flex items-center">
+                      <ExclamationCircleIcon className="mr-2 h-5 w-5 text-red-500" />
+                      <p
+                        className="text-sm text-red-500 dark:text-red-400"
+                        key={state.message}
+                      >
+                        {state.message}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -320,9 +331,10 @@ export default function SignupForm() {
               Sign Up
               <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
             </Button>
-            {!state.errors && showSpinnerStep2 && (
-              <LoadingSpinner size="lg" color="white" />
-            )}
+            {!state.errors ||
+              (!state.message && showSpinnerStep2 && (
+                <LoadingSpinner size="lg" color="white" />
+              ))}
           </>
         )}
       </div>

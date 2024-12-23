@@ -354,6 +354,11 @@ export async function addUser(prevState: AddUserState, formData: FormData) {
           errors: { email: ['Login already exists'] },
         };
       }
+      if (errorData === 14) {
+        return {
+          message: 'Something went wrong. Please try again later.',
+        };
+      }
       //throw new Error(`Request failed with status ${response.status}`);
     }
 
